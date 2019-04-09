@@ -5,11 +5,11 @@ information_page: true
 ---
 
 
-Tietokoneen toiminnan jatkokurssi on kaikille avoin ja ilmainen verkkokurssi. Kurssilla perehdytään tietokoneen perustoimintoihin. Siinä esitellään myös käyttöjärjestelmän toiminta tietokonelaitteiston ja ohjelmiston välissä.
+Tietokoneen toiminnan jatkokurssi (3 op) on kaikille avoin ja ilmainen verkkokurssi. Kurssilla perehdytään tietokoneen perustoimintoihin. Kurssi on suoraan jatkoa Tietokoneen toiminnan perusteet -kurssille. Perehdymme kurssilla aluksi konekieliseen ohjelmointiin, tiedon muuttumattomuuden tarkistamiseen ja oheislaitteiden hallintaan. Näytämme sitten aikaisempaa tarkemmin, kuinka korkean tason kielestä saadaan kääntämällä, linkittämällä ja lataamalla käyttöjärjestelmän tuntema prosessi. Lopuksi esittelemme ohjelmien vaihtoehtoisen suoritustavan tulkinnan ja emuloinnin avulla.
 
-Lähtötietoina kurssilla otaksutaan suomalaisen peruskoulun antamat valmiudet. Jonkun ohjelmointikurssin (esimerkiksi Helsingin yliopiston Ohjelmoinnin alkeet MOOC) suorittamisesta ennen tätä kurssia on etua, mutta se ei ole mitenkään välttämätöntä. Jos olet suorittamassa näitä molempia kursseja, niin suosittelemme, että Ohjelmoinnin alkeet -kurssi suoritettaisiin ensimmäisenä.
+Lähtötietoina kurssilla kurssin Tietokoneen toiminnan perusteet (esimerkiksi Helsingin yliopiston Tietokoneen toiminnan perusteet MOOC)  ja jonkin korkean tason kielen ohjelmointikurssin (esimerkiksi Helsingin yliopiston Ohjelmoinnin alkeet MOOC) tiedot.
 
-Kurssi koostuu neljästä luvusta. Luvussa 1 esitellään tietokonejärjestelmä kokonaisuutena. Siinä tutustutaan myös ohjelman käsitteeseen ja ohjelmien erilaisiin esitysmuotoihin. Seuraavaksi luvussa 2 tarkastellaan suorittimen toimintaa ja näytetään, kuinka suoritin suorittaa konekielisessä esitysmuodossa olevia ohjelmia. Luvussa 3 kerrotaan, kuinka tieto esitetään tietokonejärjestelmässä. Erityisesti käydään läpi kokonaislukujen ja liukulukujen esitysmuodot. Liukuluvut ovat tietokoneissa käytetty realilukujen vastike. Luvussa 4 esitellään käyttöjärjestelmän perustoiminnot, joiden avulla hallinnoidaan järjestelmää ja annetaan palveluja sovellusohjelmille. Tällä tavoin sovellusohjelmat voivat rakentua tietyn käyttöjärjestelmän päälle, eikä niissä tarvitse huomioida laitteiston yksityiskohtia. Lopuksi esitellään perusteet laskettavuusteorialle, jonka avulla voidaan todistaa mielenkiintoisia ominaisuuksia tietokoneella ratkaistavissa olevista ongelmista.
+Kurssi koostuu kuudesta luvusta (luvut 5-10) ja ne ovat suoraan jatkoa kurssin Tietokoneen toiminnan perusteet luvuille 1-4. Luvussa 5 esitellään ....  ????????
 
 ## Kurssin käyttötavat
 Kurssia voidaan käyttää useaan alla mainittuun eri tarkoitukseen. Erilaisten kurssisuoritusten arvostelumenetelmät Helsingin yliopiston kurssina selitetään tarkemmin osiossa "Arvostelu ja kokeet".
@@ -24,6 +24,6 @@ Kukin oppilaitos voi itse määritellä, millä tavoin tämän [MOOC](https://mo
 Avoimen yliopiston kurssina tai osana DEFA-opintoja ([Digital Education For All](https://www.helsinki.fi/fi/projektit/digital-education-for-all)). Katso tarkemmat tiedot Avoimen yliopiston [verkkosivuilta](https://www.helsinki.fi/fi/avoin-yliopisto).
 
 ### Helsingin yliopiston kurssina
-Tietokoneen toiminnan jatkokurssi (2 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita.
+Tietokoneen toiminnan jatkokurssi (3 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita.
 
-Tietokoneen toiminnan jatkokurssi (2 op, MOOC) yhdessä myöhemmin toteutettavan Tietokoneen toiminnan jatkokurssin (3 op, MOOC) kanssa tulevat korvaamaan Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssin. Molempien verkkokurssien suoritukseen yliopistolla tulee sisältymään kokeita.
+Tietokoneen toiminnan jatkokurssi (3 op, MOOC) aikaisemmin toteutetun Tietokoneen toiminnan perusteet (2 op, MOOC) kanssa tulevat korvaamaan Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssin. Molempien verkkokurssien suoritukseen yliopistolla tulee sisältymään kokeita.
