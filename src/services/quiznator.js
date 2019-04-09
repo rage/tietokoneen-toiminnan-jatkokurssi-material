@@ -18,51 +18,51 @@ export async function fetchQuiznatorProgress() {
   const partToTag = [
     {
       part: "osa01",
-      tag: "tietokonen-toiminnan-perusteet-1",
+      tag: "tietokoneen-toiminnan-jatkokurssi-1",
     },
     {
       part: "osa02",
-      tag: "tietokonen-toiminnan-perusteet-2",
+      tag: "tietokoneen-toiminnan-jatkokurssi-2",
     },
     {
       part: "osa03",
-      tag: "tietokonen-toiminnan-perusteet-3",
+      tag: "tietokoneen-toiminnan-jatkokurssi-3",
     },
     {
       part: "osa04",
-      tag: "tietokonen-toiminnan-perusteet-4",
+      tag: "tietokoneen-toiminnan-jatkokurssi-4",
     },
     {
       part: "osa05",
-      tag: "tietokonen-toiminnan-perusteet-5",
+      tag: "tietokoneen-toiminnan-jatkokurssi-5",
     },
     {
       part: "osa06",
-      tag: "tietokonen-toiminnan-perusteet-6",
+      tag: "tietokoneen-toiminnan-jatkokurssi-6",
     },
     {
       part: "osa07",
-      tag: "tietokonen-toiminnan-perusteet-7",
+      tag: "tietokoneen-toiminnan-jatkokurssi-7",
     },
     {
       part: "osa08",
-      tag: "tietokonen-toiminnan-perusteet-8",
+      tag: "tietokoneen-toiminnan-jatkokurssi-8",
     },
     {
       part: "osa09",
-      tag: "tietokonen-toiminnan-perusteet-9",
+      tag: "tietokoneen-toiminnan-jatkokurssi-9",
     },
     {
       part: "osa010",
-      tag: "tietokonen-toiminnan-perusteet-10",
+      tag: "tietokoneen-toiminnan-jatkokurssi-10",
     },
     {
       part: "osa11",
-      tag: "tietokonen-toiminnan-perusteet-11",
+      tag: "tietokoneen-toiminnan-jatkokurssi-11",
     },
     {
       part: "osa12",
-      tag: "tietokonen-toiminnan-perusteet-12",
+      tag: "tietokoneen-toiminnan-jatkokurssi-12",
     },
   ]
   const quizIdInformation = await fetchQuizIds()
@@ -94,7 +94,7 @@ export async function fetchQuiznatorProgress() {
 export async function fetchQuizIds() {
   const res = await axios.post(
     `${BASE_URL}/api/v1/tags/quizids`,
-    { tags: ["tietokonen-toiminnan-perusteet"] },
+    { tags: ["tietokoneen-toiminnan-jatkokurssi"] },
     { headers: { Authorization: `Bearer ${accessToken()}` } },
   )
   return res.data

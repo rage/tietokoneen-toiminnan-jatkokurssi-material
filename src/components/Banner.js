@@ -50,7 +50,7 @@ const SubHeading = styled.div`
 
 const Banner = () => (
   <BannerWrapper>
-    <Heading>Tietokoneen toiminnan perusteet</Heading>
+    <Heading>Tietokoneen toiminnan jatkokurssi</Heading>
     <SubHeading>Mitä tietokoneet ovat ja miten ne toimivat?</SubHeading>
   </BannerWrapper>
 )

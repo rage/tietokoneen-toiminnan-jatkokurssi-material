@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Tietokoneen toiminnan perusteet 2019",
+    title: "Tietokoneen toiminnan jatkokurssi 2019",
     siteUrl: `https://ohjelmointi-19.mooc.fi`,
   },
   plugins: [

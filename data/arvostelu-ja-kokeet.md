@@ -5,7 +5,7 @@ hidden: false
 information_page: true
 ---
 
-Tietokoneen toiminnan perusteet. Kurssista on nyt vain itsenäiseen opiskeluun tarkoitettu (aikatauluttamaton) kurssi. 
+Tietokoneen toiminnan jatkokurssi. Kurssista on nyt vain itsenäiseen opiskeluun tarkoitettu (aikatauluttamaton) kurssi.
 
 Kurssista voi saada halutessaan yliopistollisen suorituksen Avoimen yliopiston (Helsingin yliopisto) kautta. Arvostelu perustuu Avoimen yliopiston järjestämään kokeeseen. Siihen voi (kannattaa) osallistua, kun on tehnyt jokaisen luvun quiz-tehtävistä vähintään 90%.
 

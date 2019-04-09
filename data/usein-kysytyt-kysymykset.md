@@ -21,7 +21,7 @@ Avaa joko issue tai muutosehdoitus kurssin Github-repossa: https://github.com/ra
 
 ### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
 
-Kurssin aloittamiseen ei tarvitse ilmoittautumista. Älä ilmoittaudu minnekkään ellei kurssin sivu erikseen kehoita sinua tekemään niin. 
+Kurssin aloittamiseen ei tarvitse ilmoittautumista. Älä ilmoittaudu minnekkään ellei kurssin sivu erikseen kehoita sinua tekemään niin.
 
 ### Tarvitsenko MOOC-tunnuksen?
 
@@ -37,9 +37,9 @@ Aikatauluton kurssi ...
 
 Ohjaa TE-toimisto tälle sivulle:
 
-Tietokoneen toiminnan perusteet on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
+Tietokoneen toiminnan jatkokurssi on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
 
-Tietokoneen toiminnan perusteet on Helsingin yliopiston kurssin Tietokoneen toiminta (5 opintopistettä) kurssimateriaali. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssista voi kuitenkin halutessaan -- ja kurssin menestyksekkäästi suorittamalla -- saada opintopisteitä.
+Tietokoneen toiminnan jatkokurssi on Helsingin yliopiston kurssin Tietokoneen toiminta (5 opintopistettä) kurssimateriaali. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssista voi kuitenkin halutessaan -- ja kurssin menestyksekkäästi suorittamalla -- saada opintopisteitä.
 
 ### Saan tukea Työ- ja elinkeinotoimistolta. Voinko silti tehdä kurssin?
 
@@ -58,4 +58,3 @@ _Kesken - ei vielä toteutettu._
 ### Tarvitsenko Helsingin yliopiston tunnukset?
 
 _Kesken - ei vielä toteutettu._
-

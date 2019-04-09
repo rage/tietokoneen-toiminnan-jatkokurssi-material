@@ -5,7 +5,7 @@ information_page: true
 ---
 
 
-Tietokoneen toiminnan perusteet on kaikille avoin ja ilmainen verkkokurssi. Kurssilla perehdytään tietokoneen perustoimintoihin. Siinä esitellään myös käyttöjärjestelmän toiminta tietokonelaitteiston ja ohjelmiston välissä.
+Tietokoneen toiminnan jatkokurssi on kaikille avoin ja ilmainen verkkokurssi. Kurssilla perehdytään tietokoneen perustoimintoihin. Siinä esitellään myös käyttöjärjestelmän toiminta tietokonelaitteiston ja ohjelmiston välissä.
 
 Lähtötietoina kurssilla otaksutaan suomalaisen peruskoulun antamat valmiudet. Jonkun ohjelmointikurssin (esimerkiksi Helsingin yliopiston Ohjelmoinnin alkeet MOOC) suorittamisesta ennen tätä kurssia on etua, mutta se ei ole mitenkään välttämätöntä. Jos olet suorittamassa näitä molempia kursseja, niin suosittelemme, että Ohjelmoinnin alkeet -kurssi suoritettaisiin ensimmäisenä.
 
@@ -24,6 +24,6 @@ Kukin oppilaitos voi itse määritellä, millä tavoin tämän [MOOC](https://mo
 Avoimen yliopiston kurssina tai osana DEFA-opintoja ([Digital Education For All](https://www.helsinki.fi/fi/projektit/digital-education-for-all)). Katso tarkemmat tiedot Avoimen yliopiston [verkkosivuilta](https://www.helsinki.fi/fi/avoin-yliopisto).
 
 ### Helsingin yliopiston kurssina
-Tietokoneen toiminnan perusteet (2 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita.
+Tietokoneen toiminnan jatkokurssi (2 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita.
 
-Tietokoneen toiminnan perusteet (2 op, MOOC) yhdessä myöhemmin toteutettavan Tietokoneen toiminnan jatkokurssin (3 op, MOOC) kanssa tulevat korvaamaan Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssin. Molempien verkkokurssien suoritukseen yliopistolla tulee sisältymään kokeita.
+Tietokoneen toiminnan jatkokurssi (2 op, MOOC) yhdessä myöhemmin toteutettavan Tietokoneen toiminnan jatkokurssin (3 op, MOOC) kanssa tulevat korvaamaan Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssin. Molempien verkkokurssien suoritukseen yliopistolla tulee sisältymään kokeita.

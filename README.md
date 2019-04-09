@@ -1,4 +1,6 @@
-# Ohjelmointi 19
+# Tietokoneen toiminnan jatkokurssi
+
+https://tietokoneen-toiminnan-jatkokurssi.now.sh
 
 ## Development environment
 

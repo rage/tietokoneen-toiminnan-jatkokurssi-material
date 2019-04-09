@@ -262,7 +262,7 @@ class CourseOptionsEditor extends React.Component {
                       value="1"
                     />
                   }
-                  label="Aion hakea aikataulutetun Tietokoneen toiminnan perusteetin kautta opinto-oikeutta Helsingin yliopistoon."
+                  label="Aion hakea aikataulutetun Tietokoneen toiminnan jatkokurssiin kautta opinto-oikeutta Helsingin yliopistoon."
                 />
               </Row>
 

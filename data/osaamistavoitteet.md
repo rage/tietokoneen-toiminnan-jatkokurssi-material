@@ -8,7 +8,7 @@ information_page: true
 Tietokoneen toiminnan perusteiden MOOCissa opit perusasiat tietokoneen rakenteesta ja kuinka se suorittaa ohjelmia. Kurssilla esitellään myös käyttöjärjestelmän osa-alueet ja kuinka käyttöjärjestelmä hallinnoi koko järjestelmää ja avustaa ohjelmien suorittamisessa siinä.
 Lukukohtaiset osaamistavoitteet ovat seuraavat.
 
-## Tietokoneen toiminnan perusteet
+## Tietokoneen toiminnan jatkokurssi
 
 <table>
     <thead>
