@@ -5,6 +5,9 @@ hidden: false
 information_page: true
 ---
 
+
+**TÄMÄN KURSSIN KEHITYS ON KESKEN. KAIKKI VOI MUUTTUA!**
+
 Tietokoneen toiminnan jatkokurssi. Kurssista on nyt vain itsenäiseen opiskeluun tarkoitettu (aikatauluttamaton) kurssi.
 
 Kurssista voi saada halutessaan yliopistollisen suorituksen Avoimen yliopiston (Helsingin yliopisto) kautta. Arvostelu perustuu Avoimen yliopiston järjestämään kokeeseen. Siihen voi (kannattaa) osallistua, kun on tehnyt jokaisen luvun quiz-tehtävistä vähintään 90%.
