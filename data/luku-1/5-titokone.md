@@ -17,14 +17,3 @@ title: "Titokone"
 
 <div><quiznator id="???"></quiznator></div>
 
-
-<!-- Luvun 1 yhteenveto, mitä tuli opittua quiz 1.summary -->
-
-### Yhteenveto (viimeiseen alilukuun)
-Ensimmäinen luku käsitteli tietokonejärjestelmää ja sen osia. Sen jälkeen tutustuimme ohjelman käsitteeseen ja ohjelmien erilaisiin esitysmuotoihin vain ihmisen luettavissa olevista algoritmeista numeeriseen konekieleen. Lopuksi kävimme läpi tietokonejärjestelmän valtavia nopeuseroja ja niiden vaikutuksia järjestelmän käyttöön ja toteutukseen.
-
-Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanssa.
-
-### summary quiz ?????
-<div><quiznator id="?????"></quiznator></div>
-
