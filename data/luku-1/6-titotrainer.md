@@ -4,7 +4,7 @@ title: "TitoTrainer"
 ---
 
 <div>
-<lead>Ihmisen ???????+</lead>
+<lead>Ihmisen ???????</lead>
 </div>
 
 ## 1-ulotteiset taulukot ja tietueet
@@ -17,7 +17,7 @@ title: "TitoTrainer"
 
 <!-- quiz 5.6 ????????????????? -->
 
-<div><quiznator id="???"></quiznator></div>
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
 
 <!-- Luvun 1 yhteenveto, mitä tuli opittua quiz 1.summary -->
@@ -28,5 +28,5 @@ Ensimmäinen luku käsitteli .....?????
 Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanssa.
 
 ### summary quiz ?????
-<div><quiznator id="????"></quiznator></div>
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
