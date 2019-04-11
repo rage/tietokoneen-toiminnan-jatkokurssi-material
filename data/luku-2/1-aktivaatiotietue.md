@@ -4,7 +4,7 @@ title: 'Aktivaatiotietue'
 ---
 
 <div>
-<lead>Suoritin ????? </lead>
+<lead>Aliohjelmat ...... ????? </lead>
 </div>
 
 ## Aliohjelmat, funktiot, metodit
