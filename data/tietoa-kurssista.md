@@ -19,7 +19,7 @@ Kurssia voidaan käyttää useaan alla mainittuun eri tarkoitukseen. Erilaisten 
 Kuka tahansa tietokoneiden toiminnasta kiinnostunut voi käyttää tätä materiaalia itseopiskeluuun. Käy läpi kurssimateriaali, surfaile haluamiasi lisätietoja verkosta, vastaile pikatehtäviin ("quiz") ja nauti opiskelusta!
 
 ### Lukion tai muun keskiasteen valinnaisena kurssina ("kurkistuskurssi")
-Kukin oppilaitos voi itse määritellä, millä tavoin tämän [MOOC](https://mooc.fi/) kurssi (2 op) hyväksytään oppilaitoksen kurssina. Hyväksymiseen voi liittyä erillinen koe kyseisessä oppilaitoksessa.
+Kukin oppilaitos voi itse määritellä, millä tavoin tämän Tietokoneen toiminnan jatkokurssi (3 op, [MOOC](https://mooc.fi/)) hyväksytään oppilaitoksen kurssina. Hyväksymiseen voi liittyä erillinen koe kyseisessä oppilaitoksessa.
 
 ### Avoimen yliopiston kurssina
 Avoimen yliopiston kurssina tai osana DEFA-opintoja ([Digital Education For All](https://www.helsinki.fi/fi/projektit/digital-education-for-all)). Katso tarkemmat tiedot Avoimen yliopiston [verkkosivuilta](https://www.helsinki.fi/fi/avoin-yliopisto).
