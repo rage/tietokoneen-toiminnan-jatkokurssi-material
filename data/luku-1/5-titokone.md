@@ -24,5 +24,7 @@ title: "Titokone"
 Ensimmäinen luku käsitteli tietokonejärjestelmää ja sen osia. Sen jälkeen tutustuimme ohjelman käsitteeseen ja ohjelmien erilaisiin esitysmuotoihin vain ihmisen luettavissa olevista algoritmeista numeeriseen konekieleen. Lopuksi kävimme läpi tietokonejärjestelmän valtavia nopeuseroja ja niiden vaikutuksia järjestelmän käyttöön ja toteutukseen.
 
 Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanssa.
-<div><quiznator id="5c544eec3972a91474103008"></quiznator></div>
+
+### summary quiz ?????
+<div><quiznator id="?????"></quiznator></div>
 
