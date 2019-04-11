@@ -1,10 +1,10 @@
 ---
-path: '/luku-2/3-konekaskyt'
-title: 'Konekäskyt'
+path: '/luku-2/3-paikalliset-tietorakenteet'
+title: 'Paikalliset tietorakenteet'
 ---
 
 <div>
-<lead>Tässä osiossa tutustumme tarkemmin konekäskyihin. Selvitämme mm., mitä ominaisuuksia konekäskyissä on ja minkälaisia konekäskyjä suorittimissa voi olla. Esittelemme samalla myös (osan) esimerkkitietokoneen ttk-91 käskyistä ja annamme esimerkkejä (symbolisesta) konekielisestä koodista.</lead>
+<lead>Tässä osiossa ????</lead>
 </div>
 
 ## Konekäskykanta
