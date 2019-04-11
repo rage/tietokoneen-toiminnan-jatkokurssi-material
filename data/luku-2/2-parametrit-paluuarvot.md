@@ -3,7 +3,9 @@ path: '/luku-2/2-parametrit-paluuarvot'
 title: 'Parametrit ja paluuarvot'
 ---
 
-On kertakaikkiaan nerokasta, .....
+<div>
+<lead>Tässä osiossa ????</lead>
+</div>
 
 ## Parametrit, paluuarvot
 ?????
