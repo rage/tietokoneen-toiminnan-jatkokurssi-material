@@ -4,7 +4,7 @@ hidden: false
 information_page: true
 ---
 
-**TÄMÄN KURSSIN KEHITYS ON KESKEN. KAIKKI VOI MUUTTUA!**
+**<blink>TÄMÄN KURSSIN KEHITYS ON KESKEN. KAIKKI VOI MUUTTUA!</blink>**
 
 Tietokoneen toiminnan jatkokurssi (3 op) on kaikille avoin ja ilmainen verkkokurssi. Kurssilla perehdytään tietokoneen perustoimintoihin. Kurssi on suoraan jatkoa Tietokoneen toiminnan perusteet -kurssille. Perehdymme kurssilla aluksi konekieliseen ohjelmointiin, tiedon muuttumattomuuden tarkistamiseen ja oheislaitteiden hallintaan. Näytämme sitten aikaisempaa tarkemmin, kuinka korkean tason kielestä saadaan kääntämällä, linkittämällä ja lataamalla käyttöjärjestelmän tuntema prosessi. Lopuksi esittelemme ohjelmien vaihtoehtoisen suoritustavan tulkinnan ja emuloinnin avulla.
 
