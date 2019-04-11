@@ -20,4 +20,4 @@ title: 'Toistolauseiden toteutus'
 ## Quizit 5.2  ????
 <!-- quiz 5.2.?? ???? -->
 
-<div><quiznator id="?????"></quiznator></div>
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
