@@ -23,8 +23,10 @@ title: "TitoTrainer"
 <!-- Luvun 1 yhteenveto, mitä tuli opittua quiz 1.summary -->
 
 ### Yhteenveto
-Ensimmäinen luku käsitteli 
+Ensimmäinen luku käsitteli .....?????
 
 Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanssa.
+
+### summary quiz ?????
 <div><quiznator id="????"></quiznator></div>
 
