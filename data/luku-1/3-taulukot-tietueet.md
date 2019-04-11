@@ -24,7 +24,7 @@ title: "Taulukoiden ja tietueidentoteutus"
 
 <!-- quiz 5.3 ????????????????? -->
 
-<div><quiznator id="???"></quiznator></div>
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
 
 <!-- Luvun 1 yhteenveto, mitä tuli opittua quiz 1.summary -->
