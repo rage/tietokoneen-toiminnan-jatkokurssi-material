@@ -17,4 +17,4 @@ title: 'Parametrit ja paluuarvot'
 ### Quizes 6.2 ??????
 <!-- quiz 6.2.?? ???  -->
 
-<div><quiznator id="5c502951c41ed4148d96abd9"></quiznator></div>
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
