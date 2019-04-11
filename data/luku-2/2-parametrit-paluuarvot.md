@@ -6,8 +6,10 @@ title: 'Parametrit ja paluuarvot'
 On kertakaikkiaan nerokasta, .....
 
 ## Parametrit, paluuarvot
+?????
 
 ## Parametrityypit
+?????
 
 
 ### Quizes 6.2 ??????
