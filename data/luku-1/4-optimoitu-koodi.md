@@ -7,9 +7,11 @@ title: "Optimoitu koodi"
 <lead>Ihmisen ???????</lead>
 </div>
 
-## 1-ulotteiset taulukot ja tietueet
+## Optimoitu koodin tarkoitus
 ?????
 
+## Optimoidun koodin toteutus
+????
 
 ## Quizit 5.4 ??????
 
