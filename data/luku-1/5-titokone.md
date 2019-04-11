@@ -4,7 +4,7 @@ title: "Titokone"
 ---
 
 <div>
-<lead>Ihmisen ???????+</lead>
+<lead>Ihmisen ???????</lead>
 </div>
 
 ## 1-ulotteiset taulukot ja tietueet
@@ -15,5 +15,5 @@ title: "Titokone"
 
 <!-- quiz 5.5 ????????????????? -->
 
-<div><quiznator id="???"></quiznator></div>
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
