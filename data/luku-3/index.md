@@ -1,16 +1,16 @@
 ---
 path: '/luku-3'
-title: 'Luku 3: Tiedon esitysmuodot'
+title: 'Luku 7: Tiedon muuttumattomuus, muistin totutus'
 overview: true
 hidden: false
 ---
 
-Minkälaisia tietoja tietokone osaa käsitellä ja missä muodossa ne ovat? Esittelemme tarkemmin kokonaislukujen ja liukulukujen esitysmuodot. Käymme läpi merkkien ja merkkijonojen esitysmuodot karkealla tasolla. Kuvista, äänistä ja videoista esittelemme vain periaatteet. Lopuksi käymme läpi ohjelmoijan itse määrittelemien tietojen esitysmuodot.
+Minkälaisia t.
 
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin kolmannen luvun aihealueet.
+Yllä oleva sisällysluettelo sisältää kurssin Luvun 6 aihealueet.
 
 <exercises-in-this-section></exercises-in-this-section>
