@@ -1,17 +1,19 @@
 ---
 path: '/luku-2'
-title: 'Luku 2: Suoritin ja muisti'
+title: 'Luku 6: Aliohjelmien toteutus'
 overview: true
 hidden: false
 ---
 
-Mikä se suoritin oikeastaan on ja mitä se tekee? Tutustumme ensiksi suorittimen rakenteen. Käymme läpi karkealla tasolla kaikki suorittimen osat. Sitten tutkimme, millä tavoin suoritin suorittaa muistissa olevia konekäskyjä. Mistä käsky löytyy ja mistä seuraava käsky löytyy? Esittelemme suorittimen etuoikeutetun suoritustilan, minkä avulla järjestelmä suojaa itseään pahantahtoisilta ja vahingollisilta ohjelmilta. Tässä aliluvussa kerromme myös, kuinka suoritin reagoi kaikkiin yllättäviin tilanteisiin. Seuraavaksi käymme läpi konekäskyjä tarkemmin. Katsomme, mitä tietoja konekäskyissä on ja minkä tyyppisiä konekäskyjä on käytössä. Lopuksi katsomme, missä kaikkialla konekäskyssä viitattu tieto voi sijaita ja mitä eroja tiedon sijainnilla on ohjelman suoritusnopeuteen
+Mikä se ????
 
 
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin toisen luvun aihealueet.
+Yllä oleva sisällysluettelo sisältää kurssin luvun 6 aihealueet.
+
+Tämän tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminta luvuille 1-4.
 
 <exercises-in-this-section></exercises-in-this-section>
