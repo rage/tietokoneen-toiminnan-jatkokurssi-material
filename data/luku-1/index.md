@@ -4,7 +4,7 @@ title: 'Luku 5: Konekielinen ohjelmointi'
 overview: true
 ---
 
-<B><blink>DRAFT - KESKEN - KAIKKI VOI VIELÄ MUUTTUA!</blink></B>
+**DRAFT - KESKEN - KAIKKI VOI VIELÄ MUUTTUA!**
 
 Aluksi selvitämme, että mikä .... ??????
 
