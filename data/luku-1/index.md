@@ -1,19 +1,19 @@
 ---
 path: '/luku-1'
-title: 'Luku 1: Tietokonejärjestelmä ja ohjelma?'
+title: 'Luku 5: Konekielinen ohjelmointi'
 overview: true
 ---
 
-Aluksi selvitämme, että mikä tietokone oikeastaan on. Tutkimme myös, minkä tyyppisiä ja mitä osia tietokoneessa on.
+<B><blink>DRAFT - KESKEN - KAIKKI VOI VIELÄ MUUTTUA!</blink></B>
 
-Seuraavaksi pohdimme ohjelman käsitettä. Tietokone suorittaa aina jotain ohjelmaa, mutta mikä se ohjelma oikeastaan on ja minkälaisia esitysmuotoja sillä on.
-
-Lopuksi tarkastelemme tietokonejärjestelmien valtavia nopeuseroja sekä kuinka ne ovat vaikuttaneet ja edelleen vaikuttavat tietokonejärjestelmien toteutukseen.
+Aluksi selvitämme, että mikä .... ??????
 
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin ensimmäisen luvun aihealueet.
+Yllä oleva sisällysluettelo sisältää kurssin ensimmäisen luvun 5 aihealueet. 
+
+Tämän tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminta luvuille 1-4.
 
 <exercises-in-this-section></exercises-in-this-section>
