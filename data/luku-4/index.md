@@ -1,6 +1,6 @@
 ---
 path: '/luku-4'
-title: 'Luku 8: Ulkoinen muisti ja I/O'
+title: 'Luku 8: Ulkoisen muistin käyttö ja I/O:n toteutus'
 overview: true
 hidden: false
 ---
