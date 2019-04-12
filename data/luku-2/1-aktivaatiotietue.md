@@ -19,6 +19,9 @@ title: 'Aktivaatiotietue'
 ## Tunnusten näkyvyysalueet
 ????
 
+## Parametrien tyypit
+???
+
 ## Quizit 6.1
 <!-- quiz 6.1.??: ???? -->
 
