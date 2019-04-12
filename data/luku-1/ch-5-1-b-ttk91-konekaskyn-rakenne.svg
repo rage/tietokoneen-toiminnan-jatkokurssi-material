@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg1051"
    version="1.1"
-   viewBox="0 0 210 297"
-   height="297mm"
-   width="210mm">
+   viewBox="0 0 210.34177 55.560539"
+   height="55.560539mm"
+   width="210.34177mm">
   <defs
      id="defs1045" />
   <metadata
@@ -25,45 +25,46 @@
     </rdf:RDF>
   </metadata>
   <g
+     transform="translate(-0.09547618,-75.412446)"
      id="layer1">
     <rect
        y="75.694946"
        x="0.37797618"
        height="54.995541"
-       width="210.53271"
+       width="209.77676"
        id="rect5684"
        style="opacity:1;fill:#ccf8f4;fill-opacity:1;stroke:#0f0706;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="81.742561"
-       x="1.4363096"
+       x="5.6696429"
        height="19.654762"
        width="26.458326"
        id="rect5299"
        style="opacity:1;fill:#fffec3;fill-opacity:1;stroke:#0f0706;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="81.742561"
-       x="27.894636"
+       x="32.127972"
        height="19.654762"
        width="21.544636"
        id="rect5299-4"
        style="opacity:1;fill:#fffec3;fill-opacity:1;stroke:#0f0706;stroke-width:0.56500006;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="81.742561"
-       x="49.43927"
+       x="53.672607"
        height="19.654762"
        width="25.324398"
        id="rect5299-4-5"
        style="opacity:1;fill:#fffec3;fill-opacity:1;stroke:#0f0706;stroke-width:0.56500006;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="81.742561"
-       x="98.34938"
+       x="102.58272"
        height="19.654762"
-       width="110.97384"
+       width="101.14646"
        id="rect5299-4-5-4"
        style="opacity:1;fill:#fffec3;fill-opacity:1;stroke:#0f0706;stroke-width:0.56500012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="81.742561"
-       x="74.763672"
+       x="78.997009"
        height="19.654762"
        width="23.585711"
        id="rect5299-4-5-6"
@@ -71,29 +72,29 @@
     <text
        id="text5433"
        y="89.951736"
-       x="4.8379474"
+       x="9.0712795"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
        xml:space="preserve"><tspan
          y="89.951736"
-         x="4.8379474"
+         x="9.0712795"
          id="tspan5467">OPCODE</tspan><tspan
          y="95.243401"
-         x="4.8379474"
+         x="9.0712795"
          id="tspan5469">8 bittiä</tspan></text>
     <text
        id="text5453"
        y="91.064102"
-       x="133.79195"
+       x="138.02522"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
        xml:space="preserve"><tspan
          y="91.064102"
-         x="133.79195"
+         x="138.02522"
          id="tspan5471">ADDR</tspan><tspan
          y="96.355766"
-         x="133.79195"
+         x="138.02522"
          id="tspan5473">16 bittiä</tspan></text>
     <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,23.423067,40.043915)"
+       transform="matrix(0.26458333,0,0,0.26458333,27.656403,40.043915)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot5301-7"
        xml:space="preserve"><flowRegion
@@ -107,7 +108,7 @@
            id="rect5305-5" /></flowRegion><flowPara
          id="flowPara5459">Rj</flowPara><flowPara
          id="flowPara5461">3 bittiä</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,45.249658,40.043914)"
+       transform="matrix(0.26458333,0,0,0.26458333,49.482994,40.043914)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot5301-78"
        xml:space="preserve"><flowRegion
@@ -121,7 +122,7 @@
            id="rect5305-8" /></flowRegion><flowPara
          id="flowPara5407">moodi M</flowPara><flowPara
          id="flowPara5409">2 bittiä</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,70.940963,40.36608)"
+       transform="matrix(0.26458333,0,0,0.26458333,75.174299,40.36608)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot5301-7-7"
        xml:space="preserve"><flowRegion
@@ -137,33 +138,35 @@
          id="flowPara5465">3 bittiä</flowPara></flowRoot>    <text
        id="text5433-9"
        y="110.93252"
-       x="3.4506276"
+       x="7.6839609"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
        xml:space="preserve"><tspan
          y="110.93252"
-         x="3.4506276"
+         x="7.6839609"
          id="tspan5686">ADD</tspan><tspan
          y="116.22418"
-         x="3.4506276"
+         x="7.6839609"
          id="tspan5688">0001 0001</tspan><tspan
          y="121.51585"
-         x="3.4506276"
+         x="7.6839609"
          id="tspan5690" /><tspan
+         y="126.80752"
+         x="7.6839609"
          id="tspan5692">ADD R2, =21(R5)           R2 &lt;-- R2 + mem(R5+21)</tspan></text>
     <text
        id="text5453-4"
        y="112.04488"
-       x="132.40465"
+       x="136.63792"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
        xml:space="preserve"><tspan
          y="112.04488"
-         x="132.40465"
+         x="136.63792"
          id="tspan5666">21</tspan><tspan
          y="117.33655"
-         x="132.40465"
+         x="136.63792"
          id="tspan5668">0000 0000 0001 0101</tspan></text>
     <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,22.035746,61.024693)"
+       transform="matrix(0.26458333,0,0,0.26458333,26.269082,61.024693)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot5301-7-1"
        xml:space="preserve"><flowRegion
@@ -177,7 +180,7 @@
            id="rect5305-5-5" /></flowRegion><flowPara
          id="flowPara5654">R2</flowPara><flowPara
          id="flowPara5656">010</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,43.862339,61.024693)"
+       transform="matrix(0.26458333,0,0,0.26458333,48.095675,61.024693)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot5301-78-7"
        xml:space="preserve"><flowRegion
@@ -191,7 +194,7 @@
            id="rect5305-8-1" /></flowRegion><flowPara
          id="flowPara5662">=</flowPara><flowPara
          id="flowPara5664">01</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,69.553643,61.346857)"
+       transform="matrix(0.26458333,0,0,0.26458333,73.786979,61.346857)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot5301-7-7-2"
        xml:space="preserve"><flowRegion
