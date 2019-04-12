@@ -5,17 +5,30 @@ hidden: false
 ---
 
 <div>
-<lead>Pääoppimistavoitteena ?????
+<lead>Pääoppimistavoitteena ... ?????
 </lead>
 </div>
+
+## Laiteajuri
+???
 
 ## Laiteohjain
 ????
 
-## I/O-tyypit
+### Laiterekisterit
 ???
 
-## ???
+#### Laiterekistereihin osoittaminen laiteajurista
+???
+
+###  Laiteohjainprosessi
+
+
+## I/O:n toteutustavat
+???
+
+## Esimerkki: ttk-91 kirjoittimen laiteajuri
+????
 
 ## Quizit 9.3
 <!-- Quiz 9.3.?? -->
