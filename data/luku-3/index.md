@@ -1,6 +1,6 @@
 ---
 path: '/luku-3'
-title: 'Luku 7: Tiedon muuttumattomuus, muistin totutus'
+title: 'Luku 7: Tiedon muuttumattomuus ja erilaiset muistit'
 overview: true
 hidden: false
 ---
