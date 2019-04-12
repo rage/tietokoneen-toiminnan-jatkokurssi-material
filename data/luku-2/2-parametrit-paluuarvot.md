@@ -10,8 +10,13 @@ title: 'Parametrit ja paluuarvot'
 ## Parametrit, paluuarvot
 ?????
 
-## Parametrityypit
+### Parametrityypit
 ?????
+
+### Paluuarvon tyyppi
+???
+
+## Paikalliset muuttujat
 
 
 ### Quizes 6.2 ??????
