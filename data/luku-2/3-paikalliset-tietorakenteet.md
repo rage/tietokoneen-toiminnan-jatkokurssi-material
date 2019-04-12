@@ -1,6 +1,6 @@
 ---
 path: '/luku-2/3-paikalliset-tietorakenteet'
-title: 'Paikalliset tietorakenteet'
+title: 'Aliohjelmien paikalliset tietorakenteet'
 ---
 
 <div>
