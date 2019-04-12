@@ -8,19 +8,27 @@ hidden: false
 <lead>Rakenteisen ???? </lead>
 </div>
 
-## Muistin toteutus
+## Keskusmuistin 
 ????
 
-## Välimuisti ja sen toteutus
+## Välimuisti 
 ????
 
-## SSD-muisti ja sen toteutus
+## SSD-muisti 
 ???
 
 ### SSD vs. kovalevy
+????
+
+### Virtuaalimuisti 
 ????
 
 ## Quizit 8.3
 <!-- Quiz 8.3.?? -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
+### Yhteenveto
+Tämä luku käsitteli ?????.
+
+Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
