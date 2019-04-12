@@ -7,15 +7,22 @@ title: 'Työrekistereiden talletus ja palautus'
 Tässä ?????
 </lead></div>
 
-## Tiedon sijaintipaikat
+## Työrekistereiden arvot talteen
+????
 
-Ohjelman 
+
+## Quizit 6.4 ??????
+<!-- quiz 6.4.??  ????? -->
+
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+
 
 ### Yhteenveto
 Toinen luku käsitteli suorittimen ja muistin toimintaa. Aluksi katsoimme vähän tarkemmin suorittimen rakennetta ja erityisesti sen toimintaa käskyjen nouto- ja suoritussyklin toteuttajana. Sen jälkeen tarkastelimme konekäskyjen eri tyyppejä ja rakennetta. Lopuksi katsoimme, kuinka tiedon sijainti suoritusaikana voi vaihdella ja kuinka se vaikuttaa ohjelmien suoritusnopeuteen.
 
 Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
-<div><quiznator id="5c66b17199236814c5bbb972"></quiznator></div>
+
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
 
 
