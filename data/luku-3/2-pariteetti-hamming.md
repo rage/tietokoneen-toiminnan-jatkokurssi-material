@@ -24,7 +24,7 @@ hidden: false
 ## Laitteiden monistaminen
 ???
 
-## Quizit 8.1
-<!-- Quiz 8.1.?? -->
+## Quizit 8.2
+<!-- Quiz 8.2.?? -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
