@@ -1,6 +1,6 @@
 ---
 path: "/luku-1/3-taulukot-tietueet"
-title: "Taulukoiden ja tietueidentoteutus"
+title: "Taulukoiden ja tietueiden toteutus"
 ---
 
 <div>
