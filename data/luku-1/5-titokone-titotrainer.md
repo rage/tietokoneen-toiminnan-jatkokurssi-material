@@ -1,40 +1,41 @@
 ---
-path: "/luku-1/5-titokone"
-title: "Titokone"
+path: "/luku-1/5-titokone-titotrainer"
+title: "Titokone ja TitoTrainer"
 ---
 
 <div>
 <lead>Ihmisen ???????</lead>
 </div>
 
-## Titokoneen tavoite
+## Titokone
+???
+
+### Titokoneen tavoite
 ?????
 
-## Titokoneen osat
+### Titokoneen osat
 ?????
 
-## Titokoneen käyttö
+### Titokoneen käyttö
 ?????
 
-## Titokoneen historia
+### Titokoneen historia
 ?????
 
-## Quizit 5.5 ??????
 
-<!-- quiz 5.5 ????????????????? -->
+## TitoTrainer
+???
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
-
-## TitoTrainerin tavoite
+### TitoTrainerin tavoite
 ?????
 
-## TitoTrainerin tehtävät
+### TitoTrainerin tehtävät
 ?????
 
-## TitoTrainerin käyttö
+### TitoTrainerin käyttö
 ?????
 
-## TitoTrainerin historia
+### TitoTrainerin historia
 ?????
 
 ## Quizit 5.5.?? ??????
@@ -45,7 +46,7 @@ title: "Titokone"
 
 
 ### Yhteenveto
-Ensimmäinen luku käsitteli .....?????
+Tämä luku käsitteli .....?????
 
 Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanssa.
 
