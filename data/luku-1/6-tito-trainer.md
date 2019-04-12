@@ -34,5 +34,6 @@ Ensimmäinen luku käsitteli .....?????
 Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanssa.
 
 ### summary quiz ?????
+
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
