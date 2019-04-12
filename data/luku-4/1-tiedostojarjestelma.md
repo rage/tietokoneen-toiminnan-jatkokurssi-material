@@ -5,8 +5,23 @@ hidden: false
 ---
 
 <div>
-<lead>Käyttöjärjestelmän ?????+</lead>
+<lead>Käyttöjärjestelmän ?????</lead>
 </div>
 
-## Rajapinta laitteistoon
-Käyttöjärjestelmän päätehtävä 
+## Tiedostojärjestelmä
+????
+
+## Tiedoston talletus massamuistiin
+????
+
+## Virtuaalimuisti vs.tiedostojärjestelmä
+????
+
+### Massamuistin käyttö
+???
+
+## Quizit 9.1
+<!-- Quiz 9.1.?? -->
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+
+
