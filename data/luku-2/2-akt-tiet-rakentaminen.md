@@ -1,22 +1,23 @@
 ---
-path: '/luku-2/2-parametrit-paluuarvot'
-title: 'Parametrit ja paluuarvot'
+path: '/luku-2/2-akt-tiet-rakentaminen'
+title: 'Aktivaatiotietueen rakentaminen'
 ---
 
 <div>
 <lead>Tässä osiossa ????</lead>
 </div>
 
-## Parametrit, paluuarvot
+## Parametrit, tila paluuarvolle
 ?????
 
-### Parametrityypit
-?????
-
-### Paluuarvon tyyppi
+## Paluuosoite ja paluuympäristö
 ???
 
 ## Paikalliset muuttujat
+??
+
+## Työrekistereiden talletus
+??
 
 
 ### Quizes 6.2 ??????
