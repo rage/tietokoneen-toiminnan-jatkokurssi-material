@@ -25,3 +25,31 @@ title: "Titokone"
 
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
+## TitoTrainerin tavoite
+?????
+
+## TitoTrainerin tehtävät
+?????
+
+## TitoTrainerin käyttö
+?????
+
+## TitoTrainerin historia
+?????
+
+## Quizit 5.5.?? ??????
+
+<!-- quiz 5.5.??? ????????????????? -->
+
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+
+
+### Yhteenveto
+Ensimmäinen luku käsitteli .....?????
+
+Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanssa.
+
+### summary quiz ?????
+
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+
