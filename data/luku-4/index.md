@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Ulkoinen muisti.... ?????
+Ulkoinen muisti.... ??????
 
 <please-login></please-login>
 
