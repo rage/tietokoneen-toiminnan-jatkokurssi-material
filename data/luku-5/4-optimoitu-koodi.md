@@ -1,5 +1,5 @@
 ---
-path: "/luku-1/4-optimoitu-koodi"
+path: "/luku-5/4-optimoitu-koodi"
 title: "Optimoitu koodi"
 ---
 

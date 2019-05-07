@@ -1,5 +1,5 @@
 ---
-path: "/luku-1/5-titokone-titotrainer"
+path: "/luku-5/5-titokone-titotrainer"
 title: "Titokone ja TitoTrainer"
 ---
 
@@ -53,4 +53,3 @@ Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanss
 ### summary quiz ?????
 
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
-

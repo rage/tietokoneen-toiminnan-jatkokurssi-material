@@ -1,5 +1,5 @@
 ---
-path: '/luku-1'
+path: '/luku-5'
 title: 'Luku 5: Konekielinen ohjelmointi'
 overview: true
 ---
@@ -12,7 +12,7 @@ Aluksi selvitämme, että mikä .... ??????
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin ensimmäisen luvun 5 aihealueet. 
+Yllä oleva sisällysluettelo sisältää kurssin ensimmäisen luvun 5 aihealueet.
 
 Tämän Tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminta luvuille 1-4.
 

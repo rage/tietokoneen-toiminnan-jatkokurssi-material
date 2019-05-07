@@ -1,5 +1,5 @@
 ---
-path: '/luku-2/3-dataviitteet-aliohjelmassa'
+path: '/luku-6/3-dataviitteet-aliohjelmassa'
 title: 'Datan käyttö aliohjelmassa'
 ---
 

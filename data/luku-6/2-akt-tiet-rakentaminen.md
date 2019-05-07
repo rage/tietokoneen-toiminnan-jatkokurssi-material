@@ -1,5 +1,5 @@
 ---
-path: '/luku-2/2-akt-tiet-rakentaminen'
+path: '/luku-6/2-akt-tiet-rakentaminen'
 title: 'Aktivaatiotietueen rakentaminen'
 ---
 

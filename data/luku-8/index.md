@@ -1,17 +1,17 @@
 ---
-path: '/luku-3'
-title: 'Luku 7: Tiedon muuttumattomuus ja erilaiset muistit'
+path: '/luku-8'
+title: 'Luku 8: Ulkoisen muistin käyttö ja I/O:n toteutus'
 overview: true
 hidden: false
 ---
 
-Minkälaisia ???????
+Ulkoinen muisti.... ??????
 
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin Luvun 7 aihealueet.
+Yllä oleva sisällysluettelo sisältää kurssin luvun 8 aihealueet.
 
 Tämän tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminta luvuille 1-4.
 

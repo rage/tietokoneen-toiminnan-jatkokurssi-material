@@ -1,5 +1,5 @@
 ---
-path: '/luku-2/4-akt-tietue-purku'
+path: '/luku-6/4-akt-tietue-purku'
 title: 'Aktivointitietueen purku ja aliohjelmasta paluu'
 ---
 
@@ -34,6 +34,3 @@ Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
 ###  summary quizit ????
 
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
-
-
-

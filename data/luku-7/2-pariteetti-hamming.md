@@ -1,5 +1,5 @@
 ---
-path: '/luku-3/2-pariteetti-hamming'
+path: '/luku-7/2-pariteetti-hamming'
 title: 'Muuttuneen bitin havaitseminen ja korjaaminen'
 hidden: false
 ---
@@ -27,4 +27,3 @@ hidden: false
 ## Quizit 8.2
 <!-- Quiz 8.2.?? -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
-

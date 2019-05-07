@@ -1,5 +1,5 @@
 ---
-path: '/luku-4/1-tiedostojarjestelma'
+path: '/luku-8/1-tiedostojarjestelma'
 title: 'Tiedostojärjestelmä'
 hidden: false
 ---
@@ -23,5 +23,3 @@ hidden: false
 ## Quizit 9.1
 <!-- Quiz 9.1.?? -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
-
-

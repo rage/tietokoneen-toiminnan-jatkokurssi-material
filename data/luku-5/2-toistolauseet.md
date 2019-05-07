@@ -1,5 +1,5 @@
 ---
-path: '/luku-1/2-toistolauseet'
+path: '/luku-5/2-toistolauseet'
 title: 'Toistolauseiden toteutus'
 ---
 

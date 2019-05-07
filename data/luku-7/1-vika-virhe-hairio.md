@@ -1,5 +1,5 @@
 ---
-path: '/luku-3/1-vika-virhe-hairio'
+path: '/luku-7/1-vika-virhe-hairio'
 title: 'Vika, virhe ja häiriö'
 hidden: false
 ---

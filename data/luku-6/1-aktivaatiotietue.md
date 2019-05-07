@@ -1,5 +1,5 @@
 ---
-path: '/luku-2/1-aktivaatiotietue'
+path: '/luku-6/1-aktivaatiotietue'
 title: 'Aktivaatiotietue'
 ---
 

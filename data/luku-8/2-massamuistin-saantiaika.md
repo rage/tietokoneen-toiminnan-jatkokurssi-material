@@ -1,5 +1,5 @@
 ---
-path: '/luku-4/2-massamuistin-saantiaika'
+path: '/luku-8/2-massamuistin-saantiaika'
 title: 'Massamuistin saantiaika'
 hidden: false
 ---

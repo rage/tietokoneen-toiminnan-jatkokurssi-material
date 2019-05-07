@@ -1,5 +1,5 @@
 ---
-path: "/luku-1/3-taulukot-tietueet"
+path: "/luku-5/3-taulukot-tietueet"
 title: "Taulukoiden ja tietueiden toteutus"
 ---
 
@@ -28,4 +28,3 @@ title: "Taulukoiden ja tietueiden toteutus"
 
 
 <!-- Luvun 1 yhteenveto, mitä tuli opittua quiz 1.summary -->
-

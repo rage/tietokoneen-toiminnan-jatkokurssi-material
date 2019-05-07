@@ -1,5 +1,5 @@
 ---
-path: '/luku-4'
+path: '/luku-9'
 title: 'Luku 8: Ulkoisen muistin käyttö ja I/O:n toteutus'
 overview: true
 hidden: false

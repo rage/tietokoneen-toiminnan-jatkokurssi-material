@@ -1,5 +1,5 @@
 ---
-path: '/luku-3/3-muisti-cache-ssd'
+path: '/luku-7/3-muisti-cache-ssd'
 title: 'Muisti, välimuisti, SSD'
 hidden: false
 ---
@@ -8,19 +8,19 @@ hidden: false
 <lead>Rakenteisen ???? </lead>
 </div>
 
-## Keskusmuistin 
+## Keskusmuistin
 ????
 
-## Välimuisti 
+## Välimuisti
 ????
 
-## SSD-muisti 
+## SSD-muisti
 ???
 
 ### SSD vs. kovalevy
 ????
 
-### Virtuaalimuisti 
+### Virtuaalimuisti
 ????
 
 ## Quizit 8.3

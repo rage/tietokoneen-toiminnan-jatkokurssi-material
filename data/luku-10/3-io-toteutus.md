@@ -1,5 +1,5 @@
 ---
-path: '/luku-4/3-io-toteutus'
+path: '/luku-9/3-io-toteutus'
 title: 'I/O:n toteutus'
 hidden: false
 ---
@@ -42,4 +42,3 @@ Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 ### summary quizit ???
 
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
-
