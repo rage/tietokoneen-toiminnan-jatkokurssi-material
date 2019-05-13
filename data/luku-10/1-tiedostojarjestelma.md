@@ -1,25 +1,26 @@
 ---
-path: '/luku-9/1-tiedostojarjestelma'
-title: 'Tiedostojärjestelmä'
+path: '/luku-9/1-tulkitseminen-ohjelman-suoritustapana'
+title: 'Tulkitseminen ohjelman suoritustapana'
 hidden: false
 ---
 
 <div>
-<lead>Käyttöjärjestelmän ?????</lead>
+<lead>?????</lead>
 </div>
 
-## Tiedostojärjestelmä
+## Tulkitseminen ja tulkki
 ????
 
-## Tiedoston talletus massamuistiin
+### Skriptikielet ja niiden tulkit
 ????
 
-## Virtuaalimuisti vs.tiedostojärjestelmä
+## Emulointi
 ????
 
-### Massamuistin käyttö
-???
+## Simulointi
+????
 
-## Quizit 9.1
-<!-- Quiz 9.1.?? -->
+
+## Quizit 10.1
+<!-- Quiz 10.1.?? -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
