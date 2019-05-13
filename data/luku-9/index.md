@@ -1,6 +1,6 @@
 ---
 path: '/luku-9'
-title: 'Luku 8: Ulkoisen muistin käyttö ja I/O:n toteutus'
+title: 'Luku 9: Käännös, linkitys ja lataus'
 overview: true
 hidden: false
 ---
@@ -11,7 +11,7 @@ Ulkoinen muisti.... ??????
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin luvun 8 aihealueet.
+Yllä oleva sisällysluettelo sisältää kurssin luvun 9 aihealueet.
 
 Tämän tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminta luvuille 1-4.
 
