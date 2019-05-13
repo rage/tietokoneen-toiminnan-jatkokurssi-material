@@ -1,6 +1,6 @@
 ---
-path: '/luku-9/2-massamuistin-saantiaika'
-title: 'Massamuistin saantiaika'
+path: '/luku-9/2-kaantaminen'
+title: 'Kääntäminen'
 hidden: false
 ---
 
@@ -8,10 +8,10 @@ hidden: false
 <lead>Tässä????</lead>
 </div>
 
-## Levymuisti
+## Assembler kääntäminen
 ????
 
-## SSD ja NVMe
+## Korkean tason kielen kääntäminen
 ????
 
 ## Quizit 9.2
