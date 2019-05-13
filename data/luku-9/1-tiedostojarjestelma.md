@@ -1,24 +1,25 @@
 ---
-path: '/luku-9/1-tiedostojarjestelma'
-title: 'Tiedostojärjestelmä'
+path: '/luku-9/1-lausekielesta-suoritukseen'
+title: 'Lausekielestä suoritukseen'
 hidden: false
 ---
 
 <div>
-<lead>Käyttöjärjestelmän ?????</lead>
+<lead> ?????</lead>
 </div>
 
-## Tiedostojärjestelmä
+## Lausekielestä prosessiksi
 ????
 
-## Tiedoston talletus massamuistiin
+## Objektimoduuli ja symbolitaulu
 ????
 
-## Virtuaalimuisti vs.tiedostojärjestelmä
+## Makrot
 ????
 
-### Massamuistin käyttö
-???
+## Literaalit
+????
+
 
 ## Quizit 9.1
 <!-- Quiz 9.1.?? -->
