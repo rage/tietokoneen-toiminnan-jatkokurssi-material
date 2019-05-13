@@ -1,6 +1,6 @@
 ---
-path: '/luku-9/3-io-toteutus'
-title: 'I/O:n toteutus'
+path: '/luku-9/3-java-ohjelmien-suoritustavat'
+title: 'Java-ohjelmien suoritustavat'
 hidden: false
 ---
 
@@ -9,29 +9,24 @@ hidden: false
 </lead>
 </div>
 
-## Laiteajuri
-???
-
-## Laiteohjain
+## Java-tulkki
 ????
 
-### Laiterekisterit
-???
-
-#### Laiterekistereihin osoittaminen laiteajurista
-???
-
-###  Laiteohjainprosessi
-
-
-## I/O:n toteutustavat
-???
-
-## Esimerkki: ttk-91 kirjoittimen laiteajuri
+### Java-tulkki vs. Titokone
 ????
 
-## Quizit 9.3 ????
-<!--  quizit 9.3.???  -->
+## Kääntäminen natiivikoneelle
+????
+
+## JIT-käännös
+????
+
+## Java-suoritin
+????
+
+
+## Quizit 10.3 ????
+<!--  quizit 10.3.???  -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
 ## Yhteenveto
