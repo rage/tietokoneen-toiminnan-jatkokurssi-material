@@ -28,12 +28,3 @@ hidden: false
 ## Quizit 10.3 ????
 <!--  quizit 10.3.???  -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
-
-## Yhteenveto
-Tämä luku ...
-
-Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
-
-### summary quizit ???
-
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
