@@ -1,6 +1,6 @@
 ---
-path: '/luku-9/3-io-toteutus'
-title: 'I/O:n toteutus'
+path: '/luku-9/3-linkitys'
+title: 'Linkitys'
 hidden: false
 ---
 
@@ -9,25 +9,16 @@ hidden: false
 </lead>
 </div>
 
-## Laiteajuri
+## Uudelleensijoitusvakio
 ???
 
-## Laiteohjain
+## Assembler-kääntäminen
 ????
 
-### Laiterekisterit
-???
+## Korkean tason kielen kääntäminen
+????
 
-#### Laiterekistereihin osoittaminen laiteajurista
-???
-
-###  Laiteohjainprosessi
-
-
-## I/O:n toteutustavat
-???
-
-## Esimerkki: ttk-91 kirjoittimen laiteajuri
+### Välikieli, fromt end, back end
 ????
 
 ## Quizit 9.3 ????
