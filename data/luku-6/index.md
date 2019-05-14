@@ -1,5 +1,5 @@
 ---
-path: '/luku-06'
+path: '/luku-6'
 title: 'Luku 6: Aliohjelmien toteutus'
 overview: true
 hidden: false
