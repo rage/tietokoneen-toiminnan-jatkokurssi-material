@@ -1,5 +1,5 @@
 ---
-path: '/luku-05'
+path: '/luku-5'
 title: 'Luku 5: Konekielinen ohjelmointi'
 overview: true
 ---
