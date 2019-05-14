@@ -1,5 +1,5 @@
 ---
-path: '/luku-07'
+path: '/luku-7'
 title: 'Luku 7: Tiedon muuttumattomuus ja erilaiset muistit'
 overview: true
 hidden: false
