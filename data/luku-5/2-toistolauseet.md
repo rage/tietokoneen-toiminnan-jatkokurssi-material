@@ -54,13 +54,31 @@ Eri ohjelmointikielissä on vielä paljon muitakin toistolauseen muotoja, mutta 
 ## Toistolauseet konekielessä
 Konekielessä toistolauseita on vain kahden tyyppisiä. Molemmisssa alustetaan ensin mahdolliset muuntelumuuttujat. Ensimmäisessä tapauksessa tarkistetaan heti, josko silmukasta poistutaan tällä hetkellä. Jos ei poistuta niin silmukan runko suoritetaan ja sen jälkeen tehdään mahdolliset muutokset muuntelumuuttujiin. Toisessa vaihtoehdossa silmukan runko ja muutokset muuuntelumuuttujiin suoritetaan ensin ja sitten vasta testataan silmukan päättymisehtoa. Näillä kahdella vaihtoehdolla voidaan toteuttaa kaikki korkean tason kieleten toistolauseet. Totta kai varsinaisessa konekielisessä toteutuksessa pitää huomioida kunkin korkean tason kielen semanttiset erityispiirteet. 
 
-### esimerkki while
-????????????
+Esimerkiksi, edellä oleva C-kielen taulukon alustus for-silmukalla voitaisiin toteuttaa konekielellä seuraavasti:
 
+```
+      load r1, =0     ;  muuntelumuuttujan i alustus, arvo r1:ssä
+loop  comp r1, =30      ; silmukan lopetustesti
+      jequ done
+      load r2, r1       ; silmukan runko
+      mul  r2, =4
+      store r2, A(r1)
+      jump
+done  nop               ; poistu silmukasta      
+```
 
-### esimerkki For-loop
+Vastaavasti edellä oleva Fortran-kielinen do-silmukka ("do 50") olisi konekielellä:
 
+```
+      load r1, =0     ;  muuntelumuuttujan i alustus, arvo r1:ssä
+loop  load r2, r1       ; silmukan runko
+      mul  r2, =4
+      store r2, A(r1)
+      comp r1, =30      ; silmukan lopetustesti
+      jless loop     
+```
 
+Vaikka silmukat näyttävät kovin samanlaisilta, niissä on merkittävä semanttinen ero. Ei ole ollenkaan yhdentekevää, testataanko silmukan lopetusehto ennen ensimmäistä silmukan rungon suorituskertaa vai ei.
 
 ## Quizit 5.2  ????
 <!-- quiz 5.2.?? ???? -->
