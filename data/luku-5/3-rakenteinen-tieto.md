@@ -1,6 +1,6 @@
 ---
-path: "/luku-5/3-taulukot-tietueet"
-title: "Taulukoiden ja tietueiden toteutus"
+path: "/luku-5/3-rakenteinen-tieto"
+title: "Rakenteisen tiedon toteutus ja siihen viittaminen"
 ---
 
 <div>
@@ -64,15 +64,123 @@ Nyt taulukon alkion T[i,j] osoite on T + 3 * i + j ja alkioon T[i,j] viittammine
      load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
 ```
 
-Jos taas taulukko T on talletettu sarakettain yhtenäiselle muistialueelle, ......?????????
+Jos taas taulukko T on talletettu sarakettain yhtenäiselle muistialueelle, niin se on nyt muodossa
 
+```
+300: 25  11 88  66  2  3
+```
+
+Alkion T[i,j] osoite on nyt T + i + 2 * j ja alkioon T[i,j] viittamminen tapahtuisi esimerkiksi näin:
+
+```
+     load r1, j
+     mul r1, =2
+     add r1, i
+     load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
+```
+
+Kolmas vaihtoehto on tallettaa (esim.) kukin rivi kerrallaan omalle yhtenäiselle muistialueelleen ja rivien alkuosoitteet omaan 1-ulotteiseen taulukkoon. Taulukko T voisi nyt olla talletettu muistiin esim. seuraavasti:
+
+```
+400: 25   88  2            (rivi 0)
+430: 11   66  3            (rivi 1)
+300: 400 430               (rivien osoitteet, taulukko T)
+```
+
+Alkioon T[i,j] viittaminen tapahtuu nyt kaksi vaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten voi tehdä viitteen osoittamaan rivin i alkioon j.
+
+```
+     load r1, i
+     load r2, T(r1)    ; rivin T[i] osoite
+     add r1, j         ; alkion T[i,j] osoite   
+     load r2, 0(r1)    ; lataa r2:een alkion T[i,j] arvo
+```
 
 ## Moni-ulotteiset taulukot
-???
+Moniulotteiset taulukot talletetaan aivan vastaavasti kuten 2-ulotteiset taulukotkin. Käytetään esimerkkinä osoitteeseen 600 talletettua 3-ulotteista taulukkoa S[2,3,4]. Siinä on siis 2 tasoa, kullakin tasolla 3 riviä ja kullakin rivillä 4 alkiota. Tasolla nolla on alkiot
+
+```
+000 001 002 003
+010 011 012 013
+020 021 022 023
+```
+
+ja tasolla 1 alkiot
+
+```
+100 101 102 103
+110 111 112 113
+120 121 122 123
+```
+
+Jos S on talletettu "riveittäin", niin alkiot ovat muistissa riveittäin taso kerrallaan järjestyksessä 
+
+```
+600: 000 001 002 003  010 011 012 013  020 021 022 023
+612: 100 101 102 103  110 111 112 113  120 121 122 123
+```
+
+ja niihen voisi viitata esimerkiksi seuraavasti:
+
+```
+     load r1, i
+     mul r1, =12   ; joka tasossa 12 sanaa
+     load r2, j
+     mul r2, =4    ; joka rivillä 4 sanaa
+     add r1, r2
+     add r1, k
+     load r2, S(r1)  ; lataa r2:een alkion S[i,j,k] arvo
+```
+
+Jos taas S on talletettu sarakettein, niin tasoja on viimeisen indeksin mukaisesti neljä ja alkiot ovat muistissa järjestyksessä
+
+```
+600: 000 100 010 110 020 120     (taso k=0)
+606: 001 101 011 111 021 121     (taso k=1)
+612: 002 102 012 112 022 122     (taso k=2)
+606: 003 103 013 113 023 123     (taso k=3)
+```
+
+ja sama viite  (r2 = S[i,j,k]) toteutuisi nyt käskyillä
+
+```
+     load r1, k
+     mul r1, =6   ; joka tasossa 6 sanaa
+     load r2, j
+     mul r2, =2    ; joka sarakkeella 2 sanaa
+     add r1, r2
+     add r1, i
+     load r2, S(r1)  ; lataa r2:een alkion S[i,j,k] arvo
+```
+
+Jos taas S on talletettu (esim. riveittäin) linkitettynä rakenteena, niin tallennus voisi 
+
+```
+700:  000 001 002 003  (rivi S[0,0,*])
+301:  010 011 012 013  (rivi S[0,1,*])
+802:  020 021 022 023  (rivi S[0,2,*])
+510:  100 101 102 103  (rivi S[1,2,*])
+611:  110 111 112 113  (rivi S[1,2,*])
+712:  120 121 122 123  (rivi S[1,2,*])
+
+630:  700  301  802    (tason S[0,*,*] rivien osoitteet)
+541:  510  611  712    (tason S[1,*,*] rivien osoitteet)
+
+600:  630   541       (taulukon S tasojen osoitteet)
+```
+
+ja sama viite (r2 = S[i,j,k]) toteutuisi nyt käskyillä
+
+```
+     load r1, i
+     load r2, S(r1)    ; tason i osoite
+     add r2, j         ; rivin j osoitteen osoite
+     load r1, 0(r2)    ; rivin j osoite
+     add r1, k         ; alkio k osoite
+     load r2, S(r1)    ; lataa r2:een alkion S[i,j,k] arvo
+```
 
 ## Monimutkaiset rakenteiset tietorakenteet
-????
-
 
 ## Quizit 5.3 ??????
 
