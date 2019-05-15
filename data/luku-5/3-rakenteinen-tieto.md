@@ -30,10 +30,11 @@ Id      equ 0        ; tietueen Person kenttien suhteeliset sijainnit
 Age     equ 1
 Nr      equ 2
 
-Per0    ds 3         ; kolme kappaletta Person-tyyppistä tietuessa
+Per0    ds 3         ; kolme kappaletta Person-tyyppistä tietuetta
 Per1    ds 3
 Per2    ds 3
-...
+
+...               ; tietueiden alustus ja muuta koodia
  
    load r2, =Per1      ; r2 osoittaa tietueeseen Per1
    load  r1, Nr(r2)    ; hae rekisteriin r1 rekisterin r2  
@@ -43,19 +44,21 @@ Per2    ds 3
 ## 2-ulotteiset taulukot
 Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ole niitä tukevia tiedonosoitusmoodeja, joten tietoon viittaminen tapahtuu kahdessa vaiheessa. Ensin lasketaan omalla koodilla viitatun tiedon suhteellinen sijainti rakenteisen tiedon sisällä ja sitten indeksoitua tiedonosoitusmoodia käyttäen tehdään varsinainen tiedonosoitus.  
 
-2-ulotteiset taulukot voidaan tallettaa ainakin kolmella tavalla. Ne voidaan tallettaa yhtenäiselle alueelle _riveittäin_, jolloin esimerkiksi muistiosoitteeseen 300 talletettu taulukko T[2,3] 
+### Talletus riveittäin
+2-ulotteiset taulukot voidaan tallettaa muistiin ainakin kolmella tavalla. Ne voidaan tallettaa yhtenäiselle alueelle _riveittäin_, jolloin esimerkiksi osoitteeseen 300 talletettu taulukko T[2,3] 
 
 ```
 25  88  2
 11  66  3
 ```
-talletetaan muistiin peräkkäisiin muistipaikkohin, muistipaikasta 300 alkaen.
+
+talletetaan rivi kerrallaa muistiin peräkkäisiin muistipaikkohin, muistipaikasta 300 alkaen.
 
 ```
 300: 25  88  2 11  66  3
 ```
 
-Nyt taulukon alkion T[i,j] osoite on T + 3 * i + j ja alkioon T[i,j] viittamminen tapahtuisi esimerkiksi näin:
+Nyt taulukon alkion T[i,j] osoite on T + 3\*i + j ja alkioon T[i,j] viittamminen tapahtuisi esimerkiksi näin:
 
 ```
      load r1, i
@@ -64,13 +67,14 @@ Nyt taulukon alkion T[i,j] osoite on T + 3 * i + j ja alkioon T[i,j] viittammine
      load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
 ```
 
-Jos taas taulukko T on talletettu sarakettain yhtenäiselle muistialueelle, niin se on nyt muodossa
+### Talletus sarakettain
+Jos taas taulukko T on talletettu sarakettain yhtenäiselle muistialueelle, niin se on talletettu järjestyksessä
 
 ```
 300: 25  11 88  66  2  3
 ```
 
-Alkion T[i,j] osoite on nyt T + i + 2 * j ja alkioon T[i,j] viittamminen tapahtuisi esimerkiksi näin:
+Alkion T[i,j] osoite on T + i + 2\*j ja alkioon T[i,j] viittamminen tapahtuisi esimerkiksi näin:
 
 ```
      load r1, j
@@ -79,15 +83,16 @@ Alkion T[i,j] osoite on nyt T + i + 2 * j ja alkioon T[i,j] viittamminen tapahtu
      load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
 ```
 
+### Talletus linkitettynä rakenteena
 Kolmas vaihtoehto on tallettaa (esim.) kukin rivi kerrallaan omalle yhtenäiselle muistialueelleen ja rivien alkuosoitteet omaan 1-ulotteiseen taulukkoon. Taulukko T voisi nyt olla talletettu muistiin esim. seuraavasti:
 
 ```
 400: 25   88  2            (rivi 0)
 430: 11   66  3            (rivi 1)
-300: 400 430               (rivien osoitteet, taulukko T)
+300: 400 430               (Taulukon T rivien osoitteet)
 ```
 
-Alkioon T[i,j] viittaminen tapahtuu nyt kaksi vaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten voi tehdä viitteen osoittamaan rivin i alkioon j.
+Alkioon T[i,j] viittaminen tapahtuu nyt kaksi vaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten tehdään varsinainen  viite kyseisen rivin alkioon j.
 
 ```
      load r1, i
@@ -97,7 +102,7 @@ Alkioon T[i,j] viittaminen tapahtuu nyt kaksi vaiheisesti. Ensin haetaan rivin i
 ```
 
 ## Moni-ulotteiset taulukot
-Moniulotteiset taulukot talletetaan aivan vastaavasti kuten 2-ulotteiset taulukotkin. Käytetään esimerkkinä osoitteeseen 600 talletettua 3-ulotteista taulukkoa S[2,3,4]. Siinä on siis 2 tasoa, kullakin tasolla 3 riviä ja kullakin rivillä 4 alkiota. Tasolla nolla on alkiot
+Moniulotteiset taulukot talletetaan aivan vastaavasti. Käytetään esimerkkinä osoitteeseen 600 talletettua 3-ulotteista taulukkoa S[2,3,4]. Siinä on siis 2 tasoa, kullakin tasolla 3 riviä ja kullakin rivillä 4 alkiota. Tasolla nolla on alkiot
 
 ```
 000 001 002 003
@@ -112,6 +117,7 @@ ja tasolla 1 alkiot
 110 111 112 113
 120 121 122 123
 ```
+Alkioden arvot on tässä esimerkissä valittu tahallaan siten, että arvot vastaavat alkioiden indeksejä taulukossa S. Esimerkiksi alkion S[1,2,1] arvo on 121.
 
 Jos S on talletettu "riveittäin", niin alkiot ovat muistissa riveittäin taso kerrallaan järjestyksessä 
 
@@ -199,6 +205,35 @@ Esimerkiksi, jos R[20,30] on riveittäin talletettu 2-ulotteinen taulukko, jonka
 ```
 
 Toteutus on monimutkaisellakin rakenteella siis hyvinsuoraviivainen. Kääntäjät generoivat tällaista koodia hyvin helposti ja luotettavasti.
+
+## Indeksitarkistukset
+Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisista ohjelmointivirheistä ja tietosuojahyökkäyksistä. Ajatellaampa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X = T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187]\nbsp;=\nbsp;z" voidaan muokata muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add r1, =87". 
+
+Usein tällaiset taulukon ulkopuolelle tapahtuvat viittaukset ovat ihan ohjelmointivirheitä, jossa vaikka silmukan päättymisehdon toteutus sallii silmukan suorittamisen yhden kerran liikaa. Joissakin tapauksissa virhe on vain siinä, että indeksi arvoa ei tarkisteta ennen taulukkoviitteen käyttöä ja pahatahtoinen _hyökkääjä_ voi silloin ehkä käyttää tällaista tietoa _puskurin ylivuotohyökkäyksen_ tekemiseen. Tällöin taulukon kautta hyökkääjä voi muuttaa järjestelmän kriittisiä tietokenttiä tai sijoittaa haittaohjelman järjestelmän suoritettavaksi.
+
+Yksinkertainen tapa torjua tällaiset ongelmat on joka kerta taulukkoviitteen yhteydessä tarkistaa indeksin oikeellisuus. Esimerkiksi aikaisempi taulukkoon T[2,3] kohdistuva viite "r2 = T[i,j]" olisi nyt muotoa
+
+```
+     load r1, i           ; tarkista I
+     jneq r1, trouble
+     comp r1, =2
+     jnles trouble
+     
+     load r2, j           ; tarkista j
+     jneq r2, trouble
+     comp r2, =3
+     jnles trouble
+     
+     mul r1, =3
+     add r1, j
+     load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
+     
+     jump jatka
+trouble svc sp, =BADINDEX  ; käsittele virhetilanne
+jatka nop     
+```
+
+Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea ylimääräisten suoritettavien konekäskyjen vuoksi. Toisaalta, haavoittuvaan järjestelmään kohdistuneen puskurin ylivuotohyökkäyksen kustannukset voivat olla valtaisat. On myös muita tapoja tehdä indeksitarkistuksia ja torjua puskurin ylivuotohyökkäyksiä, mutta ne eivät sisälly tämän kussin oppimistavoitteisiin. 
 
 ## Quizit 5.3 ??????
 
