@@ -152,6 +152,12 @@ class Sidebar extends React.Component {
     if (process.env.NODE_ENV === "production") {
       edges = edges.filter(o => !o.hidden)
     }
+    edges.sort((a, b) =>
+      a.title.localeCompare(b.title, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      }),
+    )
     let content = content2.concat(edges)
     content = content.concat(futurePages)
     return (
