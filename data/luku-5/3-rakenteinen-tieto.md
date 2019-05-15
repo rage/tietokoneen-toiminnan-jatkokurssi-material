@@ -180,7 +180,25 @@ ja sama viite (r2 = S[i,j,k]) toteutuisi nyt käskyillä
      load r2, S(r1)    ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
+Näitä kaikki moniulotteisten taulukoiden talletusmuodot ovat käytössä. Useimmiten korkean tason kielellä ohjelmoitaessa niillä ei ole kovin paljon väliä, koska talletusmuoto ei näy korkean tason ohjelmointikielellä ohjelmoitaessa. Joissakin tapauksissa ohjelmien suoritusnopeutta voidaan kuitenkin huomattavasti nopeuttaa, jos talletusjärjestys otetaan huomoioon koodissa. Jos esimerkiksi käydään läpi 2-ulotteisen taulukon kaikki alkiot, niin välimuisti tekee niiden läpikäynnin muistiintallennusjärjestyksessä huomattavasti nopeammaksi kuin jossakin muussa järjestyksessä. Valitettavasti 2-ulotteisia taulukoita tarvitsee usein käydä läpi niin sarakettain kuin riveittäin, joten kumpi tahansa talletusmuoto on aina joskus huono.
+
 ## Monimutkaiset rakenteiset tietorakenteet
+Monimutkaisemmat tietorakenteet talletetaan muistiin vastaavilla tavoilla. Usein talletusmuoto määräytyy suoraan käytettävän ohjelmointikielen perusteella, mutta joissakin tilanteissa ohjelmoija voi päästä vaikuttamaan talletusmuotoon itsekin. Kulloinkin kätössä oleva talletusmuoto pitää sitten tietenkin huomioida hyvin huolella jokaisen dataviitten kohdalla.
+
+Esimerkiksi, jos R[20,30] on riveittäin talletettu 2-ulotteinen taulukko, jonka kukin alkio on 14-sanainen tietue, jonka kentät ovat id, lkm ja 12-alkionen taulukko pisteet, niin viite alkioon R[i,j].pisteet[kk] voisi olla toteutettuna
+
+```
+     load r1, i
+     mul  r1, =420   ; rivillä 30 tietuetta, kussakin 14 sanaa
+     load r2, j
+     mul r2, 14      ; kussakin alkiossa 14 sanaa
+     add r1, r2      ; alkion R[i,j] suhteellinen osoite R:n sisällä
+     add r1, =2      ; taulukon R[i,j] kentän pisteet suhteellinen osoite
+     add r1, kk      ; alkion R[i,j].pisteet[kk] suhteellinen osoite
+     load r2, R(r1)  ; lataa r2:een alkion R[i,j].pisteet[kk] arvo
+```
+
+Toteutus on monimutkaisellakin rakenteella siis hyvinsuoraviivainen. Kääntäjät generoivat tällaista koodia hyvin helposti ja luotettavasti.
 
 ## Quizit 5.3 ??????
 
