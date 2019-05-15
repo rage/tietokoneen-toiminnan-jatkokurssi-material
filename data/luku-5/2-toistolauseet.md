@@ -16,7 +16,7 @@ for (i=0; i++; i<30) {    /* i++ on sama kuin i = i+1   */
     }
 ```
 
-Useimmissa kielissä ehtolauseke tarkistetaan ennen silmukan koodin suorittamista ja tällöin mahdollista, että silmukan koodia (_runkoa_) ei suoriteta lainkaan. Joissakin kielissä ehtolauseke tarkistetaan vasta silmukan koodin suorittamisen jälkeen. Tuolloin silmukan koodi suoritetaan aina vähintään yhden kerran. 
+Useimmissa kielissä ehtolauseke tarkistetaan ennen silmukan koodin suorittamista ja tällöin on mahdollista, että silmukan koodia (_runkoa_) ei suoriteta lainkaan. Joissakin kielissä ehtolauseke tarkistetaan vasta silmukan koodin suorittamisen jälkeen. Tuolloin silmukan koodi suoritetaan aina vähintään yhden kerran. 
 
 ```
 do 50 i = 0, 30, 1 
