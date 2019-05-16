@@ -210,11 +210,20 @@ Esimerkiksi, jos R[20,30] on riveittäin talletettu 2-ulotteinen taulukko, jonka
 Toteutus on monimutkaisellakin rakenteella siis hyvinsuoraviivainen. Kääntäjät generoivat tällaista koodia hyvin helposti ja luotettavasti.
 
 ## Indeksitarkistukset
-Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisista ohjelmointivirheistä ja tietosuojahyökkäyksistä. Ajatellaampa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X = T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187] = Z" voidaan asettaa muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add r1, =87". 
+Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisista ohjelmointivirheistä ja tietosuojahyökkäyksistä. Ajatellaanpa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X&nbsp;=&nbsp;T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187]&nbsp;=&nbsp;Z" voidaan asettaa muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add&nbsp;r1,&nbsp;=87". 
 
-Usein tällaiset taulukon ulkopuolelle tapahtuvat viittaukset ovat ihan ohjelmointivirheitä, jossa esimerkiksi silmukan päättymisehdon toteutus sallii silmukan suorittamisen yhden kerran liikaa. Joissakin tapauksissa virhe on vain siinä, että indeksi arvoa ei tarkisteta ennen taulukkoviitteen käyttöä ja pahatahtoinen _hyökkääjä_ voi silloin ehkä käyttää tällaista tietoa _puskurin ylivuotohyökkäyksen_ tekemiseen. Tällöin taulukon T kautta hyökkääjä voi muuttaa järjestelmän kriittisiä tietokenttiä tai sijoittaa haittaohjelman järjestelmän suoritettavaksi.
+Usein tällaiset taulukon ulkopuolelle tapahtuvat [puskurin ylivuotovirheet](https://fi.wikipedia.org/wiki/Puskurin_ylivuotovirhe) ovat tavallisia ohjelmointivirheitä, jossa esimerkiksi silmukan päättymisehdon toteutus sallii silmukan suorittamisen yhden kerran liikaa tai yhden kerran liian vähän. Joissakin tapauksissa virhe on kuitenkin sellainen, että indeksin arvoa ei tarkisteta ennen taulukkoviitteen käyttöä ja pahatahtoinen _hyökkääjä_ voi silloin ehkä käyttää tilannetta hyödykseen _puskurin ylivuotohyökkäyksen_ tekemiseen. Tällöin taulukon T kautta hyökkääjä voi muuttaa järjestelmän kriittisiä tietokenttiä tai sijoittaa haittaohjelman järjestelmän suoritettavaksi.
 
-Yksinkertainen tapa torjua tällaiset ongelmat on joka kerta taulukkoviitteen yhteydessä tarkistaa indeksin (indeksien) oikeellisuus. Esimerkiksi aikaisempi taulukkoon T[2,3] kohdistuva viite "r2 = T[i,j]" olisi nyt muotoa
+Yksinkertainen tapa torjua tällaiset ongelmat on joka kerta taulukkoviitteen yhteydessä tarkistaa indeksin (indeksien) laillisuus. Esimerkiksi aikaisempi taulukkoon T[2,3] kohdistuva viite "r2 = T[i,j]" 
+
+```
+     load r1, i
+     mul r1, =3
+     add r1, j
+     load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
+```
+
+olisi nyt muotoa
 
 ```
      load r1, i           ; tarkista I
@@ -236,7 +245,7 @@ trouble svc sp, =BADINDEX  ; käsittele virhetilanne
 jatka nop     
 ```
 
-Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea suoritusnopeuden hidastuessa ylimääräisten suoritettavien konekäskyjen vuoksi. Toisaalta, haavoittuvaan järjestelmään kohdistuneen puskurin ylivuotohyökkäyksen kustannukset voivat olla valtaisat. On myös muita tapoja tehdä indeksitarkistuksia ja torjua puskurin ylivuotohyökkäyksiä, mutta ne eivät sisälly tämän kussin oppimistavoitteisiin. 
+Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea suoritusnopeuden hidastuessa ylimääräisten suoritettavien konekäskyjen vuoksi. Toisaalta, haavoittuvaan järjestelmään kohdistuneen puskurin ylivuotohyökkäyksen kustannukset voivat olla valtaisat. On myös muita tapoja tehdä ja välttää indeksitarkistuksia sekä torjua puskurin ylivuotohyökkäyksiä, mutta ne eivät sisälly tämän kussin oppimistavoitteisiin. 
 
 ## Quizit 5.3 ??????
 
