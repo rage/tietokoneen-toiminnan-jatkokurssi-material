@@ -92,8 +92,9 @@ Optimoinnilla voidaan siis saavuttaa huomattava nopeushyöty. Joissakin sovelluk
 
 Koodin suoritusnopeuteen liittyy nykyjärjestelmissä myös monen suorittimen (tai "ytimen") käyttö yhden ohjelman suoritukseen. Emme käsittele näitä moniprosessorijärjestelmiä tai niiden ohjelmointia tällä kurssilla lainkaan.
 
-## Quizit 5.4 ??????
-
 <!-- quiz 5.4 ????????????????? -->
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiznator id="5cdeab5dd09cea1bc9a2be47"></quiznator></div>
+<div><quiznator id="5cdeacfc4f1e771cc615626e"></quiznator></div>
+
+<!-- div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div> -->
