@@ -181,4 +181,7 @@ Vaikka silmukat näyttävät kovin samanlaisilta, niissä on merkittävä semant
 ## Quizit 5.2  ????
 <!-- quiz 5.2.?? ???? -->
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiznator id="5cde988da2f5511be16cb095"></quiznator></div>
+<div><quiznator id="5cdea124597ed81bbd1bd6f8"></quiznator></div>
+<div><quiznator id="5cde7b7a3bc2291c110210e3"></quiznator></div>
+<div><quiznator id="5cde9bd5d09cea1bc9a2be0b"></quiznator></div>
