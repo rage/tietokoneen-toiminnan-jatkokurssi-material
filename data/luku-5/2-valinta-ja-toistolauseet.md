@@ -178,7 +178,6 @@ loop  load r2, r1       ; silmukan runko
 
 Vaikka silmukat näyttävät kovin samanlaisilta, niissä on merkittävä semanttinen ero. Ei ole ollenkaan yhdentekevää, testataanko silmukan lopetusehto ennen ensimmäistä silmukan rungon suorituskertaa vai ei.
 
-## Quizit 5.2  ????
 <!-- quiz 5.2.?? ???? -->
 
 <div><quiznator id="5cde988da2f5511be16cb095"></quiznator></div>
