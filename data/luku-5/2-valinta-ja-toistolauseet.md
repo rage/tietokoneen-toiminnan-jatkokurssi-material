@@ -103,7 +103,7 @@ Toinen vaihtoehto on, että hyppytaulussa onkin eri vaihtoehtoihin johtavat _hyp
 done    nop
 ```
 
-## Erilaiset toistolauseet korkean tason kielissä
+## Toistolauseet korkean tason kielissä
 Korkean tason kielissä on tyypillisesti muutama eri tyyppinen toistolause. Toistolauseiden tyyppejä on useanlaisia, koska joihinkin tapuuksiin ongelman ratkaisu on helpompaa tietyn tyyppisellä toistolauseella kuin jollakin toisella.
 
 For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto. Joissakin kielissä sallitaan myös usean muuntelumuuttujan käyttö.
@@ -134,7 +134,7 @@ while (i<j) do {          /* C tai Java */
     }
 ```
  
-Tästäkin on muoto, jossa silmukan runko suoritetaan ainakin kerran. Joissakin kielissä siitä käytetään nimiä "_do-while_", "_do-until_" tai "_repeat-until_" silmukka.
+Tästäkin on muoto, jossa silmukan runko suoritetaan ainakin kerran. Siitä käytetään esimerkiksi nimiä "_do-while_", "_do-until_" tai "_repeat-until_" silmukka, ohjelmointikielestä riippuen.
 
 ```
 i=0; j= 50;
