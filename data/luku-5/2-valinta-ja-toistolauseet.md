@@ -106,7 +106,7 @@ done    nop
 ## Erilaiset toistolauseet korkean tason kielissä
 Korkean tason kielissä on tyypillisesti muutama eri tyyppinen toistolause. Toistolauseiden tyyppejä on useanlaisia, koska joihinkin tapuuksiin ongelman ratkaisu on helpompaa tietyn tyyppisellä toistolauseella kuin jollakin toisella.
 
-For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto.
+For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto. Joissakin kielissä sallitaan myös usean muuntelumuuttujan käyttö.
 
 ```
 for (i=0; i++; i<30) {    /* i++ on sama kuin i=i+1, C tai Java */
