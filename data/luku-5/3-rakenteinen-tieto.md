@@ -247,9 +247,11 @@ jatka nop
 
 Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea suoritusnopeuden hidastuessa ylimääräisten suoritettavien konekäskyjen vuoksi. Toisaalta, haavoittuvaan järjestelmään kohdistuneen puskurin ylivuotohyökkäyksen kustannukset voivat olla valtaisat. On myös muita tapoja tehdä ja välttää indeksitarkistuksia sekä torjua puskurin ylivuotohyökkäyksiä, mutta ne eivät sisälly tämän kussin oppimistavoitteisiin. 
 
-## Quizit 5.3 ??????
-
 <!-- quiz 5.3 ????????????????? -->
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiznator id="5cdea2803bc2291c11021171"></quiznator></div>
+<div><quiznator id="5cdea417142fa41c2b8c7e35"></quiznator></div>
+<div><quiznator id="5cdea57a3bc2291c11021182"></quiznator></div>
+<div><quiznator id="5cdea76356ccdc1c978a742d"></quiznator></div>
+<div><quiznator id="5cdea924597ed81bbd1bd713"></quiznator></div>
 
