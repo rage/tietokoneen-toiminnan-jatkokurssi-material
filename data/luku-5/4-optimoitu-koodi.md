@@ -76,7 +76,7 @@ Edellisessä esimerkissä optimoitu koodi oli huomattavasti lyhyempi kuin optimo
 ```
       load  r1, =T   ; r1 = alustettavan alkion osoite 
       load  r2, X    ; r2 = X (vakio)
-      load r3, =499  ; vielä alustettavian alkioiden lukumäärä
+      load r3, =499  ; vielä alustettavien alkioiden lukumäärä
 Loop  store r2, 0(r1)
       store r2, 1(r1)
       store r2, 2(r1)
