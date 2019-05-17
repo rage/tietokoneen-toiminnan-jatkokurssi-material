@@ -26,10 +26,10 @@ Konekielessä valintalauseet toteutetaan yksinkertaisesti ehdollisilla hyppykäs
 
 ```
       load r1, X
-      jnzer r1, Xnotz
-      ...                   ; then branch
+      jnzer r1, xnotz
+      ...                   ; then-haara
       jump done
-xnzer ...                ; else branch
+xnzer ...                ; else-haara
 done  nop
 ```
 
@@ -39,17 +39,17 @@ Monivalinta tehdään tyypillisesti vain vertailemalla lausekkeen arvoa eri vaih
      load r1, X
      comp r1, =1
      jnequ not1
-     ...           ; case X=1
+     ...           ; vaihtoehto X=1
      jump done
 not1 comp r1, =2
      jnequ not2
-     ...           ; case X=2
+     ...           ; vaihtoehto X=2
      jump done
 not2 comp r1, =3
      jnequ not1
-     ...           ; case X=3
+     ...           ; vaihtoehto X=3
      jump done
-not2 ...           ; case default
+not2 ...           ; oletus vaihtoehto (default)
 done nop
 ```
 
@@ -62,13 +62,13 @@ Joissakin tapauksissa monivalinta voidaan toteuttaa ns. _hyppytaulun_ (jump tabl
 JumpT  ds 10   ; oleta arvoalue 0-9
 
 ; --- eri vaihtoehtoihin liittyvät koodit
-case1   ...      ; case X=1
+case1   ...      ; vaihtoehto X=1
         jump done        
-case2   ...      ; case X=2
+case2   ...      ; vaihtoehto X=2
         jump done
-case8   ...      ; case X=8
+case8   ...      ; vaihtoehto X=8
         jump done
-caseD   ...      ; case default
+caseD   ...      ; oletus vaihtoehto (default)
         jump done
 
 ; --- hyppytaulun JumpT alustus
@@ -94,7 +94,7 @@ caseD   ...      ; case default
 done    nop
 ```
 
-Toinen vaihtoehto on, että hyppytaulussa onkin eri vaihtoehtoihin johtavat _hyppykäskyt_, joista yksi valitaan suoritukseen haarautumisehdon perusteella. Taulun alustus tapahtuu tietenkin vähän eri tavalla 
+Toinen vaihtoehto on, että hyppytaulussa onkin eri vaihtoehtoihin johtavat _hyppykäskyt_, joista yksi valitaan suoritukseen haarautumisehdon perusteella. Taulun alustus ja vaihtoehdon valinta tapahtuvat nyt tietenkin vähän eri tavalla.
 
 ```
 ; --- halutun vaihtoehdon valinta   
