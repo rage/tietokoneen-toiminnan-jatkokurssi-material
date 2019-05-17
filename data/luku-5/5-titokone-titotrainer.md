@@ -4,7 +4,7 @@ title: "Titokone ja TitoTrainer"
 ---
 
 <div>
-<lead>Ihmisen ???????</lead>
+<lead>Kurssin oppimistavoitteisiin sisältyy konekielisen ohjelmoinnin perusteet. Ohjelmointia ei opi ilman ohjelmointi. Titokone on ttk-91 ohjelmien kehittämis- ja suoritusympäristö. TitoTrainer on Titokoneen päälle rakennettu harjoitteluympäristö, jossa annettujen ttk-91 ohjelmointitehtävien vastauksien oikeellisuus tarkistetaan automaattisesti.</lead>
 </div>
 
 ## Titokone
