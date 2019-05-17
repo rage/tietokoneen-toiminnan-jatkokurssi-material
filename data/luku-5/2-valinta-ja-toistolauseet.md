@@ -1,11 +1,58 @@
 ---
-path: '/luku-5/2-toistolauseet'
-title: 'Toistolauseiden toteutus'
+path: '/luku-5/2-valinta-ja-toistolauseet'
+title: 'Valinta- ja toistolauseiden toteutus'
 ---
 
 <div>
-<lead>Toistolause tarkoittaa sitä, että sama koodinpätkä suoritetaan uudestaan monta kertaa peräkkäin ja suorituskerrat eroavat yleensä vain tyhden muuttujan (ns. muuntelumuuttujan) arvon osalta.</lead>
+<lead>Normaalitapauksessa seuraavaksi suoritettava konekäsky on muistissa heti suorituksesaolevan konekäskyn jälkeen. Valintalauseella suorituspolku voi haarautua jonkin ehdon perusteella kahden tai useamman suoritushaaran välillä. Toistolause tarkoittaa sitä, että sama koodinpätkä suoritetaan uudestaan monta kertaa peräkkäin ja suorituskerrat eroavat yleensä vain yhden muuttujan (ns. muuntelumuuttujan) arvon osalta.</lead>
 </div>
+
+## Valintalauseet korkean tason kielissä
+Tyypillisesti kaikissa korkean tason ohjelmointikielissä on ehdollinen "_if&nbsp;...&nbsp;then&nbsp;...&nbsp;else&nbsp;..._" kontrollirakenne, jonka avulla valitaan kumpi mahdollisista koodinpätkistä suoritetaan. Tästä on myös yksinkertainen "_if&nbsp;...&nbsp;then&nbsp;_" muoto, jossa then-haaran koodi suoritetaan vain jos annettu ehto on voimassa. Sen jälkeen suoritus jatkuu normaalisti "_if&nbsp;...&nbsp;then&nbsp;_" lauseen jälkeisessä koodissa joka tapauksessa.
+
+Joissakin ohjelmointikielissä on myös ns. _swicth_ tai _case_ lause, jolla mahdollinen suorituspolku valitaan useammn vaihtoehdon väliltä. Esimerkiksi C-kielen switch-lauseella voidaan suoritettava koodinpätkä sen mukaan mikä jonkin lausekkeen arvo tällä hetkellä on. Lisäksi mukana on oletusarvo vaihtoehto, joka valitaan silloin kun mikään erikseen nimetty vaihtoehto ei toteutunut. 
+
+```
+switch(error-number)  {
+
+    case 1: ... ; break;
+    case 2: ... ; break;
+    case 8: ... ; break;
+    default: ...
+    }
+```
+
+## Valintalauseet konekielessä
+Konekielessä valintalauseet toteutetaan yksinkertaisesti ehdollisilla hyppykäskyillä.
+
+```
+      load r1, X
+      jnzer r1, Xnotz
+      ...                   ; then branch
+      jump done
+xnzer ...                ; else branch
+done  nop
+```
+
+Monivalinta tehdään tyypillisesti vain vertailemalla.....??????
+
+```
+  ??????? case esim
+```
+
+Joissakin tapauksissa monivalinta voidaan toteuttaa ns. _hyppytaulun_ (jump table) avulla. Hyppytaulussa on talletettuna eri vaihtoehtojen _hyppyosoitteet_, joista yksi valitaan haarautumisehdon perusteella.
+
+```
+  ??????? hyppytauluesim
+```
+
+Toinen vaihtoehto on, että hyppytaulussa onkin eri vaihtoehtoihin johtavat _hyppykäskyt_, joista yksi valitaan suoritukseen haarautumisehdon perusteella.
+
+```
+  ??????? hyppytauluesim, taulussa käskyt
+```
+
+Ongelmana molemmissa hyppytauluissa on 
 
 ## Erilaiset toistolauseet korkean tason kielissä
 Korkean tason kielissä on tyypillisesti muutama eri tyyppinen toistolause. For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto.
