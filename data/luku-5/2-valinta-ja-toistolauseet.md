@@ -10,11 +10,10 @@ title: 'Valinta- ja toistolauseiden toteutus'
 ## Valintalauseet korkean tason kielissä
 Tyypillisesti kaikissa korkean tason ohjelmointikielissä on ehdollinen "_if&nbsp;...&nbsp;then&nbsp;...&nbsp;else&nbsp;..._" kontrollirakenne, jonka avulla valitaan kumpi mahdollisista koodinpätkistä suoritetaan. Tästä on myös yksinkertainen "_if&nbsp;...&nbsp;then&nbsp;_" muoto, jossa then-haaran koodi suoritetaan vain jos annettu ehto on voimassa. Sen jälkeen suoritus jatkuu normaalisti "_if&nbsp;...&nbsp;then&nbsp;_" lauseen jälkeisessä koodissa joka tapauksessa.
 
-Joissakin ohjelmointikielissä on myös ns. _swicth_ tai _case_ lause, jolla mahdollinen suorituspolku valitaan useammn vaihtoehdon väliltä. Esimerkiksi C-kielen switch-lauseella voidaan suoritettava koodinpätkä sen mukaan mikä jonkin lausekkeen arvo tällä hetkellä on. Lisäksi mukana on oletusarvo vaihtoehto, joka valitaan silloin kun mikään erikseen nimetty vaihtoehto ei toteutunut. 
+Joissakin ohjelmointikielissä on myös ns. _swicth_ tai _case_ lause, jolla mahdollinen suorituspolku valitaan useammn vaihtoehdon väliltä. Esimerkiksi C-kielen switch-lauseella voidaan suoritettava koodinpätkä valita sen mukaan, mikä jonkin lausekkeen arvo tällä hetkellä on. Lisäksi mukana on oletusarvo vaihtoehto, joka valitaan silloin kun mikään erikseen nimetty vaihtoehto ei toteutunut. 
 
 ```
 switch(error-number)  {
-
     case 1: ... ; break;
     case 2: ... ; break;
     case 8: ... ; break;
@@ -34,31 +33,83 @@ xnzer ...                ; else branch
 done  nop
 ```
 
-Monivalinta tehdään tyypillisesti vain vertailemalla.....??????
+Monivalinta tehdään tyypillisesti vain vertailemalla lausekkeen arvoa eri vaihtoehtoihin
 
 ```
-  ??????? case esim
+     load r1, X
+     comp r1, =1
+     jnequ not1
+     ...           ; case X=1
+     jump done
+not1 comp r1, =2
+     jnequ not2
+     ...           ; case X=2
+     jump done
+not2 comp r1, =3
+     jnequ not1
+     ...           ; case X=3
+     jump done
+not2 ...           ; case default
+done nop
 ```
 
-Joissakin tapauksissa monivalinta voidaan toteuttaa ns. _hyppytaulun_ (jump table) avulla. Hyppytaulussa on talletettuna eri vaihtoehtojen _hyppyosoitteet_, joista yksi valitaan haarautumisehdon perusteella.
+Tämä on tietenkin aika hidasta, kun keskimäärin pitää puolet vaihtoehdoista käydä läpi ennen oikean löytämistä. Oikean vaihtoedon löytämistä voi nopeuttaa, jos laittaa toidennäköisimmät vaihtoehdot ensin, mutta tämä ei useinkaan ole mahdollista. Hyvin kätevä korkean tason kielen rakenne muuttuu siis aika kämpelöksi konekieliseksi toteutukseksi.
+
+
+Joissakin tapauksissa monivalinta voidaan toteuttaa ns. _hyppytaulun_ (jump table) avulla. Hyppytaulussa on talletettuna eri vaihtoehtojen _hyppyosoitteet_, joista yksi valitaan haarautumisehdon perusteella. Hyppytaulun huonona puolena on, että sen pitää kattaa kaikki ehtolausekkeen mahdolliset arvot.
 
 ```
-  ??????? hyppytauluesim
+JumpT  ds 10   ; oleta arvoalue 0-9
+
+; --- eri vaihtoehtoihin liittyvät koodit
+case1   ...      ; case X=1
+        jump done        
+case2   ...      ; case X=2
+        jump done
+case8   ...      ; case X=8
+        jump done
+caseD   ...      ; case default
+        jump done
+
+; --- hyppytaulun JumpT alustus
+        ...     ; alusta kaikkiin arvo caseD
+         
+        load r1, =case1   ; muuta vaihtoon 1 liittyvä osoite
+        load r2, =1
+        store r1, JumpT(r2)
+        
+        load r1, =case2
+        load r2, =2
+        store r1, JumpT(r2)
+        
+        load r1, =case8
+        load r2, =8
+        store r1, JumpT(r2)       
+       
+; --- halutun vaihtoehdon valinta 
+        ; tässä pitäisi ehkä tarkistaa, onko X:n arvo ok!
+        load r1, X
+        load r2, Jump(r1)   ; oikean vaihtoehdon osoite
+        jump 0(r2)
+done    nop
 ```
 
-Toinen vaihtoehto on, että hyppytaulussa onkin eri vaihtoehtoihin johtavat _hyppykäskyt_, joista yksi valitaan suoritukseen haarautumisehdon perusteella.
+Toinen vaihtoehto on, että hyppytaulussa onkin eri vaihtoehtoihin johtavat _hyppykäskyt_, joista yksi valitaan suoritukseen haarautumisehdon perusteella. Taulun alustus tapahtuu tietenkin vähän eri tavalla 
 
 ```
-  ??????? hyppytauluesim, taulussa käskyt
+; --- halutun vaihtoehdon valinta   
+        load r1, X
+        jump r2, Jump(r1) ; hyppää oikeaan vaihtoehtoon hyppäävään käskyyn
+done    nop
 ```
-
-Ongelmana molemmissa hyppytauluissa on 
 
 ## Erilaiset toistolauseet korkean tason kielissä
-Korkean tason kielissä on tyypillisesti muutama eri tyyppinen toistolause. For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto.
+Korkean tason kielissä on tyypillisesti muutama eri tyyppinen toistolause. Toistolauseiden tyyppejä on useanlaisia, koska joihinkin tapuuksiin ongelman ratkaisu on helpompaa tietyn tyyppisellä toistolauseella kuin jollakin toisella.
+
+For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto.
 
 ```
-for (i=0; i++; i<30) {    /* i++ on sama kuin i = i+1   */
+for (i=0; i++; i<30) {    /* i++ on sama kuin i=i+1   */
     A[i] = 4*i; 
     }
 ```
@@ -66,12 +117,12 @@ for (i=0; i++; i<30) {    /* i++ on sama kuin i = i+1   */
 Useimmissa kielissä ehtolauseke tarkistetaan ennen silmukan koodin suorittamista ja tällöin on mahdollista, että silmukan koodia (_runkoa_) ei suoriteta lainkaan. Joissakin kielissä ehtolauseke tarkistetaan vasta silmukan koodin suorittamisen jälkeen. Tuolloin silmukan koodi suoritetaan aina vähintään yhden kerran. 
 
 ```
-do 50 i = 0, 30, 1 
-A[i] = 4*i; 
+   do 50 i = 0, 30, 1 
+   A[i] = 4*i; 
 50 continue
 ```
 
-Toinen tyypillinen toistolause on while-silmukka, jossa silmukkaa suoritetaan kunnes jokin ehto tulee voimaan. Muuntelumuuttujia voi tällöin olla silmukassa useitakin, mutta ne täytyy alustaa do-lauseen ulkopuolella.
+Toinen tyypillinen toistolause on "_while-do_" silmukka, jossa silmukkaa suoritetaan kunnes jokin ehto tulee voimaan. Muuntelumuuttujia voi tällöin olla silmukassa useitakin, mutta ne täytyy alustaa while-lauseen ulkopuolella.
 
 ```
 i=0; j= 50;
@@ -83,7 +134,7 @@ while (i<j) do {
     }
 ```
  
-Tästäkin on muoto, jossa silmukan runko suoritetaan ainakin kerran. Joissakin kielissä siitä käytetään nimeä do-until silmukka.
+Tästäkin on muoto, jossa silmukan runko suoritetaan ainakin kerran. Joissakin kielissä siitä käytetään nimeä "_do-until_" silmukka.
 
 ```
 i=0; j= 50;
