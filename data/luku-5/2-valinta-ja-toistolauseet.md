@@ -109,7 +109,7 @@ Korkean tason kielissä on tyypillisesti muutama eri tyyppinen toistolause. Tois
 For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto.
 
 ```
-for (i=0; i++; i<30) {    /* i++ on sama kuin i=i+1   */
+for (i=0; i++; i<30) {    /* i++ on sama kuin i=i+1, C tai Java */
     A[i] = 4*i; 
     }
 ```
@@ -117,7 +117,7 @@ for (i=0; i++; i<30) {    /* i++ on sama kuin i=i+1   */
 Useimmissa kielissä ehtolauseke tarkistetaan ennen silmukan koodin suorittamista ja tällöin on mahdollista, että silmukan koodia (_runkoa_) ei suoriteta lainkaan. Joissakin kielissä ehtolauseke tarkistetaan vasta silmukan koodin suorittamisen jälkeen. Tuolloin silmukan koodi suoritetaan aina vähintään yhden kerran. 
 
 ```
-   do 50 i = 0, 30, 1 
+   do 50 i = 0, 30, 1      /* Fortran */
    A[i] = 4*i; 
 50 continue
 ```
@@ -126,7 +126,7 @@ Toinen tyypillinen toistolause on "_while-do_" silmukka, jossa silmukkaa suorite
 
 ```
 i=0; j= 50;
-while (i<j) do {
+while (i<j) do {          /* C tai Java */
     x = T[i];
     T[i] = T[j];
     T[j] = x;
@@ -134,11 +134,11 @@ while (i<j) do {
     }
 ```
  
-Tästäkin on muoto, jossa silmukan runko suoritetaan ainakin kerran. Joissakin kielissä siitä käytetään nimeä "_do-until_" silmukka.
+Tästäkin on muoto, jossa silmukan runko suoritetaan ainakin kerran. Joissakin kielissä siitä käytetään nimiä "_do-while_", "_do-until_" tai "_repeat-until_" silmukka.
 
 ```
 i=0; j= 50;
-do {
+do {                           /* C Sharp */
     x = T[i];
     T[i] = T[j];
     T[j] = x;
