@@ -8,20 +8,21 @@ title: 'Valinta- ja toistolauseiden toteutus'
 </div>
 
 ## Ohjelmoinnin peruskäsitteet
-Ohjelmoinnissa voidaan ajatella olevan muutama peruskäsite, jotka pitää jollain tavoin toteuttaa. Varsinainen _laskentatyö_ on pääasia ja se oikeastaan tarkoitta yksinkertaisten laskutoimitusten tekoa. Aritmeettis-loogisten lausekkeiden toteutus konekielellä on hyvin suoraviivaista.
+Ohjelmoinnissa voidaan ajatella olevan muutama peruskäsite, jotka pitää jollain tavoin toteuttaa. Varsinainen _laskentatyö_ on pääasia ja se oikeastaan tarkoittaa yksinkertaisten laskutoimitusten tekoa. Aritmeettis-loogisten lausekkeiden toteutus konekielellä on hyvin suoraviivaista, koska yleisimmin käytetyt aritmeettis-loogiset operaatiot voidaan toteuttaa suoraan niitä vastaavilla konekäskyillä. Pienenä ongelma-alueena tässä on, että kaikki laskenta tapahtuu rekistereiden avulla ja pienen rekisterijoukon optimaalinen käyttö suuren datajoukon laskentaan ei ole ihan helppoa.
 
 ```
-      ;   x = 2x+y
+; lausekkeen x = 2x+y toteutus konekielellä
 load r1, x
 mul r1, =2
 add r1, y
 store r1, x
 ```
 
-Ohjelman _kontrolli_ määrittelee, mistä seuraava konekäsky löytyy nyt suorituksessa olevan jälkeen. Tähän liittyy olennaisesti erilaisten koodin suorituspolkujen valinta ja eri tavoin tapahtuva saman koodin suorituksen toisto.
+Ohjelman _kontrolli_ määrittelee, mistä seuraava konekäsky löytyy nyt suorituksessa olevan jälkeen. Oletusarvoisestihan seuraava konekäsky löytyy edellisen jälkeen muistista, mutta usein haarautuu mualle ohjelmalogiikan mukaisesti. Tähän liittyy erilaisten koodin suorituspolkujen valinta ja eri tavoin tapahtuva saman koodin suorituksen toisto. 
 
-??????????
+_Aliohjelmat_ (funktiot, metodit) ovat oma kategoriansa kontrollin siirron suhteen. Niissä on helposti käytettävää parametrisoitua koodia, jota voidaan käyttää _kutsumalla_ mistä tahansa. Aliohjelmat voivat olla kyseisen ohjelmiston omien sisäisten rutiinien lisäksi ohjelmointikielen tai käyttöjärjestelmän palvelurutiineja. Nämä käsitellään seuraavassa luvussa 6.
 
+Käsiteltävä tieto voi olla yksittäisiä sanoja, mutta usein tarvitaan laajempia _tietorakenteita_. Yksinkertaisissa tietorakenteissa olevaan tietoon pystytään viittaamaan suoraan konekäskystä sopivan tiedonosoitusmoodin avulla. Monimutkaisessa tietorakenteet ovat sellaisia, joissa viitattavan tiedon osoite pitää laskea usean konekäskyn avulla ennen kuin dataviite voidaan tehdä.
 
 ## Valintalauseet korkean tason kielissä
 Tyypillisesti kaikissa korkean tason ohjelmointikielissä on ehdollinen "_if&nbsp;...&nbsp;then&nbsp;...&nbsp;else&nbsp;..._" kontrollirakenne, jonka avulla valitaan kumpi mahdollisista koodinpätkistä suoritetaan. Tästä on myös yksinkertainen "_if&nbsp;...&nbsp;then&nbsp;_" muoto, jossa then-haaran koodi suoritetaan vain jos annettu ehto on voimassa. Sen jälkeen suoritus jatkuu normaalisti "_if&nbsp;...&nbsp;then&nbsp;_" lauseen jälkeisessä koodissa joka tapauksessa.
