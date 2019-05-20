@@ -1,6 +1,6 @@
 ---
-path: '/luku-6/1-aktivaatiotietue'
-title: 'Aktivaatiotietue'
+path: '/luku-6/1-aliohjelmat'
+title: 'Aliohjelmat ja niiden toteutus'
 ---
 
 <div>
