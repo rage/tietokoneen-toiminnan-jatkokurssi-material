@@ -1,10 +1,10 @@
 ---
 path: '/luku-5/2-valinta-ja-toistolauseet'
-title: 'Valinta- ja toistolauseiden toteutus'
+title: 'Ohjelmoinnin peruskäsitteet sekä valinta- ja toistolauseiden toteutus'
 ---
 
 <div>
-<lead>Normaalitapauksessa seuraavaksi suoritettava konekäsky on muistissa heti suorituksesaolevan konekäskyn jälkeen. Valintalauseella suorituspolku voi haarautua jonkin ehdon perusteella kahden tai useamman suoritushaaran välillä. Toistolause tarkoittaa sitä, että sama koodinpätkä suoritetaan uudestaan monta kertaa peräkkäin ja suorituskerrat eroavat yleensä vain yhden muuttujan (ns. muuntelumuuttujan) arvon osalta.</lead>
+<lead>Normaalitapauksessa seuraavaksi suoritettava konekäsky on muistissa suorituksessa nyt olevan konekäskyn jälkeen. Valintalauseella suorituspolku voi haarautua jonkin ehdon perusteella kahden tai useamman suoritushaaran välillä. Toistolause tarkoittaa sitä, että sama koodinpätkä suoritetaan uudestaan monta kertaa peräkkäin ja suorituskerrat eroavat yleensä vain yhden muuttujan (ns. muuntelumuuttujan) arvon osalta.</lead>
 </div>
 
 ## Ohjelmoinnin peruskäsitteet
