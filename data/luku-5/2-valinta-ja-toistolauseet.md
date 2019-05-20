@@ -7,6 +7,22 @@ title: 'Valinta- ja toistolauseiden toteutus'
 <lead>Normaalitapauksessa seuraavaksi suoritettava konekäsky on muistissa heti suorituksesaolevan konekäskyn jälkeen. Valintalauseella suorituspolku voi haarautua jonkin ehdon perusteella kahden tai useamman suoritushaaran välillä. Toistolause tarkoittaa sitä, että sama koodinpätkä suoritetaan uudestaan monta kertaa peräkkäin ja suorituskerrat eroavat yleensä vain yhden muuttujan (ns. muuntelumuuttujan) arvon osalta.</lead>
 </div>
 
+## Ohjelmoinnin peruskäsitteet
+Ohjelmoinnissa voidaan ajatella olevan muutama peruskäsite, jotka pitää jollain tavoin toteuttaa. Varsinainen _laskentatyö_ on pääasia ja se oikeastaan tarkoitta yksinkertaisten laskutoimitusten tekoa. Aritmeettis-loogisten lausekkeiden toteutus konekielellä on hyvin suoraviivaista.
+
+```
+      ;   x = 2x+y
+load r1, x
+mul r1, =2
+add r1, y
+store r1, x
+```
+
+Ohjelman _kontrolli_ määrittelee, mistä seuraava konekäsky löytyy nyt suorituksessa olevan jälkeen. Tähän liittyy olennaisesti erilaisten koodin suorituspolkujen valinta ja eri tavoin tapahtuva saman koodin suorituksen toisto.
+
+??????????
+
+
 ## Valintalauseet korkean tason kielissä
 Tyypillisesti kaikissa korkean tason ohjelmointikielissä on ehdollinen "_if&nbsp;...&nbsp;then&nbsp;...&nbsp;else&nbsp;..._" kontrollirakenne, jonka avulla valitaan kumpi mahdollisista koodinpätkistä suoritetaan. Tästä on myös yksinkertainen "_if&nbsp;...&nbsp;then&nbsp;_" muoto, jossa then-haaran koodi suoritetaan vain jos annettu ehto on voimassa. Sen jälkeen suoritus jatkuu normaalisti "_if&nbsp;...&nbsp;then&nbsp;_" lauseen jälkeisessä koodissa joka tapauksessa.
 
