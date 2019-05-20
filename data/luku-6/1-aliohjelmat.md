@@ -1,6 +1,6 @@
 ---
 path: '/luku-6/1-aliohjelmat'
-title: 'Aliohjelmat, parametrityypit, aktivaatiotietue'
+title: 'Aliohjelmat, parametrityypit, aktivaatiotietue (AT)'
 ---
 
 <div>
@@ -65,29 +65,42 @@ Tällä kurssilla emme käsittele nimiparametreja tämän enempää, mutta on t�
 ## Aliohjelman toteutuksen osat
 Aliohjelman toteutuksessa täytyy löytää ratkaisu seuraaviin osaongelmiin.
 
-### Paluuosoite
-Aliohjelmille on ominaista, että niitä voidaan kutsua mistä päin tahansa koodi ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsu kohtaa jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla paluuosoite täytyy tallettaa johonkin.
+Aliohjelmille on ominaista, että niitä voidaan kutsua mistä päin tahansa koodi ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsu kohtaa jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla _paluuosoite_ täytyy tallettaa johonkin.
 
-### Parametrien välitys
-Aliohjelmissa voi olla eri tyyppisiä parametreja ja ne täytyy välittää kutsuvalta rutiinilta aliohjelmalle. Parametrien välitys pitää tapahtua korkean tason kielen semantiikan mukaisesti. Käytännössä yleensä riittää toteuttaa arvo- ja viiteparametrien välitys oikein. 
+Aliohjelmissa voi olla eri tyyppisiä parametreja ja ne täytyy välittää kutsuvalta rutiinilta aliohjelmalle. _Parametrien välityksen_ pitää tapahtua korkean tason kielen semantiikan mukaisesti. Käytännössä yleensä riittää toteuttaa arvo- ja viiteparametrien välitys oikein. parametreille on ominaista, että kutsuva rutiini voi kirjoittaa niihin ja aliohjelma voi lukea niitä. Viiteparametrien kautta aliohjelma pääsee myös lukemaan ja kirjoittamaan muita kutsuvan rutiinin tietoja. 
 
-### Paluuarvon välitys
-Jos aliohjelma (funktio) palauttaa jonkin arvon, järjestelmässä pitää olla 
+Jos aliohjelma (funktio) palauttaa jonkin arvon, meillä täytyy olla tätä _paluuarvoa_ varten oma muistialue. Aliohjelma voi kirjoittaa paluuarvon sinne ja kutsuva rutiini voi aliohjelmasta paluun jälkeen lukea paluuarvon sieltä. Tilanne on hyvin samanlainen kuin arvoparametrin käsittely, mutta tätä tietoa aliohjelma kirjoittaa ja kutsuva rutiini lukee.
 
-### Paikalliset muuttujat ja muut tietorakenteet
+Usein aliohjelmassa tarvitaan omia _paikallisia tietorakenteita_, jotka ovat olemassa ja viitattavissa ainoastaan aliohjelman suorituksen aikana. Tällaiset tiedoille pitää dynaamisesti varata muistitilaa joka kutsukerran yhteydessä ja vapauttaa tila aliohjelmasta paluun yhteydessä. Tila ei voi olla staattinen, koska samasta aliohjelmasta voi olla yhtä aikaa usea instassi suorituksessa. Esimerkiksi, [rekursiivisessa aliohjelmassa](https://fi.wikipedia.org/wiki/Rekursio) täytyy kaikki aliohjelman tietorakenteet varata joka kutsukertaa varten erikseen. Yleensä ohjelmointikielen semantiikka vaatii, että aliohjelman (metodin) tietorakenteet eivät ole viitattavissa muutoin kuin aliohjelman omassa koodissa. 
 
-### Rekistereiden turvallinenkäyttö
+Aliohjelmilla ei saisi olla mitään sivuvaikutuksia. Rekistereiden tasolla tämä tarkoittaa sitä, että kaikkien rekistereiden arvot täytyy aliohjelmasta paluun yhteydessä olla samat kuin mitä ne olivat kutsuhetkellä. Tämä toteutetaan siten, että aliohjelman täytyy _tallettaa_ kaikki käyttämänsä _rekistereiden arvot_ suorituksensa alussa ja _palauttaa arvot_ ennalleen kutsuvaan rutiiniin paluun yhteydessä. Esimerkiksi, jos rekisterissä r4 oli muuntelumuuttujan i arvo ennen aliohjelman kutsua, niin meidän täytyy voida luottaa siihen, että r4:n arvo on ennallaan aliohjelmasta palun jälkeen. 
 
 
+## Aktivaatiotietue (AT)
+Aliohjelmien toteutusmekanismi on aktivaatiotietue, joka on suurehko tietorakenne. Eri ohjelmointikielillä aktivointitietue voi olla vähän erilainen, mutta ne kaikki antavat jonkinlaisen ratkaisun em. aliohjelmien toteutuksen osaongelmiin. AT talletetaan yleensä muistissa olevaan pinoon.
 
-## Aktivaatiotietue
-Aliohjelmien toteutusmekanismi on aktivaatiotietue, joka on suurehko tietorakenne....  ???
+Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedot, pienemmästä muistiosoitteesta isompaan (ks. alla oleva kuva). Ensimmäisenä siellä tila mahdolliselle paluuarvolle (jos sitä tarvitaan) ja sitten kaikkien parametrien arvot. Arvoparametreillä siis jokin kokonaislukuarvo ja viiteparametreillä jokin muistiosoite (joka sekin on kokonaisluku). Sitten sieltä löytyy paluuosoite ja kutsukohdan hetkellä käytössä olleen AT:n osoite. Tämän jälkeen siellä on tilanvaraukset kaikille paikallisille muuttujille ja muille tietorakenteille. Viimeisenä on tässä aliohjelmassa käytettävien työrekistereiden kutsuhetken arvot, jotta ne voidaan palauttaa ennalleen aliohjelmasta paluun yhteydessä. 
+
+### aktivaatiotietue kuva  (puuttuu   ?????????)
+
+Normaalitapa osoittaa monisanaiseen tietoon on käyttää sen ensimmäisen sanan osoitetta koko rakenteen osoitteena. AT:n kohdalla sen osoite on kuitenkin keskellä tietuetta, osoittaen siihen sanaan, johon on talletettu kutsukohdan AT:n osoite. AT:n osoite on talletettu rekisteriin FP (frame pointer). Rekisteri r7 in varattu tätä tarkoitusta varten ja FP on vain toinen nimi rekisterille r7.
+
+Tästä on kaksi etua. AT:n koko on vaihteleva, koska parametrien ja paikallisten muuttujien (ym. paikallisten tietorakenteiden) määrä vaihtelee. Joissakin ohjelmointikielissä myös kutsuvan rutiinin tietorakenteet voivat olla viitattavissa. Nyt niihin pääsee helposti käsiksi, kun aliohjelman AT osoittaa suoraan kutsukohdan AT:hen, minkä kautta kutsuvan rutiinin tietorakenteet ovat helposti viitattavissa.
+
+Tällöin esimerkiksi paluuosoitteen suhteellinen sijainti tietueen alusta lukien on eri AT:lla erilainen ja se tekisi aliohjelmasta paluun vaikeksi toteuttaa. Nyt paluuosoite ja paluukohdan AT löytyvät helposti, kun nykyinen AT osoittaa niihin. Toinen syy on vähän monimutkaisempi. ....?????
+
+
+param sijainti...
+
+paik muutt sijainti....
+
+stack pointer.... 
+
+
+?????
 
 ## Aktivaatiotietuepino
 ?????
-
-## Tunnusten näkyvyysalueet
-????
 
 
 
