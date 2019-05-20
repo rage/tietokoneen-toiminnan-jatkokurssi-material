@@ -18,7 +18,7 @@ add r1, y
 store r1, x
 ```
 
-Ohjelman _kontrolli_ määrittelee, mistä seuraava konekäsky löytyy nyt suorituksessa olevan jälkeen. Oletusarvoisestihan seuraava konekäsky löytyy edellisen jälkeen muistista, mutta usein haarautuu mualle ohjelmalogiikan mukaisesti. Tähän liittyy erilaisten koodin suorituspolkujen valinta ja eri tavoin tapahtuva saman koodin suorituksen toisto. 
+Ohjelman _kontrolli_ määrittelee, mistä seuraava konekäsky löytyy nyt suorituksessa olevan jälkeen. Oletusarvoisestihan seuraava konekäsky löytyy edellisen jälkeen muistista, mutta usein kontrolli haarautuu mualle ohjelmalogiikan mukaisesti. Tähän liittyy erilaisten koodin suorituspolkujen valinta ja eri tavoin tapahtuva saman koodin suorituksen toisto. 
 
 _Aliohjelmat_ (funktiot, metodit) ovat oma kategoriansa kontrollin siirron suhteen. Niissä on helposti käytettävää parametrisoitua koodia, jota voidaan käyttää _kutsumalla_ mistä tahansa. Aliohjelmat voivat olla kyseisen ohjelmiston omien sisäisten rutiinien lisäksi ohjelmointikielen tai käyttöjärjestelmän palvelurutiineja. Nämä käsitellään seuraavassa luvussa 6.
 
