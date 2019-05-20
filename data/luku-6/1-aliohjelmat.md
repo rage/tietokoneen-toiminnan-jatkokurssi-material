@@ -1,6 +1,6 @@
 ---
 path: '/luku-6/1-aliohjelmat'
-title: 'Aliohjelmat ja niiden toteutus'
+title: 'Aliohjelmat, parametrityypit, aktivaatiotietue'
 ---
 
 <div>
@@ -66,11 +66,13 @@ Tällä kurssilla emme käsittele nimiparametreja tämän enempää, mutta on t�
 Aliohjelman toteutuksessa täytyy löytää ratkaisu seuraaviin osaongelmiin.
 
 ### Paluuosoite
-???
+Aliohjelmille on ominaista, että niitä voidaan kutsua mistä päin tahansa koodi ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsu kohtaa jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla paluuosoite täytyy tallettaa johonkin.
 
 ### Parametrien välitys
+Aliohjelmissa voi olla eri tyyppisiä parametreja ja ne täytyy välittää kutsuvalta rutiinilta aliohjelmalle. Parametrien välitys pitää tapahtua korkean tason kielen semantiikan mukaisesti. Käytännössä yleensä riittää toteuttaa arvo- ja viiteparametrien välitys oikein. 
 
 ### Paluuarvon välitys
+Jos aliohjelma (funktio) palauttaa jonkin arvon, järjestelmässä pitää olla 
 
 ### Paikalliset muuttujat ja muut tietorakenteet
 
