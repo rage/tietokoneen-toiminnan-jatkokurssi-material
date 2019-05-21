@@ -89,7 +89,7 @@ Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedo
 <illustrations motive="ch-6-1-a-aktivaatiotietue"></illustrations>
 </div>
 
-Normaalitapa osoittaa monisanaiseen tietoon on käyttää sen ensimmäisen sanan osoitetta koko rakenteen osoitteena. AT:n kohdalla sen osoite on kuitenkin keskellä tietuetta, osoittaen siihen sanaan, johon on talletettu kutsukohdan AT:n osoite. AT:n osoite on talletettu rekisteriin FP (frame pointer). Rekisteri r7 in varattu tätä tarkoitusta varten ja FP on vain toinen nimi rekisterille r7.
+Normaalitapa osoittaa monisanaiseen tietoon on käyttää sen ensimmäisen sanan osoitetta koko rakenteen osoitteena. AT:n kohdalla sen osoite on kuitenkin keskellä tietuetta, osoittaen siihen sanaan, johon on talletettu kutsukohdan AT:n osoite. Nykykyisen AT:n osoite on rekisterissä FP (frame pointer) ja se siis osoittaa vanhan FP:n arvoon. "FP" on vain toinen nimi rekisterille r7.
 
 Tästä on kaksi etua. AT:n koko on vaihteleva, koska parametrien ja paikallisten muuttujien (ym. paikallisten tietorakenteiden) määrä vaihtelee. Joissakin ohjelmointikielissä myös kutsuvan rutiinin tietorakenteet voivat olla viitattavissa. Nyt niihin pääsee helposti käsiksi, kun aliohjelman AT osoittaa suoraan kutsukohdan AT:hen, minkä kautta kutsuvan rutiinin tietorakenteet ovat helposti viitattavissa.
 
