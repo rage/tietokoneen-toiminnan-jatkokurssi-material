@@ -89,19 +89,13 @@ Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedo
 
 Normaalitapa osoittaa monisanaiseen tietoon on käyttää sen ensimmäisen sanan osoitetta koko rakenteen osoitteena. AT:n kohdalla sen osoite on kuitenkin keskellä tietuetta, osoittaen siihen sanaan, johon on talletettu kutsukohdan AT:n osoite. Nykykyisen AT:n osoite on rekisterissä FP (frame pointer) ja se siis osoittaa vanhan FP:n arvoon. "FP" on vain toinen nimi rekisterille r7.
 
-Tästä on kaksi etua. AT:n koko on vaihteleva, koska parametrien ja paikallisten muuttujien (ym. paikallisten tietorakenteiden) määrä vaihtelee. Joissakin ohjelmointikielissä myös kutsuvan rutiinin tietorakenteet voivat olla viitattavissa. Nyt niihin pääsee helposti käsiksi, kun aliohjelman AT osoittaa suoraan kutsukohdan AT:hen, minkä kautta kutsuvan rutiinin tietorakenteet ovat helposti viitattavissa.
+Tästä on kaksi etua. AT:n koko on vaihteleva, koska parametrien ja paikallisten muuttujien (ym. paikallisten tietorakenteiden) määrä vaihtelee. Joissakin ohjelmointikielissä myös kutsuvan rutiinin tietorakenteet voivat olla viitattavissa. Nyt niihin pääsee helposti käsiksi, kun aliohjelman AT osoittaa suoraan kutsukohdan AT:hen, minkä kautta kutsuvan rutiinin tietorakenteet ovat helposti viitattavissa. Nyt myös paluuosoite ja paluukohdan AT (vanha FP) löytyvät helposti, kun nykyinen AT osoittaa niihin. 
 
-Tällöin esimerkiksi paluuosoitteen suhteellinen sijainti tietueen alusta lukien on eri AT:lla erilainen ja se tekisi aliohjelmasta paluun vaikeksi toteuttaa. Nyt paluuosoite ja paluukohdan AT löytyvät helposti, kun nykyinen AT osoittaa niihin. Toinen syy on vähän monimutkaisempi. ....?????
+Parametrien lukumäärä voi vaihdella, mutta niiden suhteellinen sijainti AT:ssä on aina sama. Viimeinen parametri on osoitteessa FP-2, sitä edellinen osoitteessa FP-3, jne. Funktion paluuarvon sijainti on juuri ennen parametreja. Funktiossa F paluuarvo osiis osoitteessa FP-4, parametri x osoitteessa FP-3 ja parametri y osoitteessa FP-2. Emme tiedä täsmällisiä muistiosoitteita parametreille, muutta niihin pystyy viittaamaan käyttämällä näitä suhteellisia osoitteita.
 
+Paikalliset muuttujat sijaitsevat nekin suhteellisesti aina samassa kohtaa AT:tä, heti FP:n vanhanarvon jälkeen. Esimerkiksi, funktiossa F paikallisen muuttujan i osoite FP+1 ja paikallisen muuttujan j osoite on FP+2. Emme tiedä täsmällisiä muistiosoitteita paikallisille tietorakenteille, muutta niihin pystyy viittaamaan käyttämällä näitä suhteellisia osoitteita. 
 
-param sijainti...
-
-paik muutt sijainti....
-
-stack pointer.... 
-
-
-?????
+Viimeisenä aktivointitietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktion F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu viimeisenä aktivointitietueeseen. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
 
 ## Aktivaatiotietuepino
 ?????
