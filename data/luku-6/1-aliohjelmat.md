@@ -25,11 +25,11 @@ _Arvoparametri_ tarkoittaa, että aliohjelmalle annetaan jonkin lausekkeen _arvo
 
 _Viiteparametri_ taas tarkoittaa, että parametrina välitetään jokin _tiedon osoite_. Se voi olla yksittäisen muuttujan osoite, tai rakenteisen tiedon osoite. Se voi olla myös koodin osoite, kuten esimerkiksi aliohjelman tai metodin osoite. Emme kuitenkaan käsittele tätä mahdollisuutta enää jatkossa. Kutsuva ohjelman osa (pääohjelma tai toinen aliohjelma) välittää siis hallussaan olevan tiedon osoitteen aliohjelmalle. Tämän osoitteen avulla aliohjelma voi lukea annettua tietoa, mutta se voi myös muuttaa sitä! Aliohjelman paluuarvon lisäksi se voi siis palauttaa arvoja kutsuvalle rutiinille viiteparametrien kautta. Tällaisissa parametreja kutsutaan myös ulostuloparametreiksi. Jos muuttuja X välitetään viiteparametrina, niin sen arvo voi siis olla muuttunut aliohjelmasta palatessa.
 
-Toisena esimerkkinä viiteparametrin käytöstä on 16MB kuva, joka on ilmaistu 4096x4096 taulukkona Sue. Taulukon Sue osoite annetaan kuvan käsittelurutiinille ColorMe, joka kirkastaa annetun kuvan värejä halutulla tavalla. Jos Sue haluttaisiin antaa arvoparametrina, niin sen alkuarvo pitäisi kutsun yhteydessä kopioida ColorMe'lle ja kuvan käsittelyn lopuksi uusi kuva pitäisi jälleen kopioida kutsuvalle rutiinille. On paljon helpompaa antaa ColrMe'n suoraa lukea ja muuttaa alkuperäistä viiteparametrina annettua kuvaa Sue. Toisaalta tässä on pieni riski, että muut parametrit on valittu huonosti ja ColorMe antaa Sue'lle liian punaiset posket. Sitä varten kuvankäsittelyjärjestelmät ottavat Sue'sta varmuuskopion ennen ColorMe-kutsua, jotta epäonnistunut värikäsittely voidaan tarvittaesa perua.
+Toisena esimerkkinä viiteparametrin käytöstä on 16MB kuva, joka on ilmaistu 4096x4096 taulukkona Sue. Taulukon Sue osoite annetaan kuvan käsittelyrutiinille ColorMe, joka kirkastaa annetun kuvan värejä halutulla tavalla. Jos Sue haluttaisiin antaa arvoparametrina, niin se pitäisi kutsun yhteydessä kopioida ColorMe'lle ja kuvan käsittelyn lopuksi uusi kuva (funktion paluuarvona) pitäisi jälleen kopioida kutsuvalle rutiinille. On paljon helpompaa antaa ColrMe'n suoraa lukea ja muuttaa alkuperäistä viiteparametrina annettua kuvaa Sue. Toisaalta tässä on pieni riski, että muut parametrit on valittu huonosti ja ColorMe antaa Sue'lle liian punaiset posket. Sitä varten kuvankäsittelyjärjestelmät ottavat Sue'sta varmuuskopion ennen ColorMe-kutsua, jotta epäonnistunut värikäsittely voidaan tarvittaesa perua.
 
 _Nimiparametri_ on aivan erilainen parametrityyppi. Kun arvoparametrillä välitetään tiedon arvo ja viiteparametrillä tiedon osoite, niin nimiparametrilla välitetään itse tieto merkkijonona. Tämä tarkoittaa sitä, että kutsuhetkellä aliohjelmassa käytetyn parametrin nimi (merkkijono) korvataan todellisen parametrilla (toinen merkkijono). 
 
-Useimmat ohjelmointikielet eivät salli nimiparametreja, koska aliohjelman koodi pitää kääntää uudelleen aliohjelman kutsuhetkellä ja se on todettu liian vaikeaksi järjestelmäksi. 
+Useimmat ohjelmointikielet eivät salli nimiparametreja, koska aliohjelman koodi pitää kääntää uudelleen aliohjelman kutsuhetkellä ja se on todettu liian hankalaksi. 
 
 [Skriptikielet](https://fi.wikipedia.org/wiki/Komentosarjakieli) ja [makrot](https://fi.wikipedia.org/wiki/Makro) sen sijaan käsitellään aina tulkitsemalla ja niissä nimiparametrit ovatkin yleisiä. Makrot ovat aliohjelman tapaisia usein toistuvan koodin määrittelyvälineitä, mutta ne laajennetaan koodiksi jo ennen varsinaista käännöstä. Makroilla ei ole omaa suoritusympäristöä. Koska makrot laajennetaan jo ennen ohjelman suoritusta, niiden muuttujilla ei voi olla suoritusaikaisia ominaisuuksia kuten arvo tai osoite. Ainoaksi parametrityypiksi jää nimiparametri.
 
@@ -42,7 +42,7 @@ i = j;
 j = tmp;
 ```
 
-Tämä näyttää ihan järkevältä ja sitä se onkin, kunhan vain parametrit on valittu sopivasti. Esimerkiksi makron käytöstä Swap(x,y) generoituu koodi 
+Tämä näyttää ihan järkevältä ja sitä se onkin, kunhan vain parametrit on valittu sopivasti. Esimerkiksi makro Swap(x,y) laajenee koodiksi (siitä generoidaan koodi)
 
 ```
 tmp = x;
@@ -50,7 +50,7 @@ x = y;
 y = tmp;
 ```
 
-mikä on juuri se mitä varmaankin haluttiinkin. Jos taas haluttaisiin vaihtaa muuttujan k ja taulukon alkion T[k] arvot keskenään, niin makrosta Swap(k, T[k]) generoituukin
+mikä on juuri se mitä varmaankin haluttiinkin. Jos taas haluttaisiin vaihtaa muuttujan k ja taulukon alkion T[k] arvot keskenään, niin makro Swap(k, T[k]) laajenee koodiksi
 
 ```
 tmp = k;
@@ -58,27 +58,27 @@ k = T[k];
 T[k] = tmp;
 ```
 
-jolloin jälkimmäinen T[k] viittaa väärään paikkaan, koska k:n arvo on jo ehtinyt muuttua.
+jolloin jälkimmäinen T[k] viittaa väärään paikkaan, koska k:n arvo on jo ehtinyt muuttua. Nimiparametritovat erilaisia!
 
 Tällä kurssilla emme käsittele nimiparametreja tämän enempää, mutta on tärkeä olla tietoinen tästäkin parametrityypistä. Ttk-91:ssä on ainoastaan arvo- ja viiteparametreja.
 
 ## Aliohjelman toteutuksen osat
 Aliohjelman toteutuksessa täytyy löytää ratkaisu seuraaviin osaongelmiin.
 
-Aliohjelmille on ominaista, että niitä voidaan kutsua lähes mistä päin tahansa koodia ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsu kohtaa jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla _paluuosoite_ täytyy tallettaa johonkin. (Kaikkia aliohjelmia ei kuitenkaan voi kutsua ihan joka paikasta. Esimerkiksi olion sisäiset metodit ovat sellaisia, että niitä voi kutsua vain kyseisen olion muista (julkisista tai sisäisistä) metodeista.)
+Aliohjelmille on ominaista, että niitä voidaan kutsua lähes mistä päin tahansa koodia ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsu kohtaa jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla _paluuosoite_ täytyy tallettaa johonkin. Kaikkia aliohjelmia ei kuitenkaan voi kutsua ihan joka paikasta. Esimerkiksi oliohjelmoinnissa olion sisäiset metodeja voi kutsua vain kyseisen olion muista (julkisista tai sisäisistä) metodeista.
 
 Aliohjelmissa voi olla eri tyyppisiä parametreja ja ne täytyy välittää kutsuvalta rutiinilta aliohjelmalle. _Parametrien välityksen_ pitää tapahtua korkean tason kielen semantiikan mukaisesti. Käytännössä yleensä riittää toteuttaa arvo- ja viiteparametrien välitys oikein. parametreille on ominaista, että kutsuva rutiini voi kirjoittaa niihin ja aliohjelma voi lukea niitä. Viiteparametrien kautta aliohjelma pääsee myös lukemaan ja kirjoittamaan muita kutsuvan rutiinin tietoja. 
 
 Jos aliohjelma (funktio) palauttaa jonkin arvon, meillä täytyy olla tätä _paluuarvoa_ varten oma muistialue. Aliohjelma voi kirjoittaa paluuarvon sinne ja kutsuva rutiini voi aliohjelmasta paluun jälkeen lukea paluuarvon sieltä. Tilanne on hyvin samanlainen kuin arvoparametrin käsittely, mutta tätä tietoa aliohjelma kirjoittaa ja kutsuva rutiini lukee.
 
-Usein aliohjelmassa on omia _paikallisia tietorakenteita_, jotka ovat olemassa ja viitattavissa ainoastaan aliohjelman suorituksen aikana. Tällaiset tiedoille pitää dynaamisesti varata muistitilaa joka kutsukerran yhteydessä ja vapauttaa tila aliohjelmasta paluun yhteydessä. Tila ei voi olla staattinen, koska samasta aliohjelmasta voi olla yhtä aikaa usea instassi (suorituskerta) meneillään. Esimerkiksi, [rekursiivisessa aliohjelmassa](https://fi.wikipedia.org/wiki/Rekursio) täytyy kaikki aliohjelman tietorakenteet varata joka kutsukertaa varten erikseen. Yleensä ohjelmointikielen semantiikka vaatii, että aliohjelman (metodin) tietorakenteet eivät ole viitattavissa muutoin kuin aliohjelman omassa koodissa. (Joissakin ohjelmointikielissä aliohjelman paikalliset tietorakenteet talletetaan aliohjelman koodin yhteyteen staattiseen paikkaan. Tuolloin rekursiiviset aliohjelmaktsut eivät ole mahdollisia.)
+Usein aliohjelmassa on omia _paikallisia tietorakenteita_, jotka ovat olemassa ja viitattavissa ainoastaan aliohjelman suorituksen aikana. Tällaiset tiedoille pitää dynaamisesti varata muistitilaa joka kutsukerran yhteydessä ja vapauttaa tila aliohjelmasta paluun yhteydessä. Tila ei voi olla staattinen, koska samasta aliohjelmasta voi olla yhtä aikaa usea instassi (suorituskerta) meneillään. Esimerkiksi, [rekursiivisessa aliohjelmassa](https://fi.wikipedia.org/wiki/Rekursio) täytyy kaikki aliohjelman tietorakenteet varata joka kutsukertaa varten erikseen. Yleensä ohjelmointikielen semantiikka vaatii, että aliohjelman (metodin) tietorakenteet eivät ole viitattavissa muutoin kuin aliohjelman omassa koodissa. Joissakin ohjelmointikielissä aliohjelman paikalliset tietorakenteet talletetaan kuitenkin aliohjelman koodin yhteyteen staattiseen paikkaan. Tuollaisissa kielissä rekursiiviset aliohjelmakutsut eivät ole mahdollisia.
 
 Aliohjelmilla ei saisi olla mitään sivuvaikutuksia. Rekistereiden tasolla tämä tarkoittaa sitä, että kaikkien rekistereiden arvojen täytyy aliohjelmasta paluun yhteydessä olla samat kuin mitä ne olivat kutsuhetkellä. Tämä toteutetaan siten, että aliohjelman _tallettaa_ kaikki käyttämänsä _rekistereiden arvot_ suorituksensa alussa ja _palauttaa arvot_ ennalleen kutsuvaan rutiiniin paluun yhteydessä. Esimerkiksi, jos rekisterissä r4 oli muuntelumuuttujan i arvo ennen aliohjelman kutsua, niin meidän täytyy voida luottaa siihen, että r4:n arvo on ennallaan aliohjelmasta palun jälkeen. Kutsuva rutiini ei voi tehdä rekistereiden talletusta, koska se ei tiedä, mitä rekistereitä aliohjelma käyttää.
 
 ## Aktivaatiotietue (AT)
 Aliohjelmien toteutusmekanismi on aktivaatiotietue, joka on suurehko tietorakenne. Eri ohjelmointikielillä aktivointitietue voi olla vähän erilainen, mutta ne kaikki antavat jonkinlaisen ratkaisun em. aliohjelmien toteutuksen osaongelmiin. AT talletetaan yleensä muistissa olevaan pinoon.
 
-Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedot, pienemmästä muistiosoitteesta isompaan (ks. alla oleva kuva ttk-91 aktivaatiotietueesta funktiolle F). Ensimmäisenä siellä tila mahdolliselle paluuarvolle (jos sitä tarvitaan) ja sitten kaikkien parametrien arvot. Arvoparametreillä siis jokin kokonaislukuarvo ja viiteparametreillä jokin muistiosoite (joka sekin on kokonaisluku). Sitten sieltä löytyy paluuosoite ja kutsukohdan hetkellä käytössä olleen AT:n osoite. Tämän jälkeen siellä on tilanvaraukset kaikille paikallisille muuttujille ja muille tietorakenteille. Viimeisenä on tässä aliohjelmassa käytettävien työrekistereiden kutsuhetken arvot, jotta ne voidaan palauttaa ennalleen aliohjelmasta paluun yhteydessä. 
+Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedot, pienemmästä muistiosoitteesta isompaan (ks. alla oleva kuva ttk-91 aktivaatiotietueesta funktiolle F). Ensimmäisenä siellä tila mahdolliselle paluuarvolle (jos sitä tarvitaan) ja sitten kaikkien parametrien arvot. Arvoparametreillä talletetaan siis jokin kokonaislukuarvo ja viiteparametreillä jokin muistiosoite (joka sekin on kokonaisluku). Sitten sieltä löytyy paluuosoite ja kutsukohdan hetkellä käytössä olleen AT:n osoite (eli vanha FP:n arvo). Tämän jälkeen siellä on tilanvaraukset kaikille paikallisille muuttujille ja muille tietorakenteille. Viimeisenä on tässä aliohjelmassa käytettävien työrekistereiden kutsuhetken arvot, jotta ne voidaan palauttaa ennalleen aliohjelmasta paluun yhteydessä. 
 
 <!-- kuva: ch-6-1-a-aktivaatiotietue    -->
 
