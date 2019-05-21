@@ -148,7 +148,12 @@ Suorittimella on yleensä call- ja exit-käskyjä vastaavat käyttöjärjestelm�
 
 Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktivaatiotietueet täsmällisesti rakennetaan ja puretaan. Se vaatii tarkkaa protokollan seuraamista sekä kutsuvan rutiinin että aliohjelman osalta.
 
-## Quizit 6.1
 <!-- quiz 6.1.??: ???? -->
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiznator id="5ce3eb9fa2f5511be16cb8ec"></quiznator></div>
+<div><quiznator id="5ce3ee57d09cea1bc9a2c632"></quiznator></div>
+<div><quiznator id="5ce3eeee4f1e771cc6156a88"></quiznator></div>
+<div><quiznator id="5ce3f019757b271bf9162e56"></quiznator></div>
+<div><quiznator id="5ce3f480d09cea1bc9a2c64b"></quiznator></div>
+<div><quiznator id="5ce3f1943bc2291c1102199d"></quiznator></div>
+
