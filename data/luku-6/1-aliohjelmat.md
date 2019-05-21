@@ -98,9 +98,50 @@ Paikalliset muuttujat sijaitsevat nekin suhteellisesti aina samassa kohtaa AT:t�
 Viimeisenä aktivointitietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktion F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu viimeisenä aktivointitietueeseen. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
 
 ## Aktivaatiotietuepino
-?????
+Aktivointitietueet (AT) varataan ja vapautetaan dynaamisesti suoritusaikana pinosta sitä mukaan, kun aliohjelmia kutsutaan ja niistä palataan. Allaolevassa esimerkissä on tilanne, jossa pääohjelmasta on kutsuttu aliohjelmaa sum, joka puolestaan on kutsunut funktiota funcA. FP osoittaa funcA:n aktivointitietueeseen. SP osoittaa pinon pinnalle, jossa nyt sattuu olemaan funcA:n aktivointitietueen viimeinen alkio. Funktion funcA suorituksenaikana sen kutsuun johtaneet aktivointitietueet muodostavat _aktivointitietuepinon_, joka muodostaa suorituksessa olevalle ohjelmalle sen hetkisen täydellisen suoritusympäristön.
 
+<!-- kuva: ch-6-1-b-at-pino  -->
 
+![Aktivaatiotietuepino tilanteessa, jossa pääohelma on kutsunut ohjelmaa sum, joka on kutsunut funktiota funcA. Pinossa on kolme aktivointitieuetta (AT). Alimpana (kuvassa ylimpänä, koska muistisoitteet kasvavat alaspäin) on pääohjelman AT, sen päällä aliohjelman sum AT, ja ylipänä funtion funcA AT. SP osoittaa funcA:n AT:n päällimmäiseen alkioon ja FP osoittaa funcA:n AT:hen. FP:n osoittamasta paikasta (funcA:n AT:ssä) on linkki aliohjelman sum AT:hen, josta on linkki pääohjelman AT:hen.](./h-6-1-b-at-pino.svg)
+<div>
+<illustrations motive="h-6-1-b-at-pino"></illustrations>
+</div>
+
+Aktivointitietue sijaitsee pinossa, joka sijaitsee muistissa. AT:tä rakennetaan ja puretaan seuraavilla konekäskyillä, jotka kaikki viittaavat muistiin yleensä pinorekisterin SP kautta.
+
+Konekäsky push tallettaa pinon pinnalle yhden sanan. Konekäsky pop poistaa sieltä yhden sanan ja tallettaa sen aina rekisteriin.
+
+```
+push   sp, X   ; lisää sp:n arvoa yhdellä, talleta X:n arvo sinne 
+pop    sp, r4  ; kopion sp:n osoittama sana r4:een, vähennä sp:n arvoa yhdellä
+```
+
+Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös ihan tavalliseen laskentaan, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä.
+
+Rekistereiden talletus voitaisiin hyvin tehdä push- ja pop-käskyillä, mutta ttk-91:ssä on myös tätä tarkoitusta varten erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta.
+
+```
+pushr   sp  ; kopio r0-r5 arvot pinoon, lisää sp:n arvoa kuudella 
+popr    sp  ; palauta r0-r5 arvot pinosta, vähennä sp:n arvoa kuudella
+```
+
+Todellisissa tietokoneissa on myös muita optimointimenetelmiä, jotta niin yleisen aliohjelmakutsun toteutus olisi mahdollisimman nopea. Ne eivät kuitenkaan sisälly tämän kurssin oppimistavoitteisiin.
+
+Aliohjelman kutsukäsky call suorittaa varsinaisen kontrollin siirron aliohjelmaan. Se tallettaa samassa yhteydessä paluuosoitteen ja vanhan FP-arvon pinoon. Kontrollin siirron lisäksi asettaa FP:lle uuden arvon, joka sitten osoittaa kutsutun aliohjelman AT:hen.
+
+```
+call  sp, funcA ; talleta PC ja FP pinoon, aseta PC=funcA ja FP=SP 
+```
+
+Aliohjelmasta paluukäsky palauttaa kontrollin kutsukohtaan ja samalla palauttaa FP:n ennalleen. Sen lisäksi se poistaa pinosta kutsussa käytetyt parametrit.
+
+```
+exit sp, =2 ; aseta SP=SP-2, PC = vanha PC, FP = vanha FP 
+```
+
+Suorittimella on yleensä call- ja exit-käskyjä vastaavat käyttöjärjestelmäpalvelujen kutsu- ja paluukäskyt call ja iret (tms.). Ne toimivat muutoin vastaavalla tavalla, mutta niissä voi vaihtua myös suorittimen suoritustila ja parametrien välitysmenetelmä voi olla erilainen. Emme käsittele niitä tällä kurssilla tämän enempää.
+
+Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktivaatiotietueet täsmällisesti rakennetaan ja puretaan. Se vaatii tarkkaa protokollan seuraamista sekä kutsuvan rutiinin että aliohjelman osalta.
 
 ## Quizit 6.1
 <!-- quiz 6.1.??: ???? -->
