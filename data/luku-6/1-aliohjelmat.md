@@ -87,13 +87,18 @@ Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedo
 <illustrations motive="ch-6-1-a-aktivaatiotietue"></illustrations>
 </div>
 
-Normaalitapa osoittaa monisanaiseen tietoon on käyttää sen ensimmäisen sanan osoitetta koko rakenteen osoitteena. AT:n kohdalla sen osoite on kuitenkin keskellä tietuetta, osoittaen siihen sanaan, johon on talletettu kutsukohdan AT:n osoite. Nykykyisen AT:n osoite on rekisterissä FP (frame pointer) ja se siis osoittaa vanhan FP:n arvoon. "FP" on vain toinen nimi rekisterille r7.
+Normaalitapa osoittaa monisanaiseen tietoon on käyttää sen ensimmäisen sanan osoitetta koko rakenteen osoitteena. AT:n kohdalla sen osoite on kuitenkin keskellä tietuetta, osoittaen siihen sanaan, johon on talletettu kutsukohdan AT:n osoite. Nykykyisen AT:n osoite on rekisterissä FP (frame pointer) ja se siis osoittaa siihen kohtaan, jossa on vanhan FP:n arvo tallennettuna. "FP" on vain toinen nimi rekisterille r7, samalla tavalla kuin "SP" on toinen nimi rekisterille r6.
 
-Tästä on kaksi etua. AT:n koko on vaihteleva, koska parametrien ja paikallisten muuttujien (ym. paikallisten tietorakenteiden) määrä vaihtelee. Joissakin ohjelmointikielissä myös kutsuvan rutiinin tietorakenteet voivat olla viitattavissa. Nyt niihin pääsee helposti käsiksi, kun aliohjelman AT osoittaa suoraan kutsukohdan AT:hen, minkä kautta kutsuvan rutiinin tietorakenteet ovat helposti viitattavissa. Nyt myös paluuosoite ja paluukohdan AT (vanha FP) löytyvät helposti, kun nykyinen AT osoittaa niihin. 
+Tästä AT:n osoittamistavasta on kaksi etua. AT:n koko on vaihteleva, koska parametrien ja paikallisten muuttujien (ym. paikallisten tietorakenteiden) määrä vaihtelee. Joissakin ohjelmointikielissä myös kutsuvan rutiinin tietorakenteet voivat olla viitattavissa. Niihin pääsee helposti käsiksi, kun aliohjelman AT osoittaa suoraan kutsukohdan AT:hen, minkä kautta kutsuvan rutiinin tietorakenteet ovat helposti viitattavissa. Myös paluuosoite (vanha PC) ja paluukohdan AT (vanha FP) löytyvät helposti, kun nykyinen AT osoittaa niihin.
 
-Parametrien lukumäärä voi vaihdella, mutta niiden suhteellinen sijainti AT:ssä on aina sama. Viimeinen parametri on osoitteessa FP-2, sitä edellinen osoitteessa FP-3, jne. Funktion paluuarvon sijainti on juuri ennen parametreja. Funktiossa F paluuarvo osiis osoitteessa FP-4, parametri x osoitteessa FP-3 ja parametri y osoitteessa FP-2. Emme tiedä täsmällisiä muistiosoitteita parametreille, muutta niihin pystyy viittaamaan käyttämällä näitä suhteellisia osoitteita.
+Parametrien lukumäärä voi vaihdella, mutta niiden suhteellinen sijainti AT:ssä on aina sama. Viimeinen parametri on osoitteessa FP-2, sitä edellinen osoitteessa FP-3, jne. Funktion paluuarvon sijainti on juuri ennen parametreja. Funktiossa F paluuarvo on iis osoitteessa FP-4, parametri x osoitteessa FP-3 ja parametri y osoitteessa FP-2. Emme tiedä parametrien täsmällisiä muistiosoitteita, mutta niihin pystyy viittaamaan käyttämällä näitä FP-suhteellisia osoitteita. Sitä paitsi, eri kutsukerroilla AT:n ja parametrien sijainti muistissa voi vaihdella.
 
-Paikalliset muuttujat sijaitsevat nekin suhteellisesti aina samassa kohtaa AT:tä, heti FP:n vanhanarvon jälkeen. Esimerkiksi, funktiossa F paikallisen muuttujan i osoite FP+1 ja paikallisen muuttujan j osoite on FP+2. Emme tiedä täsmällisiä muistiosoitteita paikallisille tietorakenteille, muutta niihin pystyy viittaamaan käyttämällä näitä suhteellisia osoitteita. 
+Paikalliset muuttujat sijaitsevat nekin suhteellisesti aina samassa kohtaa AT:tä, heti FP:n vanhan arvon jälkeen. Esimerkiksi, funktiossa F paikallisten muuttujien i ja j osoitteet ovat FP+1 ja FP+2. Emme tiedä täsmällisiä muistiosoitteita myöskään paikallisille tietorakenteille, mutta niihinkin pystyy viittaamaan käyttämällä näitä FP-suhteellisia osoitteita. 
+
+```
+load r1, -2(fp)  ; lataa rekisteriin r1 viimeisen parametrin arvo 
+load r2, +2(fp)  ; lataa rekisteriin r2 toisen paikallisen muuttujan arvo 
+```
 
 Viimeisenä aktivointitietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktion F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu viimeisenä aktivointitietueeseen. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
 
