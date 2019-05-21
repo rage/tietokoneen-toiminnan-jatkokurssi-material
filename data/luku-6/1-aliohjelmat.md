@@ -58,7 +58,7 @@ k = T[k];
 T[k] = tmp;
 ```
 
-jolloin jälkimmäinen T[k] viittaa väärään paikkaan, koska k:n arvo on jo ehtinyt muuttua. Nimiparametritovat erilaisia!
+jolloin jälkimmäinen T[k] viittaa väärään paikkaan, koska k:n arvo on jo ehtinyt muuttua. Nimiparametrit ovat erilaisia!
 
 Tällä kurssilla emme käsittele nimiparametreja tämän enempää, mutta on tärkeä olla tietoinen tästäkin parametrityypistä. Ttk-91:ssä on ainoastaan arvo- ja viiteparametreja.
 
