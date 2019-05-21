@@ -117,8 +117,8 @@ Aktivointitietue sijaitsee pinossa, joka sijaitsee muistissa. AT:tä rakennetaan
 Konekäsky push tallettaa pinon pinnalle yhden sanan. Konekäsky pop poistaa sieltä yhden sanan ja tallettaa sen aina rekisteriin.
 
 ```
-push   sp, X   ; lisää sp:n arvoa yhdellä, talleta X:n arvo sinne 
-pop    sp, r4  ; kopion sp:n osoittama sana r4:een, vähennä sp:n arvoa yhdellä
+push   sp, X   ; sp=sp+1, talleta X:n arvo sp:n osoittamaan muistipaikkaan 
+pop    sp, r4  ; kopion sp:n osoittama sana r4:een, sp=sp-1
 ```
 
 Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös ihan tavalliseen laskentaan, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä.
@@ -126,8 +126,8 @@ Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös ihan tavalli
 Rekistereiden talletus voitaisiin hyvin tehdä push- ja pop-käskyillä, mutta ttk-91:ssä on myös tätä tarkoitusta varten erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta.
 
 ```
-pushr   sp  ; kopio r0-r5 arvot pinoon, lisää sp:n arvoa kuudella 
-popr    sp  ; palauta r0-r5 arvot pinosta, vähennä sp:n arvoa kuudella
+pushr   sp  ; kopio r0-r5 arvot pinoon, sp=sp+6 
+popr    sp  ; palauta r0-r5 arvot pinosta, sp=sp-6
 ```
 
 Todellisissa tietokoneissa on myös muita optimointimenetelmiä, jotta niin yleisen aliohjelmakutsun toteutus olisi mahdollisimman nopea. Ne eivät kuitenkaan sisälly tämän kurssin oppimistavoitteisiin.
