@@ -80,10 +80,9 @@ Aliohjelmien toteutusmekanismi on aktivaatiotietue, joka on suurehko tietorakenn
 
 Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedot, pienemmästä muistiosoitteesta isompaan (ks. alla oleva kuva ttk-91 aktivaatiotietueesta funktiolle F). Ensimmäisenä siellä tila mahdolliselle paluuarvolle (jos sitä tarvitaan) ja sitten kaikkien parametrien arvot. Arvoparametreillä siis jokin kokonaislukuarvo ja viiteparametreillä jokin muistiosoite (joka sekin on kokonaisluku). Sitten sieltä löytyy paluuosoite ja kutsukohdan hetkellä käytössä olleen AT:n osoite. Tämän jälkeen siellä on tilanvaraukset kaikille paikallisille muuttujille ja muille tietorakenteille. Viimeisenä on tässä aliohjelmassa käytettävien työrekistereiden kutsuhetken arvot, jotta ne voidaan palauttaa ennalleen aliohjelmasta paluun yhteydessä. 
 
-### aktivaatiotietue kuva  (puuttuu   ?????????)
 <!-- kuva: ch-6-1-a-aktivaatiotietue    -->
 
-![Ttk-91 aktivaatiotietue funktiolle F(X, Y), F:ssä on paikalliset mujuttujat i ja j. F käyttää työrekistereitä r1 ja r2. Kuvassa on muistialue pino, joka on kuvattu ylhäältä alaspäin kohti kasvavia muistiosoitteita. Pinossa on 9 muistipaikkaa ja pinon pinnalle osoittaa pinorekisteri SP. Aktivaatiotietueessa on 9 sanaa. Ne ovat paluuarvo, parametrit x ja y, vanha PC ja vanha FP, paikalliset muuttujat i ja j, sekä rekistereiden r1 ja r2 vanhat arvot. Frame pointer FP osoittaa vanhaan FP arvoon. Parametrin y sijainti on FP-2. Paikallisen muuttuja i sijainti on FP+1.](./ch-6-1-a-aktivaatiotietue.svg)
+![Ttk-91 aktivaatiotietue funktiolle F(x,y), F:ssä on paikalliset muuttujat i ja j. F käyttää työrekistereitä r1 ja r2. Kuvassa on pino, joka on kuvattu ylhäältä alaspäin kohti kasvavia muistiosoitteita. Pinossa on pällimmäisenä F:n aktivaatiotietue. Pinon pinnalle osoittaa pinorekisteri SP. Aktivaatiotietueessa on 9 sanaa. Ne ovat paluuarvo, parametrit x ja y, vanha PC ja vanha FP, paikalliset muuttujat i ja j, sekä rekistereiden r1 ja r2 vanhat arvot. Frame pointer FP osoittaa vanhaan FP arvoon. Parametrin y sijainti on FP-2. Paikallisen muuttuja i sijainti on FP+1.](./ch-6-1-a-aktivaatiotietue.svg)
 <div>
 <illustrations motive="ch-6-1-a-aktivaatiotietue"></illustrations>
 </div>
