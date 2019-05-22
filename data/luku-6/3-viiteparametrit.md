@@ -1,6 +1,6 @@
 ---
 path: '/luku-6/3-viiteparametrit'
-title: 'Viiteparametrien käyttöä'
+title: 'Viiteparametrit ja ulostuloparametrit'
 ---
 
 <div>
