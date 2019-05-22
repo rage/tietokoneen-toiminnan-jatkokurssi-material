@@ -1,23 +1,17 @@
 ---
-path: '/luku-6/4-akt-tietue-purku'
-title: 'Aktivointitietueen purku ja aliohjelmasta paluu'
+path: '/luku-6/4-kj-palvelut'
+title: 'Käyttöjärjestelmäpalvelujen käyttö'
 ---
 
 <div><lead>
 Tässä ?????
 </lead></div>
 
-## Työrekistereiden arvon palautus
+## ????
 ????
 
-## Paikallisten tietorakenteiden tilanvarausten purku
-???
-
-## Paluu kutsukohtaan koodissa ja parametrien tilanvarausten purku
-???
-
-## Paluuarvon talteenotto ja sen tilanvarauksen purku
-????
+## Note  EDSAC   ?????
+?????
 
 ## Quizit 6.4 ??????
 <!-- quiz 6.4.??  ????? -->
