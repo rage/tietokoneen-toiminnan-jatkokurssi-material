@@ -130,7 +130,7 @@ sub sp, =5 ; poista pinon 5 päällimmäistä alkiota
 
 Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös laskennan välitulosten tallentamiseen, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällaisen laskennan yhteydessä ohjelmassa voitaisiin ottaa käyttöön useita pinoja, jolloin push- ja pop-käskyissä voisi käyttää pinorekisterinä myös muita rekistereitä kuin r6:sta. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä. Viittaamme pinoon aina pinorekisterin SP (stack pointer, r6) kautta.
 
-Rekistereiden talletus voi hyvin tehdä push- ja pop-käskyillä, mutta ttk-91:ssä on myös tätä tarkoitusta varten erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta. Toisaalta, jos aliohjelma käyttää vain yhtä tai kahta työrekisteriä, niin voi olla turhaa tallettaa ja palauttaa kaikkien työrekistereiden arvoja.
+Rekistereiden talletuksen ja arvojen palautuksen voi hyvin tehdä push- ja pop-käskyillä. Ttk-91:ssä on tätä tarkoitusta varten myös erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta. Toisaalta, jos aliohjelma käyttää vain yhtä tai kahta työrekisteriä, niin voi olla turhaa tallettaa ja palauttaa kaikkien työrekistereiden arvoja.
 
 ```
 pushr   sp  ; kopio r0-r5 arvot pinoon, sp=sp+6 
