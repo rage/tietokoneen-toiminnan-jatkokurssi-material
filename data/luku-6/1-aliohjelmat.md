@@ -103,11 +103,11 @@ load r2, +2(fp)  ; lataa rekisteriin r2 toisen paikallisen muuttujan arvo
 Viimeisenä aktivointitietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktion F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu viimeisenä aktivointitietueeseen. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
 
 ## Aktivaatiotietuepino
-Aktivointitietueet (AT) varataan ja vapautetaan dynaamisesti suoritusaikana pinosta sitä mukaan, kun aliohjelmia kutsutaan ja niistä palataan. Allaolevassa esimerkissä on tilanne, jossa pääohjelmasta on kutsuttu aliohjelmaa sum, joka puolestaan on kutsunut funktiota funcA. FP osoittaa funcA:n aktivointitietueeseen. SP osoittaa pinon pinnalle, jossa nyt sattuu olemaan funcA:n aktivointitietueen viimeinen alkio. Funktion funcA suorituksenaikana sen kutsuun johtaneet aktivointitietueet muodostavat _aktivointitietuepinon_, joka muodostaa suorituksessa olevalle ohjelmalle sen hetkisen täydellisen suoritusympäristön.
+Aktivointitietueet varataan ja vapautetaan dynaamisesti suoritusaikana pinosta sitä mukaan, kun aliohjelmia kutsutaan ja niistä palataan. Allaolevassa esimerkissä on tilanne, jossa pääohjelmasta on kutsuttu aliohjelmaa sum, joka puolestaan on kutsunut funktiota funcA. FP osoittaa funcA:n aktivointitietueeseen. SP osoittaa pinon pinnalle, jossa on nyt funcA:n aktivointitietueen viimeinen alkio. Funktion funcA suorituksenaikana sen kutsuun johtaneet aktivointitietueet muodostavat _aktivointitietuepinon_, joka antaa suorituksessa olevalle ohjelmalle sen hetkisen täydellisen suoritusympäristön. Aktivointitietuepino kasvaa yhdellä AT:llä joka aliohjelman kutsukerralla ja vastaavasti pienenee aliohjelmasta palatessa.
 
 <!-- kuva: ch-6-1-b-at-pino  -->
 
-![Aktivaatiotietuepino tilanteessa, jossa pääohelma on kutsunut ohjelmaa sum, joka on kutsunut funktiota funcA. Pinossa on kolme aktivointitieuetta (AT). Alimpana (kuvassa ylimpänä, koska muistisoitteet kasvavat alaspäin) on pääohjelman AT, sen päällä aliohjelman sum AT, ja ylipänä funtion funcA AT. SP osoittaa funcA:n AT:n päällimmäiseen alkioon ja FP osoittaa funcA:n AT:hen. FP:n osoittamasta paikasta (funcA:n AT:ssä) on linkki aliohjelman sum AT:hen, josta on linkki pääohjelman AT:hen.](./ch-6-1-b-at-pino.svg)
+![Aktivaatiotietuepino tilanteessa, jossa pääohjelma on kutsunut ohjelmaa sum, joka on kutsunut funktiota funcA. Pinossa on kolme aktivointitietuetta (AT). Alimpana pinossa (kuvassa ylimpänä, koska muistisoitteet kasvavat alaspäin) on pääohjelman AT, sen päällä aliohjelman sum AT, ja ylipänä funtion funcA AT. SP osoittaa funcA:n AT:n päällimmäiseen alkioon ja FP osoittaa funcA:n AT:hen. FP:n osoittamasta paikasta (funcA:n AT:ssä) on linkki aliohjelman sum AT:hen, josta on linkki pääohjelman AT:hen.](./ch-6-1-b-at-pino.svg)
 <div>
 <illustrations motive="ch-6-1-b-at-pino"></illustrations>
 </div>
@@ -121,7 +121,7 @@ push   sp, X   ; sp=sp+1, talleta X:n arvo sp:n osoittamaan muistipaikkaan
 pop    sp, r4  ; kopion sp:n osoittama sana r4:een, sp=sp-1
 ```
 
-Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös ihan tavalliseen laskentaan, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä.
+Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös ihan tavalliseen laskentaan, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällaisen laskennan yhteydessä ohjelmassa voitaisiin ottaa käyttöön useita pinoja, jolloin push- ja pop-käskyissä voisi käyttää pinorekisterinä myös muita rekistereitä kuin r6:sta. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä. Pinoon viitataan aina pinorekisterin sp (stack pointer, r6) kautta.
 
 Rekistereiden talletus voitaisiin hyvin tehdä push- ja pop-käskyillä, mutta ttk-91:ssä on myös tätä tarkoitusta varten erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta.
 
