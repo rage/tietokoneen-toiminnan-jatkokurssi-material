@@ -44,7 +44,7 @@ exit sp, =2 ; palauta PC ja FP, vapauta 2 parametrin tila
 
 Nyt kontrolli on takaisin kutsuvalla rutiinilla, joka ottaa funktion paluuarvon käyttöönsä pinosta (jos kutsuttu rutiini oli funktio). Näin koko kutsutun rutiinin AT on purettu ja pinon sisältö on täsmälleen sama kuin mitä se oli ennen
 
-## Esimerkki
+## Esimerkki funktion toteutuksesta
 Käytetään esimerkkinä kokonaislukuarvoista funktiota fA(x,y), joka käyttää paikallista muuttujaa z (alkuarvo 5) ja palauttaa arvonaan lausekkeen x\*z+y arvon. 
 
 ```
@@ -58,7 +58,7 @@ int fA (int x, y) {  /* x ja y arvoparametreja */
 
 Funktiota käytetään lauseen t = fA(200, R) toteutukseen, kun R on globaali muuttuja.
 
-### Kutsuvan rutiinin koodiesimerkki
+### Kutsuvan rutiinin koodi
 Kutsuvassa rutiinissa funktion käyttö tapahtuu konekielellä seuraavanlaisesti.
 
 ```
@@ -70,7 +70,7 @@ r1 push sp, =0   ; tila paluuarvolle
 r2 push sp, =200 ; vakio 200
 r3 push sp, r    ; muuttujan r arvo
 r4 call sp, fA   ; funktion kutsu
-r5 pop sp, r1    ; paluuarvon talletus
+r5 pop sp, r1    ; paluuarvon poisto pinosta
 r6 store r1, t
 
 ```
@@ -103,7 +103,7 @@ Heti funktiosta palattua (ennen käskyn r5 suoritusta) pinossa on kutsutun rutii
     SP -->    1024  ; funktion paluuarvo
 ```
 
-Lopulta, käskyn r6 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu kutsuvan rutiinin ympäristössä.
+Lopulta, käskyn r5 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu kutsuvan rutiinin ympäristössä.
 
 ```
     FP  -->   ??    ; kutsuvan rutiinin AT
@@ -111,6 +111,105 @@ Lopulta, käskyn r6 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu 
     SP -->    ??
 ```
 
+### Kutsutun rutiinin koodi
+Funktio fA() voidaan toteuttaa konekielellä seuraavalla tavalla. Määrittelemme aluksi symbolien avulla paluuarvon,  parametrien ja paikallisten tietorakenteiden sijainnit AT:ssä. Kaikki viitteet noihin tietorakenteisiin tehdään sitten noiden symbolien avulla käyttäen niitä suhteellisina osoitteina AT:ssa.
+
+```
+retfA  equ -4  ; paluuarvon suhteellinen osoite AT:ssa
+parX  equ -3   ; parametrien x ja y suhteelliset osoitteet AT:ssa
+parY  equ -2   
+locZ  equ 1    ; paikallisen muuttuja z suhteellinen osoite AT:ssä
+
+fa    push sp, =0  ; tilanvaraus paikalliselle muuttujalle AT:ssä
+      push sp, r1  ; talleta r1
+      
+      load r1, =5  ; alusta Z
+f4    store r1, locZ(fp)  ; viite Z:aan fp:n kautta
+      
+      load  r1, parX(fp)  ; funktion varsinainen koodi
+      mul r1, locZ(fp)
+      add r1, parY(fp)
+      store r1, locZ(fp)
+      
+      store r1, rerfA(fp) ; talleta paluuarvo
+      
+f10   pop sp, r1   ; palauta r1
+      sub sp, -1   ; vapauta Z:n tilanvaraus
+f12   exit sp, =2  ; paluu kutsuvaan rutiiniin
+```
+
+Kun kontrolli on siirtynyt fA:lle (käsky fa), pinossa on paikka paluuarvolle, parametrit sekä vanha PC ja FP.
+
+```
+              ??    
+vanha FP -->  ...   ; kutsuvan rutiinin AT
+              ??
+              0
+              200
+              24
+              vanha PC
+FP, SP -->    vanha FP
+```
+
+Kun prologi ja paikallisen muuttuja alustus on tehty, uusi AT on valmis ja pinon sisältö on seuraavanlainen.
+
+```
+              ??    
+vanha FP -->  ...  ; kutsuvan rutiinin AT
+              ??
+              0
+              200
+              24
+              vanha PC
+    FP -->    vanha FP
+              5
+    SP -->    vanha r1
+```
+
+Juuri ennen epilogia (f10) funktion työ on tehty ja paluuarvo on paikallaan.
+
+```
+              ??    
+vanha FP -->  ...  ; kutsuvan rutiinin AT
+              ??
+              1024
+              200
+              24
+              vanha PC
+    FP -->    vanha FP
+              5
+    SP -->    vanha r1
+```
+
+Epilogissa palautetaan r1:n vanha arvo ja vapautetaan Z:n tilanvaraus.
+
+```
+              ??    
+vanha FP -->  ...   ; kutsuvan rutiinin AT
+              ??
+              1024
+              200
+              24
+              vanha PC
+FP, SP -->    vanha FP
+              5
+              vanha r1
+```
+
+Lopulta, exit-käsky (f12) palauttaa pinosta FP:n ja PC:n arvot ennalleen ja poistaa lisäksi 2 parametria sieltä. Nyt enää funktion paluuarvo on jäljellä ja kutsuva rutiini poistaa sen kohta.
+
+```
+              ??    
+      FP -->  ...   ; kutsuvan rutiinin AT
+              ??
+      SP -->  1024
+              200
+              24
+              vanha PC
+              vanha FP
+              5
+              vanha r1
+```
 
 ### Quizes 6.2 ??????
 <!-- quiz 6.2.?? ???  -->
