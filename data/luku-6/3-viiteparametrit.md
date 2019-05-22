@@ -1,6 +1,6 @@
 ---
-path: '/luku-6/3-dataviitteet-aliohjelmassa'
-title: 'Datan käyttö aliohjelmassa'
+path: '/luku-6/3-viiteparametrit'
+title: 'Viiteparametrien käyttöä'
 ---
 
 <div>
@@ -10,14 +10,10 @@ title: 'Datan käyttö aliohjelmassa'
 ## Parametreihin viittaaminen
 ???
 
-## Paikallisiin tietorakenteisiin viittaaminen
+## ???
 ????
 
-## Globaaleihin tietorakenteisiin viittaminen
-????
 
-## Paluuarvon asetus
-????
 
 ## Quizit 6.3 ??????
 <!-- quiz 6.3.??  ????? -->
