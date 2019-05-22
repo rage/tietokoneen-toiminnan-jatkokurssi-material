@@ -76,7 +76,7 @@ Usein aliohjelmassa on omia _paikallisia tietorakenteita_, jotka ovat olemassa j
 Aliohjelmilla ei saisi olla mitään sivuvaikutuksia. Rekistereiden tasolla tämä tarkoittaa sitä, että kaikkien rekistereiden arvojen täytyy aliohjelmasta paluun yhteydessä olla samat kuin mitä ne olivat kutsuhetkellä. Tämä toteutetaan siten, että aliohjelman _tallettaa_ kaikki käyttämänsä _rekistereiden arvot_ suorituksensa alussa ja _palauttaa arvot_ ennalleen kutsuvaan rutiiniin paluun yhteydessä. Esimerkiksi, jos rekisterissä r4 oli muuntelumuuttujan i arvo ennen aliohjelman kutsua, niin meidän täytyy voida luottaa siihen, että r4:n arvo on ennallaan aliohjelmasta palun jälkeen. Kutsuva rutiini ei voi tehdä rekistereiden talletusta, koska se ei tiedä, mitä rekistereitä aliohjelma käyttää.
 
 ## Aktivaatiotietue (AT)
-Aliohjelmien toteutusmekanismi on aktivaatiotietue (AT), joka on suurehko tietorakenne. Eri ohjelmointikielillä AT voi olla vähän erilainen, mutta ne kaikki antavat jonkinlaisen ratkaisun em. aliohjelmien toteutuksen osaongelmiin. AT talletetaan yleensä muistissa olevaan pinoon.
+Aliohjelmien toteutusmekanismi on aktivaatiotietue (AT, aktivointitietue), joka on suurehko tietorakenne. Eri ohjelmointikielillä AT voi olla vähän erilainen, mutta ne kaikki antavat jonkinlaisen ratkaisun em. aliohjelmien toteutuksen osaongelmiin. AT talletetaan yleensä muistissa olevaan pinoon.
 
 Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedot, pienemmästä muistiosoitteesta isompaan (ks. alla oleva kuva ttk-91 funktion F aktivaatiotietueesta). Ensimmäisenä siellä on tila mahdolliselle paluuarvolle (jos sitä tarvitaan) ja sitten kaikkien parametrien arvot. Arvoparametreistä talletetaan jokin kokonaislukuarvo ja viiteparametreistä jokin muistiosoite (joka sekin on kokonaisluku). Seuraavaksi siellä on paluuosoite ja kutsukohdan hetkellä käytössä olleen AT:n osoite (eli vanha FP:n arvo). Tämän jälkeen siellä on tilanvaraukset kaikille paikallisille muuttujille ja muille tietorakenteille. Viimeisenä on tässä aliohjelmassa käytettävien työrekistereiden kutsuhetken arvot, jotta ne voidaan palauttaa ennalleen aliohjelmasta paluun yhteydessä. 
 
@@ -100,19 +100,19 @@ load r1, -2(fp)  ; lataa rekisteriin r1 viimeisen parametrin arvo
 load r2, +2(fp)  ; lataa rekisteriin r2 toisen paikallisen muuttujan arvo 
 ```
 
-Viimeisenä aktivointitietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktion F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu viimeisenä aktivointitietueeseen. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
+Viimeisenä aktivaatiotietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktion F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu aktivaatiotietueen loppuun. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
 
 ## Aktivaatiotietuepino
-Aktivointitietueet varataan ja vapautetaan dynaamisesti suoritusaikana pinosta sitä mukaan, kun aliohjelmia kutsutaan ja niistä palataan. Allaolevassa esimerkissä on tilanne, jossa pääohjelmasta on kutsuttu aliohjelmaa sum, joka puolestaan on kutsunut funktiota funcA. FP osoittaa funcA:n aktivointitietueeseen. SP osoittaa pinon pinnalle, jossa on nyt funcA:n aktivointitietueen viimeinen alkio. Funktion funcA suorituksenaikana sen kutsuun johtaneet aktivointitietueet muodostavat _aktivointitietuepinon_, joka antaa suorituksessa olevalle ohjelmalle sen hetkisen täydellisen suoritusympäristön. Aktivointitietuepino kasvaa yhdellä AT:llä joka aliohjelman kutsukerralla ja vastaavasti pienenee aliohjelmasta palatessa.
+Aktivaatiotietueet varataan ja vapautetaan dynaamisesti suoritusaikana pinosta sitä mukaan, kun aliohjelmia kutsutaan ja niistä palataan. Allaolevassa esimerkissä on tilanne, jossa pääohjelmasta on kutsuttu aliohjelmaa sum, joka puolestaan on kutsunut funktiota funcA. FP osoittaa funcA:n AT:hen. SP osoittaa pinon pinnalle, jossa on nyt funcA:n aktivaatiotietueen viimeinen alkio. Funktion funcA suorituksenaikana sen kutsuun johtaneet aktivaatiotietueet muodostavat _aktivaatiotietuepinon_, joka antaa suorituksessa olevalle ohjelmalle sen hetkisen täydellisen suoritusympäristön. Aktivaatiotietuepino kasvaa yhdellä AT:llä joka aliohjelman kutsukerralla ja vastaavasti pienenee aliohjelmasta palatessa.
 
 <!-- kuva: ch-6-1-b-at-pino  -->
 
-![Aktivaatiotietuepino tilanteessa, jossa pääohjelma on kutsunut ohjelmaa sum, joka on kutsunut funktiota funcA. Pinossa on kolme aktivointitietuetta (AT). Alimpana pinossa (kuvassa ylimpänä, koska muistisoitteet kasvavat alaspäin) on pääohjelman AT, sen päällä aliohjelman sum AT, ja ylipänä funtion funcA AT. SP osoittaa funcA:n AT:n päällimmäiseen alkioon ja FP osoittaa funcA:n AT:hen. FP:n osoittamasta paikasta (funcA:n AT:ssä) on linkki aliohjelman sum AT:hen, josta on linkki pääohjelman AT:hen.](./ch-6-1-b-at-pino.svg)
+![Aktivaatiotietuepino tilanteessa, jossa pääohjelma on kutsunut ohjelmaa sum, joka on kutsunut funktiota funcA. Pinossa on kolme aktivaatiotietuetta (AT). Alimpana pinossa (kuvassa ylimpänä, koska muistisoitteet kasvavat alaspäin) on pääohjelman AT, sen päällä aliohjelman sum AT, ja ylipänä funtion funcA AT. SP osoittaa funcA:n AT:n päällimmäiseen alkioon ja FP osoittaa funcA:n AT:hen. FP:n osoittamasta paikasta (funcA:n AT:ssä) on linkki aliohjelman sum AT:hen, josta on linkki pääohjelman AT:hen.](./ch-6-1-b-at-pino.svg)
 <div>
 <illustrations motive="ch-6-1-b-at-pino"></illustrations>
 </div>
 
-Aktivointitietue sijaitsee pinossa, joka sijaitsee muistissa. AT:tä rakennetaan ja puretaan seuraavilla konekäskyillä, jotka kaikki viittaavat muistiin yleensä pinorekisterin SP kautta.
+Aktivaatiotietue sijaitsee pinossa, joka sijaitsee muistissa. AT:tä rakennetaan ja puretaan seuraavilla konekäskyillä, jotka kaikki viittaavat muistiin yleensä pinorekisterin SP kautta.
 
 Konekäsky push tallettaa pinon pinnalle yhden sanan. Konekäsky pop poistaa sieltä yhden sanan ja tallettaa sen aina rekisteriin.
 
@@ -155,7 +155,7 @@ Suorittimella on yleensä call- ja exit-käskyjen lisäksi käyttöjärjestelmä
 
 Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktivaatiotietueet täsmällisesti rakennetaan ja puretaan. Se vaatii tarkan protokollan seuraamista sekä kutsuvan rutiinin että aliohjelman osalta.
 
-<!-- quiz 6.1.??: ???? -->
+<!-- quiz 6.1.? -->
 
 <div><quiznator id="5ce3eb9fa2f5511be16cb8ec"></quiznator></div>
 <div><quiznator id="5ce3ee57d09cea1bc9a2c632"></quiznator></div>
