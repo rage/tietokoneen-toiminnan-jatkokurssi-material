@@ -58,6 +58,9 @@ Ohjelmointi on hauskaa ja siten myös konekielinen ohjelmointi. Älä kuitenkaan
 
 Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat seuraavat. Osaat toteuttaa symbolisella ttk-91 konekielellä erilaisten tietorakenteiden (muuttujat, 1- ja 2-ulotteiset taulukot, tietueet) muistivaraukset ja niihin viittaamiset. Osaat käyttää tietorakenteita myös osoitinmuuttujien avulla. Osaat toteuttaa koodissa haarautumiset ja erilaiset toistolauseet. Osaat käyttää (seuraavassa luvussa esiteltäviä) aliohjelmia ja funktioita sekä toteuttaa ne. Osaat selittää, mikä on aktivointitietue ja aktivointitietuepino. Osaat käyttää arvo- ja viiteparametreja. Osaat varata globaaleja tietorakenteita ja aliohjelmien paikallisia tietorakenteita. Osaat viitata aliohjelmissa parametreihin sekä globaaleihin ja paikallisiin tietorakenteisiin.
 
+## NOTE ENIAC  ???
+??????
+
 <!-- quiz 5.5.??? ????????????????? -->
 
 <div><quiznator id="5cdebbdda2f5511be16cb108"></quiznator></div>
