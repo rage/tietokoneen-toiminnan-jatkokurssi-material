@@ -121,18 +121,25 @@ push   sp, X   ; sp=sp+1, talleta X:n arvo sp:n osoittamaan muistipaikkaan
 pop    sp, r4  ; kopion sp:n osoittama sana r4:een, sp=sp-1
 ```
 
-Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös ihan tavalliseen laskentaan, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällaisen laskennan yhteydessä ohjelmassa voitaisiin ottaa käyttöön useita pinoja, jolloin push- ja pop-käskyissä voisi käyttää pinorekisterinä myös muita rekistereitä kuin r6:sta. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä. Pinoon viitataan aina pinorekisterin sp (stack pointer, r6) kautta.
+Jos pinosta halutaan poistaa alkioita laittamatta niitä mihinkään, sen voi tehdä vähentämällä sp:n arvoa vastaavasti. Todellisuudessahan myöskään pop-käskyn yhteydessä me emme oikeasti poista mitään pinosta, vaan ainoastaan kopioimme sen päällimmäisen arvon johonkin ja vähennämme sp:n arvoa yhdellä.
 
-Rekistereiden talletus voitaisiin hyvin tehdä push- ja pop-käskyillä, mutta ttk-91:ssä on myös tätä tarkoitusta varten erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta.
+```
+sub sp, =1  ; poista pinon päällimmäinen alkio
+sub sp, =5 ; poista pinon 5 päällimmäistä alkiota
+```
+
+Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös laskennan välitulosten tallentamiseen, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällaisen laskennan yhteydessä ohjelmassa voitaisiin ottaa käyttöön useita pinoja, jolloin push- ja pop-käskyissä voisi käyttää pinorekisterinä myös muita rekistereitä kuin r6:sta. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä. Viittaamme pinoon aina pinorekisterin SP (stack pointer, r6) kautta.
+
+Rekistereiden talletus voi hyvin tehdä push- ja pop-käskyillä, mutta ttk-91:ssä on myös tätä tarkoitusta varten erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta. Toisaalta, jos aliohjelma käyttää vain yhtä tai kahta työrekisteriä, niin voi olla turhaa tallettaa ja palauttaa kaikkien työrekistereiden arvoja.
 
 ```
 pushr   sp  ; kopio r0-r5 arvot pinoon, sp=sp+6 
 popr    sp  ; palauta r0-r5 arvot pinosta, sp=sp-6
 ```
 
-Todellisissa tietokoneissa on myös muita optimointimenetelmiä, jotta niin yleisen aliohjelmakutsun toteutus olisi mahdollisimman nopea. Ne eivät kuitenkaan sisälly tämän kurssin oppimistavoitteisiin.
+Todellisissa tietokoneissa on myös muita optimointimenetelmiä, jotta aliohjelmien käytön toteutus olisi mahdollisimman nopea. Ne eivät kuitenkaan sisälly tämän kurssin oppimistavoitteisiin.
 
-Aliohjelman kutsukäsky call suorittaa varsinaisen kontrollin siirron aliohjelmaan. Se tallettaa samassa yhteydessä paluuosoitteen ja vanhan FP-arvon pinoon. Kontrollin siirron lisäksi asettaa FP:lle uuden arvon, joka sitten osoittaa kutsutun aliohjelman AT:hen.
+Aliohjelman kutsukäsky call suorittaa varsinaisen kontrollin siirron aliohjelmaan. Se tallettaa samassa yhteydessä paluuosoitteen ja vanhan FP-arvon pinoon. Kontrollin siirron lisäksi call-käsky asettaa FP:lle uuden arvon, joka sitten osoittaa kutsutun aliohjelman AT:hen.
 
 ```
 call  sp, funcA ; talleta PC ja FP pinoon, aseta PC=funcA ja FP=SP 
@@ -144,9 +151,9 @@ Aliohjelmasta paluukäsky palauttaa kontrollin kutsukohtaan ja samalla palauttaa
 exit sp, =2 ; aseta SP=SP-2, PC = vanha PC, FP = vanha FP 
 ```
 
-Suorittimella on yleensä call- ja exit-käskyjä vastaavat käyttöjärjestelmäpalvelujen kutsu- ja paluukäskyt call ja iret (tms.). Ne toimivat muutoin vastaavalla tavalla, mutta niissä voi vaihtua myös suorittimen suoritustila ja parametrien välitysmenetelmä voi olla erilainen. Emme käsittele niitä tällä kurssilla tämän enempää.
+Suorittimella on yleensä call- ja exit-käskyjen lisäksi käyttöjärjestelmäpalvelujen kutsu- ja paluukäskyt svc ja iret (tms.). Ne toimivat muutoin vastaavalla tavalla, mutta niiden yhteydessä myös suorittimen suoritustila voi vauhtua ja parametrien välitysmenetelmä voi olla erilainen. Emme käsittele niitä tässä tämän enempää.
 
-Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktivaatiotietueet täsmällisesti rakennetaan ja puretaan. Se vaatii tarkkaa protokollan seuraamista sekä kutsuvan rutiinin että aliohjelman osalta.
+Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktivaatiotietueet täsmällisesti rakennetaan ja puretaan. Se vaatii tarkan protokollan seuraamista sekä kutsuvan rutiinin että aliohjelman osalta.
 
 <!-- quiz 6.1.??: ???? -->
 
