@@ -8,11 +8,11 @@ title: 'Viiteparametrit ja ulostuloparametrit'
 </div>
 
 ## Viiteparametrit
-Viiteparametrien käyttäminen on usein ainoa järkevä tapa välittää rakenteista tietoa aliohjelmille. Usein rakenteinen tieto on sen verran suurta, että sitä ei haluta kopioida moneen kertaan. Joiden järjestelmien aliohjelmien toteutus voi olla tehokkuussyistä rakennettu niin, että aktivointitietueen (AT) koko on rajattu. Jotkut ohjelmointikielet antavat myös parametreille kokorajoituksia, jolloin parametrit (ja paluuarvo) voivat olla ainoastaan yksinkertaisia tietotyyppejä. Joissakin ohjelmointikielissä sallitaan esim. taulukoiden käyttö parametreina, mutta ne on käytännössä aina kuitenkin toteutettu viiteparametrien avulla.
+Viiteparametrien käyttäminen on usein ainoa järkevä tapa välittää rakenteista tietoa aliohjelmille. Usein rakenteinen tieto on sen verran suurta, että sitä ei haluta kopioida moneen kertaan.Toisaalta taas joidenkin järjestelmien aliohjelmien toteutus voi olla tehokkuussyistä rakennettu niin, että aktivointitietueen (AT) koko on rajattu. Jotkut ohjelmointikielet antavat myös parametreille kokorajoituksia, jolloin parametrit (ja paluuarvo) voivat olla ainoastaan yksinkertaisia tietotyyppejä. Joissakin ohjelmointikielissä sallitaan esim. taulukoiden käyttö parametreina, mutta ne on käytännössä aina kuitenkin toteutettu viiteparametrien avulla.
 
-Aivan samalla tavalla myös suuret paikalliset tietorakenteet kasvattavat AT:n kokoa huomattavasti, mikä voi vaikuttaa merkittävästi toteutuken tehokkuuteen. Tämän vuoksi jotkut ohjelmointikielet rajaavat AT:hen talletettavien paikallisten tietorakenteiden kokoa.
+Aivan samalla tavalla myös suuret paikalliset tietorakenteet kasvattavat AT:n kokoa huomattavasti, mikä voi vaikuttaa merkittävästi toteutuksen tehokkuuteen. Tämän vuoksi jotkut ohjelmointikielet rajaavat myös AT:hen talletettavien paikallisten tietorakenteiden kokoa.
 
-Käytämme tässä esimerkkinä funktiota fB(r,s,t), joka palauttaa arvonaan lausekkeen x\*y+z arvon. Nyt x on arvoparametri, kun y ja z ovat viiteparametreja. Funktiota fB käytetään lauseen t = fB(r,s,t) toteutuksessa, kun r, s ja t ovat globaaleja muuttujia. Funktion kutsu on hyvin samanlainen kuin aikaisemminkin, mutta nyt funktiolle välitetään s:n ja t:n osoitteet.
+Käytämme tässä esimerkkinä funktiota fB(r,s,t), joka palauttaa arvonaan lausekkeen x\*y+z arvon. Parametri x on arvoparametri, ja y sekä z ovat viiteparametreja. Funktiota fB käytetään lauseen t = fB(r,s,t) toteutuksessa, kun r, s ja t ovat globaaleja muuttujia. Funktion kutsu on hyvin samanlainen kuin aikaisemminkin, mutta nyt funktiolle välitetään s:n ja t:n osoitteet. Viiteparametri voi olla tavallinen yksinkertainen muuttuja, mutta usein viiteparametrilla välitetään rakenteista tietoa.
 
 ```
 r   dc 24
@@ -35,7 +35,7 @@ pt  dc  0          ; osoitin, joka tulee osoittamaan t:hen
      store r1, t
 ```
 
-Viiteparametreihin viittaamisessa täytyy muistaa, että parametrina on annettu vasta viitattavan tiedon osoite eikä sen arvoa. Yksinkertaiseen tietoon viittaus on silti helppo toteuttaa epäsuoraa tiedonsoitusmoodia käyttäen. Helppo tapa pitää viiteparametrit erillää arvoparametreista on nimetä ne vähän eri tavalla.
+Viiteparametreihin viittaamisessa täytyy muistaa, että parametrina on annettu vasta viitattavan tiedon osoite eikä sen arvoa. Yksinkertaiseen tietoon viittaus on silti helppo toteuttaa epäsuoraa tiedonsoitusmoodia käyttäen. Helppo tapa pitää viiteparametrit erillään arvoparametreista on nimetä ne vähän eri tavalla.
 
 ```
 ;
@@ -44,12 +44,12 @@ Viiteparametreihin viittaamisessa täytyy muistaa, että parametrina on annettu 
 retfB   equ  -5    ; paluuarvon suhteellinen osoite
 parX    equ -4     ; arvoparametrin X osoite AT:ssä
 vparY   equ -3     ; viiteparametrin osoite AT:ssä
-vparZ   equ -3
+vparZ   equ -2
 
 fB      push sp, r1  ; talleta r1
         
         load r1, parX(fp)   ; laske X*Y+Z
-        mul  r1, @vparY(fp)
+        mul  r1, @vparY(fp)  ; huomaa epäsuoran tiedonosoitusmoodin käyttö
         add  r1, @vparZ(fp)
         
         store r1, retfB(fp) ; talleta paluuarvo
@@ -82,7 +82,7 @@ Salary  equ  2
 ```
 
 ## Ulostuloparametrit
-Ulostuloparametrit ovat tavallisia viiteparametreja, joita käytetään parametrina välitetyn tietorakenteen muokkaamiseen. Esimerkiksi aikaisemmin mainitun kuvan käsittelyn yhteydessä tämän on selvästi järkevin vaihtoehto, koska näin vältetään suurehkon kuvan kopiointi jokaisen kuvanksäittelyrutiinin kutsun ja paluun yhteydessä.
+Ulostuloparametrit ovat tavallisia viiteparametreja, joita käytetään parametrina välitetyn tietorakenteen muokkaamiseen. Esimerkiksi aikaisemmin mainitun kuvan käsittelyn yhteydessä tämän on selvästi järkevin vaihtoehto, koska näin vältetään suurehkon kuvan kopiointi jokaisen kuvankäsittelyrutiinin kutsun ja paluun yhteydessä.
 
 ```
    push sp, =0      ; paluuarvo
@@ -93,10 +93,29 @@ Ulostuloparametrit ovat tavallisia viiteparametreja, joita käytetään parametr
    jneq r1, badresult
 ``` 
 
-## Viiteparametrien riskit
-Toisaalta jokainen viiteparametri voi olla riski, koska sen kautta pääsee muuttamaan kutsuvan rutiinin dataa. Esimerkiksi, jos henkilörekisterin palkkataulukko annetaan parametrina tulostusrutiinille, olisi toivottavaa, että tulostusrutiini ei muuta käyttäjien palkkatietoja samalla! Tällaista _hyökkäystä_ vastaan voi suojautua käyttämällä vain luotettavissa kirjastoissa olevia tulostusrutiineja.
+Useissa ohjelmointikielissä rajataan funktion paluuarvon tyyppi yksinkertaiseen tietotyyppiin. Tällaisissa tapauksissa moniarvoisen funktion voi helposti toteuttaa käyttämällä useaa ulostuloparametria.
 
-Joissakin ohjelmointikielissä jokainen merkkijono välitetään viiteparametrina, jolloin aliohjelmat voisivat manipuloida parametreina annettuja merkkijonoja haluamikseen. Tältä voidaan suojautua tallettamalla merkkijonot _read only_ muistialueelle ja rajaamalla merkkijonojen käsittely luotettaville kirjastoaliohjelmille.
+```
+vparX  equ -4
+vparY  equ -3
+vparZ  equ -2
+
+S     pushr sp   ; talleta rekisterit
+      ...
+      ...        ; laske tulokset rekistereihin r1, r2, r3
+      ... 
+      store r1, @vparX(fp)  ; palauta tulokset viiteparametrien kautta
+      store r3, @vparY(fp)
+      store r3, @vparZ(fp)
+
+      popr sp
+      exit sp, =3
+```
+
+## Viiteparametrien riskit
+Toisaalta jokainen viiteparametri voi olla riski, koska sen kautta aliohjelma pääsee muuttamaan kutsuvan rutiinin dataa. Esimerkiksi, jos henkilörekisterin palkkataulukko annetaan parametrina tulostusrutiinille, niin olisi toivottavaa, että tulostusrutiini ei muuta käyttäjien palkkatietoja samalla. Tällaista _hyökkäystä_ vastaan voi suojautua käyttämällä vain luotettavissa kirjastoissa olevia tulostusrutiineja.
+
+Joissakin ohjelmointikielissä kaikki merkkijonot välitetään viiteparametreina, jolloin aliohjelmat voisivat manipuloida parametreina annettuja merkkijonoja haluamikseen. Tältä voidaan suojautua tallettamalla merkkijonot _read only_ muistialueelle ja rajaamalla merkkijonojen käsittely luotettaville kirjastoaliohjelmille.
 
 
 
