@@ -221,7 +221,7 @@ Lopulta, exit-käsky (f12) palauttaa pinosta FP:n ja PC:n arvot ennalleen ja poi
               vanha r1
 ```
 
-### Quizes 6.2 ??????
 <!-- quiz 6.2.?? ???  -->
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiznator id="5ce64cf7142fa41c2b8c8a0d"></quiznator></div>
+<div><quiznator id="5ce65172142fa41c2b8c8a17"></quiznator></div>
