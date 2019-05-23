@@ -9,7 +9,7 @@ title: 'Aktivaatiotietueen rakentaminen'
 
 
 ## Aktivaatiotietueen rakentaminen ja purku
-Aktivaatio tietueen rakentaminen ja purku tapahtuvat kolmessa vaiheessa. Osan työstä tekee kutsuva rutiini usean konekäskyn avulla, osan tyästä tekee kutsuttu rutiini niin ikään usean konekäskyn avulla. Kontrollin siirrot tehdään konekäskyjen call ja exit avulla.
+Aktivaatio tietueen rakentaminen ja purku tapahtuvat kahdessa vaiheessa. Osan työstä tekee kutsuva rutiini usean konekäskyn avulla ja osan työstä tekee kutsuttu rutiini niin ikään usean konekäskyn avulla. 
 
 Kutsuva rutiini aloittaa työn ja laittaa pinoon ensin tilan paluuarvolle (jos kyseessä on funktio) ja sitten kaikki parametrien arvot, oman tyyppinsä mukaisesti. 
 
@@ -19,30 +19,35 @@ push sp, x         ; arvoparametri esimerkki
 pushsp, =x         ; viiteparametri esimerkki
 ```
 
-Seuraavaksi call-käskyllä pinoon laitetaan PC:n nykyarvo eli paluuosoite ja FP nykyarvo eli kutsuvan rutiin AT:n osoite. Tässä yheydessä kontrolli siirtyy kutsutulle rutiinille, jonka pitää sitten rakentaa loput aktivaatiotietueesta.
+Seuraavaksi call-käskyllä pinoon laitetaan PC:n nykyarvo eli paluuosoite ja FP nykyarvo eli kutsuvan rutiin AT:n osoite. Tässä yheydessä kontrolli siirtyy kutsutulle rutiinille, jonka rakentaa sitten loput AT:stä ennen varsinaista laskentatehtäväänsä. 
 
 ```
 call sp, funcX     ; pinoon vanha PC ja vanha FP
 ```
 
-Kutsuttu rutiini tekee nyt aluksi hallinnolliset alkutoimet, joiden avulla AT rakennetaan valmiiksi. Näitä alkutoimia kutsutaan nimellä _prolog_. Siinä varataan ensin tilaa paikallisille tietorakenteille ja talletetaan tarvittavien työrekisterien arvot. 
+Kutsuttu rutiini tekee nyt aluksi hallinnolliset alkutoimet, eli _prologin_. Siinä varataan tilat paikallisille tietorakenteille ja talletetaan tarvittavien työrekisterien arvot. 
 
 ```
 push sp, =0    ; tila ensimmäiselle paikalliselle muuttujalle, alkuarvo 0
 pushr  sp      ; talleta kaikki työrekisterit
 ```
 
-Nyt aktivaatiotietue on valmis ja itse rutiinin työ voidaan tehdä. Jos kyseessä on funktio, niin paluuarvo pitää asettaa paikalleen.
+Nyt AT on valmis ja itse rutiinin työ voidaan tehdä. Jos kyseessä on funktio, niin lopuksi pitää paluuarvo tallettaa omalle paikalleen AT:hen.
 
-Sitten voidaankin aloittaa aktivaatiotietueen purku. Kutsutussa rutiinissa tätä kutsutaan nimellä _prolog_. Hyvin usein todellisissa symbolisissa konekielissä on tehokkaat _makrot_ epilogin ja prologin koodien tuottamiseksi. Palautamme ensin talletettujen työrekistereiden arvot ja vapautamme paikallisten tietorakenteiden tilanvaraukset. Lopuksi palautamme kontrollin kutsuvalle rutiinille exit-käskyllä, joka samalla vapauttaa parametrien tilanvaraukset pinosta.
+Lopuksi aloitetaan aktivaatiotietueen purku eli _prolog_. Hyvin usein todellisissa symbolisissa konekielissä on tehokkaat _makrot_ epilogin ja prologin koodien tuottamiseksi. Ensin palautetaan talletettujen työrekistereiden arvot ja vapautataan paikallisten tietorakenteiden tilanvaraukset. Lopuksi kontrolli ja suoritusympäristö palautetaan kutsuvalle rutiinille exit-käskyllä, joka samalla vapauttaa parametrien tilanvaraukset pinosta.
 
 ```
 popr sp     ; palauta kaikki työrekisterit
 sub sp, =1  ; vapauta paikallisen muuttujan tilanvaraus
-exit sp, =2 ; palauta PC ja FP, vapauta 2 parametrin tila
+exit sp, =2 ; palauta PC ja FP pinosta, vapauta 2 parametrin tila
 ```
 
-Nyt kontrolli on takaisin kutsuvalla rutiinilla, joka ottaa funktion paluuarvon käyttöönsä pinosta (jos kutsuttu rutiini oli funktio). Näin koko kutsutun rutiinin AT on purettu ja pinon sisältö on täsmälleen sama kuin mitä se oli ennen
+Nyt kontrolli on takaisin kutsuvalla rutiinilla, joka ottaa funktion paluuarvon käyttöönsä pinosta (jos kutsuttu rutiini oli funktio). Näin koko kutsutun rutiinin AT on purettu ja pinon sisältö on täsmälleen sama kuin mitä se oli ennen rutiinin kutsua.
+
+```
+pop sp, r1  ; poista funktion arvo pinosta
+```
+
 
 ## Esimerkki funktion toteutuksesta
 Käytetään esimerkkinä kokonaislukuarvoista funktiota fA(x,y), joka käyttää paikallista muuttujaa z (alkuarvo 5) ja palauttaa arvonaan lausekkeen x\*z+y arvon. 
@@ -56,7 +61,7 @@ int fA (int x, y) {  /* x ja y arvoparametreja */
     }
 ```
 
-Funktiota käytetään lauseen t = fA(200, R) toteutukseen, kun R on globaali muuttuja.
+Funktiota fA käytetään lauseen t = fA(200, r) toteutukseen, kun r ja t ovat globaaleja muuttuja.
 
 ### Kutsuvan rutiinin koodi
 Kutsuvassa rutiinissa funktion käyttö tapahtuu konekielellä seuraavanlaisesti.
@@ -65,7 +70,9 @@ Kutsuvassa rutiinissa funktion käyttö tapahtuu konekielellä seuraavanlaisesti
 r  dc 24      ; r on globaali muuttuja, alkuarvo 24
 t  dc 55      ; t on globaali muuttuja, alkuarvo 55
    ...
-   ; toteuta t = fA(200, r)
+;   
+; toteuta t = fA(200, r)
+;
 r1 push sp, =0   ; tila paluuarvolle
 r2 push sp, =200 ; vakio 200
 r3 push sp, r    ; muuttujan r arvo
@@ -112,13 +119,16 @@ Lopulta, käskyn r5 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu 
 ```
 
 ### Kutsutun rutiinin koodi
-Funktio fA() voidaan toteuttaa konekielellä seuraavalla tavalla. Määrittelemme aluksi symbolien avulla paluuarvon,  parametrien ja paikallisten tietorakenteiden sijainnit AT:ssä. Kaikki viitteet noihin tietorakenteisiin tehdään sitten noiden symbolien avulla käyttäen niitä suhteellisina osoitteina AT:ssa.
+Funktio fA() voidaan toteuttaa konekielellä seuraavalla tavalla. Määrittelemme aluksi symbolit paluuarvon, parametrien ja paikallisten tietorakenteiden sijainneille AT:ssä. Kaikki viitteet noihin tietorakenteisiin tehdään sitten noiden symbolien avulla käyttäen niitä suhteellisina osoitteina AT:ssa.
 
 ```
+;
+; funktio fA(x,y)    x ja y ovat arvoparametreja
+;
 retfA  equ -4  ; paluuarvon suhteellinen osoite AT:ssa
 parX  equ -3   ; parametrien x ja y suhteelliset osoitteet AT:ssa
 parY  equ -2   
-locZ  equ 1    ; paikallisen muuttuja z suhteellinen osoite AT:ssä
+locZ  equ 1    ; paikallisen muuttujan z suhteellinen osoite AT:ssä
 
 fa    push sp, =0  ; tilanvaraus paikalliselle muuttujalle AT:ssä
       push sp, r1  ; talleta r1
@@ -151,7 +161,7 @@ vanha FP -->  ...   ; kutsuvan rutiinin AT
 FP, SP -->    vanha FP
 ```
 
-Kun prologi ja paikallisen muuttuja alustus on tehty, uusi AT on valmis ja pinon sisältö on seuraavanlainen.
+Kun prologi ja paikallisen muuttujan z alustus on tehty, uusi AT on valmis ja pinon sisältö on seuraavanlainen.
 
 ```
               ??    
