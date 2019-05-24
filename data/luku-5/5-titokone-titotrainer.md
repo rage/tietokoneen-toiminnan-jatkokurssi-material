@@ -70,7 +70,7 @@ Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat
 
 <text-box variant="example" name="Historiaa:  ENIAC">
   
-ENIAC (Electronic Numerical Integrator and Computer) vuodelta 1945 oli ensimmäinen yleiskäyttöinen sähkökäyttäinen tietokone. Sen pääsuunnittelijat olivat John Mauchly ja J. Presper Eckert. Siinä oli 17468 elektroniputkea. Sen nopeus oli mullistavat 5000 yhteenlaskua tai 357 kertolaskua sekunnissa. Se painoi 27 tonnia, vaati lattiatilaa 167 m2 ja kulutti 150 kW sähköä. Siinä oli uutena piirteenä haarautumiskäsky. Ohjelmointi tapahtui fyysisesti (käsin) langoittamalla laitteisto suorittamaan tiettyä algoritmia ennen ohjelman suorittamista. Ensimmäisellä testiohjelmalla suoritettiin vetypommin kehittämiseen liittyviä laskelmia ja syöteaineisto oli yli miljoonalla reikäkortilla.
+ENIAC (Electronic Numerical Integrator and Computer) vuodelta 1945 oli ensimmäinen yleiskäyttöinen sähkökäyttöinen tietokone. Sen pääsuunnittelijat olivat John Mauchly ja J. Presper Eckert. Siinä oli 17468 elektroniputkea. Sen nopeus oli mullistavat 5000 yhteenlaskua tai 357 kertolaskua sekunnissa. Se painoi 27 tonnia, vaati lattiatilaa 167 m2 ja kulutti 150 kW sähköä. Siinä oli uutena piirteenä haarautumiskäsky. Ohjelmointi tapahtui fyysisesti (käsin) langoittamalla laitteisto suorittamaan tiettyä algoritmia ennen ohjelman suorittamista. Ensimmäisellä testiohjelmalla suoritettiin vetypommin kehittämiseen liittyviä laskelmia ja syöteaineisto oli yli miljoonalla reikäkortilla.
 
 <!-- kuva: ch-5-5-eniac    -->
 
