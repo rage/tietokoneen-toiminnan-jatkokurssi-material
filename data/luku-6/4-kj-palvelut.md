@@ -81,23 +81,22 @@ MsgService equ   52
 
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
-## Note  EDSAC   ?????
-
 <text-box variant="example" name="Historiaa:  EDSAC">
   
 Vuonna 1949 rakennettu EDSAC oli ensimmäisiä tietokoneita, joka suoritti muistissa olevaa ohjelmaa. Siinä oli kuusi kappaletta tyhjiöputkilla toteutettua rekisteriä. Käsky- ja datamuisti oli toteutettu 32 elohopeaviiveputkella, joihin kuhinkin mahtui 32 kappaletta 18-bittistä sanaa. Myös (little-endian) kaksois-sana oli mahdollinen. Kertolasku kesti 5.4 ms. Koko toteutus vaati 3000 tyhjiöputkea, sähkön kulutus oli 12 kW ja  laitteistoi vaati 5x4 metrin tilan. Tyhjiöputkien kestävyys oli ongelma, kunnes keksittiin, että niitä ei kannata koskaan sammuttaa. 
 
 <!-- kuva: ch-6-4-edsac    -->
 
-![T?????     selitys PUUTTUU ???????.](./ch-6-4-edsac.svg)
+![iso tietokonesali, jossa kaksi tutkijaa seisoo yli 2m korkuisten ja 1m leeviden telineiden edessä. Yhdessä tällaisessa telineessä saattoi olla toteutettuna yksi rekisteri.](./ch-6-4-edsac.svg)
 <div>
 <illustrations motive="ch-6-4-edsac"></illustrations>
 </div>
-
-</text-box>
 EDSAC I, W. Renwick, M.V. Wilkes.<br>
 Copyright Computer Laboratory, University of Cambridge. Reproduced by permission.<br>
 This photo is licensed under the Creative Commons Attribution 2.0 Generic license.
+
+</text-box>
+
 
 
 ## Yhteenveto
