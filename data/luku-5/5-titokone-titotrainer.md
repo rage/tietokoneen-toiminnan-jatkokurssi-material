@@ -58,8 +58,6 @@ Ohjelmointi on hauskaa ja siten myös konekielinen ohjelmointi. Älä kuitenkaan
 
 Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat seuraavat. Osaat toteuttaa symbolisella ttk-91 konekielellä erilaisten tietorakenteiden (muuttujat, 1- ja 2-ulotteiset taulukot, tietueet) muistivaraukset ja niihin viittaamiset. Osaat käyttää tietorakenteita myös osoitinmuuttujien avulla. Osaat toteuttaa koodissa haarautumiset ja erilaiset toistolauseet. Osaat käyttää (seuraavassa luvussa esiteltäviä) aliohjelmia ja funktioita sekä toteuttaa ne. Osaat selittää, mikä on aktivointitietue ja aktivointitietuepino. Osaat käyttää arvo- ja viiteparametreja. Osaat varata globaaleja tietorakenteita ja aliohjelmien paikallisia tietorakenteita. Osaat viitata aliohjelmissa parametreihin sekä globaaleihin ja paikallisiin tietorakenteisiin.
 
-## NOTE ENIAC  ???
-??????
 
 <!-- quiz 5.5.??? ????????????????? -->
 
@@ -69,6 +67,21 @@ Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat
 <div><quiznator id="5cdeb42e597ed81bbd1bd737"></quiznator></div>
 <div><quiznator id="5cdeb6004f1e771cc6156294"></quiznator></div>
 <div><quiznator id="5cdeb80d142fa41c2b8c7e8a"></quiznator></div>
+
+<text-box variant="example" name="Historiaa:  ENIAC">
+  
+ENIAC (Electronic Numerical Integrator and Computer) vuodelta 1945 oli ensimmäinen yleiskäyttöinen sähkökäyttäinen tietokone. Sen pääsuunnittelijat olivat John Mauchly ja J. Presper Eckert. Siinä oli 17468 elektroniputkea. Sen nopeus oli mullistavat 5000 yhteenlaskua tai 357 kertolaskua sekunnissa. Se painoi 27 tonnia, vaati lattiatilaa 167 m2 ja kulutti 150 kW sähköä. Siinä oli uutena piirteenä haarautumiskäsky. Ohjelmointi tapahtui fyysisesti (käsin) langoittamalla laitteisto suorittamaan tiettyä algoritmia ennen ohjelman suorittamista. Ensimmäisellä testiohjelmalla suoritettiin vetypommin kehittämiseen liittyviä laskelmia ja syöteaineisto oli yli miljoonalla reikäkortilla.
+
+<!-- kuva: ch-5-5-eniac    -->
+
+![Valtava tietokonesali, jossa neljä operaattoria seisoo yli 2m korkuistenlaitteiden edessä.](./ch-5-5-eniac.svg)
+<div>
+<illustrations motive="ch-5-5-eniac"></illustrations>
+</div>
+Cpl. Irwin Goldstein (foreground) sets the switches on one of the ENIAC's function tables at the Moore School of Electrical Engineering.<br>
+U.S. Army photo. Image is in the public domain. <br>
+
+</text-box>
 
 
 ## Yhteenveto
