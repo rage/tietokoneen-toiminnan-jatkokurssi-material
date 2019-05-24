@@ -79,7 +79,10 @@ MsgService equ   52
 ## Quizit 6.4 ??????  e-300, e-310, e-450, f410??
 <!-- quiz 6.4.??  ????? -->
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiznator id="5ce7d946c32bef0809233733"></quiznator></div>
+<div><quiznator id="5ce7da5cb46310082c3f4b6d"></quiznator></div>
+<div><quiznator id="5ce7db332c6e4507b408bbb7"></quiznator></div>
+<div><quiznator id="5ce7dc754355990788c2b6b9"></quiznator></div>
 
 <text-box variant="example" name="Historiaa:  EDSAC">
   
