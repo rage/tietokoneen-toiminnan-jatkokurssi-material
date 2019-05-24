@@ -8,11 +8,11 @@ title: 'Viiteparametrit ja ulostuloparametrit'
 </div>
 
 ## Viiteparametrit
-Viiteparametrien käyttäminen on usein ainoa järkevä tapa välittää rakenteista tietoa aliohjelmille. Usein rakenteinen tieto on sen verran suurta, että sitä ei haluta kopioida moneen kertaan.Toisaalta taas joidenkin järjestelmien aliohjelmien toteutus voi olla tehokkuussyistä rakennettu niin, että aktivointitietueen (AT) koko on rajattu. Jotkut ohjelmointikielet antavat myös parametreille kokorajoituksia, jolloin parametrit (ja paluuarvo) voivat olla ainoastaan yksinkertaisia tietotyyppejä. Joissakin ohjelmointikielissä sallitaan esim. taulukoiden käyttö parametreina, mutta ne on käytännössä aina kuitenkin toteutettu viiteparametrien avulla.
+Viiteparametrien käyttäminen on usein ainoa järkevä tapa välittää rakenteista tietoa aliohjelmille. Usein rakenteinen tieto on sen verran suurta, että sitä ei haluta kopioida moneen kertaan.Toisaalta taas joidenkin järjestelmien aliohjelmien toteutus voi olla tehokkuussyistä rakennettu niin, että aktivointitietueen (AT) koko on rajattu. Jotkut ohjelmointikielet antavat myös parametreille kokorajoituksia, jolloin parametrit (ja paluuarvo) voivat olla ainoastaan yksinkertaisia tietotyyppejä. Joissakin ohjelmointikielissä sallitaan esim. taulukoiden käyttö parametreina, mutta ne voi silti käytännössä olla toteutettu viiteparametrien avulla.
 
 Aivan samalla tavalla myös suuret paikalliset tietorakenteet kasvattavat AT:n kokoa huomattavasti, mikä voi vaikuttaa merkittävästi toteutuksen tehokkuuteen. Tämän vuoksi jotkut ohjelmointikielet rajaavat myös AT:hen talletettavien paikallisten tietorakenteiden kokoa.
 
-Käytämme tässä esimerkkinä funktiota fB(r,s,t), joka palauttaa arvonaan lausekkeen x\*y+z arvon. Parametri x on arvoparametri, ja y sekä z ovat viiteparametreja. Funktiota fB käytetään lauseen t = fB(r,s,t) toteutuksessa, kun r, s ja t ovat globaaleja muuttujia. Funktion kutsu on hyvin samanlainen kuin aikaisemminkin, mutta nyt funktiolle välitetään s:n ja t:n osoitteet. Viiteparametri voi olla tavallinen yksinkertainen muuttuja, mutta usein viiteparametrilla välitetään rakenteista tietoa.
+Käytämme tässä esimerkkinä funktiota fB(r,s,t), joka palauttaa arvonaan lausekkeen x\*y+z arvon. Parametri x on arvoparametri. Parametrit y ja z ovat viiteparametreja. Funktiota fB käytetään lauseen t = fB(r,s,t) toteutuksessa, kun r, s ja t ovat globaaleja muuttujia. Funktion kutsu on hyvin samanlainen kuin aikaisemminkin, mutta nyt funktiolle välitetään s:n ja t:n osoitteet. Viiteparametri voi olla tavallinen yksinkertainen muuttuja, mutta usein viiteparametrilla välitetään rakenteista tietoa.
 
 ```
 r   dc 24
