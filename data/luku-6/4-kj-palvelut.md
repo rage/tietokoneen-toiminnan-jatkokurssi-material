@@ -7,7 +7,7 @@ title: 'Käyttöjärjestelmäpalvelujen käyttö'
 Tässä osiossa esitellään käyttöjärjestelmäpalvelujen käyttö ja kuinka se eroaa tavallisten aliohjelmien käyttämisesestä.
 </lead></div>
 
-## Kutsuttavat käyttöjärjestelmäpalvelut
+## Käyttöjärjestelmäpalvelut kutsuttavina rutiineina
 Käyttöjärjestelmä tarjoaa suorituksessa oleville ohjelmille erilaisia palveluja, kuten esimerkiksi oheislaitteiden käyttämisen. Näitä palveluja käytetään periaatteessa kahdella tavalla. 
 
 Palvelut voivat olla suoraan kutsuttavissa tavallisina aliohjelmina tai etuoikeutettuina aliohjelmina. Kaikki käyttöjärjestelmän osat eivät tarvitse etuoikeutettua suoritustilaa ja on turvallisempaa pitää mahdollisimman suuri osa koodista tavallisessa suoritustilassa suoritettavana. Esimerkkinä tallaisesta palvelusta voisi olla joku yleinen tulostuspalvelu. Tällaisia rutiineja kutsutaan tavallisilla call-aliohjelmakutsuillla. Osa palveluista (esimerkiksi jotkut laiteajurit) vaativat kuitenkin etuoikeutettua suoritustilaa ja niitä kutsutaan tällöin svc-käskyillä. Svc-käskyvaihtaa suoritustilan etuoikeutetuksi samalla kun se siirtää kontrollin kutsutulle rutiinille. Etuoikeutetut palvelurutiinit ovat etukäteen kaikki tiedossa ja ne on usein nimetty pelkästään palvelun numeron mukaisesti. Esimerkiksi, ttk-91'ssä palvelurutiinin Halt (ohjelman suoritus päättyy) numero on 11, mikä on myös symbolin "halt" arvo.
@@ -79,9 +79,16 @@ MsgService equ   52
 
 ## Note  EDSAC   ?????
 
-<text-box variant="example" name="EDSAC">
+<text-box variant="example" name="Historiaa:  EDSAC">
   
 On ....
+
+<!-- kuva: ch-6-1-a-aktivaatiotietue    -->
+
+![Ttk-91 aktivaatiotietue funktiolle F(x,y), F:ssä on paikalliset muuttujat i ja j. F käyttää työrekistereitä r1 ja r2. Kuvassa on pino, joka on kuvattu ylhäältä alaspäin kohti kasvavia muistiosoitteita. Pinossa on pällimmäisenä F:n aktivaatiotietue. Pinon pinnalle osoittaa pinorekisteri SP. Aktivaatiotietueessa on 9 sanaa. Ne ovat paluuarvo, parametrit x ja y, vanha PC ja vanha FP, paikalliset muuttujat i ja j, sekä rekistereiden r1 ja r2 vanhat arvot. Frame pointer FP osoittaa vanhaan FP arvoon. Parametrin y sijainti on FP-2. Paikallisen muuttuja i sijainti on FP+1.](./ch-6-1-a-aktivaatiotietue.svg)
+<div>
+<illustrations motive="ch-6-1-a-aktivaatiotietue"></illustrations>
+</div>
 
 </text-box>
 
