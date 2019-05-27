@@ -18,6 +18,17 @@ hidden: false
 <!--  quizit 9.4.???  -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
+<text-box variant="example" name="Historiaa:  Transistori ja integroitu piiri">
+  
+Fe.....
+
+![Valt????  puuttuu ????.](./ch-9-3-transistori.svg)
+<div>
+<illustrations motive="ch-9-3-transistori"></illustrations>
+</div>
+
+</text-box>
+
 ## Yhteenveto
 Tämä luku ...
 
