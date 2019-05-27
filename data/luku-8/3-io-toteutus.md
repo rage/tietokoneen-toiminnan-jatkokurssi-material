@@ -34,14 +34,14 @@ hidden: false
 <!--  quizit 8.3.???  -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
-<text-box variant="example" name="Historiaa:  Ensimmäinen mikroprosessori Intel 4004">
+<text-box variant="example" name="Historiaa:  Tyhjiöputki">
   
 Fe.....
-<!-- kuva: ch-8-3-i4004    -->
+<!-- kuva: ch-8-3-tyhjioputki    -->
 
-![Valtava.](./ch-8-3-i4004.svg)
+![Valtava.](./ch-8-3-tyhjioputki.svg)
 <div>
-<illustrations motive="ch-8-3-i4004"></illustrations>
+<illustrations motive="ch-8-3-tyhjioputki"></illustrations>
 </div>
 credit....???? 
 
