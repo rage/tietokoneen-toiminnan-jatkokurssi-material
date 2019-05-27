@@ -68,15 +68,14 @@ Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat
 <div><quiznator id="5cdeb6004f1e771cc6156294"></quiznator></div>
 <div><quiznator id="5cdeb80d142fa41c2b8c7e8a"></quiznator></div>
 
-<text-box variant="example" name="Historiaa:  Ferriittirengasmuisti">
+<text-box variant="example" name="Historiaa:  Akustinen viiveputki">
   
-Ferriittirengas.....
+Fe.....
+<!-- kuva: ch-5-5-viiveputki    -->
 
-<!-- kuva: ch-5-5-ferriitti    -->
-
-![Valtava.](./ch-5-5-ferriitti.svg)
+![Valtava.](./ch-5-5-viiveputki.svg)
 <div>
-<illustrations motive="ch-5-5-ferriitti"></illustrations>
+<illustrations motive="ch-5-5-viiveputki"></illustrations>
 </div>
 credit....???? 
 
