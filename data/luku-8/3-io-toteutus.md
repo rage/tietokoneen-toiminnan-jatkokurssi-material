@@ -39,7 +39,7 @@ hidden: false
 Fe.....
 <!-- kuva: ch-8-3-tyhjioputki    -->
 
-![Valtava.](./ch-8-3-tyhjioputki.svg)
+![Kuvaselitys puuttuu ???.](./ch-8-3-tyhjioputki.svg)
 <div>
 <illustrations motive="ch-8-3-tyhjioputki"></illustrations>
 </div>
