@@ -76,7 +76,7 @@ Maurice Wilkes käytti elohopeaviiveputkia vuonna 1949 EDSAC-koneen keskusmuisti
 
 <!-- kuva: ch-5-5-viiveputki    -->
 
-![Valtava.](./ch-5-5-viiveputki.svg)
+![Wilkes polvistuneen EDSAC'in muistiyksikön vieressä. Siinä on metallilaatikossa viisi elohopeaviiveputkea.](./ch-5-5-viiveputki.svg)
 <div>
 <illustrations motive="ch-5-5-viiveputki"></illustrations>
 </div> 
