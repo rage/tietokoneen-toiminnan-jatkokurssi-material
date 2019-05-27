@@ -84,9 +84,9 @@ MsgService equ   52
 <div><quiznator id="5ce7db332c6e4507b408bbb7"></quiznator></div>
 <div><quiznator id="5ce7dc754355990788c2b6b9"></quiznator></div>
 
-<text-box variant="example" name="Historiaa:  EDSAC">
+<text-box variant="example" name="Historiaa:  Williams Tube -muisti">
   
-Vuonna 1949 rakennettu EDSAC oli ensimmäisiä tietokoneita, joka suoritti muistissa olevaa ohjelmaa. Siinä oli kuusi kappaletta tyhjiöputkilla toteutettua rekisteriä. Käsky- ja datamuisti oli toteutettu 32 elohopeaviiveputkella, joihin kuhinkin mahtui 32 kappaletta 18-bittistä sanaa. Myös (little-endian) kaksois-sana oli mahdollinen. Kertolasku kesti 5.4 ms. Aliohjelmakutsua ei ollut, koska aliohjelman ideaa ei oltu vielä keksitty. Koko toteutus vaati 3000 tyhjiöputkea, sähkön kulutus oli 12 kW ja  laitteisto vaati 5x4 metrin tilan. Tyhjiöputkien kestävyys oli ongelma, kunnes keksittiin, että niitä ei kannata koskaan sammuttaa. John von Neumann kirjoitti EDVAC'ista raportin, missä kuvattiin sen käänteentekevä rakenne. Raportin perusteella nykyisiäkin tietokoneita kutsutaan von Neumann -tietokoneiksi. 
+F. Williams and T. Kilburn kehittivät vuonna 1946 ensimmäisen RAM-muistin (Random Access Memory), jonka kaikki muistipaikat olivat aina yhtä nopeita käyttää. Sen koko oli aluksi 1024 bittiä. Putki oli kallis ja kesti käytössä vain noin kuukauden. Muisti perustui samanlaisiin katodisädeputkiin (CRT, Cathode Ray Tube) kuin näytötkin. Kun jotain kuvapistettä valaistiin, niin se hehkui varautuneena vähän aikaan ja talletti siten tietoa. Tiedon lukeminen tapahtui yrittämällä kirjoittaa data uudestaan 1-biteillä. Kirjoitusyritys antoi erilaisen tuloksen sen mukaan, olivatko bitit jo ennestään varautuneita tai ei. Kaikkia kuvapisteitä piti virkistää vähän väliä, jotta tieto säilyi. Ensimmäisessä yleiskäyttöisessä kaupallisessa tietokoneessa, Ferranti Mark I, oli 10000 bittiä Williams Tube -muistia.
 
 <!-- kuva: ch-6-4-willimas    -->
 
@@ -94,7 +94,6 @@ Vuonna 1949 rakennettu EDSAC oli ensimmäisiä tietokoneita, joka suoritti muist
 <div>
 <illustrations motive="ch-6-4-williams"></illustrations>
 </div>
-credits......????
 
 </text-box>
 
