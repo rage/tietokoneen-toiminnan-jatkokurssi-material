@@ -23,12 +23,30 @@ hidden: false
 ### Virtuaalimuisti
 ????
 
-## Quizit 8.3
-<!-- Quiz 8.3.?? -->
+## Quizit 7.3
+<!-- Quiz 7.3.?? -->
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+
+
+
+
+
+<text-box variant="example" name="Historiaa:  Ferriittirengasmuisti">
+  
+Fe.....
+<!-- kuva: ch-7-3-ferriitti    -->
+
+![Valtava.](./ch-7-3-ferriitti.svg)
+<div>
+<illustrations motive="ch-7-3-ferriitti"></illustrations>
+</div>
+credit....???? 
+
+</text-box>
 
 ## Yhteenveto
 Tämä luku käsitteli ?????.
+
 
 ###  summary quizit ???
 Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
