@@ -88,15 +88,13 @@ MsgService equ   52
   
 Vuonna 1949 rakennettu EDSAC oli ensimmäisiä tietokoneita, joka suoritti muistissa olevaa ohjelmaa. Siinä oli kuusi kappaletta tyhjiöputkilla toteutettua rekisteriä. Käsky- ja datamuisti oli toteutettu 32 elohopeaviiveputkella, joihin kuhinkin mahtui 32 kappaletta 18-bittistä sanaa. Myös (little-endian) kaksois-sana oli mahdollinen. Kertolasku kesti 5.4 ms. Aliohjelmakutsua ei ollut, koska aliohjelman ideaa ei oltu vielä keksitty. Koko toteutus vaati 3000 tyhjiöputkea, sähkön kulutus oli 12 kW ja  laitteisto vaati 5x4 metrin tilan. Tyhjiöputkien kestävyys oli ongelma, kunnes keksittiin, että niitä ei kannata koskaan sammuttaa. John von Neumann kirjoitti EDVAC'ista raportin, missä kuvattiin sen käänteentekevä rakenne. Raportin perusteella nykyisiäkin tietokoneita kutsutaan von Neumann -tietokoneiksi. 
 
-<!-- kuva: ch-6-4-edsac    -->
+<!-- kuva: ch-6-4-willimas    -->
 
-![Iso tietokonesali, jossa kaksi tutkijaa seisoo yli 2m korkuisten ja 1m leveiden telineiden edessä. Yhdessä tällaisessa telineessä saattoi olla toteutettuna yksi rekisteri.](./ch-6-4-edsac.svg)
+![Iso ????.](./ch-6-4-williams.svg)
 <div>
-<illustrations motive="ch-6-4-edsac"></illustrations>
+<illustrations motive="ch-6-4-williams"></illustrations>
 </div>
-EDSAC I, W. Renwick, M.V. Wilkes.<br>
-Copyright Computer Laboratory, University of Cambridge. Reproduced by permission.<br>
-This photo is licensed under the Creative Commons Attribution 2.0 Generic license.
+credits......????
 
 </text-box>
 
