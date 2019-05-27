@@ -68,18 +68,17 @@ Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat
 <div><quiznator id="5cdeb6004f1e771cc6156294"></quiznator></div>
 <div><quiznator id="5cdeb80d142fa41c2b8c7e8a"></quiznator></div>
 
-<text-box variant="example" name="Historiaa:  ENIAC">
+<text-box variant="example" name="Historiaa:  Ferriittirengasmuisti">
   
-ENIAC (Electronic Numerical Integrator and Computer) vuodelta 1945 oli ensimmäinen yleiskäyttöinen sähkökäyttöinen tietokone. Sen pääsuunnittelijat olivat John Mauchly ja J. Presper Eckert. Siinä oli 17468 elektroniputkea. Sen nopeus oli mullistavat 5000 yhteenlaskua tai 357 kertolaskua sekunnissa. Se painoi 27 tonnia, vaati lattiatilaa 167 m2 ja kulutti 150 kW sähköä. Siinä oli uutena piirteenä haarautumiskäsky. Ohjelmointi tapahtui fyysisesti (käsin) langoittamalla laitteisto suorittamaan tiettyä algoritmia ennen ohjelman suorittamista. Ensimmäisellä testiohjelmalla suoritettiin vetypommin kehittämiseen liittyviä laskelmia ja syöteaineisto oli yli miljoonalla reikäkortilla.
+Ferriittirengas.....
 
-<!-- kuva: ch-5-5-eniac    -->
+<!-- kuva: ch-5-5-ferriitti    -->
 
-![Valtava tietokonesali, jossa neljä operaattoria seisoo yli 2m korkuistenlaitteiden edessä.](./ch-5-5-eniac.svg)
+![Valtava.](./ch-5-5-ferriitti.svg)
 <div>
-<illustrations motive="ch-5-5-eniac"></illustrations>
+<illustrations motive="ch-5-5-ferriitti"></illustrations>
 </div>
-Cpl. Irwin Goldstein (foreground) sets the switches on one of the ENIAC's function tables at the Moore School of Electrical Engineering.<br>
-U.S. Army photo. Image is in the public domain. <br>
+credit....???? 
 
 </text-box>
 
