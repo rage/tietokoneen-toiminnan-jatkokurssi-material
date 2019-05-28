@@ -70,13 +70,11 @@ Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat
 
 <text-box variant="example" name="Historiaa:  Akustinen viiveputki">
   
-W.Shockley ja P. Eckert kehittivät 1946 muistiteknologian, joka perustui akustiseen elohopeaviiveputkeen. Kvartsikide muutti pietsosähköisen ilmiön avulla sähkövirran bitit putkessa eteneväksi akustiseksi signaaliksi. Signaali eteni putkessa vakionopeudella. Muunnos toimi myös toiseen suuntaan tiedon lukemiseksi. Kun data ehti edetä putken toiseen päähän, sen arvo voitiin lukea ja samalla se kirjoitettiin takaisin putken alkupäähän. Yhden 1,45m pitkän putken kapasiteetti oli 1000 bittiä.
-
-Maurice Wilkes käytti elohopeaviiveputkia vuonna 1949 EDSAC-koneen keskusmuistina.
+William Shockley ja J. Presper Eckert kehittivät 1946 muistiteknologian, joka perustui akustiseen elohopeaviiveputkeen. Kvartsikide muutti pietsosähköisen ilmiön avulla sähkövirran bitit putkessa eteneväksi akustiseksi signaaliksi. Signaali eteni putkessa vakionopeudella. Muunnos toimi myös toiseen suuntaan tiedon lukemiseksi. Kun data ehti edetä putken toiseen päähän, sen arvo voitiin lukea ja samalla se kirjoitettiin takaisin putken alkupäähän. Yhden 1,45m pitkän putken kapasiteetti oli 1000 bittiä. Maurice Wilkes käytti elohopeaviiveputkia vuonna 1949 EDSAC-koneen keskusmuistina.
 
 <!-- kuva: ch-5-5-viiveputki    -->
 
-![Wilkes polvistuneen EDSAC'in muistiyksikön vieressä. Siinä on metallilaatikossa viisi elohopeaviiveputkea.](./ch-5-5-viiveputki.svg)
+![Wilkes EDSAC'in muistiyksikön vieressä. Siinä on metallilaatikossa viisi elohopeaviiveputkea.](./ch-5-5-viiveputki.svg)
 <div>
 <illustrations motive="ch-5-5-viiveputki"></illustrations>
 </div> 
