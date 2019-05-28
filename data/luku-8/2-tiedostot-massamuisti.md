@@ -1,6 +1,6 @@
 ---
-path: '/luku-8/2-massamuistin-saantiaika'
-title: 'Massamuistin saantiaika'
+path: '/luku-8/2-tiedostot-massamuisti'
+title: 'Tiedostot ja massamuisti'
 hidden: false
 ---
 
