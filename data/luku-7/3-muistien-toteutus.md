@@ -1,6 +1,6 @@
 ---
 path: '/luku-7/3-muisti-cache-ssd'
-title: 'Muisti, välimuisti, SSD'
+title: 'Muistien toteutus'
 hidden: false
 ---
 
@@ -8,20 +8,18 @@ hidden: false
 <lead>Rakenteisen ???? </lead>
 </div>
 
-## Keskusmuistin
+## Keskusmuistin toteutus
 ????
 
-## Välimuisti
+## Välimuistin toteutus
 ????
 
-## SSD-muisti
+## SSD-muistin toteutus
 ???
 
 ### SSD vs. kovalevy
 ????
 
-### Virtuaalimuisti
-????
 
 ## Quizit 7.3
 <!-- Quiz 7.3.?? -->
@@ -36,7 +34,7 @@ hidden: false
 Fe.....
 <!-- kuva: ch-7-3-ferriitti    -->
 
-![Valtava.](./ch-7-3-ferriitti.svg)
+![kuvan selitysteksti puuttuu... ????.](./ch-7-3-ferriitti.svg)
 <div>
 <illustrations motive="ch-7-3-ferriitti"></illustrations>
 </div>
