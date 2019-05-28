@@ -1,6 +1,6 @@
 ---
-path: '/luku-8/1-tiedostojarjestelma'
-title: 'Tiedostojärjestelmä'
+path: '/luku-8/1-muistihierarkia'
+title: 'Muistihierarkia ja virtuaalimuisti'
 hidden: false
 ---
 
@@ -8,13 +8,16 @@ hidden: false
 <lead>Käyttöjärjestelmän ?????</lead>
 </div>
 
-## Tiedostojärjestelmä
-????
+## Muistihierarkia
+Tietoa talletetaan tietokonejärjestelmiin hyvin monella eri tasolla. Lähtökohta eri tasojen käytölle on periaate, että pienempi muisti on nopeampaa ja suurempi muisti on halvempi toteuttaa. Tämä on johtanut ns. muistihierarkiapyramidiin, jonka olennaisia osia illustroitiin  Luvun 1 Juustokakkuesimerkillä.
 
-## Tiedoston talletus massamuistiin
-????
+Muistihierarkiapyramidissa on kolme isompaa kerrosta. Lähinnä huippua ovat samalla piirikortilla toteutetut muistiteknologiat, keskimmäisellä tasolla yhdessä järjestelmässä (samassa kotelossa?) muistilaitteet ja alimmalla tasolla ovat verkossa olevat tai muuten vain hyvin hitaat laitteet.
 
-## Virtuaalimuisti vs.tiedostojärjestelmä
+
+
+
+
+## Virtuaalimuisti 
 ????
 
 ### Massamuistin käyttö
