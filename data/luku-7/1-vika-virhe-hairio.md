@@ -41,8 +41,6 @@ Useimmissa tapauksissa virhe löytyi ohjelmakoodista. Kaikki virheet luokiteltii
 
 Yleisin varsinainen vika oli ohjelmoijien puutteellinen koulutus. Esimerkiksi, ohjelmoija ei ollut hoksannut, että koodissa olisi samanaikaisuudesta aiheutuvia ongelmia. Häiriön aiheuttaneen virheen lisäksi koko koodi käytiin läpi, josko sieltä löytyisi saman tyyppisiä virheitä. Yleensä löytyi ja myös nämä ohjelmistotuotantotiimit pääsivät lisäkoulutukseen. 
 
-?????????
-
 
 ## Quizit 7.1
 <!-- Quiz 7.1.?? -->
