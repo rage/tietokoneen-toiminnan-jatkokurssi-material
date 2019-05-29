@@ -9,7 +9,7 @@ hidden: false
 <lead>Käymme ???</lead>
 </div>
 
-## Tiedon tarkistuksen pääperiaatteet
+## Tiedon integriteetin turvaamisen pääperiaatteet
 Lähtökohta riittävän hyvän tiedon integriteetin takaamiselle on hyväksyä se, että virheitä tapahtuu. Perusidea virheiden havaitsemiselle on ottaa mukaan ylimääräisiä bittejä, joiden avulla virhe voidaan havaita ja ehkä jopa korjata. Käytännössä tämä tarkoittaa sitä, että rekistereihin ja muistipiireihin laitetaan ylimääräisiä bittejä, ja tiedonsiirtoväliin ylimääräisiä johtimia. Näiden lisäksi virheen havaitseva koodi pitää myöskin toteuttaa ja sen voi tehdä joko suoraan laitteistolla tai erillisillä ohjelmilla. Jos ajatellaan esimerkiksi muistiväylän suojaamista, niin nopeusvaatimusten vuoksi kaikki tarkistukset tulee tehdä laitteistototeutuksina.
 
 Ylimääräiset bitit ja johtimet vaativat ylimääräistä tilaa ja tarkistusten tekeminen vaatii aikaa. Tiedon integriteetin suojaaminen kustannus maksetaan siten sekä tilassa että ajassa. 
