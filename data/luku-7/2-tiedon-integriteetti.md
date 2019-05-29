@@ -1,6 +1,6 @@
 ---
-path: '/luku-7/2-pariteetti-hamming'
-title: 'Muuttuneen bitin havaitseminen ja korjaaminen'
+path: '/luku-7/2-tiedon-integriteetti'
+title: 'Tiedon integriteetin turvaaminen'
 hidden: false
 ---
 
