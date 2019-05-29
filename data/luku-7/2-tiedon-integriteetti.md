@@ -32,12 +32,13 @@ Esimerkkinä tiedot muuttamattomuuden tarkistamisesta voidaan käyttää henkil�
 Toinen esimerkki tarkistusmerkeistä on Suomessa käytetty IBAN tulinumero. Siinä olevien kahden tarkistusmerkin (numeron) avulla havaitaan kaikki yhden merkin virheet ja useimmat kahden merkin virheet. Kaikki kahden merkin vaihtumiset huomataan samoin kuin useimmat muutkin virheet. Virheitä ei voi korjata lainkaan.
 
 ```
-500015-123                   vanha pankkitilin numero: muotoa "pankki"-"tili" 
-5000 1500 0001 23 FI00       laajenna pankkiosa 14-numeroiseksi ja lisää loppuun FI00  
-5000 1500 0001 23 15 18 00   muuta  F="15", I="18"
+500015-123                  vanha pankkitilin numero: muotoa "pankki"-"tili" 
+5000 1500 0001 23           laajenna pankkiosa 14-numeroiseksi 
+5000 1500 0001 23 FI00      lisää loppuun FI00 
+5000 1500 0001 23 15 18 00                  muuta  F="15", I="18"
 5000 1500 0001 23 15 18 00 mod 97 = 61      laske modulo 97                      
-5000 1500 0001 23 FI37        laske 98-61=37 ja aseta 37 FI-merkkien jälkeen 
-FI37 5000 1500 0001 23        Siirrä FI-osa alkuun, uusi IBAN-numero
+5000 1500 0001 23 FI37      laske 98-61=37 ja aseta 37 FI-merkkien jälkeen 
+FI37 5000 1500 0001 23      Siirrä FI-osa alkuun, uusi IBAN-numero
 ```
 
 Tarkistusmerkkien kustannus on 2 merkkiä 18:sta eli yli 10%. Tarkismerkkien oikeellisuuden laskenta tehdään ohjelmallisesti.
