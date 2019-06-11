@@ -104,17 +104,15 @@ Parillinen pariteetti
 ```
 
 ### Hamming-koodi
-
 Hamming kehitti myös Hamming-koodin, jossa data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan kaikki paikallistaa (ja sen jälkeen korjata).  Esimerkiksi nyt myytävissä virheenkorjaavissa [ECC-muistipiireissä](https://en.wikipedia.org/wiki/ECC_memory) virheen-korjaus voi perustua Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
 
 Hamming-koodin perusidea on jakaa data-bitit erilaisiin ryhmiin (pariteettiluokkiin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella ryhmällä on oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainta voidaan päätellä virheellisistä pariteettibiteistä.  
 
 Tyypillinen yksinkertainen esimerkki Hamming-koodista on [Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)), jossa neljää data-bittiä vartioi kolme pariteettibittiä. Yhteensä tietoalkiossa on siis seitsemän bittiä.
 
-#### Kuva Hamming(7,4)
 <!-- kuva: ch-7-2-Hamming-7-4  -->
 
-![Hamming (7,4) esimerkki, jossa 3 priteettibittiä suojaamassa 4 databittiä. Kohdassa (a) on databitit a, b, c ja d, joiden arvot ovat a=0, b=1, c=1 ja d=0. Bitti b on keskellä, bitti a on bitin b vasemmalla puolella, bitti c on bitin b yläpuolella oikealla ja bitti d on bitin b alapuolella oikealla. Bitit a, b ja c kuuluvat pariteettiryhmään A, bitit a, b ja d ryhmään B sekä bitit b, c ja d ryhmään C. Kohdassa (b) on myös ryhmien parilliset pariteettibitit mukana: A=0, B=1 ja C=0. Ryhmät on piirretty ympyröinä, joihon kuuluvat kunkin ryhmän data- ja pariteettibitit. Kohdassa (c) databitti d on vaihtunut virheelliseen arvoon 1, jolloin ryhmien B ja C pariteettibitit B=1 ja C=0 ovat väärin. Kohdassa (d) databitti d on korjattu oikeaksi arvoon 0 ja kaikki pariteettibitit ovat oikein.](./ch-7-2-Hamming-7-4.svg)
+![Hamming (7,4) esimerkki, jossa 7 bitistä 4 kappaletta on databittejä ja 3 pariteettibittejä. Kuvassa on neljä osaa: (a), (b), (c) ja (d). Osassa (a) on databitit a, b, c ja d, joiden arvot ovat a=0, b=1, c=1 ja d=0. Bitti b on keskellä, bitti a on bitin b vasemmalla puolella, bitti c on bitin b yläpuolella oikealla ja bitti d on bitin b alapuolella oikealla. Bitit a, b ja c kuuluvat pariteettiryhmään A, bitit a, b ja d ryhmään B sekä bitit b, c ja d ryhmään C. Osassa (b) ovat myös ryhmien parilliset pariteettibitit mukana: A=0, B=1 ja C=0. Ryhmät on piirretty ympyröinä, joihon kuuluvat kunkin ryhmän data- ja pariteettibitit. Osassa (c) databitti d on vaihtunut virheelliseen arvoon 1, jolloin ryhmien B ja C pariteettibitit B=1 ja C=0 ovat väärin. Osassa (d) databitti d on korjattu oikeaksi arvoon 0 ja kaikki pariteettibitit ovat taas oikein.](./ch-7-2-Hamming-7-4.svg)
 <div>
 <illustrations motive="ch-7-2-Hamming-7-4"></illustrations>
 </div>
