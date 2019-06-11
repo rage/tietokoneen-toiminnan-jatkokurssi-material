@@ -44,7 +44,33 @@ FI37 5000 1500 0001 23      Siirrä FI-osa alkuun, uusi IBAN-numero
 Tarkistusmerkkien kustannus on 2 merkkiä 18:sta eli yli 10%. Tarkismerkkien oikeellisuuden laskenta tehdään ohjelmallisesti.
 
 ## Pariteettibitti
-???
+Bittitasolla yksinkertaisin ja yleinen tarkistusmenetelmä on pariteettibitti. Se on ylimääräinen bitti, jonka avulla tiedon 1-bittien lukumäärästä tehdään parillinen tai pariton. Käytössä sanotaan tuolloin olevan joko _parillinen_ tai _pariton pariteetti_. Esimerkiksi, 32-bittisessä sanassa voidaan varata 31 bittiä datalle ja 1 bitti pariteettibitille. Tietoa talletettaessa pariteettibitin arvo lasketaan ja talletetaan paikalleen. Joka kerta tietoa luettaessa tarkistetaan, että pariteetti on oikein. Jos se ei ole, niin virhe käsitellään esimerkiksi kutsumalla jotain aliohjelmaa tai aiheuttamalla sopiva keskeytys.
+
+```
+Esimerkki 15-bittisen datan suojaamisesta parillisella pariteettibitillä,
+kun tietoalkio on 16-bittinen. Pariteettibitti on oikean-puoleisin bitti 
+eli bitti numero 0.
+
+0111 0001 1110 0100   - pariteettibitti on 0
+1010 1111 0010 1101   - pariteettibitti on 1
+```
+
+Pariteettibitin kustannustietoalkiota kohden on 1 bitti, joten suuremmilla tietoalkioilla sen suhteellinen osuus on pienempi. 
+Pariteettibitin avulla voidaan havaita kaikki yhden bitin virheet, mutta kaikki kahden bitin virheet jäävät havaitsematta. 
+
+```
+0111 0001 1110 0000   - bitti nro 2 muuttunut, virheellinen pariteetti
+1010 1111 0010 1011   - bitit nro 2 ja 3 muuttuneet, oikea pariteetti
+```
+
+Pariteettibitin avulla ei voida mitenkään paikallistaa virhettä, joten virheen mahdollinen korjaus täytyy tehdä ylemmällä tasolla ohjelmistoa jollain muulla tavalla. Pariteettibitti kuitenkin sopii hyvin tilanteisiin, joissa yhden bitin virhe on aika pieni, mutta kahden bitin samanaikainen vikaantuminen on hyvin epätodennäköistä. Tällaisissa tilanteissa kolmen bitin yhtäaikaisen vikaantumisen todennäköisyys on vielä paljon pienempi.
+
+```
+P(1 bitin virhe) = 1:1000 0000                 = 1E-6
+P(2 bitin virhe) = 1:1000 0000 000 000         = 1E-12
+P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
+```
+
 
 ## Hamming-koodi
 ???
