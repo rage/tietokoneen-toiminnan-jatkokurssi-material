@@ -77,7 +77,7 @@ P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 
 
 ## Hamming-etäisyys ja Hamming-koodi
-[Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Sitä ennen hän osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Sodan jälkeen hän siirtyo Bell Laboratories'iin ja työskenteli osan aikaa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa samassa työhuoneessa.
+[Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Ennen tietojenkäsittelyynliittyvää uraansa hän osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Sodan jälkeen hän siirtyi Bell Laboratories'iin ja työskenteli osan aikaa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa samassa työhuoneessa.
 
 ### Hamming-etäisyys
 Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodijärjestelmissä. Hän määritteli _Hamming-etäisyydeksi_ niiden bittien lukumäärän, jonka mukaisen määrän bittejä täytyy muuttua, jotta jokin laillinen merkki muuttuu toiseksi saman koodijärjestelmän lailliseksi merkiksi. Mitä isompi Hamming-etäisyys tietyssä koodausjärjestelmässä on, sitä parempi. Jos virheitä (bittien muuttumisia) tapahtuu vähemmän kuin Hamming-etäisyyden verran, niin tuloksena on virheelliseksi havaittava tietoalkio.
@@ -112,6 +112,12 @@ Hamming-koodin perusidea on jakaa data-bitit erilaisiin ryhmiin (pariteettiluokk
 Tyypillinen yksinkertainen esimerkki Hamming-koodista on [Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)), jossa neljää data-bittiä vartioi kolme pariteettibittiä. Yhteensä tietoalkiossa on siis seitsemän bittiä.
 
 #### Kuva Hamming(7,4)
+<!-- kuva: ch-7-2-Hamming-7-4  -->
+
+![Hamming (7,4) esimerkki, jossa 3 priteettibittiä suojaamassa 4 databittiä. Kohdassa (a) on databitit a, b, c ja d, joiden arvot ovat a=0, b=1, c=1 ja d=0. Bitti b on keskellä, bitti a on bitin b vasemmalla puolella, bitti c on bitin b yläpuolella oikealla ja bitti d on bitin b alapuolella oikealla. Bitit a, b ja c kuuluvat pariteettiryhmään A, bitit a, b ja d ryhmään B sekä bitit b, c ja d ryhmään C. Kohdassa (b) on myös ryhmien parilliset pariteettibitit mukana: A=0, B=1 ja C=0. Ryhmät on piirretty ympyröinä, joihon kuuluvat kunkin ryhmän data- ja pariteettibitit. Kohdassa (c) databitti d on vaihtunut virheelliseen arvoon 1, jolloin ryhmien B ja C pariteettibitit B=1 ja C=0 ovat väärin. Kohdassa (d) databitti d on korjattu oikeaksi arvoon 0 ja kaikki pariteettibitit ovat oikein.](./ch-7-2-Hamming-7-4.svg)
+<div>
+<illustrations motive="ch-7-2-Hamming-7-4"></illustrations>
+</div>
 
 ## Cyclic Redundancy Code (CRC)
 Lähtötilanteessa (a) on merkittynä databittien arvot ja pariteettiluokat. Huomaa, että jokainen databitti kuuluu uniikkiin joukkoon pariteettiluokkia (A, B ja C). 
