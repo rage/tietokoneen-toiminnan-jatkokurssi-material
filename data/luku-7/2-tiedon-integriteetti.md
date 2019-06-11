@@ -118,20 +118,24 @@ Tyypillinen yksinkertainen esimerkki Hamming-koodista on [Hamming(7,4)](https://
 <illustrations motive="ch-7-2-Hamming-7-4"></illustrations>
 </div>
 
-Lähtötilanteessa (a) on merkittynä databittien arvot ja pariteettiluokat. Huomaa, että jokainen databitti kuuluu uniikkiin joukkoon pariteettiluokkia (A, B ja C). Esimerkiksi vasemmanpuolimmainen bitti kuuluu ryhmiin A ja B, mutta ei ryhmään C. Tämä ryhmiin kuuluminen ei päde millekään muulle bitille. 
+Lähtötilanteessa (a) on merkittynä databittien arvot ja pariteettiluokat. Huomaa, että jokainen databitti kuuluu uniikkiin joukkoon pariteettiluokkia (A, B ja C). Esimerkiksi vasemmanpuolimmainen databitti kuuluu ryhmiin A ja B, mutta ei ryhmään C. Tällainen ryhmiin kuuluminen ei päde millekään muulle bitille. 
 
 Jokaiselle pariteettiluokalle on oma pariteettibittinsä. Tilanne (b) näyttää kunkin pariteettibitin arvon, parillista pariteettia käyttäen.
 
-Ajatellaan nyt, että yksi data-biteistä vaihtuu virheelliseksi, jolloin tilanne on kohdan (c) mukainen. Kyseinen databitti kuuluu pariteettiluokkiin B ja C, joten niiden pariteettibitit ovat nyt virheellisiä. 
+Ajatellaan nyt, että yksi data-biteistä vaihtuu virheelliseksi, jolloin tilanne on kohdan (c) mukainen. Kyseinen databitti oikealla alhaalla kuuluu pariteettiluokkiin B ja C, joten niiden pariteettibitit ovat virheellisiä. 
 
-Virheen korjaus tapahtuu nyt useassa vaiheessa. Ensinnäkin jokin pariteettibiteistä on väärin, joten jossakin on virhe. Seuraavaksi havaitaan virheen olevan pariteettiluokissa B ja C, mutta ei pariteettiluokassa A. Vain yksi bitti täyttää nämä ehdot joten virheellinenbitti voidaan paikallistaa. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi toinen vaihtoehto.
+Virheen korjaus tapahtuu useassa vaiheessa. Ensinnäkin jokin pariteettibiteistä on väärin, joten jossakin täytyy olla virhe. Seuraavaksi havaitaan virheen olevan pariteettiluokissa B ja C, mutta ei luokassa A. Vain yksi bitti täyttää nämä ehdot, joten virheellisen bitin täytyy olla oikealla alhaalla oleva databitti. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi toinen vaihtoehto. Jos desimaalinumeron tiedettäisiin olevan väärin, niin silti olisi jäljellä yhdeksän muuta vaihtoehtoa.
 
-Entäpä jo virhe onkin pariteettibitissä, eikä databitissä? Ei huolta, Hamming-koodi toimii myös siinä tapauksessa. Esimerkiksi, jos ryhmän A pariteettibitti (0) vaihtuu ykköseksi, niin silloin ryhmän A pariteettibitti on väärin ja muiden ryhmien pariteettibitit ovat oikein. Ainoa bitti, joka kuuluu ryhmään A, mutta ei ryhmiin B tai C, on ryhmän A pariteettibitti. Virhe on näin paikallistettu ja voidaan korjata.
+Entäpä jo virhe onkin pariteettibitissä, eikä databitissä? Ei huolta, Hamming-koodi toimii myös siinä tapauksessa. Esimerkiksi, jos ryhmän A pariteettibitti (0) vaihtuu ykköseksi, niin silloin ryhmän A pariteettibitti on väärin ja muiden ryhmien pariteettibitit ovat oikein. Ainoa bitti, joka kuuluu ryhmään A mutta ei ryhmiin B tai C, on ryhmän A pariteettibitti. Virhe on näin paikallistettu ja voidaan korjata.
 
 Esimerkin Hamming-koodin kustannut on aika korkea. Lähes puolet (3/7 = 43%) biteistä on pariteettibittejä. Lisäksi vaatii aika paljon laskenta-aikaa asettaa pariteettibitit paikalleen ja tarkistaa niiden oikeellisuus. Todellisuudessa käytettävä Hamming-koodi yksinkertaisuudessaan vielä nerokkaampi ja skaalautuu hyvin myös suurempien data-alkioden virheenkorjaukseen. Virheellisen bitin sijainnin päättely tapahtuu yksinkertaisen yhteenlaskun avulla.
 
 #### Virheen korjaava Hamming-koodi
 jkjkj jkkjkjk
+
+
+Käytännössä pelkkä virheen paikallistaminen ja korjaaminen ei tietenkään riitä. Seon vain tilapäinen lääke havaittuun virhetilanteeseen. Virheistä täytyy pitää kirjaa. Jos virhe toistuu saman muistipiirin kohdalla usein, niin ilmeisesti muistipiirissä on vika, joka pitää korjata jollain tavain. Useimmiten se tarkoittaa muistipiirin (tai jonkun vielä suuremman komponentin) vaihtamista uuteen.
+
 
 ## Quizit 7.2  - Hamming
 <!-- Quiz 7.2.?? -->
