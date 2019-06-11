@@ -71,16 +71,62 @@ P(2 bitin virhe) = 1:1000 0000 000 000         = 1E-12
 P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 ```
 
+## Quizit 7.2   ?????
+<!-- Quiz 7.2.?? pariteetti etc -->
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
-## Hamming-koodi
-???
+
+## Hamming-etäisyys ja Hamming-koodi
+[Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Sitä ennen hän osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Sodan jälkeen hän siirtyo Bell Laboratories'iin ja työskenteli osan aikaa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa samassa työhuoneessa.
+
+### Hamming-etäisyys
+Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodijärjestelmissä. Hän määritteli _Hamming-etäisyydeksi_ niiden bittien lukumäärän, jonka mukaisen määrän bittejä täytyy muuttua, jotta jokin laillinen merkki muuttuu toiseksi saman koodijärjestelmän lailliseksi merkiksi. Mitä isompi Hamming-etäisyys tietyssä koodausjärjestelmässä on, sitä parempi. Jos virheitä (bittien muuttumisia) tapahtuu vähemmän kuin Hamming-etäisyyden verran, niin tuloksena on virheelliseksi havaittava tietoalkio.
+
+```
+7-bittinen ASCII-merkistö
+
+'A' = 0x41 =  100 0001 
+'B' = 0x42 =  100 0010   Hamming-etäisyys (A,B) = 2
+'C' = 0x43 =  100 0011   Hamming-etäisyys (B,C) = 1
+```
+
+Koodijärjestelmän Hamming-etäisyys on pienin Hamming-etäisyys kyseisen järjestelmän merkkien välillä. Edellisen esimerkin ASCII-koodiston Hamming-etäisyys on siten yksi. Tämä tarkoittaa, että yhden bitin virheet voivat helposti jäädä huomaamatta.
+
+Jos 7-bittiseen ASCII-koodistoon lisätään pariteetti-bitti, niin koodijärjestelmän Hamming-etäisyys kasvaa kahteen. Nyt kaikki yhden bitin virheet havaitaan ja järjestelmä on paljon turvallisempi.
+
+```
+7-bittinen ASCII-merkistö + pariteettibitti (bitti 7)
+Parillinen pariteetti
+
+'A' = 0x41 = 0100 0001 
+'B' = 0x42 = 0100 0010   Hamming-etäisyys (A,B) = 3
+'C' = 0x43 = 1100 0011   Hamming-etäisyys (B,C) = 2
+```
+
+### Hamming-koodi
+
+Hamming kehitti myös Hamming-koodin, jossa data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan kaikki paikallistaa (ja sen jälkeen korjata).  Esimerkiksi nyt myytävissä virheenkorjaavissa [ECC-muistipiireissä](https://en.wikipedia.org/wiki/ECC_memory) virheen-korjaus voi perustua Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
+
+Hamming-koodin perusidea on jakaa data-bitit erilaisiin ryhmiin (pariteettiluokkiin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella ryhmällä on oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainta voidaan päätellä virheellisistä pariteettibiteistä.  
+
+Tyypillinen yksinkertainen esimerkki Hamming-koodista on [Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)), jossa neljää data-bittiä vartioi kolme pariteettibittiä. Yhteensä tietoalkiossa on siis seitsemän bittiä.
+
+#### Kuva Hamming(7,4)
 
 ## Cyclic Redundancy Code (CRC)
-???
+Lähtötilanteessa (a) on merkittynä databittien arvot ja pariteettiluokat. Huomaa, että jokainen databitti kuuluu uniikkiin joukkoon pariteettiluokkia (A, B ja C). 
+
+Jokaiselle pariteettiluokalle on oma pariteettibittinsä. Tilanne (b) näyttää kunkin pariteettibitin arvon, parillista pariteettia käyttäen.
+
+Ajatellaan nyt, että yksi data-biteistä vaihtuu virheelliseksi, jolloin tilanne on kohdan (c) mukainen. Kyseinen databitti kuuluu pariteettiluokkiin B ja C, joten niiden pariteettibitit ovat nyt virheellisiä. 
+
+Virheen korjaus tapahtuu nyt useassa vaiheessa. Ensinnäkin jokin pariteettibiteistä on väärin, joten jossakin on virhe. Seuraavaksi havaitaan virheen olevan pariteettiluokissa B ja C, mutta ei pariteettiluokassa A. Vain yksi bitti täyttää nämä ehdot joten virheellinenbitti voidaan paikallistaa. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi toinen vaihtoehto.
+
+
+
+## Quizit 7.2  - Hamming
+<!-- Quiz 7.2.?? -->
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
 ## Laitteiden monistaminen
 ???
-
-## Quizit 8.2
-<!-- Quiz 8.2.?? -->
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
