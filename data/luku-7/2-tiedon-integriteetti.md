@@ -77,7 +77,7 @@ P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 
 
 ## Hamming-etäisyys ja Hamming-koodi
-[Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Ennen tietojenkäsittelyynliittyvää uraansa hän osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Sodan jälkeen hän siirtyi [Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs)'iin ja työskenteli osan aikaa samassa työhuoneessa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa.
+[Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Ennen tietojenkäsittelyyn liittyvää uraansa hän osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Hänen mielestään laskelmat oli tehty oikein, mutta hän ollut varma kaikkien oletusten paikkansapitävyydestä. Sodan jälkeen hän siirtyi [Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs)'iin ja työskenteli osan aikaa samassa työhuoneessa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa.
 
 ### Hamming-etäisyys
 Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodijärjestelmissä. Hän määritteli _Hamming-etäisyydeksi_ niiden bittien lukumäärän, jonka mukaisen määrän bittejä täytyy muuttua, jotta jokin laillinen merkki muuttuu toiseksi saman koodijärjestelmän lailliseksi merkiksi. Mitä isompi Hamming-etäisyys tietyssä koodausjärjestelmässä on, sitä parempi. Jos virheitä (bittien muuttumisia) tapahtuu vähemmän kuin Hamming-etäisyyden verran, niin tuloksena on aina virheelliseksi havaittava tietoalkio.
@@ -92,7 +92,7 @@ Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodijärjestel
 
 Koodijärjestelmän Hamming-etäisyys on pienin Hamming-etäisyys kyseisen järjestelmän merkkien välillä. Edellisen esimerkin ASCII-koodiston Hamming-etäisyys on siten yksi. Tämä tarkoittaa, että yhden bitin virheet voivat helposti jäädä huomaamatta. Esimerkiksi, merkin 'B' bitin 0 muuttuminen nollasta ykköseksi muuttaa sen merkiksi 'C', eikä virhettä voida mitenkään havaita.
 
-Jos 7-bittiseen ASCII-koodistoon lisätään pariteetti-bitti, niin koodijärjestelmän Hamming-etäisyys kasvaa kahteen. Nyt kaikki yhden bitin virheet havaitaan ja järjestelmä on paljon turvallisempi. Virhe, jossa merkin 'B' bitti 0 muuttuu ykkösestä nollaksi havaittaisiin nyt siitä, että pariteettibitti on väärin.
+Jos 7-bittiseen ASCII-koodistoon lisätään pariteetti-bitti, niin koodijärjestelmän Hamming-etäisyys kasvaa kahteen. Nyt kaikki yhden bitin virheet havaitaan ja järjestelmä on paljon turvallisempi. Jos merkin 'B' bitti 0 muuttuu ykkösestä nollaksi, niin virhe havaittaisiin nyt siitä, että pariteettibitti on väärin.
 
 ```
 7-bittinen ASCII-merkistö + pariteettibitti (bitti 7)
@@ -104,9 +104,9 @@ Parillinen pariteetti
 ```
 
 ### Hamming-koodi
-Hamming-koodissa data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan paikallistaa ja sen jälkeen korjata.  Esimerkiksi nyt myytävissä virheenkorjaavissa [ECC-muistipiireissä](https://en.wikipedia.org/wiki/ECC_memory) virheen-korjaus useimmiten edelleen perustuu Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
+Hamming-koodissa data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan paikallistaa ja sen jälkeen korjata.  Esimerkiksi nyt myytävissä virheenkorjaavissa [ECC-muistipiireissä](https://en.wikipedia.org/wiki/ECC_memory) virheenkorjaus useimmiten edelleen perustuu Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
 
-Hamming-koodin perusidea on jakaa data-bitit erilaisiin ryhmiin (pariteettiluokkiin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella ryhmällä on oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainta voidaan päätellä virheellisistä pariteettibiteistä.  
+Hamming-koodin perusidea on jakaa data-bitit erilaisiin ryhmiin (pariteettiluokkiin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella ryhmällä on oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainti voidaan päätellä virheellisistä pariteettibiteistä.  
 
 #### Hamming(7,4) esimerkki
 Tyypillinen yksinkertainen esimerkki Hamming-koodista on [Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)), jossa seitsemästä bitistä vain neljä on data-bittejä ja niitä vartioi kolme pariteettibittiä. 
@@ -124,7 +124,7 @@ Jokaiselle pariteettiluokalle on oma pariteettibittinsä. Tilanne (b) näyttää
 
 Ajatellaan nyt, että yksi data-biteistä vaihtuu virheelliseksi, jolloin tilanne on kohdan (c) mukainen. Kyseinen databitti oikealla alhaalla kuuluu pariteettiluokkiin B ja C, joten niiden pariteettibitit ovat virheellisiä. 
 
-Virheen korjaus tapahtuu useassa vaiheessa. Ensinnäkin jokin pariteettibiteistä on väärin, joten jossakin täytyy olla virhe. Seuraavaksi havaitaan virheen olevan pariteettiluokissa B ja C, mutta ei luokassa A. Vain yksi bitti täyttää nämä ehdot, joten virheellisen bitin täytyy olla oikealla alhaalla oleva databitti. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi toinen vaihtoehto. Jos desimaalinumeron tiedettäisiin olevan väärin, niin silti olisi jäljellä yhdeksän muuta vaihtoehtoa.
+Virheen korjaus tapahtuu useassa vaiheessa. Ensinnäkin, jokin pariteettibiteistä on väärin, joten jossakin täytyy olla virhe. Seuraavaksi havaitaan virheen olevan pariteettiluokissa B ja C, mutta ei luokassa A. Vain yksi bitti täyttää nämä ehdot, joten virheellisen bitin täytyy olla oikealla alhaalla oleva databitti. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi oikea vaihtoehto. Jos desimaalinumeron tiedettäisiin olevan väärin, niin silti olisi jäljellä yhdeksän muuta vaihtoehtoa.
 
 Entäpä jo virhe onkin pariteettibitissä, eikä databitissä? Ei huolta, Hamming-koodi toimii myös siinä tapauksessa. Esimerkiksi, jos ryhmän A pariteettibitti (0) vaihtuu ykköseksi, niin silloin ryhmän A pariteettibitti on väärin ja muiden ryhmien pariteettibitit ovat oikein. Ainoa bitti, joka kuuluu ryhmään A mutta ei ryhmiin B tai C, on ryhmän A pariteettibitti. Virhe on näin paikallistettu ja voidaan korjata.
 
