@@ -131,10 +131,62 @@ Entäpä jo virhe onkin pariteettibitissä, eikä databitissä? Ei huolta, Hammi
 Esimerkin Hamming-koodin kustannut on aika korkea. Lähes puolet (3/7 = 43%) biteistä on pariteettibittejä. Lisäksi vaatii aika paljon laskenta-aikaa asettaa pariteettibitit paikalleen ja tarkistaa niiden oikeellisuus. Todellisuudessa käytettävä Hamming-koodi yksinkertaisuudessaan vielä nerokkaampi ja skaalautuu hyvin myös suurempien data-alkioden virheenkorjaukseen. Virheellisen bitin sijainnin päättely tapahtuu yksinkertaisen yhteenlaskun avulla.
 
 #### Virheen korjaava Hamming-koodi
-jkjkj jkkjkjk
+Hamming-koodissa pariteettiluokat määritellään ovelasti ja sillä tavoin, että ryhmät ovat erikokoisia. Ensinnäkin on huomattava, että bitit numeroidaan (esimerkiksi oikealta päin) alkaen ykkösestä (ei nollasta, kuten yleensä bittien numeroinnin kanssa on). Seuraavaksi tarkastellaan bitin numeron binääriesitystä.  
 
+```
+Bitin      Numeron        
+numero     binääriesitys  
 
-Käytännössä pelkkä virheen paikallistaminen ja korjaaminen ei tietenkään riitä. Seon vain tilapäinen lääke havaittuun virhetilanteeseen. Virheistä täytyy pitää kirjaa. Jos virhe toistuu saman muistipiirin kohdalla usein, niin ilmeisesti muistipiirissä on vika, joka pitää korjata jollain tavain. Useimmiten se tarkoittaa muistipiirin (tai jonkun vielä suuremman komponentin) vaihtamista uuteen.
+1          001
+2          010
+3          011
+4          100
+5          101
+6          110
+7          111
+...                 ...
+```
+
+Kukin bitti kuuluu pariteettijoukkoon i, jos bitin numeron binääriesityksessä i:nnes bitti oikealta on 1. Äskeisessä esimerkissä pariteettijoukkoon 1 kuuluvat siten bitit 1, 3, 5 ja 7. Pariteettiryhmään 2 kuuluvat bitit 2, 3, 6 ja 7. Pariteettijoukkoonn 3 kuuluvat bitit 4, 5, 6 ja 7. Toisin päin katsottuna, bitti 3 kuuluu pariteettiluokkiin 1 ja 2, mutta ei pariteettiluokkaan 3. Bitti 7 kuuluu kaikkiin pariteettijoukkoon 1, 2 ja 3. Jokainen bitti kuuluu erilaiseen joukkoon pariteettijoukkoja, koska kunkin bitin numeron binääriesitys on uniikki.
+
+Lopuksi määritellään, että kaikki bitit, joiden numero on kakkosen potenssi, ovat pariteettibittejä. Näin jokaiseen pariteettijoukkoon saadaan yksi pariteettibitti.
+
+Esimerkiksi, 7-bittisellä tietoalkiolla bitit 1, 2 ja 4 ovat pariteettibittejä, jotka määrittelevät kukin oman pariteettijoukkonsa. Bitti 1 on pariteettijoukon 1 pariteettibitti, bitti 2 pariteettijoukon 2 pariteettibitti, jne. Vastaavasti 63-bittisellä tietoalkiolla bitit 1, 2, 4, 8, 16 ja 32 ovat pariteettibittejä ja käytössä on yhteensä 6 pariteettijoukkoa.
+
+Jos tarvitsemme 32 databittiä, niin niitä turvaamaan tarvitaan 6 pariteettibittiä (bitit 1, 2, 4, 8, 16 ja 32). Varsinaisessa tietoalkiossa pariteettibitit ovat databittien välissä omilla paikoillaan. Tietoa käsitellessä tietoalkiosta käytetään vain databittejä, mutta tiedon integriteettiä varmistettaessa käytetään kaikkia bittejä.
+
+Yhden virheellisen bitin paikallistaminen tapahtuu kuten aikaisemmin esitettiin, tutkimalla ensin mitkä paritettibitit ovat väärin. Käytämme tässä esimerkkinä 7-bittistä tietoalkiota 100&nbsp;1100, jossa on siis neljän bitin data 1001 ja kolme pariteettibittiä (bitit numero 1, 2 ja 4). Käytössä on parillinen pariteetti.
+
+```
+                Alkuperäinen   Virheellinen  Korjattu
+
+Tietoalkio:     100 1100       110 1100      100 1100 
+Bitin numero:   765 4321       765 4321      765 4321
+
+```
+
+Esimerkissä bitti numero 6 on kääntynyt virheelliseksi. Bitti 6 kuuluu pariteettijoukkoihin 2 ja 4, joten pariteettibitit 2 ja 4 ovat nyt väärin. Virheen olemassaolo havaitaan jälleen siitä, että jokin pariteettibitti on väärin. Virhe paikallistetaan laskemalla yhteen virheen indikoivien pariteettijoukkojen numerot, eli tässä tapauksessa 2+4=6. Virhe korjataan kääntämällä bitti 6. Lopuksi tarkistetaan vielä, että kaikki pariteettibitit ovat nyt oikein. Jos ne eivät ole, niin virheitä oli useampi ja peli on menetetty. 
+
+Entäpä, jos virhe onkin vain pariteettibitissä? Se ei haittaa, pariteettibitti sisältyy vain yhteen pariteettijoukkoon ja identifioituu aivan oikein. 
+
+Toisaalta, voi olla, että useamman bitin virheitä ei edes havaita alkuaankaan. Esimerkiksi, jos edellisen esimerkin tietoalkiossa 100&nbsp;1100 kaksi bittiä (bitit 1 ja 6) kääntyvät virheellisiksi (tietoalkioksi 110&nbsp;1101), niin kaikki pariteettibitit ovat väärin. Sen mukaisesti virheelliseksi bitiksi lasketaan 1+2+4=7 eli bitti 7 on muka virheellinen. Kun se käännetään vielä ympäri, saadaan tietoalkioksi 010&nbsp;1101. Siinä ei ole pariteettivirheitä, mutta sen sijaan 3 virheellistä bittiä. Aina ei voi voittaa!
+
+```
+                Alkuperäinen   Virheellinen    Korjattu
+                0 virhettä     2 virhettä      3 virhettä
+                
+Tietoalkio:     100 1100       110 1101        010 1101 
+Bitin numero:   765 4321       765 4321        765 4321
+
+```
+
+Hamming-koodin tilakustannus on sitä pienempi, mitä suuremmasta tietoalkiosta on kyse, koska vain kakkosen potenssin numeroiset bitit ovat pariteettibittejä. Esimerkiksi, 1024 databitin turvaamiseen tarvitaan vain 10 ylimääräistä pariteettibittiä. 
+
+Hamming-koodin aikakustannus vaihtelee sen mukaan, toteutetaanko tiedon integriteetin tarkistus laitteistolla vai ohjelmistolla. Jos Hamming-koodia käytetään muistipiirin tai väylän suojaamiseen, niin toteutus täytyy tehdä laitteistolla, koska toteutuksen täytyy olla paljon nopeampi kuin yhden konekäskyn suoritusaika. Esimerkiksi ECC-muistipiiriä käytettäessä muistipiiri laskee ja sijoittaa pariteettibitit paikalleen jokaisen muistiinkirjoituksen yhdessä. Vastaavasti muistia luettaessa muistipiiri tarkistaa luetun tiedon integriteetin suoraan laitteistolla, ennen kuin se antaa tiedon väylää pitkin eteenpäin. Jos Hamming-koodi toteutetaan ohjelmistolla, se vaatii jonkin verran konekäskyjä bittimanipulaatioiden toteuttamiseksi.Se on työlästä puuhaa, mutta ei kovin monimutkaista.
+
+Käytännössä pelkkä virheen paikallistaminen ja korjaaminen ei tietenkään riitä. Se on vain tilapäinen lääke havaittuun virhetilanteeseen. Virheistä täytyy pitää kirjaa. Jos virhe toistuu saman muistipiirin kohdalla usein, niin ilmeisesti muistipiirissä on vika, joka pitää korjata jollain tavain. Useimmiten se tarkoittaa muistipiirin vaihtamista uuteen. Jos vika on muistiväylässä, sen korjaaminen on vielä hankalampaa ja voi vaatia koko laitteiston uusimista.
+
+Hamming-koodista on useita laajennuksia. Esimerkiksi lisäämällä pariteettibitti 0 voidaan havaita kaikki kahden bitin virheet, mutta niitä ei voi korjata. Lisäämällä vielä enemmän pariteettibittejä pystytään korjaamaan myös kaikki kahden bitin virheet, jne. Sopiva tiedon integriteetin taso määritellään tapauskohtaisesti sen mukaan kuinka todennäköisiä virheet ovat ja kuinka suuret kustannukset havaitsemattomista (tai ei-korjattavissa olevista) virheistä aiheutuu.
 
 
 ## Quizit 7.2  - Hamming
