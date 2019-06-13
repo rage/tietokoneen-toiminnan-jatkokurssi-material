@@ -27,8 +27,7 @@ Tietokonejärjestelmissä erilaisten virhetilanteiden käsittely perustuu käsit
 
 <text-box variant="example" name="Vika, virhe häiriö Rillit huurussa -sarjassa">
 
-Tv-sarjassa [Rillit huurussa](https://fi.wikipedia.org/wiki/Rillit_huurussa) Penny liukastuu ammeessa ja pyytää Sheldonia viemään hänet ensiapuun. Kun lääkäri kysyy Pennyltä, että mikä on vialla, ja Penny vastaa "liukastuneensa ammeessa". Sheldon kuitenkin ymmärtää asiat "paremmin" ja kertoo lääkärille, että varsinainen vika on siinä, että Pennyllä ei ole liukuestenauhoja ammeessaan. Pennyn liukastuminen oli tästä viasta aiheutunut virhe ja olkapään sijoiltaan meno liukastumisvirheen aiheuttama häiriö.  Sheldonin selitys ei oikeastaan auttanut tässä tilanteessa paljoakaan, vaikka olikin ehkä teknisesti oikein.
-
+Tv-sarjassa [Rillit huurussa](https://fi.wikipedia.org/wiki/Rillit_huurussa) Penny liukastuu ammeessa ja pyytää Sheldonia viemään hänet ensiapuun. Kun lääkäri kysyy Pennyltä, että mikä on vialla, Penny vastaa "liukastuneensa ammeessa". Sheldon kuitenkin ymmärtää asiat "paremmin" ja kertoo lääkärille, että varsinainen vika on siinä, että Pennyllä ei ole liukuestenauhoja ammeessaan. Pennyn liukastuminen oli tästä viasta aiheutunut virhe ja olkapään sijoiltaan meno liukastumisvirheen aiheuttama häiriö.  Sheldonin selitys ei oikeastaan auttanut tässä tilanteessa paljoakaan, vaikka olikin ehkä teknisesti oikein.
 </text-box>
 
 Kaikki viat eivät ole vaarallisia. Jossakin koodinpätkässä voi olla vika, mutta kyseistä koodia ei tulla koskaan suorittamaan. Ja vaikka viallinen koodi suoritettaisiinkin, niin kaikki virheetkään eivät ole merkittäviä. Jos esimerkiksi vtietokonepelin Mörri-ötökkä jää piirtämättä näytölle vähäksi aikaa, niin pelaajan hahmo voi kuolla Mörrin yllätyshyökkäyksessä. Toisaalta, joskus pelitkin voivat olla hyvinkin tärkeitä, koska esimerkiksi peliturnauksissa voi olla kyse hyvinkin suurista palkintorahoista. 
