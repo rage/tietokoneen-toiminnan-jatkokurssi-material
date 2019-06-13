@@ -78,7 +78,8 @@ P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 
 <text-box variant="example" name="Hamming-etäisyys ja Hamming-koodi">
 
-Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Ennen tietojenkäsittelyyn liittyvää uraansa hän mm. osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Laskelmat oli tehty oikein, mutta hän ollut varma kaikkien oletusten paikkansapitävyydestä. Sodan jälkeen Hamming siirtyi [Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs)'ille ja työskenteli osan aikaa samassa työhuoneessa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa.
+[Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Ennen tietojenkäsittelyyn liittyvää uraansa hän mm. osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Laskelmat oli tehty oikein, mutta hän ollut varma kaikkien oletusten paikkansapitävyydestä. Sodan jälkeen Hamming siirtyi [Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs)'ille ja työskenteli osan aikaa samassa työhuoneessa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa.
+
 </text-box>
 
 ### Hamming-etäisyys
@@ -112,7 +113,7 @@ _Hamming-koodissa_ data-bittien joukkoon lisätään useita pariteetti-bittejä,
 Hamming-koodin perusidea on järjestää data-bitit erilaisiin joukkoihin (pariteettijoukkoihin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella pariteettijoukolla on sitten oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainti voidaan päätellä virheellisistä pariteettibiteistä. Tarkemmin sanoen, virhe paikallistetaan niistä paritettijoukoista, joihin virheellinen bitti kuuluu.  
 
 #### Hamming(7,4) esimerkki
-Tyypillinen yksinkertainen esimerkki Hamming-koodin periaatteesta on [Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)), jossa seitsemästä bitistä neljä on data-bittejä ja niitä vartioi kolme pariteettibittiä. 
+[Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)) esimerkki kuvaa hyvin Hamming-koodin periaatteen. Siinä seitsemästä tietoalkion bitistä neljä on data-bittejä ja niitä vartioi kolme pariteettibittiä. 
 
 <!-- kuva: ch-7-2-Hamming-7-4  -->
 
@@ -121,20 +122,20 @@ Tyypillinen yksinkertainen esimerkki Hamming-koodin periaatteesta on [Hamming(7,
 <illustrations motive="ch-7-2-Hamming-7-4"></illustrations>
 </div>
 
-Lähtötilanteessa (a) on merkittynä databittien arvot ja (pariteetti)joukot (A, B ja C). Huomaa, että jokainen databitti kuuluu uniikkiin ryhmään pariteettijoukkoja. Esimerkiksi vasemmanpuolimmainen databitti kuuluu joukkoihin A ja B, mutta ei joukkoon C. Tällainen joukkoihin kuuluminen ei päde millekään muulle bitille. 
+Lähtötilanteessa (a) on merkittynä databittien arvot ja pariteettijoukot (A, B ja C). Huomaa, että jokainen databitti kuuluu uniikkiin ryhmään pariteettijoukkoja. Esimerkiksi vasemmanpuolimmainen databitti kuuluu joukkoihin A ja B, mutta ei joukkoon C. Tällainen joukkoihin kuuluminen ei päde millekään muulle bitille. 
 
 Jokaiselle joukolle on oma pariteettibittinsä. Tilanne (b) näyttää kunkin pariteettibitin arvon, parillista pariteettia käyttäen.
 
-Ajatellaan nyt, että yksi data-biteistä (oikealla alhaalla oleva) muuttuu syystä tai toisesta virheelliseksi, jolloin tilanne on kohdan (c) mukainen. Kyseinen databitti kuuluu joukkoihin B ja C, joten niiden pariteettibitit ovat virheellisiä. 
+Ajatellaan nyt, että yksi data-biteistä (oikealla alhaalla oleva) muuttuu syystä tai toisesta virheelliseksi, jolloin tilanne on kohdan (c) mukainen. Kyseinen databitti kuuluu joukkoihin B ja C, joten niiden pariteettibitit ovat nyt virheellisiä. 
 
-Virheen korjaus tapahtuu useassa vaiheessa. Ensinnäkin, jokin pariteettibiteistä on väärin, joten jossakin on virhe. Seuraavaksi havaitaan virheen olevan joukoissa B ja C, mutta ei joukossa A. Vain yksi bitti täyttää nämä ehdot, joten virheellisen bitin täytyy olla oikealla alhaalla oleva databitti. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi oikea vaihtoehto. Jos desimaalinumeron tiedettäisiin olevan väärin, niin silti olisi jäljellä yhdeksän muuta vaihtoehtoa.
+Virheen korjaus tapahtuu useassa vaiheessa. Ensinnäkin, jokin pariteettibiteistä on väärin, mikä indikoi jonkinlaista virhettä jossain. Seuraavaksi havaitaan virheen olevan joukoissa B ja C, mutta ei joukossa A. Vain yksi bitti täyttää nämä ehdot, joten virheellisen bitin täytyy olla oikealla alhaalla oleva databitti. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi oikea vaihtoehto. Jos desimaalinumeron tiedettäisiin olevan väärin, niin silti olisi jäljellä yhdeksän muuta vaihtoehtoa.
 
 Entäpä jo virhe onkin pariteettibitissä eikä databitissä? Ei huolta, Hamming-koodi toimii myös siinä tapauksessa. Esimerkiksi, jos joukon A pariteettibitti (0) vaihtuu ykköseksi, niin silloin joukon A pariteettibitti on väärin ja muiden joukkojen pariteettibitit ovat oikein. Ainoa bitti, joka kuuluu joukkoon A mutta ei joukkoihin B tai C, on joukon A pariteettibitti. Virhe on näin paikallistettu ja voidaan korjata.
 
-Esimerkin Hamming-koodin kustannus on aika korkea. Lähes puolet (3/7 = 43%) biteistä on pariteettibittejä. Lisäksi vaatii aika paljon laskenta-aikaa asettaa pariteettibitit paikalleen ja tarkistaa niiden oikeellisuus. Todellisuudessa käytettävä Hamming-koodi on yksinkertaisuudessaan vielä nerokkaampi ja skaalautuu hyvin myös suurempien data-alkioden virheenkorjaukseen. Virheellisen bitin sijainnin päättely tapahtuu yksinkertaisen yhteenlaskun avulla.
+Esimerkin Hamming-koodin kustannus on aika korkea. Lähes puolet (3/7 = 43%) biteistä ovat pariteettibittejä. Lisäksi vaatii aika paljon laskenta-aikaa asettaa pariteettibitit paikalleen ja tarkistaa niiden oikeellisuus. Todellisuudessa käytettävä Hamming-koodi on yksinkertaisuudessaan vielä nerokkaampi ja skaalautuu hyvin myös suurempien data-alkioden virheenkorjaukseen. Virheellisen bitin sijainnin päättely tapahtuu yksinkertaisen yhteenlaskun avulla.
 
 #### Virheen korjaava Hamming-koodi
-Hamming-koodissa pariteettijoukot määritellään ovelasti ja joukot voivat ovat erikokoisia. Ensinnäkin on huomattava, että bitit numeroidaan (esimerkiksi oikealta päin) alkaen ykkösestä (ei nollasta, kuten yleensä bittien numeroinnin kanssa on). Seuraavaksi tarkastellaan bitin numeron binääriesitystä.  
+Hamming-koodissa pariteettijoukot määritellään ovelasti ja joukot voivat ovat erikokoisia. Ensinnäkin on huomattava, että bitit numeroidaan (esimerkiksi) oikealta päin alkaen ykkösestä (ei nollasta, kuten yleensä bittien numeroinnin kanssa on). Seuraavaksi tarkastellaan bitin numeron binääriesitystä.  
 
 ```
 Tietoalkio (7 bittiä):     100 1100
@@ -153,7 +154,7 @@ numero     binääriesitys
   ...        ...
 ```
 
-Kukin tietoalkion bitti kuuluu oukkoon i, jos bitin numeron binääriesityksessä i:nnes bitti oikealta on 1. Äskeisessä esimerkissä joukkoon 1 kuuluvat siten bitit 1, 3, 5 ja 7. Joukkoon 2 kuuluvat bitit 2, 3, 6 ja 7. Joukkoon 3 kuuluvat bitit 4, 5, 6 ja 7. 
+Kukin tietoalkion bitti kuuluu joukkoon i, jos bitin numeron binääriesityksessä i:nnes bitti oikealta on 1. Äskeisessä esimerkissä joukkoon 1 kuuluvat siten bitit 1, 3, 5 ja 7. Joukkoon 2 kuuluvat bitit 2, 3, 6 ja 7. Joukkoon 3 kuuluvat bitit 4, 5, 6 ja 7. 
 
 Toisin päin katsottuna, bitti 1 kuuluu joukkoon 1, mutta ei joukkoihin 2 tai 3. Bitti 3 kuuluu joukkoihin 1 ja 2, mutta ei joukkoon 3. Bitti 7 kuuluu kaikkiin joukkoihin 1, 2 ja 3. Jokainen bitti kuuluu erilaiseen ryhmään joukkoja, koska kunkin bitin numeron binääriesitys on uniikki.
 
@@ -173,9 +174,9 @@ Bitin numero:   765 4321        765 4321      765 4321
 
 ```
 
-Esimerkissä bitti numero 6 on kääntynyt virheelliseksi. Bitti 6 kuuluu joukkoihin 2 ja 4, joten pariteettibitit 2 ja 4 ovat nyt väärin. Virheen olemassaolo havaitaan jälleen siitä, että jokin pariteettibitti on väärin. Virhe paikallistetaan laskemalla yhteen virheen indikoivien pariteettibittien numerot, eli tässä tapauksessa 2+4=6. Virhe korjataan kääntämällä bitti 6. Lopuksi tarkistetaan vielä, että kaikki pariteettibitit ovat nyt oikein. Jos ne eivät ole, niin virheitä oli useampi ja peli on menetetty. 
+Esimerkissä bitti numero 6 on kääntynyt virheelliseksi. Bitti 6 kuuluu joukkoihin 2 ja 4, joten pariteettibitit 2 ja 4 ovat nyt väärin. Virheen olemassaolo havaitaan jälleen siitä, että jokin pariteettibitti on väärin. Virhe paikallistetaan yksinkertaisesti laskemalla yhteen virheen indikoivien pariteettibittien numerot, eli tässä tapauksessa 2+4=6. Virhe korjataan kääntämällä bitti 6. Lopuksi tarkistetaan vielä, että kaikki pariteettibitit ovat nyt oikein. Jos ne eivät ole, niin virheitä oli useampi ja peli on menetetty. 
 
-Entäpä, jos virhe onkin vain pariteettibitissä? Se ei haittaa, pariteettibitti sisältyy vain yhteen pariteettijoukkoon ja se identifioituu aivan oikein. 
+Entäpä, jos virhe onkin vain pariteettibitissä? Se ei haittaa, sillä pariteettibitti sisältyy vain yhteen (omaan) pariteettijoukkoon ja virheellisen bitin sijainti identifioituu aivan oikein. 
 
 Useamman bitin virheitä ei välttämättä havaita alkuaankaan. Esimerkiksi, jos edellisen esimerkin tietoalkiossa 100&nbsp;1100 kaksi bittiä (bitit 1 ja 6) kääntyvät virheellisiksi (tietoalkioksi 110&nbsp;1101), niin kaikki pariteettibitit ovat väärin. Sen mukaisesti virheelliseksi bitiksi lasketaan 1+2+4=7 eli bitti 7 on muka virheellinen. Kun se käännetään vielä ympäri, saadaan tietoalkioksi 010&nbsp;1101. Siinä ei ole pariteettivirheitä, mutta sen sijaan 3 virheellistä bittiä. Aina ei voi voittaa!
 
