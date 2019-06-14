@@ -216,6 +216,7 @@ Käytännössä pelkkä virheen paikallistaminen ja korjaaminen ei tietenkään 
 
 Hamming-koodista on useita laajennuksia. Esimerkiksi lisäämällä pariteettibitti 0 voidaan havaita kaikki kahden bitin virheet, mutta niitä ei voi korjata. Lisäämällä vielä enemmän pariteettibittejä pystytään korjaamaan myös kaikki kahden bitin virheet, jne. Sopiva tiedon muuttumattomuuden suojaustaso määritellään tapauskohtaisesti sen mukaan, kuinka todennäköisiä virheet ovat ja kuinka suuret kustannukset havaitsemattomista (tai ei-korjattavissa olevista) virheistä aiheutuu.
 
+Mitä lähempänä suoritinta ollaan, sitä tärkeämmäksi tulee suojautuminen (satunnaisilta) virheiltä. Suorittimen sisäisissä rekistereissä oleva ja väylillä liikkuva tieto on tärkeätäsuojat muutoksilta. Kotikoneiden keskusmuisti voi usein olla suojaamatonta, mutta ainakin palvelinkonmeiden muisti on yleensä ECC-muistia. ECC-muisti ei riitä, ellei myös muistiväylä ole ole virheiltä suojattu. Muistipiirit voi vaihtaa halutessaan kalliimpiin ECC-muisteihin. Väylää ei voi vaihtaa., koska se on kiinteä osa järjestelmää. Tämän vuoksi väylä on yleensä valmiiksi suojattu Hamming-koodilla.
 
 ## Quizit 7.2  - Hamming
 <!-- Quiz 7.2.?? -->
@@ -225,16 +226,28 @@ Hamming-koodista on useita laajennuksia. Esimerkiksi lisäämällä pariteettibi
 ## Tiedon muuttumattomuus tietoliikenteessä
 Hamming-koodi ei sovi tiedon muuttumattomuuden havaitsemiseen sellaisessa tapauksessa, jossa muuttuneiden bittien määrä on todennäköisesti useampi. Esimerkiksi tietoliikenteessä on tyypillistä, että jos virheitä tulee, niin sitten niitä tulee paljon. Virheiden korjaaminen on siten yleensä käytännössä mahdotonta tai sitten sen kustannus ylimääräisten bittien osalta aivan liian suuri.
 
-Käytännössä tietoliikenteessä riittää, kun tiedon muuttuminen havaitaan jollain tavoin. Sen jälkeen joko pyydetään lähettäjää lähettämään viallinen tietoliikennepaketti uudelleen tai vain jätetään kuittaamatta viallinen paketti. Jälkimmäisessä tapauksessa lähettäjä vähän ajan päästä arvelee paketin kadonneen matkalla ja lähettää sen sen vuoksi uudelleen.
+Käytännössä tietoliikenteessä riittää, kun tiedon muuttuminen havaitaan jollain tavoin. Sen jälkeen joko pyydetään lähettäjää lähettämään viallinen tietoliikennepaketti uudelleen tai vain jätetään kuittaamatta viallinen paketti. Jälkimmäisessä tapauksessa lähettäjä vähän ajan päästä arvelee paketin kadonneen matkalla ja lähettää sen uudelleen.
 
 Tietoliikennepakettien tiedon muuttumattomuutta suojataan tarkistussummien avulla. Yksinkertainen tapa on tulkitaan kaikki paketin (esim. 4KB tai 4MB) sanat kokonaisluvuiksi ja laskea niiden summa. Summa voi olla kovinkin suuri (esim. 0x1234567890AB), mutta otetaan talteen siitä vain esimerkiksi 32 viimeistä bittiä tarkistussummaksi (0x567890AB). Tarkistussumma lähetetään paketin databittien mukana vastaanottajalle. Vastaanottaja laskee tarkistussumman uudestaan itse ja vertailee sitä saamaansa. Jos ne ovat erilaisia, jotain on muuttunut matkalla. On hyvin epätodennöistä, että tarkistussumma olisi oikein satunnaisten virheiden jälkeen. Se on tietenkin mahdollista, mutta silti epätodennäköistä.
 
 Edelämainittua modulo-aritmetiikkaan perustuvan tarkistussumman asemesta käytetään parempia matemaattisesti hyväksi havaittuja tarkistussummia. 
 
-???????????
+Yleisesti käytössä oleva tietoliikenteen tarkitussummamenetelmä on Wesley Petersonin 1961 kehittämä  [Cyclic Redundancy Check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) (CRC), jossa tarkistussumma on esimerkiksi 32-bittinen. CRC:stä on useampi variantti eri käyttötarkoituksiin. Esimerkiksi, 16-bittinen variantti CRC-CCIIT löytää kaikki yhden, kahden ja kolmen bitin virheet, kaikki virheet, joissa virheellisten bittien lukumäärä on pariton, ja  kaikki virheet, jotka rajoittuvat 16 peräkkäisen bitin purskeeseen.  Kokonaisuudessaan, CRC-CCITT havaitsee 99.998% kaikista virheistä. Toisin sanoen, 1 virhe 50000:sta voi jäädä havaitsematta ja sen kanssa voi sitten elää.
 
 ## Laitteiden monistaminen
-???
+Jos halutaan suojautua realiaikaisesti mahdollisimman usealta virheeltä, käytetään laitteiden monistamista. Esimerkiksi, kaikki tieto kirjoitetaan kolmelle eri muistipiirille ja tietoa luettaessa tarkistetaan aina, ovatko tiedot edelleen samanlaisia. Jos eivät ole, niin sitten enemmistön kanta voittaa. Jos jokin muistipiiri useamman kerran antaa muista poikkeavan tuloksen, niin se merkitään vialliseksi ja vaihdetaan mahdollisimman pian.
+
+Joissakin järjestelmissä on usea suoritin ja kaikki koodi suoritetaan yhtä aikaa niissä kaikissa. Aina kun laskennan tulosta käytetään johonkin tärkeään, niin eri suorittimien antamia laskentatuloksia vertaillaan keskenään ennen operaation toteuttamista. Jos jokin suoritin useamman kerran antaa muista poikkeavan tuloksen, niin se merkitään vialliseksi ja vaihdetaan mahdollisimman pian.
+
+Äärimmäisessä tapauksessa replikoidaan koko tietokonejärjestelmä. Esimerkiksi lentokoneissa on tyypillistä, että telineessä on usea samanlainen tietokone ja ne kaikkea ajavat samaa ohjelmaa. Kun ohjelma yrittää säätää vaikkapa peräsimen asentoa, niin tietokoneet äänestävät. Jos ne ovat kaikki samaa mieltä, niin peräsimen asentoa vain säädetään. Jos ne ovat eri mieltä, niin "toisinajattelija" jää vähemmistoon ja virheellinen toiminto laitetaan muistiin. Jos sama järjestelmä antaa liian usein virheellisen tuloksen, se merkitään vialliseksi ja koneen insinööriä pyydetään vaihtamaan se telineessä olevaan samanlaiseen varakoneeseen.
+
+<text-box variant="example" name="Avaruussukkula Columbia">
+
+Avaruussukkula Columbiassa tietokonejärjestelmät oli replikoitu [viidellä tietokoneella](http://www.hq.nasa.gov/office/pao/History/computers/contents.html). Normaalilaskenta tapahtui neljällä samanlaisella tietokoneella, joiden laskennan tuloksia vertailtiin aina ennen sukkulaoperaatioiden suorittamista. Jos jokin näistä neljästä tietokoneesta vikaantui, niin jäljellä oli silti vielä kolme tietokonetta tekemässä enemmistöpäätöksiä. Jos miehistö jollain tavoin totesi kaikkien neljän tietokoneen antavan virheellisiä tuloksia, niin ilmeisesti kyseessä oli näitä tietokoneita haittaava ohjelmistovirhe. Äänestäminenhän ei tällaista virhettä voi mitenkään löytää, koska kaikki suorittavat samaa virheellistä ohjelmaa. Tältä varalta mukana oli viides (samanlainen) tietokone, joka suoritti eri versiota ohjelmistosta. Sen oli mahdollisesti jopa toteuttanut eri ohjelmoijat, mutta samojen vaatimusmäärittelyjen mukaisesti.
+
+</text-box>
+
+....????? 
 
 ## Quizit 7.2  - CRC ja laitteiden monistaminen
 <!-- Quiz 7.2.?? -->
