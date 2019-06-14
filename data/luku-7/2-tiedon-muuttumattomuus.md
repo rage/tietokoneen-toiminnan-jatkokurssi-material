@@ -222,8 +222,21 @@ Hamming-koodista on useita laajennuksia. Esimerkiksi lisäämällä pariteettibi
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 ???? ????
 
-## Cyclic Redundancy Code (CRC)
-jkjkjkjkj
+## Tiedon muuttumattomuus tietoliikenteessä
+Hamming-koodi ei sovi tiedon muuttumattomuuden havaitsemiseen sellaisessa tapauksessa, jossa muuttuneiden bittien määrä on todennäköisesti useampi. Esimerkiksi tietoliikenteessä on tyypillistä, että jos virheitä tulee, niin sitten niitä tulee paljon. Virheiden korjaaminen on siten yleensä käytännössä mahdotonta tai sitten sen kustannus ylimääräisten bittien osalta aivan liian suuri.
+
+Käytännössä tietoliikenteessä riittää, kun tiedon muuttuminen havaitaan jollain tavoin. Sen jälkeen joko pyydetään lähettäjää lähettämään viallinen tietoliikennepaketti uudelleen tai vain jätetään kuittaamatta viallinen paketti. Jälkimmäisessä tapauksessa lähettäjä vähän ajan päästä arvelee paketin kadonneen matkalla ja lähettää sen sen vuoksi uudelleen.
+
+Tietoliikennepakettien tiedon muuttumattomuutta suojataan tarkistussummien avulla. Yksinkertainen tapa on tulkitaan kaikki paketin (esim. 4KB tai 4MB) sanat kokonaisluvuiksi ja laskea niiden summa. Summa voi olla kovinkin suuri (esim. 0x1234567890AB), mutta otetaan talteen siitä vain esimerkiksi 32 viimeistä bittiä tarkistussummaksi (0x567890AB). Tarkistussumma lähetetään paketin databittien mukana vastaanottajalle. Vastaanottaja laskee tarkistussumman uudestaan itse ja vertailee sitä saamaansa. Jos ne ovat erilaisia, jotain on muuttunut matkalla. On hyvin epätodennöistä, että tarkistussumma olisi oikein satunnaisten virheiden jälkeen. Se on tietenkin mahdollista, mutta silti epätodennäköistä.
+
+Edelämainittua modulo-aritmetiikkaan perustuvan tarkistussumman asemesta käytetään parempia matemaattisesti hyväksi havaittuja tarkistussummia. 
+
+???????????
 
 ## Laitteiden monistaminen
 ???
+
+## Quizit 7.2  - CRC ja laitteiden monistaminen
+<!-- Quiz 7.2.?? -->
+<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+???? ????
