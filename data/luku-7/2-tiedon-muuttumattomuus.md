@@ -239,7 +239,7 @@ Jos halutaan suojautua realiaikaisesti mahdollisimman usealta virheeltä, käyte
 
 Joissakin järjestelmissä on usea suoritin ja kaikki koodi suoritetaan yhtä aikaa niissä kaikissa. Aina kun laskennan tulosta käytetään johonkin tärkeään, niin eri suorittimien antamia laskentatuloksia vertaillaan keskenään ennen operaation toteuttamista. Jos jokin suoritin useamman kerran antaa muista poikkeavan tuloksen, niin se merkitään vialliseksi ja vaihdetaan mahdollisimman pian.
 
-Äärimmäisessä tapauksessa replikoidaan koko tietokonejärjestelmä. Esimerkiksi lentokoneissa on tyypillistä, että telineessä on usea samanlainen tietokone ja ne kaikkea ajavat samaa ohjelmaa. Kun ohjelma yrittää säätää vaikkapa peräsimen asentoa, niin tietokoneet äänestävät. Jos ne ovat kaikki samaa mieltä, niin peräsimen asentoa vain säädetään. Jos ne ovat eri mieltä, niin "toisinajattelija" jää vähemmistoon ja virheellinen toiminto laitetaan muistiin. Jos sama järjestelmä antaa liian usein virheellisen tuloksen, se merkitään vialliseksi ja koneen insinööriä pyydetään vaihtamaan se telineessä olevaan samanlaiseen varakoneeseen.
+Äärimmäisessä tapauksessa replikoidaan koko tietokonejärjestelmä. Esimerkiksi lentokoneissa on tyypillistä, että telineessä on usea samanlainen tietokone ja ne kaikkea ajavat samaa ohjelmaa. Kun ohjelma yrittää säätää vaikkapa peräsimen asentoa, niin tietokoneet äänestävät. Jos ne ovat kaikki samaa mieltä, niin operaatio sallitaan. Jos ne ovat eri mieltä, niin "toisinajattelija" jää vähemmistöön ja sen virheellinen toiminto laitetaan muistiin. Jos sama järjestelmä antaa liian usein virheellisen tuloksen, se merkitään vialliseksi ja koneen insinööriä pyydetään vaihtamaan se telineessä olevaan samanlaiseen varakoneeseen.
 
 <text-box variant="example" name="Avaruussukkula Columbia">
 
@@ -249,9 +249,9 @@ Avaruussukkula Columbiassa tietokonejärjestelmät oli replikoitu [viidellä tie
 
 Massamuistin monistaminen on aivan yleistä, myös ihan kotikoneissa. Kaupasta voi ostaa valmiina esimerkiksi kahden kiintolevyn järjestelmiä, joissa kaikki tiedostot talletaan aina kahdelle levylle. Jos yksi levy vikaantuu, niin tiedot ovat vielä tallessa toisella levyllä. Tiedostopalvelimissa käytetään yleensä mutkaisempia mutta kustannuksiltaan halvempia pariteettibitteihin perustuvia ratkaisuja. Tällaiset [RAID](https://en.wikipedia.org/wiki/RAID)-teknologiaan perustuvat ratkaisut sietävät yhden tai jopa kahden kiintolevyn rikkoutumisen ilman että tietoa häviää.
 
-[Pilvipalveluissa](https://en.wikipedia.org/wiki/Cloud_computing) tiedostot talletetaan yhteen tai useampaan palvelinkeskukseen, joista ne on helposti käytettävissä yhdessä tai useammassa tietokonejärjestelmässä. Tiedot replikoidaan useaan palvelinkeskukseen, joten tietojen katoaminen on hyvin epätodennäköistä.
+[Pilvipalveluissa](https://en.wikipedia.org/wiki/Cloud_computing) tiedostot talletetaan yhteen tai useampaan palvelinkeskukseen, joista ne on helposti käytettävissä verkon kautta yhdessä tai useammassa tietokonejärjestelmässä. Tiedot replikoidaan useaan palvelinkeskukseen ja kussakin niissä tieto suojataan virheiltä esim. RAID-teknologialla. Tietojen täydellinen katoaminen on hyvin epätodennäköistä.
 
-Laitteiden monistaminen tiedon muuttumattomuuden turvaamiseksi on siis varsin yleistä. Se, millä tasolla laittevioilta suojaaminen tapahtuu, riippuu tietenkin järjestelmän käyttötarkoituksesta. Kotikoneille voi riittää tärkeiden kuvatiedostojen replikointi kahdelle kovalevylle. Toisaalta, ydinvoimalan ohjausjärjestelmän täytyy toimia aina virheettömästi ja olemme valmiita maksamaan siitä aiheutuvat ehkä valtavatkin lisäkustannukset. 
+Laitteiden monistaminen tiedon muuttumattomuuden turvaamiseksi on siis varsin yleistä. Se, millä tasolla virheiltä suojaaminen tapahtuu, riippuu tietenkin järjestelmän käyttötarkoituksesta. Kotikoneille voi riittää tärkeiden kuvatiedostojen replikointi kahdelle kovalevylle. Toisaalta, ydinvoimalan ohjausjärjestelmän täytyy toimia aina virheettömästi ja olemme valmiita maksamaan siitä aiheutuvat ehkä valtavatkin lisäkustannukset. 
 
 ## Quizit 7.2  - CRC ja laitteiden monistaminen
 <!-- Quiz 7.2.?? -->
