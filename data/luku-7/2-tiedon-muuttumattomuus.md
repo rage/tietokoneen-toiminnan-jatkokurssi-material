@@ -82,7 +82,7 @@ P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 
 </text-box>
 
-### Hamming-etäisyys
+## Hamming-etäisyys
 Richard Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodijärjestelmissä. [Hamming-etäisyys](https://en.wikipedia.org/wiki/Hamming_distance) on niiden bittien lukumäärän, jonka mukaisen määrän bittejä täytyy muuttua, jotta jokin laillinen merkki muuttuu toiseksi saman koodijärjestelmän toiseksi lailliseksi merkiksi. Mitä isompi Hamming-etäisyys tietyssä koodausjärjestelmässä on, sitä parempi. Jos virheitä (bittien muuttumisia) tapahtuu vähemmän kuin Hamming-etäisyyden verran, niin tuloksena on aina virheelliseksi havaittavissa oleva tietoalkio.
 
 ```
@@ -109,12 +109,12 @@ muuttunut 'B' = 0100 0011   virheellinen data, pariteetti on väärin
 
 Pariteeettibitin kanssa kyseessä ei ole enää sama koodijärjestelmä. Esimerkiksi 'C' on ASCII-koodissa 0x43, kun se uudessa koodausjärjestelmässä olisi 0xC3.
 
-### Hamming-koodi
+## Hamming-koodi
 [Hamming-koodissa](https://en.wikipedia.org/wiki/Hamming_code) data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan paikallistaa ja sen jälkeen korjata.  Esimerkiksi nyt myytävissä virheenkorjaavissa ECC-muistipiireissä virheenkorjaus useimmiten edelleen perustuu Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
 
 Hamming-koodin perusidea on järjestää data-bitit erilaisiin joukkoihin (pariteettijoukkoihin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella pariteettijoukolla on sitten oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainti voidaan päätellä virheellisistä pariteettibiteistä. Tarkemmin sanoen, virhe paikallistetaan niistä pariteettijoukoista, joihin virheellinen bitti kuuluu.  
 
-#### Hamming(7,4) esimerkki
+### Hamming(7,4) esimerkki
 [Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)) esimerkki kuvaa hyvin Hamming-koodin periaatteen. Siinä seitsemästä tietoalkion bitistä neljä on data-bittejä ja niitä vartioi kolme pariteettibittiä. 
 
 <!-- kuva: ch-7-2-Hamming-7-4  -->
@@ -136,7 +136,7 @@ Entäpä jo virhe onkin pariteettibitissä eikä databitissä? Ei huolta, Hammin
 
 Esimerkin Hamming-koodin kustannus on aika korkea. Lähes puolet (3/7 = 43%) biteistä ovat pariteettibittejä. Lisäksi vaatii aika paljon laskenta-aikaa asettaa pariteettibitit paikalleen ja tarkistaa niiden oikeellisuus. Todellisuudessa käytettävä Hamming-koodi on yksinkertaisuudessaan vielä nerokkaampi ja [skaalautuu](https://en.wikipedia.org/wiki/Scalability) hyvin myös suurempien data-alkioden virheenkorjaukseen. Virheellisen bitin sijainnin päättely tapahtuu yksinkertaisen yhteenlaskun avulla.
 
-#### Virheen korjaava Hamming-koodi
+### Virheen korjaava Hamming-koodi
 Hamming-koodissa pariteettijoukot määritellään ovelasti ja joukot voivat ovat erikokoisia. Ensinnäkin on huomattava, että bitit numeroidaan (esimerkiksi) oikealta päin alkaen ykkösestä (ei nollasta, kuten yleensä bittien numeroinnin kanssa on). Seuraavaksi tarkastellaan bitin numeron binääriesitystä.  
 
 ```
@@ -243,7 +243,7 @@ Joissakin järjestelmissä on usea suoritin ja kaikki koodi suoritetaan yhtä ai
 
 <text-box variant="example" name="Avaruussukkula Columbia">
 
-Avaruussukkula [Columbian tietokonejärjestelmät](http://www.hq.nasa.gov/office/pao/History/computers/contents.html) oli replikoitu viidellä tietokoneella. Normaalilaskenta tapahtui neljällä samanlaisella tietokoneella, joiden laskennan tuloksia vertailtiin aina ennen sukkulaoperaation suorittamista. Jos jokin näistä neljästä tietokoneesta vikaantui, niin jäljellä oli silti vielä kolme tietokonetta tekemässä enemmistöpäätöksiä. Jos miehistö jollain tavoin totesi kaikkien neljän tietokoneen antavan virheellisiä tuloksia, niin ilmeisesti kyseessä oli näitä tietokoneita haittaava ohjelmistovirhe. Äänestäminenhän ei tällaista virhettä voi mitenkään löytää, koska kaikki suorittavat samaa virheellistä ohjelmaa. Tältä varalta mukana oli viides (samanlainen) tietokone, joka suoritti eri versiota ohjelmistosta. Sen oli mahdollisesti jopa toteuttanut eri ohjelmointitiimi, mutta samojen vaatimusmäärittelyjen mukaisesti.
+Avaruussukkula [Columbian tietokonejärjestelmät](http://www.hq.nasa.gov/office/pao/History/computers/contents.html) oli replikoitu viidellä tietokoneella. Normaalilaskenta tapahtui neljällä samanlaisella tietokoneella, joiden laskennan tuloksia vertailtiin aina ennen sukkulaoperaation suorittamista. Jos jokin näistä neljästä tietokoneesta vikaantui, niin jäljellä oli silti vielä kolme tietokonetta tekemään enemmistöpäätöksiä. Jos miehistö jollain tavoin totesi kaikkien neljän tietokoneen antavan virheellisiä tuloksia, niin ilmeisesti kyseessä oli näitä tietokoneita haittaava ohjelmistovirhe. Äänestäminenhän ei tällaista virhettä voi mitenkään löytää, koska kaikki suorittavat samaa virheellistä ohjelmaa. Tältä varalta mukana oli viides (samanlainen) tietokone, joka suoritti eri versiota ohjelmistosta. Ohjelmiston oli mahdollisesti toteuttanut toinen ohjelmointitiimi vaatimusmäärittelyjen mukaisesti.
 
 </text-box>
 
