@@ -158,21 +158,22 @@ numero     binääriesitys
 
 Kukin tietoalkion bitti kuuluu joukkoon _i_, jos bitin numeron binääriesityksessä _i_:nnes bitti oikealta on 1. Äskeisessä esimerkissä joukkoon 1 kuuluvat siten bitit 1, 3, 5 ja 7. Joukkoon 2 kuuluvat bitit 2, 3, 6 ja 7. Joukkoon 3 kuuluvat bitit 4, 5, 6 ja 7. 
 
-Toisin päin katsottuna, bitti 1 kuuluu joukkoon 1, mutta ei joukkoihin 2 tai 3. Bitti 3 kuuluu joukkoihin 1 ja 2, mutta ei joukkoon 3. Bitti 7 kuuluu kaikkiin joukkoihin 1, 2 ja 3. Jokainen bitti kuuluu erilaiseen ryhmään joukkoja, koska kunkin bitin numeron binääriesitys on uniikki.
+Toisin päin katsottuna, se, mihin joukkoihin kukin bitti kuuluu, näkyy suoraan bitin numeroesityksestä. Bitti 1 kuuluu joukkoon 1, mutta ei joukkoihin 2 tai 3. Bitti 3 kuuluu joukkoihin 1 ja 2, mutta ei joukkoon 3. Bitti 7 kuuluu kaikkiin joukkoihin 1, 2 ja 3. Jokainen bitti kuuluu erilaiseen ryhmään joukkoja, koska kunkin bitin numeron binääriesitys on uniikki.
 
 Lopuksi määritellään, että kaikki bitit, joiden numero on kakkosen potenssi, ovat pariteettibittejä. Näin jokaiseen joukkoon saadaan täsmälleen yksi pariteettibitti.
 
-Esimerkiksi, 7-bittisellä tietoalkiolla bitit 1, 2 ja 4 ovat pariteettibittejä, jotka määrittelevät kukin oman pariteettijoukkonsa. Joukot nimetään sen pariteettibitin numeron perusteella. Täten bitti 1 on joukon 1 pariteettibitti, bitti 2 joukon 2 pariteettibitti, jne. Vastaavasti 136-bittisellä tietoalkiolla bitit 1, 2, 4, 8, 16, 32, 64 ja 128 ovat pariteettibittejä ja käytössä on yhteensä 8 joukkoa. 136-bittisellä tietoalkiolla on näin 128 data-bittiä ja 8 pariteettibittiä..
+Esimerkiksi, 7-bittisellä tietoalkiolla bitit 1, 2 ja 4 ovat pariteettibittejä, jotka määrittelevät kukin oman pariteettijoukkonsa. Joukot nimetään sen pariteettibitin numeron perusteella. Täten bitti 1 on joukon 1 pariteettibitti, bitti 2 joukon 2 pariteettibitti, jne. Vastaavasti 136-bittisellä tietoalkiolla bitit 1, 2, 4, 8, 16, 32, 64 ja 128 ovat pariteettibittejä. 136-bittisellä tietoalkiolla on näin 128 data-bittiä ja 8 pariteettibittiä.
 
 Jos tarvitsemme 32 databittiä, niin niitä turvaamaan tarvitaan 6 pariteettibittiä (bitit 1, 2, 4, 8, 16 ja 32). Tietoalkiossa pariteettibitit ovat databittien välissä omilla paikoillaan. Yhteensä tarvitaan siis 38 bittiä. Tietoa käsitellessä tietoalkiosta käytetään vain databittejä, mutta tiedon muuttumattomuutta varmistettaessa käytetään kaikkia bittejä.
 
-Yhden virheellisen bitin paikallistaminen tapahtuu vastaavasti kuten aikaisemmin esitettiin. Käytämme tässä esimerkkinä 7-bittistä tietoalkiota 100&nbsp;1100, jossa on siis neljän bitin data 1001 (bitit 3, 5, 6 ja 7) ja kolme pariteettibittiä (bitit 1, 2 ja 4). Käytössä on parillinen pariteetti.
+Yhden virheellisen bitin paikallistaminen tapahtuu vastaavasti kuten aikaisemmin esitettiin. Käytämme tässä esimerkkinä 7-bittistä tietoalkiota 100&nbsp;1100, jossa on neljän bitin data 1001 (bitit 3, 5, 6 ja 7) ja kolme pariteettibittiä (bitit 1, 2 ja 4). Käytössä on parillinen pariteetti.
 
 ```
-                Alkuperäinen   Virheellinen  Korjattu
+                Alkuperäinen  Virheellinen  Korjattu
 
-Tietoalkio:     100 1100        110 1100      100 1100 
-Bitin numero:   765 4321        765 4321      765 4321
+Tietoalkio:        100 1100    110 1100     100 1100 
+Bitin numero:      765 4321    765 4321     765 4321
+Pariteettivirhe:                   1 1
 
 ```
 
@@ -183,15 +184,16 @@ Entäpä, jos virhe onkin vain pariteettibitissä? Se ei haittaa, sillä paritee
 Useamman bitin virheitä ei välttämättä havaita alkuaankaan. Esimerkiksi, jos edellisen esimerkin tietoalkiossa 100&nbsp;1100 kaksi bittiä (bitit 1 ja 6) kääntyvät virheellisiksi (tietoalkioksi 110&nbsp;1101), niin kaikki pariteettibitit ovat väärin. Sen mukaisesti virheelliseksi bitiksi lasketaan 1+2+4=7 eli bitti 7 on muka virheellinen. Kun se käännetään vielä ympäri, saadaan tietoalkioksi 010&nbsp;1101. Siinä ei ole pariteettivirheitä, mutta sen sijaan 3 virheellistä bittiä. Aina ei voi voittaa!
 
 ```
-                Alkuperäinen   Virheellinen    Korjattu
-                0 virhettä     2 virhettä      3 virhettä
+                Alkuperäinen   Virheellinen   Korjattu
+                 0 virhettä     2 virhettä    3 virhettä
                 
-Tietoalkio:     100 1100       100 1101        010 1101 
-Bitin numero:   765 4321       765 4321        765 4321
+Tietoalkio:      100 1100       100 1101        010 1101 
+Bitin numero:    765 4321       765 4321        765 4321
+Pariteettivirhe:                    1 11
 
 ```
 
-Hamming-koodin tilakustannus on sitä pienempi, mitä suuremmasta tietoalkiosta on kyse, koska vain kakkosen potenssin numeroiset bitit ovat pariteettibittejä. Esimerkiksi, 1024 databitin turvaamiseen tarvitaan vain 10 ylimääräistä pariteettibittiä. 
+Hamming-koodin tilakustannus on sitä pienempi, mitä suuremmasta tietoalkiosta on kyse, koska vain kakkosen potenssin numeroiset bitit (2 <sup>i</sup>) ovat pariteettibittejä. Esimerkiksi, 1024 databitin turvaamiseen tarvitaan vain 10 ylimääräistä pariteettibittiä. 
 
 Hamming-koodin aikakustannus vaihtelee sen mukaan, toteutetaanko tiedon muuttumattomuuden tarkistus laitteistolla vai ohjelmistolla. Jos Hamming-koodia käytetään muistipiirin tai väylän suojaamiseen, niin toteutus täytyy tehdä laitteistolla, koska toteutuksen täytyy olla paljon nopeampi kuin yhden konekäskyn suoritusaika. Esimerkiksi ECC-muistipiiriä käytettäessä muistipiiri laskee ja sijoittaa pariteettibitit paikalleen jokaisen muistiinkirjoituksen yhdessä. Vastaavasti muistia luettaessa muistipiiri tarkistaa luetun tiedon muuttumattomuuden suoraan laitteistolla, ennen kuin se antaa tiedon väylää pitkin eteenpäin. 
 
