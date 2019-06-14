@@ -243,11 +243,15 @@ Joissakin järjestelmissä on usea suoritin ja kaikki koodi suoritetaan yhtä ai
 
 <text-box variant="example" name="Avaruussukkula Columbia">
 
-Avaruussukkula Columbiassa tietokonejärjestelmät oli replikoitu [viidellä tietokoneella](http://www.hq.nasa.gov/office/pao/History/computers/contents.html). Normaalilaskenta tapahtui neljällä samanlaisella tietokoneella, joiden laskennan tuloksia vertailtiin aina ennen sukkulaoperaatioiden suorittamista. Jos jokin näistä neljästä tietokoneesta vikaantui, niin jäljellä oli silti vielä kolme tietokonetta tekemässä enemmistöpäätöksiä. Jos miehistö jollain tavoin totesi kaikkien neljän tietokoneen antavan virheellisiä tuloksia, niin ilmeisesti kyseessä oli näitä tietokoneita haittaava ohjelmistovirhe. Äänestäminenhän ei tällaista virhettä voi mitenkään löytää, koska kaikki suorittavat samaa virheellistä ohjelmaa. Tältä varalta mukana oli viides (samanlainen) tietokone, joka suoritti eri versiota ohjelmistosta. Sen oli mahdollisesti jopa toteuttanut eri ohjelmoijat, mutta samojen vaatimusmäärittelyjen mukaisesti.
+Avaruussukkula Columbiassa tietokonejärjestelmät oli replikoitu [viidellä tietokoneella](http://www.hq.nasa.gov/office/pao/History/computers/contents.html). Normaalilaskenta tapahtui neljällä samanlaisella tietokoneella, joiden laskennan tuloksia vertailtiin aina ennen sukkulaoperaatioiden suorittamista. Jos jokin näistä neljästä tietokoneesta vikaantui, niin jäljellä oli silti vielä kolme tietokonetta tekemässä enemmistöpäätöksiä. Jos miehistö jollain tavoin totesi kaikkien neljän tietokoneen antavan virheellisiä tuloksia, niin ilmeisesti kyseessä oli näitä tietokoneita haittaava ohjelmistovirhe. Äänestäminenhän ei tällaista virhettä voi mitenkään löytää, koska kaikki suorittavat samaa virheellistä ohjelmaa. Tältä varalta mukana oli viides (samanlainen) tietokone, joka suoritti eri versiota ohjelmistosta. Sen oli mahdollisesti jopa toteuttanut eri ohjelmointitiimi, mutta samojen vaatimusmäärittelyjen mukaisesti.
 
 </text-box>
 
-....????? 
+Massamuistin monistaminen on aivan yleistä, myös ihan kotikoneissa. Kaupasta voi ostaa valmiina esimerkiksi kahden kiintolevyn järjestelmiä, joissa kaikki tiedostot talletaan aina kahdelle levylle. Jos yksi levy vikaantuu, niin tiedot ovat vielä tallessa toisella levyllä. Tiedostopalvelimissa käytetään yleensä mutkaisempia mutta kustannuksiltaan halvempia pariteettibitteihin perustuvia ratkaisuja. Tällaiset [RAID](https://en.wikipedia.org/wiki/RAID)-teknologiaan perustuvat ratkaisut sietävät yhden tai jopa kahden kiintolevyn rikkoutumisen ilman että tietoa häviää.
+
+[Pilvipalveluissa](https://en.wikipedia.org/wiki/Cloud_computing) tiedostot talletetaan yhteen tai useampaan palvelinkeskukseen, joista ne on helposti käytettävissä yhdessä tai useammassa tietokonejärjestelmässä. Tiedot replikoidaan useaan palvelinkeskukseen, joten tietojen katoaminen on hyvin epätodennäköistä.
+
+Laitteiden monistaminen tiedon muuttumattomuuden turvaamiseksi on siis varsin yleistä. Se, millä tasolla laittevioilta suojaaminen tapahtuu, riippuu tietenkin järjestelmän käyttötarkoituksesta. Kotikoneille voi riittää tärkeiden kuvatiedostojen replikointi kahdelle kovalevylle. Toisaalta, ydinvoimalan ohjausjärjestelmän täytyy toimia aina virheettömästi ja olemme valmiita maksamaan siitä aiheutuvat ehkä valtavatkin lisäkustannukset. 
 
 ## Quizit 7.2  - CRC ja laitteiden monistaminen
 <!-- Quiz 7.2.?? -->
