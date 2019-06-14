@@ -162,11 +162,11 @@ Toisin päin katsottuna, bitti 1 kuuluu joukkoon 1, mutta ei joukkoihin 2 tai 3.
 
 Lopuksi määritellään, että kaikki bitit, joiden numero on kakkosen potenssi, ovat pariteettibittejä. Näin jokaiseen joukkoon saadaan täsmälleen yksi pariteettibitti.
 
-Esimerkiksi, 7-bittisellä tietoalkiolla bitit 1, 2 ja 4 ovat pariteettibittejä, jotka määrittelevät kukin oman pariteettijoukkonsa. Joukot nimetään sen pariteettibitin numeron perusteella. Täten bitti 1 on joukon 1 pariteettibitti, bitti 2 joukon 2 pariteettibitti, jne. Vastaavasti 63-bittisellä tietoalkiolla bitit 1, 2, 4, 8, 16 ja 32 ovat pariteettibittejä ja käytössä on yhteensä 6 joukkoa. 63-bittisellä tietoalkiolla on näin vain 57 data-bittiä.
+Esimerkiksi, 7-bittisellä tietoalkiolla bitit 1, 2 ja 4 ovat pariteettibittejä, jotka määrittelevät kukin oman pariteettijoukkonsa. Joukot nimetään sen pariteettibitin numeron perusteella. Täten bitti 1 on joukon 1 pariteettibitti, bitti 2 joukon 2 pariteettibitti, jne. Vastaavasti 136-bittisellä tietoalkiolla bitit 1, 2, 4, 8, 16, 32, 64 ja 128 ovat pariteettibittejä ja käytössä on yhteensä 8 joukkoa. 136-bittisellä tietoalkiolla on näin 128 data-bittiä ja 8 pariteettibittiä..
 
-Jos tarvitsemme 32 databittiä, niin niitä turvaamaan tarvitaan 6 pariteettibittiä (bitit 1, 2, 4, 8, 16 ja 32). Tietoalkiossa pariteettibitit ovat databittien välissä omilla paikoillaan. Tietoa käsitellessä tietoalkiosta käytetään vain databittejä, mutta tiedon muuttumattomuutta varmistettaessa käytetään kaikkia bittejä.
+Jos tarvitsemme 32 databittiä, niin niitä turvaamaan tarvitaan 6 pariteettibittiä (bitit 1, 2, 4, 8, 16 ja 32). Tietoalkiossa pariteettibitit ovat databittien välissä omilla paikoillaan. Yhteensä tarvitaan siis 38 bittiä. Tietoa käsitellessä tietoalkiosta käytetään vain databittejä, mutta tiedon muuttumattomuutta varmistettaessa käytetään kaikkia bittejä.
 
-Yhden virheellisen bitin paikallistaminen tapahtuu vastaavasti kuten aikaisemmin esitettiin. Käytämme tässä esimerkkinä 7-bittistä tietoalkiota 100&nbsp;1100, jossa on siis neljän bitin data 1001 ja kolme pariteettibittiä (bitit numero 1, 2 ja 4). Käytössä on parillinen pariteetti.
+Yhden virheellisen bitin paikallistaminen tapahtuu vastaavasti kuten aikaisemmin esitettiin. Käytämme tässä esimerkkinä 7-bittistä tietoalkiota 100&nbsp;1100, jossa on siis neljän bitin data 1001 (bitit 3, 5, 6 ja 7) ja kolme pariteettibittiä (bitit 1, 2 ja 4). Käytössä on parillinen pariteetti.
 
 ```
                 Alkuperäinen   Virheellinen  Korjattu
@@ -186,14 +186,29 @@ Useamman bitin virheitä ei välttämättä havaita alkuaankaan. Esimerkiksi, jo
                 Alkuperäinen   Virheellinen    Korjattu
                 0 virhettä     2 virhettä      3 virhettä
                 
-Tietoalkio:     100 1100       110 1101        010 1101 
+Tietoalkio:     100 1100       100 1101        010 1101 
 Bitin numero:   765 4321       765 4321        765 4321
 
 ```
 
 Hamming-koodin tilakustannus on sitä pienempi, mitä suuremmasta tietoalkiosta on kyse, koska vain kakkosen potenssin numeroiset bitit ovat pariteettibittejä. Esimerkiksi, 1024 databitin turvaamiseen tarvitaan vain 10 ylimääräistä pariteettibittiä. 
 
-Hamming-koodin aikakustannus vaihtelee sen mukaan, toteutetaanko tiedon muuttumattomuuden tarkistus laitteistolla vai ohjelmistolla. Jos Hamming-koodia käytetään muistipiirin tai väylän suojaamiseen, niin toteutus täytyy tehdä laitteistolla, koska toteutuksen täytyy olla paljon nopeampi kuin yhden konekäskyn suoritusaika. Esimerkiksi ECC-muistipiiriä käytettäessä muistipiiri laskee ja sijoittaa pariteettibitit paikalleen jokaisen muistiinkirjoituksen yhdessä. Vastaavasti muistia luettaessa muistipiiri tarkistaa luetun tiedon muuttumattomuuden suoraan laitteistolla, ennen kuin se antaa tiedon väylää pitkin eteenpäin. Jos Hamming-koodi toteutetaan ohjelmistolla, se vaatii jonkin verran konekäskyjä bittimanipulaatioiden toteuttamiseksi. Se on työlästä puuhaa, mutta ei kovin monimutkaista.
+Hamming-koodin aikakustannus vaihtelee sen mukaan, toteutetaanko tiedon muuttumattomuuden tarkistus laitteistolla vai ohjelmistolla. Jos Hamming-koodia käytetään muistipiirin tai väylän suojaamiseen, niin toteutus täytyy tehdä laitteistolla, koska toteutuksen täytyy olla paljon nopeampi kuin yhden konekäskyn suoritusaika. Esimerkiksi ECC-muistipiiriä käytettäessä muistipiiri laskee ja sijoittaa pariteettibitit paikalleen jokaisen muistiinkirjoituksen yhdessä. Vastaavasti muistia luettaessa muistipiiri tarkistaa luetun tiedon muuttumattomuuden suoraan laitteistolla, ennen kuin se antaa tiedon väylää pitkin eteenpäin. 
+
+Laitteistototeutuksessa ei virheen ilmetessä tarvita edes yhteenlaskua. Riittää, kun virheellisten pariteettibittien sijainnit laitetaan paikalleen johonkin sisäiseen rekisteriin ja tulos _tulkitaan_ kokonaisluvuksi!
+
+```
+                          Virheellinen data  
+                              1 virhe     
+                
+Tietoalkio:                   110 1100        
+Bitin numero:                 765 4321  
+Virheelliset pariteettibitit:     1 1 
+virheen sijainti:             000 1010  = 6
+```
+
+
+Hamming-koodin voi toteuttaa myös ohjelmistolla, jolloin se vaatii jonkin verran konekäskyjä bittimanipulaatioiden toteuttamiseksi. Se on työlästä puuhaa, mutta ei kovin monimutkaista. 
 
 Käytännössä pelkkä virheen paikallistaminen ja korjaaminen ei tietenkään riitä. Se on vain tilapäinen lääke havaittuun virhetilanteeseen. Virheistä täytyy pitää kirjaa. Jos virhe toistuu saman muistipiirin kohdalla usein, niin ilmeisesti muistipiirissä on vika, joka pitää korjata jollain tavain. Useimmiten se tarkoittaa muistipiirin vaihtamista uuteen. Jos vika on muistiväylässä, sen korjaaminen on vielä hankalampaa ja voi vaatia koko laitteiston uusimisen.
 
