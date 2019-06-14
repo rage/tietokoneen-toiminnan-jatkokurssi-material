@@ -14,7 +14,7 @@ Lähtökohta riittävän hyvän tiedon muuttumattomuuden takaamiselle on hyväks
 
 Ylimääräiset bitit ja johtimet vaativat ylimääräistä tilaa ja tarkistusten tekeminen vaatii aikaa. Tiedon muuttumattomuuden suojaamisen kustannus maksetaan siten sekä tilassa että ajassa. 
 
-Se, paljonko olemme valmiita maksamaan järjestelmässä olevan tiedon muuttumattomuudesta, riippuu järjestelmästä. Esimerkiksi kotikoneessa on usein tavallista muistia eikä virheen korjaavaa ([ECC muistia](https://en.wikipedia.org/wiki/ECC_memory)), koska tavallinen muisti on halvempaa. Lääketieteellisen [MRI](https://simple.wikipedia.org/wiki/Magnetic_resonance_imaging)-laitteen muisti taas on ainakin yhden virheen havaitsevaa ja korjaavaa muistia, koska kukaan ei halua liikaa säteilyä satunnaisen avaruushiukkasen vuoksi.
+Se, paljonko olemme valmiita maksamaan järjestelmässä olevan tiedon muuttumattomuudesta, riippuu järjestelmästä. Esimerkiksi kotikoneessa on usein tavallista muistia eikä virheen korjaavaa ([ECC-muistia](https://en.wikipedia.org/wiki/ECC_memory)), koska tavallinen muisti on halvempaa. Lääketieteellisen [MRI](https://simple.wikipedia.org/wiki/Magnetic_resonance_imaging)-laitteen muisti taas on ainakin yhden virheen havaitsevaa ja korjaavaa muistia, koska kukaan ei halua liikaa säteilyä satunnaisen avaruushiukkasen vuoksi.
 
 ## Tiedon muuttumattomuuden turvausmenetelmien ominaisuudet
 Luokittelemme tiedon muuttumattomuuden turvausmenetelmiä useiden ominaisuuksien perusteella. Yleensä kuhunkin käyttöön sopivan menetelmän valinta tapahtuu usean ominaisuuden yhdistelmänä, ottaen huomioon riskien hallinta hyväksytyllä tasolla.
@@ -27,12 +27,12 @@ Mikä on virheen kustannus muistitilan tai piirin pinta-alan suhteen? Tämä tar
 
 Mikä on virheen kustannus ajassa ja tehdäänkö virheiden havaitsemis/korjauslaskelmat laitteistolla vai ohjelmistolla? Tarkiskoodin suorittamismenetelmä määräytyy yleensä suoraan siitä, minkä tason tiedosta on kyse. Suorittimen sisäisen väylän tai muistiväylän tiedonsiirron turvaaminen täytyy tapahtua laitteistototeutuksena, koska tarkistus pitää tehdä huomattavasti nopeammin kuin yhden konekäskyn suoritusajassa. Massamuistin ja pilvipalvelimien tiedon tarkistus voidaan hyvin tehdä ohjelmallisesti, koska niiden käyttö on joka tapauksessa hidasta. 
 
-Esimerkkinä tiedot muuttamattomuuden tarkistamisesta voidaan käyttää henkilötunnusta, vaikka tietoa siinä käsitelläänkin merkkikohtaisesti eikä bitteinä. Henkilötunnus on muotoa 120364-121K, jossa alkuosa "120364" on syntymäaika ilman vuosisataa, välimerkki ´-´ ilmaisee syntymäajan vuosisadan 1900-luku, "121" ilmaisee parittomana lukuna sukupuoleksi miehen ja muutoin uniikin arkistointinumeron tälle henkilölle. Viimeinen merkki ´K´on tarkistusmerkki, jonka arvo saadaan jakamalla edellä oleva 9-numeroinen luku 120364121 luvulla 31 ja koodaamalla jakojäännös sopivasti. Merkki ´K´ kertoo, että jakojäännös on 18. Matemaattisesti voidaan osoittaa, että tämän tarkistusmerkin avulla löydetään ainakin kaikki yhden merkin virheet ja kaikki kahden merkit vaihtumiset. Rakenteellisena puutteena järjestelmässä on, että välimerkin muuttumattomuutta ei valvota lainkaan. Tämän vuoksi kaikkien käytössä olevien henkilötunnusten on pakko erota myös muutoin kuin välimerkin osalta. Tästä taas on seurauksena arkistointinumeroiden loppuminen piakkoin, joten uuden henkilötunnuksen käyttöönotolla alkaa olla kiire. Henkiltunnuksessa havaitaa yhden merkin muuttuminen, mutta virhettä ei voi paikallistaa eikä korjata. Tarkistusmerkin kustannus on 10%, koska 10 datamerkin lisäksi tarvitaan yksi lisämerkki. Tarkistus vaatii jonkin verran laskentaa ja tehdään aina ohjelmallisesti.
+Esimerkkinä tiedot muuttamattomuuden tarkistamisesta voidaan käyttää henkilötunnusta, vaikka tietoa siinä käsitelläänkin merkkikohtaisesti eikä bitteinä. Henkilötunnus on muotoa 120364-121K, jossa alkuosa "120364" on syntymäaika ilman vuosisataa, välimerkki ´-´ ilmaisee syntymäajan vuosisadan 1900-luku, "121" ilmaisee parittomana lukuna sukupuoleksi miehen ja muutoin uniikin arkistointinumeron tälle henkilölle. Viimeinen merkki ´K´on tarkistusmerkki, jonka arvo saadaan jakamalla edellä oleva 9-numeroinen luku 120364121 luvulla 31 ja koodaamalla jakojäännös sopivasti. Merkki ´K´ kertoo, että jakojäännös on 18. Matemaattisesti voidaan osoittaa, että tämän tarkistusmerkin avulla löydetään ainakin kaikki yhden merkin virheet ja kaikki kahden merkit vaihtumiset. Rakenteellisena puutteena järjestelmässä on, että välimerkin muuttumattomuutta ei valvota lainkaan. Tämän vuoksi kaikkien käytössä olevien henkilötunnusten on pakko erota toisistaan myös muutoin kuin välimerkin osalta. Tästä taas on seurauksena arkistointinumeroiden loppuminen piakkoin, joten uuden henkilötunnuksen käyttöönotolla alkaa olla kiire. Henkilötunnuksessa havaitaan yhden merkin muuttuminen, mutta virhettä ei voi paikallistaa eikä korjata. Tarkistusmerkin kustannus on 10%, koska 10 datamerkin lisäksi tarvitaan yksi lisämerkki. Tarkistus vaatii jonkin verran laskentaa ja tehdään aina ohjelmallisesti.
 
-Toinen esimerkki tarkistusmerkeistä on Suomessa käytetty IBAN tulinumero. Siinä olevien kahden tarkistusmerkin (numeron) avulla havaitaan kaikki yhden merkin virheet ja useimmat kahden merkin virheet. Kaikki kahden merkin vaihtumiset huomataan samoin kuin useimmat muutkin virheet. Virheitä ei voi korjata lainkaan.
+Toinen esimerkki tarkistusmerkeistä on Suomessa käytetty IBAN tilinumero. Siinä olevien kahden tarkistusmerkin (numeron) avulla havaitaan kaikki yhden merkin virheet ja useimmat kahden merkin virheet. Kaikki kahden merkin vaihtumiset huomataan samoin kuin useimmat muutkin virheet. Virheitä ei voi korjata lainkaan.
 
 ```
-500015-123                  vanha pankkitilin numero: muotoa "pankki"-"tili" 
+500015-123                  vanhan muotoinen pankkitilin numero 
 5000 1500 0001 23           laajenna pankkiosa 14-numeroiseksi 
 5000 1500 0001 23 FI00      lisää loppuun FI00 
 5000 1500 0001 23 15 18 00                  muuta  F="15", I="18"
@@ -76,14 +76,14 @@ P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
 
-<text-box variant="example" name="Hamming-etäisyys ja Hamming-koodi">
+<text-box variant="example" name="Richard Hamming">
 
 [Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming) oli tietojenkäsittelytieteen pioneereja. Ennen tietojenkäsittelyyn liittyvää uraansa hän mm. osallistui Manhattan-projektissa atomipommin kehitystyöhön. Vuonna 1945 hän mm. tarkasti laskelmia siitä, tuhoaisiko atomipommi maapallon koko ilmakehän vai ei. Laskelmat oli tehty oikein, mutta hän ollut varma kaikkien oletusten paikkansapitävyydestä. Sodan jälkeen Hamming siirtyi [Bell Labs](https://en.wikipedia.org/wiki/Bell_Labs)'ille ja työskenteli osan aikaa samassa työhuoneessa informaatiotieteen isäksi kutsutun [Claude Shannonin](https://en.wikipedia.org/wiki/Claude_Shannon) kanssa.
 
 </text-box>
 
 ### Hamming-etäisyys
-Richard Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodijärjestelmissä. Hän määritteli _Hamming-etäisyydeksi_ niiden bittien lukumäärän, jonka mukaisen määrän bittejä täytyy muuttua, jotta jokin laillinen merkki muuttuu toiseksi saman koodijärjestelmän lailliseksi merkiksi. Mitä isompi Hamming-etäisyys tietyssä koodausjärjestelmässä on, sitä parempi. Jos virheitä (bittien muuttumisia) tapahtuu vähemmän kuin Hamming-etäisyyden verran, niin tuloksena on aina virheelliseksi havaittavissa oleva tietoalkio.
+Richard Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodijärjestelmissä. Hän määritteli _Hamming-etäisyydeksi_ niiden bittien lukumäärän, jonka mukaisen määrän bittejä täytyy muuttua, jotta jokin laillinen merkki muuttuu toiseksi saman koodijärjestelmän toiseksi lailliseksi merkiksi. Mitä isompi Hamming-etäisyys tietyssä koodausjärjestelmässä on, sitä parempi. Jos virheitä (bittien muuttumisia) tapahtuu vähemmän kuin Hamming-etäisyyden verran, niin tuloksena on aina virheelliseksi havaittavissa oleva tietoalkio.
 
 ```
 7-bittinen ASCII-merkistö
@@ -93,9 +93,9 @@ Richard Hamming tutki 1950-luvulla koodatun tiedon muuttumattomuutta eri koodij�
 'C' = 0x43 =  100 0011   Hamming-etäisyys (B,C) = 1
 ```
 
-Koodijärjestelmän Hamming-etäisyys on pienin Hamming-etäisyys kyseisen järjestelmän merkkien välillä. Edellisen esimerkin ASCII-koodiston Hamming-etäisyys on siten yksi. Tämä tarkoittaa, että yhden bitin virheitä ei voi havaita. Esimerkiksi, merkin 'B' bitin 0 (viimeinen bitti) muuttuminen nollasta ykköseksi muuttaa sen merkiksi 'C', eikä virhe ole mitenkään havaittavissa.
+Koodijärjestelmän Hamming-etäisyys on pienin Hamming-etäisyys kyseisen järjestelmän merkkien välillä. Edellisen esimerkin ASCII-koodiston Hamming-etäisyys on siten yksi. Tämä tarkoittaa, että yhden bitin virheitä ei voi havaita. Esimerkiksi, merkin 'B' viimeisen bitti muuttuminen nollasta ykköseksi muuttaa sen merkiksi 'C', eikä virhe ole mitenkään havaittavissa.
 
-Jos 7-bittiseen ASCII-koodistoon lisätään pariteetti-bitti, niin koodijärjestelmän Hamming-etäisyys kasvaa kahteen. Nyt kaikki yhden bitin virheet havaitaan ja järjestelmä on paljon turvallisempi. Jos merkin 'B' bitti 0 muuttuu nyt ykkösestä nollaksi, niin virhe havaittaisiin nyt siitä, että pariteettibitti on väärin.
+Jos 7-bittiseen ASCII-koodistoon lisätään pariteetti-bitti, niin koodijärjestelmän Hamming-etäisyys kasvaa kahteen. Nyt kaikki yhden bitin virheet havaitaan ja järjestelmä on paljon turvallisempi. Jos merkin 'B' bitti 0 muuttuu nyt ykkösestä nollaksi, niin virhe havaittaisiin nyt siitä, että pariteettibitti on väärin. 
 
 ```
 7-bittinen ASCII-merkistö + pariteettibitti (bitti 7)
@@ -103,14 +103,16 @@ Parillinen pariteetti
 
 'A' = 0x41 = 0100 0001 
 'B' = 0x42 = 0100 0010   Hamming-etäisyys (A,B) = 3
-'C' = 0x43 = 1100 0011   Hamming-etäisyys (B,C) = 2
+'C' = 0xC3 = 1100 0011   Hamming-etäisyys (B,C) = 2
 muuttunut 'B' = 0100 0011   virheellinen data, pariteetti on väärin
 ```
 
-### Hamming-koodi
-_Hamming-koodissa_ data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan paikallistaa ja sen jälkeen korjata.  Esimerkiksi nyt myytävissä virheenkorjaavissa [ECC-muistipiireissä](https://en.wikipedia.org/wiki/ECC_memory) (Error Correction Code) virheenkorjaus useimmiten edelleen perustuu Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
+Pariteeettibitin kanssa kyseessä ei ole enää sama koodijärjestelmä. Esimerkiksi 'C' on ASCII-koodissa 0x43, kun se uudessa koodausjärjestelmässä olisi 0xC3.
 
-Hamming-koodin perusidea on järjestää data-bitit erilaisiin joukkoihin (pariteettijoukkoihin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella pariteettijoukolla on sitten oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainti voidaan päätellä virheellisistä pariteettibiteistä. Tarkemmin sanoen, virhe paikallistetaan niistä paritettijoukoista, joihin virheellinen bitti kuuluu.  
+### Hamming-koodi
+_Hamming-koodissa_ data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan paikallistaa ja sen jälkeen korjata.  Esimerkiksi nyt myytävissä virheenkorjaavissa ECC-muistipiireissä virheenkorjaus useimmiten edelleen perustuu Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
+
+Hamming-koodin perusidea on järjestää data-bitit erilaisiin joukkoihin (pariteettijoukkoihin) sillä tavoin, että jokainen databitti kuuluu uniikkiin joukkoon näitä ryhmiä. Jokaisella pariteettijoukolla on sitten oma pariteettibittinsä. Jos joku bitti muuttuu, niin virheellisen bitin sijainti voidaan päätellä virheellisistä pariteettibiteistä. Tarkemmin sanoen, virhe paikallistetaan niistä pariteettijoukoista, joihin virheellinen bitti kuuluu.  
 
 #### Hamming(7,4) esimerkki
 [Hamming(7,4)](https://en.wikipedia.org/wiki/Hamming(7,4)) esimerkki kuvaa hyvin Hamming-koodin periaatteen. Siinä seitsemästä tietoalkion bitistä neljä on data-bittejä ja niitä vartioi kolme pariteettibittiä. 
@@ -130,9 +132,9 @@ Ajatellaan nyt, että yksi data-biteistä (oikealla alhaalla oleva) muuttuu syys
 
 Virheen korjaus tapahtuu useassa vaiheessa. Ensinnäkin, jokin pariteettibiteistä on väärin, mikä indikoi jonkinlaista virhettä jossain. Seuraavaksi havaitaan virheen olevan joukoissa B ja C, mutta ei joukossa A. Vain yksi bitti täyttää nämä ehdot, joten virheellisen bitin täytyy olla oikealla alhaalla oleva databitti. Lopuksi virheellinen bitti _käännetään_ (flipataan) kohdan (d) mukaisesti toisin päin, jolloin sen arvo tulee korjatuksi. Binäärijärjestelmä on tässä tosi kätevä, kun virheelliselle binääriarvolle on vain yksi oikea vaihtoehto. Jos desimaalinumeron tiedettäisiin olevan väärin, niin silti olisi jäljellä yhdeksän muuta vaihtoehtoa.
 
-Entäpä jo virhe onkin pariteettibitissä eikä databitissä? Ei huolta, Hamming-koodi toimii myös siinä tapauksessa. Esimerkiksi, jos joukon A pariteettibitti (0) vaihtuu ykköseksi, niin silloin joukon A pariteettibitti on väärin ja muiden joukkojen pariteettibitit ovat oikein. Ainoa bitti, joka kuuluu joukkoon A mutta ei joukkoihin B tai C, on joukon A pariteettibitti. Virhe on näin paikallistettu ja voidaan korjata.
+Entäpä jo virhe onkin pariteettibitissä eikä databitissä? Ei huolta, Hamming-koodi toimii myös siinä tapauksessa. Esimerkiksi, jos joukon A pariteettibitti (0) vaihtuu ykköseksi, niin silloin joukon A pariteettibitti on väärin ja muiden joukkojen pariteettibitit ovat oikein. Ainoa bitti, joka kuuluu joukkoon A mutta ei joukkoihin B tai C, on joukon A pariteettibitti. Virhe on näin paikallistettu ja voidaan korjata. Tilanne on vähän samanlainen kuin jonkin varoitusvalon rikkoutuminen autossa. Itse auton toiminnoissa ei ole mitään ongelmaa, mutta turvajärjestelmän toimivuuden vuoksi vika pitää silti korjata.
 
-Esimerkin Hamming-koodin kustannus on aika korkea. Lähes puolet (3/7 = 43%) biteistä ovat pariteettibittejä. Lisäksi vaatii aika paljon laskenta-aikaa asettaa pariteettibitit paikalleen ja tarkistaa niiden oikeellisuus. Todellisuudessa käytettävä Hamming-koodi on yksinkertaisuudessaan vielä nerokkaampi ja skaalautuu hyvin myös suurempien data-alkioden virheenkorjaukseen. Virheellisen bitin sijainnin päättely tapahtuu yksinkertaisen yhteenlaskun avulla.
+Esimerkin Hamming-koodin kustannus on aika korkea. Lähes puolet (3/7 = 43%) biteistä ovat pariteettibittejä. Lisäksi vaatii aika paljon laskenta-aikaa asettaa pariteettibitit paikalleen ja tarkistaa niiden oikeellisuus. Todellisuudessa käytettävä Hamming-koodi on yksinkertaisuudessaan vielä nerokkaampi ja [skaalautuu](https://en.wikipedia.org/wiki/Scalability) hyvin myös suurempien data-alkioden virheenkorjaukseen. Virheellisen bitin sijainnin päättely tapahtuu yksinkertaisen yhteenlaskun avulla.
 
 #### Virheen korjaava Hamming-koodi
 Hamming-koodissa pariteettijoukot määritellään ovelasti ja joukot voivat ovat erikokoisia. Ensinnäkin on huomattava, että bitit numeroidaan (esimerkiksi) oikealta päin alkaen ykkösestä (ei nollasta, kuten yleensä bittien numeroinnin kanssa on). Seuraavaksi tarkastellaan bitin numeron binääriesitystä.  
