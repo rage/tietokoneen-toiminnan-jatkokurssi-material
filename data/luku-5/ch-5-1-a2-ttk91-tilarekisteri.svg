@@ -83,16 +83,5 @@
            id="tspan838"
            y="127.10934"
            x="40.824383">bitti:       31      27              21                           0</tspan></tspan></text>
-    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,-0.05008926,92.086902)"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-       id="flowRoot823"
-       xml:space="preserve"><flowRegion
-         id="flowRegion825"><rect
-           y="27.520798"
-           x="18.571428"
-           height="55.714283"
-           width="77.14286"
-           id="rect827" /></flowRegion><flowPara
-         id="flowPara829">DDDD</flowPara></flowRoot>  </g>
+  </g>
 </svg>
