@@ -14,6 +14,13 @@ hidden: false
 ## SSD ja NVMe
 ????
 
+## Levypalvelimet
+????
+
+## Pilvipalvelimet
+
+???
+
 ## Quizit 9.2
 <!-- Quiz 9.2.?? -->
 
