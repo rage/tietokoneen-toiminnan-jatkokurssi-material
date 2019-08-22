@@ -1,24 +1,21 @@
 ---
 path: '/luku-7/3-muisti-cache-ssd'
-title: 'Muistien toteutus'
+title: 'Järjestelmän sisäisten muistien toteutus'
 hidden: false
 ---
 
 <div>
-<lead>Rakenteisen ???? </lead>
+<lead> johdanto ....???? </lead>
 </div>
 
-## Keskusmuistin toteutus
+## Keskusmuisti
 ????
 
-## Välimuistin toteutus
+## Välimuisti
 ????
 
-## SSD-muistin toteutus
+## ROM (Read Only Memory) 
 ???
-
-### SSD vs. kovalevy
-????
 
 
 ## Quizit 7.3
