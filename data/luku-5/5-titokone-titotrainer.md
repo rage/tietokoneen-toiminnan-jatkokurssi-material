@@ -89,4 +89,4 @@ Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanss
 
 ### summary quiz ?????
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiz id="5caf0493fd9fd71425c6d6c6"></quiz></div>
