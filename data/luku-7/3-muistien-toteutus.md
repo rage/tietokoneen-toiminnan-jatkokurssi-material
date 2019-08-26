@@ -43,19 +43,16 @@ Sanaa "välimuisti" (cache) käytetään tietotekniikassa usealla eri tasolla. N
 <div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
 
 
-
-
-
 <text-box variant="example" name="Historiaa:  Ferriittirengasmuisti">
   
 Jay Forrester kehitti [MIT](https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology):n [Whirlwind](https://en.wikipedia.org/wiki/Whirlwind_I)-projektissa [ferriittirengasmuistin](https://fi.m.wikipedia.org/wiki/Ferriittirengasmuisti) ([magnetic core memory](https://en.wikipedia.org/wiki/Magnetic-core_memory)), joka patentoitiin 1951. Ferriittirengasmuisti syrjäytti Williams Tube ja elohopeaviiveputkimuistit muutamassa vuodessa keskusmuistin yleisimpänä toteutustapana. Ferriittirengasmuisti perustui pieniin magneettisiin renkaisiin ja bitit talletettiin sinne renkaiden polarisaatiota vaihdellen. Renkaat olivat 2-ulotteisessa matriisissa, ja jokainen bitti oli osoitettavissa sen xy-koordinaattijohtimien avulla. Kolmas johdin tarvittiin tiedon luku- ja kirjoitusoperaatioihin. Renkaiden asentaminen ohuine sähköjohtimineen oli tarkkaa käsityötä. Hyvänä puolena ferriittirenkaissa oli, että tieto säilyi niissä ilman sähkövirtaa. Toisena hyvä ominaisuutena oli, että säteily ei aiheuttanut häiriöitä talletettuun tietoon, mikä oli tärkeää sen ajan sotilas- ja avaruusteknologioille. Vielä 1970-luvulla ferriittirengasmuistia käytettiin Apollo-ohjelmassa kuulennoilla. Nyt muistista on jäljellä enää käsitteet "core" ja "core memory", joilla viitataan keskusmuistiin yleensä.
-<!-- kuva: ch-7-3-ferriitti    -->
 
-![kuvan selitysteksti puuttuu... ????.](./ch-7-3-ferriitti.svg)
+<!-- kuva: ch-7-5-ferriitti    -->
+
+![Vasemmalla valokuva ferriittirengasmuistista ja oikealla sen piirretty skeema. Valokuvassa noin 20x20 hilassa on noin 400 ferriittirengasta. Renkaiden läpi kulkee x-ja y-akselien suuntaisesti koordinaattijohtimet, noin 20 kapppaletta kumpaakin. Lisäksi kaikkien johtimien läpi kulkee yksi yhteinen luku- ja kirjoitusjohdin. Kuvassa mukana mittakaavana 1€ kolikko, joka on noin 1/4 ferriittirengas hilan koosta. Oikealla skeemakuvassa on suurennettuna 4x4 hilan 16 ferriittirengasta, koordinaatti- ja luku/kirjoitusjohtimineen. ](./ch-7-5-ferriitti.svg)
 <div>
-<illustrations motive="ch-7-3-ferriitti"></illustrations>
+<illustrations motive="ch-7-5-ferriitti"></illustrations>
 </div>
-credit....???? 
 
 </text-box>
 
