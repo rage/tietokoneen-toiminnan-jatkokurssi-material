@@ -5,7 +5,12 @@ overview: true
 hidden: false
 ---
 
-Minkälaisia ???????
+Tietokonejärjestelmät ovat haavoittuvaisia erilaisille virheille. Käsittelemme tässä luvussa virheiden syntymekanismeja ja kuinka laitteistossa tapahtuviin tiedon tallennuksen tai tiedon siirron aikana tapahtuviin virheisiin voidaan varautua. Ihan kaikkin virheisiin ei koskaan voi varautua, mutta yleisimpiin....????
+
+Lopuksi esittelemme järjestelmän sisäiset muistit ja niiden toteutustavat.
+
+
+
 
 <please-login></please-login>
 
