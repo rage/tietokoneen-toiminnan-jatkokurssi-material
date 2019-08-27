@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Kaikki tieto ?????.</lead>
+<lead>Kaikki tieto koostuu biteistä, jotka talletetaan fyysisesti erilaisiin muisteihin tai rekistereihin ja joita siirretään väylien johtimia pitkin järjestelmässä paikasta toiseen. Joissakin tapauksissa talletettu tai siirrettävä bitti voi vaihtua virheelliseksi jo laitteistovian vuoksi tai esimerkiksi satunnaisen alkeishiukkasen kulkiessa piirin läpi. Niin tai näin, niin haluaisimme ainakin havaita syntyneen virhetilanteen. Vielä parempaa olisi, jos pystyisimme myös paikallistamaan virheellisen bitin talletetussa tai siirrettävässä sanassa ja korjaamaan sen.</lead>
 </div>
 
 ## Virheen käsite
@@ -15,7 +15,7 @@ Suurten ohjelmistojen tekeminen on vaikeata, eikä meillä yleensä ole tarvitta
 
 Yleisesti ottaen tiedon oikeellisuutta ei voida tarkistaa. Jos muuttujassa X on talletettu Villen syntymävuodeksi 1973, niin ohjelma vain uskoo sen eikä yritäkään tarkistaa sitä mitenkään. Toisaalta, jos jokin virhe muuttaa rekisterin tai muistipaikan X oikean arvon 1973 arvoksi 1975, niin se voidaan ehkä havaita ja virhe voidaan ehkä jopa korjata! Tällaisen virheen voisi aiheuttaa esimerkiksi viallinen muistipiiri, johon bitti nro 1 (toinen bitti oikealta) tallentuu aina bittinä 1. Toinen syy virheeseen voisi olla, että avaruudesta on saapunut jokin alkeishiukkanen, joka on flipannut (kääntänyt) tuon saman bitin toisin päin. Tämä viimeksi mainittu ongelma on täysin realistinen ja siihen tulisi varautua. Keskitymme jatkossa järjestelmään talletetun tiedon integriteetin turvaamiseen, emmekä puutu tiedon filosofiseen oikeellisuuteen sen enempää.
 
-Muistipiissä oleva vika on pysyvää tyyppiä ja sen voi korjata vaihtamalla muistipiirin, mikä käytännössä ei välttämättä ole aina ihan helppoa. Laitehan voi vaikka olla satelliitissa maata kiertämässä. Toisaalta, joissakin muistipiireissä on varabittejä auton vararenkaan tavoin, jolloin järjestelmä pystyy vian havaitessaan ottamaan jatkossa tuon varabitin käyttöön bitin numero 1 asemesta. Kuten autonkin renkaiden laita on, vikaantunut muistipiiri olisi hyvä vaihtaa eheään mahdollisimman pian. 
+Muistipiissä oleva vika on pysyvää tyyppiä ja sen voi korjata vaihtamalla muistipiiri, mikä käytännössä ei välttämättä ole aina ihan helppoa. Laitehan voi vaikka olla satelliitissa maata kiertämässä. Toisaalta, joissakin muistipiireissä on varabittejä auton vararenkaan tavoin, jolloin järjestelmä pystyy vian havaitessaan ottamaan jatkossa tuon varabitin käyttöön bitin numero 1 asemesta. Kuten autonkin renkaiden laita on, vikaantunut muistipiiri olisi hyvä vaihtaa eheään mahdollisimman pian. 
 
 Avaruudesta tulleen alkeishiukkasen aiheuttama virhe on ohimenevää (transienttia) tyyppiä, eikä järjestelmää pidä sen vuoksi korjata millään tavalla. Olisi tietenkin mukavaa, jos satunnaisesti syntynyt virhe havaittaisiin ja ehkä jopa korjattaisiin.
 
@@ -31,9 +31,9 @@ Tv-sarjassa [Rillit huurussa](https://fi.wikipedia.org/wiki/Rillit_huurussa) Pen
 
 </text-box>
 
-Kaikki viat eivät ole vaarallisia. Jossakin koodinpätkässä voi olla vika, mutta kyseistä koodia ei tulla koskaan suorittamaan. Ja vaikka viallinen koodi suoritettaisiinkin, niin kaikki virheetkään eivät ole merkittäviä. Jos esimerkiksi vtietokonepelin Mörri-ötökkä jää piirtämättä näytölle vähäksi aikaa, niin pelaajan hahmo voi kuolla Mörrin yllätyshyökkäyksessä. Toisaalta, joskus pelitkin voivat olla hyvinkin tärkeitä, koska esimerkiksi peliturnauksissa voi olla kyse hyvinkin suurista palkintorahoista. 
+Kaikki viat eivät ole vaarallisia. Jossakin koodinpätkässä voi olla vika, mutta kyseistä koodia ei tulla koskaan suorittamaan. Ja vaikka viallinen koodi suoritettaisiinkin, niin kaikki virheetkään eivät ole merkittäviä. Jos esimerkiksi tietokonepelin Mörri-ötökkä jää piirtämättä näytölle vähäksi aikaa, niin pelaajan hahmo voi kuolla Mörrin yllätyshyökkäyksessä. Toisaalta, joskus pelitkin voivat olla hyvinkin tärkeitä, koska esimerkiksi peliturnauksissa voi olla kyse hyvinkin suurista palkintorahoista. 
 
-Jotkut virheet taas ovat hyvin vaarallisia. On tapauksia, jossa ohjelmointivirheen vuoksi [MRI](https://en.wikipedia.org/wiki/Magnetic_resonance_imaging)-laite on antanut potilaille liian paljon säteilyä, tai Marsiin laskeutuva luotain [tuhoutunut](https://en.wikipedia.org/wiki/Mars_Polar_Lander).  
+Jotkut virheet taas ovat hyvin vaarallisia. On tapauksia, jossa ohjelmointivirheen vuoksi [MRI](https://en.wikipedia.org/wiki/Magnetic_resonance_imaging)-laite on antanut potilaille liian paljon säteilyä tai Marsiin laskeutuva luotain [tuhoutunut](https://en.wikipedia.org/wiki/Mars_Polar_Lander).  
 
 Olisi hyvä, jos kaikki ihmishenkiä uhkaavat tai suuria taloudellisia tappioita aiheuttavat häiriöt saataisiin kuriin. NASA:lla oli [avaruussukkulan](https://fi.wikipedia.org/wiki/Avaruussukkula) ohjelmiston kehittämisessä selkeä prosessi vakavien häiriöiden minimoimiseksi. Joka kerta, kun jokin järjestelmähäiriö ilmeni, paikallistettiin ensin sen aiheuttanut virhe järjestelmässä ja sitten virheen aiheuttanut vika. 
 
