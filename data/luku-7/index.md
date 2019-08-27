@@ -5,12 +5,9 @@ overview: true
 hidden: false
 ---
 
-Tietokonejärjestelmät ovat haavoittuvaisia erilaisille virheille. Käsittelemme tässä luvussa virheiden syntymekanismeja ja kuinka laitteistossa tapahtuviin tiedon tallennuksen tai tiedon siirron aikana tapahtuviin virheisiin voidaan varautua. Ihan kaikkin virheisiin ei koskaan voi varautua, mutta yleisimpiin....????
+Tietokonejärjestelmät ovat haavoittuvaisia erilaisille virheille. Käsittelemme tässä luvussa ensin virheiden syntymekanismeja ja sitten, kuinka laitteistossa voidaan varautua tiedon tallennus- tai tiedon siirtovirheisiin. Ihan kaikkin virheisiin ei koskaan voi varautua, mutta yleisimpiin voi. Laitteistotasolla tämä yleensä tarkoittaa sitä, että satunnaiset yhden bitin voidaan havaita ja korjata. 
 
 Lopuksi esittelemme järjestelmän sisäiset muistit ja niiden toteutustavat.
-
-
-
 
 <please-login></please-login>
 
@@ -18,6 +15,6 @@ Lopuksi esittelemme järjestelmän sisäiset muistit ja niiden toteutustavat.
 
 Yllä oleva sisällysluettelo sisältää kurssin Luvun 7 aihealueet.
 
-Tämän tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminnan perusteet luvuille 1-4.
+Tämän Tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminnan perusteet luvuille 1-4.
 
 <exercises-in-this-section></exercises-in-this-section>
