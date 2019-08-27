@@ -5,7 +5,8 @@ hidden: false
 ---
 
 <div>
-<lead>Tietokonejärjestelmän keskusmuisti on se muistialue, jossa ohjelman koodi ja data pääasiassa sijaitsevat ohjelman suorituksen aikana. Järjestelmän optimointitavoitteiden mukaisesti osa tiedoista voi sijaita myös eri tasoisissa välimuisteissa suorittimen lähellä tai erilaisissa massamuisteissa (ks. seuraava luku) paljon kauempana suorittimelta. Ohjelman suoritus perustuu kuitenkin ajatukseen, että suorituksessa olevat konekäskyt ja niiden käyttämä data ovat keskusmuistissa (tai suorittimen rekistereissä). </lead>
+<lead>Tietokonejärjestelmän keskusmuisti on se muistialue, jossa ohjelman koodi ja data pääasiassa sijaitsevat ohjelman suorituksen aikana. Järjestelmän optimointitavoitteiden mukaisesti osa tiedoista voi sijaita myös eri tasoisissa välimuisteissa suorittimen lähellä tai erilaisissa massamuisteissa (ks. seuraava luku) paljon kauempana suorittimelta. Ohjelman suoritus perustuu kuitenkin ajatukseen, että suorituksessa olevat konekäskyt ja niiden käyttämä data ovat keskusmuistissa (tai suorittimen rekistereissä). 
+</lead>
 </div>
 
 ## Keskusmuisti
