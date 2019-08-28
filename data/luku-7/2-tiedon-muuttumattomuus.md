@@ -41,7 +41,7 @@ Toinen esimerkki tarkistusmerkeistä on Suomessa käytetty [IBAN](https://fi.wik
 FI37 5000 1500 0001 23      Siirrä FI-osa alkuun, uusi IBAN-numero
 ```
 
-Tarkistusmerkkien kustannus on 2 merkkiä 18:sta eli yli 10%. Tarkismerkkien oikeellisuuden laskenta tehdään ohjelmallisesti.
+Tarkistusmerkkien kustannus on 2 merkkiä 18:sta eli yli 10%. Tarkistusmerkkien oikeellisuuden laskenta tehdään ohjelmallisesti.
 
 ## Pariteettibitti
 Bittitasolla yksinkertaisin ja yleinen tarkistusmenetelmä on pariteettibitti. Se on ylimääräinen bitti, jonka avulla tiedon 1-bittien lukumäärästä tehdään parillinen tai pariton. Käytössä sanotaan tuolloin olevan joko _parillinen_ tai _pariton pariteetti_. Esimerkiksi, 32-bittisessä sanassa voidaan varata 31 bittiä datalle ja 1 bitti pariteettibitille. Tietoa talletettaessa pariteettibitin arvo lasketaan ja talletetaan paikalleen. Joka kerta tietoa luettaessa tarkistetaan, että pariteetti on oikein. Jos se ei ole, niin virhe käsitellään esimerkiksi kutsumalla jotain aliohjelmaa tai aiheuttamalla sopiva keskeytys.
