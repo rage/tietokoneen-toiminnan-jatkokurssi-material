@@ -6,7 +6,7 @@ hidden: false
 
 
 <div>
-<lead>Tässä osiossa tarkastelemme perusmenetelmiä, joilla voidaan valvoa tiedon muuttumattomuutta tietokonejärjestelmissä. Järjestelmään tallennettu tai siellä siirrettävä tieto voi muuttua esimerkiksi laitteistovian, satunnaisen avaruudesta tulleen hiukkasen tai tahallisen _tietoturvahyökkäyksen_ vuoksi. Syystä tai toisesta, järjestelmässä oleva tieto on muuttunut virheelliseksi. Haluaisimme havaita kaikki tällaiset virheet ja mahdollisuuksien mukaan myös korjata ne.</lead>
+<lead>Tässä osiossa tarkastelemme perusmenetelmiä, joilla voidaan valvoa tiedon muuttumattomuutta tietokonejärjestelmissä. Järjestelmään tallennettu tai siellä siirrettävä tieto voi muuttua esimerkiksi laitteistovian, satunnaisen avaruudesta tulleen hiukkasen tai tahallisen tietoturvahyökkäyksen vuoksi. Syystä tai toisesta, järjestelmässä oleva tieto on muuttunut virheelliseksi. Haluaisimme havaita kaikki tällaiset virheet ja mahdollisuuksien mukaan myös korjata ne.</lead>
 </div>
 
 ## Tiedon muuttumattomuuden turvaamisen pääperiaatteet
