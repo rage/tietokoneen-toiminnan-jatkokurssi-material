@@ -33,7 +33,7 @@ export function createAccount(data) {
   data.username = uuidv4()
   const body = {
     user: data,
-    origin: "Ohjelmoinnin MOOC 2019",
+    origin: "Tietokoneen toiminnan jatkokurssi",
     language: "fi",
   }
   return new Promise((resolve, reject) => {
@@ -87,7 +87,7 @@ export function onLoginStateChanged(callback) {
 
 export async function userDetails() {
   const res = await axios.get(
-    `${BASE_URL}/users/current?show_user_fields=true&extra_fields=ohjelmoinnin-mooc-2019`,
+    `${BASE_URL}/users/current?show_user_fields=true&extra_fields=tietokoneen-toiminnan-jatkokurssi`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -128,7 +128,7 @@ export async function updateUserDetails({ extraFields, userField }) {
     {
       user: {
         extra_fields: {
-          namespace: "ohjelmoinnin-mooc-2019",
+          namespace: "tietokoneen-toiminnan-jatkokurssi",
           data: extraFields,
         },
       },

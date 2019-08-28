@@ -8,9 +8,9 @@ Tässä osiossa esitellään käyttöjärjestelmäpalvelujen käyttö ja kuinka 
 </lead></div>
 
 ## Käyttöjärjestelmäpalvelut kutsuttavina rutiineina
-Käyttöjärjestelmä tarjoaa suorituksessa oleville ohjelmille erilaisia palveluja, kuten esimerkiksi oheislaitteiden käyttämisen. Näitä palveluja käytetään periaatteessa kahdella tavalla. 
+Käyttöjärjestelmä tarjoaa suorituksessa oleville ohjelmille erilaisia palveluja, kuten esimerkiksi oheislaitteiden käyttämisen. Näitä palveluja käytetään periaatteessa kahdella tavalla.
 
-Palvelut voivat olla suoraan kutsuttavissa tavallisina aliohjelmina tai etuoikeutettuina aliohjelmina. Kaikki käyttöjärjestelmän osat eivät tarvitse etuoikeutettua suoritustilaa ja on turvallisempaa pitää mahdollisimman suuri osa koodista tavallisessa suoritustilassa suoritettavana. Esimerkkinä tällaisesta palvelusta voisi olla joku yleinen tulostuspalvelu. Palveluja kutsutaan tavallisilla call-aliohjelmakutsuillla. 
+Palvelut voivat olla suoraan kutsuttavissa tavallisina aliohjelmina tai etuoikeutettuina aliohjelmina. Kaikki käyttöjärjestelmän osat eivät tarvitse etuoikeutettua suoritustilaa ja on turvallisempaa pitää mahdollisimman suuri osa koodista tavallisessa suoritustilassa suoritettavana. Esimerkkinä tällaisesta palvelusta voisi olla joku yleinen tulostuspalvelu. Palveluja kutsutaan tavallisilla call-aliohjelmakutsuillla.
 
 Osa palveluista (esimerkiksi jotkut laiteajurit) vaativat kuitenkin etuoikeutettua suoritustilaa ja niitä kutsutaan tällöin svc-käskyillä. Svc-käsky vaihtaa suoritustilan etuoikeutetuksi samalla kun se siirtää kontrollin kutsutulle rutiinille. Etuoikeutetut palvelurutiinit ovat etukäteen kaikki tiedossa ja ne on usein nimetty pelkästään palvelun numeron mukaisesti. Esimerkiksi, ttk-91'ssä palvelurutiinin Halt (ohjelman suoritus päättyy) numero on 11, mikä on myös symbolin "halt" arvo.
 
@@ -29,7 +29,7 @@ Parametrien välitys käyttöjärjestelmärutiineille voi olla erilaista kuin ta
       push  sp, =FileBuffer    ; datpuskuri tiedon siirtoa varten
       push  sp, ByteCnt        ; luettavien tavujen lukumäärä
       push  sp, ptrFile        ; luettava tiedosto
-      
+
       svc   sp, =DiskDriver    ; lue laitteelta pyydetty määrä tavuja puskuriin
       pop   sp, r1
       jnzer r1, FileTrouble    ; käsittele virhetilanteet
@@ -56,11 +56,11 @@ MsgService equ   52
       push  sp, =FileBuffer    ; datapuskuri tiedon siirtoa varten
       push  sp, ByteCnt        ; luettavien tavujen lukumäärä
       push  sp, ptrFile        ; luettava tiedosto
-      
+
       svc   sp, =MsgService    ; lähetä viesti DiskDrive-prosessille
       pop   sp, r1
       jnzer r1, SendTrouble    ; käsittele virhetilanteet
-      
+
       ; vastaanota vastaus palvelupyyntöön
       push  sp, =0             ; paluuarvo
       push  sp, =pidDriver     ; viestin lähettäjän tunniste (pid)
@@ -68,7 +68,7 @@ MsgService equ   52
       push  sp, =maxWaitTime   ; maksimiodotusaika viestin vastaanotolle
       push  sp, =MsgBuffer     ; datapuskuri tiedon siirtoa varten
       push  sp, &MsgByteCnt        ; luettavien tavujen lukumäärä
-      
+
       svc   sp, =MsgService    ; vastaanota viesti DiskDrive-prosessilta
       pop   sp, r1
       jnzer r1, RecvTrouble    ; käsittele virhetilanteet
@@ -79,14 +79,14 @@ MsgService equ   52
 ## Quizit 6.4 ??????  e-300, e-310, e-450, f410??
 <!-- quiz 6.4.??  ????? -->
 
-<div><quiznator id="5ce7d946c32bef0809233733"></quiznator></div>
-<div><quiznator id="5ce7da5cb46310082c3f4b6d"></quiznator></div>
-<div><quiznator id="5ce7db332c6e4507b408bbb7"></quiznator></div>
-<div><quiznator id="5ce7dc754355990788c2b6b9"></quiznator></div>
+<div><quiz id="3881dfb4-23f7-4359-9e01-1ce56c51345b"></quiz></div>
+<div><quiz id="4befdfa3-3055-40ce-9470-26d4fb02a154"></quiz></div>
+<div><quiz id="4896697e-2e33-44b8-82dd-251e7ff728e3"></quiz></div>
+<div><quiz id="36e2b3d7-22ee-4f63-b56d-1c111ddda9b7"></quiz></div>
 
 
 <text-box variant="example" name="Historiaa:  Williams Tube -muisti">
-  
+
 Freddie Williams and Tom Kilburn kehittivät vuonna 1946 ensimmäisen RAM-muistin (Random Access Memory), jonka kaikki muistipaikat olivat aina yhtä nopeita käyttää. Sen koko oli aluksi 1024 bittiä. Putki oli kallis ja kesti käytössä vain noin kuukauden. Muisti perustui samanlaisiin katodisädeputkiin (CRT, Cathode Ray Tube) kuin näytötkin. Kun jotain kuvapistettä valaistiin, niin se hehkui varautuneena vähän aikaan ja talletti siten tietoa. Tiedon lukeminen tapahtui yrittämällä kirjoittaa data uudestaan 1-biteillä. Kirjoitusyritys antoi erilaisen tuloksen sen mukaan, olivatko bitit jo ennestään varautuneita tai ei. Kaikkia kuvapisteitä täytyi virkistää vähän väliä, jotta tieto säilyi. Ensimmäisessä yleiskäyttöisessä kaupallisessa tietokoneessa, Ferranti Mark I, oli 10000 bittiä Williams Tube -muistia.
 
 ![Katodisädeputki koteloituna metalliseen telineeseen. Kotelot ovat suorakaiteen muotoisia, joten niitä voi helposti asetella vierekkäin tai päällekkäin.](./ch-6-4-williams.svg)
@@ -106,4 +106,4 @@ Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
 
 ###  summary quizit ????
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>

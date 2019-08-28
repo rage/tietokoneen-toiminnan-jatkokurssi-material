@@ -16,10 +16,10 @@ hidden: false
 
 ## Quizit 9.4 ????
 <!--  quizit 9.4.???  -->
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Transistori ja integroitu piiri">
-  
+
 Fe.....
 
 ![Valt????  puuttuu ????.](./ch-9-3-transistori.svg)
@@ -36,5 +36,5 @@ Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
 ### summary quizit lukuun 9 ???
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
 © 2019 GitHub, Inc.

@@ -25,14 +25,14 @@ Muistihierarkiapyramidissa on kolme isompaa kerrosta. Lähinnä huippua ovat sam
 
 
 
-## Virtuaalimuisti 
+## Virtuaalimuisti
 ????
 
 ### Massamuistin käyttö
 ???
 
 <text-box variant="example" name="Historiaa:  Akustinen elohopeaviiveputki">
-  
+
 Akustinen elohopeaviiveputki
 <!-- kuva: ch-7-3-ferriitti    -->
 
@@ -40,10 +40,10 @@ Akustinen elohopeaviiveputki
 <div>
 <illustrations motive="ch-8-1-viiveputki"></illustrations>
 </div>
-credit....???? 
+credit....????
 
 </text-box>
 
 ## Quizit 9.1
 <!-- Quiz 9.1.?? -->
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>

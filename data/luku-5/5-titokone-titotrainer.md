@@ -23,13 +23,13 @@ _Graafinen käyttöliittymä_ kokoaa kaikki edellämainitut komponentit yhteen, 
 ### Titokoneen käyttö
 Titokonetta on tarkoitus käyttää symbolisen konekielen perusteiden harjoitteluun. Ohjelmat kirjoitetaan tekstieditorilla ttk-91 symbolisella konekielellä, ladataan Titokoneelle, käännetään ja lopuksi suoritetaan simulaattorissa hyödyntäen ohjelmiston kehitysympäristöä ja animaattoria.
 
-Titokoneen omalle koneelle asennettavat eri versiot ja käyttöohjeet löytyvät verkkosivulta https://www.cs.helsinki.fi/group/titokone/. Titokoneen verkkosivulla on useita eri [jar](https://en.wikipedia.org/wiki/JAR_(file_format))-paketteja. Suosittelen käyttämään versiota [titokone_1.203.jar](https://www.cs.helsinki.fi/group/titokone/distr/titokone-1.203.jar), koska sitä käytetään seuraavaksi esiteltävässä TitoTrainer'issa. Helpoin tapa suorittaa Titokonetta on ladata (klikkaamalla ylläolevaa linkkiä) sen jar-paketti omalle koneelle ja avata se Javan suoritusympäristössä ([JRE](https://en.wikipedia.org/wiki/JRE), Java Runtime Environment). 
+Titokoneen omalle koneelle asennettavat eri versiot ja käyttöohjeet löytyvät verkkosivulta https://www.cs.helsinki.fi/group/titokone/. Titokoneen verkkosivulla on useita eri [jar](https://en.wikipedia.org/wiki/JAR_(file_format))-paketteja. Suosittelen käyttämään versiota [titokone_1.203.jar](https://www.cs.helsinki.fi/group/titokone/distr/titokone-1.203.jar), koska sitä käytetään seuraavaksi esiteltävässä TitoTrainer'issa. Helpoin tapa suorittaa Titokonetta on ladata (klikkaamalla ylläolevaa linkkiä) sen jar-paketti omalle koneelle ja avata se Javan suoritusympäristössä ([JRE](https://en.wikipedia.org/wiki/JRE), Java Runtime Environment).
 
 Java-ohjelmien suorittamista varten järjestelmässäsi täytyy olla asennetuna jokin Javan suoritusympäristö. Se voi olla Oraclen oma toteutus (esim. _Java SE_) tai avoimen lähdekoodin toteutus (esim. _OpenJDK (Java)_ tai _Amazon Corretto_). Viimeksi mainitut ympäristöt löytyvät Windows'in Software Center'istä, joka löytyy Windows-haulla näytön vas. alanurkasta hakusanalla "Software Center" (Windows-10).
 
 Titokoneen verkkosivulta löytyy myös sen [käyttöohje](https://www.cs.helsinki.fi/group/titokone/v1.100/kayttoohje/manual_fi.html) ja [asennusohje omalle koneelle](https://www.cs.helsinki.fi/group/titokone/v1.100/INSTALL_fi.txt). Huomaa, että Titokoneessa on se piirre, että oletusarvoisesti siinä on valittuna valmiiksi käännetyt "_b91 binary_" -tyyppiset tiedostot, joten valitse ohjelmatiedoston tyypiksi "_k91 source_".
 
-Samalta verkkosivulta löytyy myös kokoelma ttk-91 esimerkkiohjelmia, hakemistossa [esimerkit](https://www.cs.helsinki.fi/group/nodes/kurssit/tito/esimerkit/). Voit ladata ne omalle koneellesi, ja valita ne sitten Titokoneelle syötteeksi käännöstä ja suoritusta varten. 
+Samalta verkkosivulta löytyy myös kokoelma ttk-91 esimerkkiohjelmia, hakemistossa [esimerkit](https://www.cs.helsinki.fi/group/nodes/kurssit/tito/esimerkit/). Voit ladata ne omalle koneellesi, ja valita ne sitten Titokoneelle syötteeksi käännöstä ja suoritusta varten.
 
 ## TitoTrainer
 TitoTrainer on ttk-91 symbolisen konekielisen ohjelmoinnin harjoitteluympäristö. Se sisältää n. 50 ttk-91 ohjelmoinnin harjoitustehtävää. TitoTrainer pitää kirjaa kunkin opiskelijan edistymisestä.
@@ -38,18 +38,18 @@ Tehtävissä pyydetään toteutamaan joko kokonainen ttk-91 ohjelma tai sen osa.
 
 TitoTraineria ei ole integroitu Titokoneen ohjelmiston kehitysympäristöön, joten isompien ohjelmointiongelmien sattuessa tehtävä kannattaa ratkaista ensin Titokoneessa ja sitten kopioida toimiva vastaus TitoTraineriin. Jos TitoTrainer tehtävässä pyydettiin toteuttamaan vain ohjelman osa, niin muista kopioida myös ne valmiiksi annetut ohjelman osat Titokoneella testattavaan ohjelmaan. Vastaavasti, muista tässä tapauksessa kopioida vain pyydetty ohjelman osa TitoTraineriin.
 
-TitoTraineria käytetään suoraan yliopiston palvelimella osoitteessa [TitoTrainer2](http://titotrainer2.users.cs.helsinki.fi/). Luo sinne oma tunnus ja kirjaudu sopivalle kurssille (esim. "MOOC 2019-2020"). Jos TitoTrainer ei jostain syystä tunnu toimivan (verkkosivu valittaa sisäisestä virheestä, tms), se täytyy käynnistää uudelleen.  Mailaa ongelmasta osoitteeseen mailto:atk-apu@cs.helsinki.fi, jolloin tilanne korjataan yleensä aika pian. Joidenkin päivitysten jälkeen TitoTrainer ei vain käynnisty uudelleen automaattisesti, vaikka näin pitäisi tapahtua.  
+TitoTraineria käytetään suoraan yliopiston palvelimella osoitteessa [TitoTrainer2](http://titotrainer2.users.cs.helsinki.fi/). Luo sinne oma tunnus ja kirjaudu sopivalle kurssille (esim. "MOOC 2019-2020"). Jos TitoTrainer ei jostain syystä tunnu toimivan (verkkosivu valittaa sisäisestä virheestä, tms), se täytyy käynnistää uudelleen.  Mailaa ongelmasta osoitteeseen mailto:atk-apu@cs.helsinki.fi, jolloin tilanne korjataan yleensä aika pian. Joidenkin päivitysten jälkeen TitoTrainer ei vain käynnisty uudelleen automaattisesti, vaikka näin pitäisi tapahtua.
 
 ### TitoTrainer tehtävät
 Tito-Trainer tehtävissä on niiden nimen alussa luokittelutietoa (esim. a-150 Simppeli koodisegmentti), jossa ensimmäisenä oleva kirjain kertoo päätason:
 
 ```
-a. aloittelija, yksinkertainen koodi, if-then-else, silmukat 
-b. monimutkaisempaa koodia, tietorakenteiden käyttö 
-c. aliohjelmien kutsuminen, konekielen hyvä ymmärrys, koodin optimointi 
-d. aliohjelmien toteutus, moniulotteiset taulukot 
-e. kokonaiset ohjelmat aliohjelmineen, laiteajuri 
-f. itse muokkaavaa koodia, ihan mitä vain 
+a. aloittelija, yksinkertainen koodi, if-then-else, silmukat
+b. monimutkaisempaa koodia, tietorakenteiden käyttö
+c. aliohjelmien kutsuminen, konekielen hyvä ymmärrys, koodin optimointi
+d. aliohjelmien toteutus, moniulotteiset taulukot
+e. kokonaiset ohjelmat aliohjelmineen, laiteajuri
+f. itse muokkaavaa koodia, ihan mitä vain
 ```
 
 Päätason perässä oleva kolminumeroinen luku kertoo päätason sisällä vaikeusasteen (100=helppo, 900=vaikea). On suositeltavaa, että tehtävät tehdään tasojärjestyksessä helpoimmasta vaikeampaan. Vaikeusasteella 700 tehtävät millä tahansa tasolla voivat olla haastavia. Vaikeusasteen 900 tehtävät menevät jo syventävien oppimistavoitteiden puolelle.
@@ -61,15 +61,15 @@ Perustavoitteet symbolisella konekielellä ohjelmoinnille tällä kurssilla ovat
 
 <!-- quiz 5.5.??? ????????????????? -->
 
-<div><quiznator id="5cdebbdda2f5511be16cb108"></quiznator></div>
-<div><quiznator id="5cdebdc456ccdc1c978a746d"></quiznator></div>
-<div><quiznator id="5cdeb236597ed81bbd1bd733"></quiznator></div>
-<div><quiznator id="5cdeb42e597ed81bbd1bd737"></quiznator></div>
-<div><quiznator id="5cdeb6004f1e771cc6156294"></quiznator></div>
-<div><quiznator id="5cdeb80d142fa41c2b8c7e8a"></quiznator></div>
+<div><quiz id="8b46b1d9-58a5-46d0-8a0c-4738c389ab9c"></quiz></div>
+<div><quiz id="88abf4e0-56fd-40fc-9b32-45e3d041a028"></quiz></div>
+<div><quiz id="5602cf49-36be-47c7-8848-2bfbc5cd5bd3"></quiz></div>
+<div><quiz id="671eb0b6-41a2-42ef-a1df-34bb83d61bea"></quiz></div>
+<div><quiz id="42d3fb15-2a88-4da1-a46b-222c84dd257a"></quiz></div>
+<div><quiz id="60609033-3d57-48aa-a319-3148d307003e"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Akustinen viiveputki">
-  
+
 William B. Shockley ja J. Presper Eckert kehittivät 1946 muistiteknologian, joka perustui akustiseen elohopeaviiveputkeen. Kvartsikide muutti pietsosähköisen ilmiön avulla sähkövirran bitit putkessa eteneväksi akustiseksi signaaliksi. Signaali eteni putkessa vakionopeudella. Muunnos toimi myös toiseen suuntaan tiedon lukemiseksi. Kun data ehti edetä putken toiseen päähän, sen arvo voitiin lukea ja samalla se kirjoitettiin takaisin putken alkupäähän. Yhden 1,45m pitkän putken kapasiteetti oli 1000 bittiä. Maurice Wilkes käytti elohopeaviiveputkia vuonna 1949 EDSAC-koneen keskusmuistina.
 
 <!-- kuva: ch-5-5-viiveputki    -->
@@ -77,7 +77,7 @@ William B. Shockley ja J. Presper Eckert kehittivät 1946 muistiteknologian, jok
 ![Wilkes EDSAC'in muistiyksikön vieressä. Siinä on metallilaatikossa viisi elohopeaviiveputkea.](./ch-5-5-viiveputki.svg)
 <div>
 <illustrations motive="ch-5-5-viiveputki"></illustrations>
-</div> 
+</div>
 
 </text-box>
 
@@ -89,4 +89,4 @@ Vastaa alla olevaan kyselyyn kun olet valmis ensimmäisen luvun tehtävien kanss
 
 ### summary quiz ?????
 
-<div><quiz id="5caf0493fd9fd71425c6d6c6"></quiz></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>

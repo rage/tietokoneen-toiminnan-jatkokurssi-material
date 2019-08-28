@@ -22,9 +22,9 @@ pt  dc  0          ; osoitin, joka tulee osoittamaan t:hen
     ...
     load r1, =r
     store r1, pt   ; alusta osoitinmuuttuja pt
-    ... 
+    ...
 ;
-; toteuta lause t = fB(r,s,t) 
+; toteuta lause t = fB(r,s,t)
 ;
      push sp, =0    ; tila paluuarvolle
      push sp, r     ; r:n arvo
@@ -47,13 +47,13 @@ vparY   equ -3     ; viiteparametrin osoite AT:ssä
 vparZ   equ -2
 
 fB      push sp, r1  ; talleta r1
-        
+
         load r1, parX(fp)   ; laske X*Y+Z
         mul  r1, @vparY(fp)  ; huomaa epäsuoran tiedonosoitusmoodin käyttö
         add  r1, @vparZ(fp)
-        
+
         store r1, retfB(fp) ; talleta paluuarvo
-        
+
         pop sp, r1 ; palauta r1
         exit sp, =3
 ```
@@ -78,7 +78,7 @@ Salary  equ  2
         ...
         load r3, vparP(fp)   ; viitatun tietueen osoite
         load r1, Age(r3)     ; kentän Age arvo
-        ... 
+        ...
 ```
 
 ## Ulostuloparametrit
@@ -91,7 +91,7 @@ Ulostuloparametrit ovat tavallisia viiteparametreja, joita käytetään parametr
    call  sp, photoedit
    pop sp, r1
    jneq r1, badresult
-``` 
+```
 
 Useissa ohjelmointikielissä rajataan funktion paluuarvon tyyppi yksinkertaiseen tietotyyppiin. Tällaisissa tapauksissa moniarvoisen funktion voi helposti toteuttaa käyttämällä useaa ulostuloparametria.
 
@@ -103,7 +103,7 @@ vparZ  equ -2
 S     pushr sp   ; talleta rekisterit
       ...
       ...        ; laske tulokset rekistereihin r1, r2, r3
-      ... 
+      ...
       store r1, @vparX(fp)  ; palauta tulokset viiteparametrien kautta
       store r3, @vparY(fp)
       store r3, @vparZ(fp)
@@ -120,8 +120,8 @@ Joissakin ohjelmointikielissä kaikki merkkijonot välitetään viiteparametrein
 
 <!-- quiz 6.3.??  ????? -->
 
-<div><quiznator id="5ce68b9ac32bef0809233512"></quiznator></div>
-<div><quiznator id="5ce68cc0b46310082c3f4953"></quiznator></div>
-<div><quiznator id="5ce68db45b211f07e0462853"></quiznator></div>
-<div><quiznator id="5ce68ec9b46310082c3f495a"></quiznator></div>
-<div><quiznator id="5ce693de875222075bf2f713"></quiznator></div>
+<div><quiz id="402508cf-28d3-4a03-ada1-20cd3c1c3342"></quiz></div>
+<div><quiz id="350b77c2-21c3-4080-81a7-1b20241e30d4"></quiz></div>
+<div><quiz id="36d816cb-22e8-434e-9749-1c0bb073a89e"></quiz></div>
+<div><quiz id="3b53a467-25c2-4995-a006-1e5683a49c62"></quiz></div>
+<div><quiz id="31e744d9-1fc3-42d3-9b3c-ff30f951fd4f"></quiz></div>

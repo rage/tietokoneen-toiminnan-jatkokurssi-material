@@ -21,7 +21,7 @@ loop  comp r1, =30      ; silmukan lopetustesti
       mul  r2, =4
       store r2, A(r1)   ; taulukon A viitatun alkion indeksi on r1:ssä
       jump
-done  nop               ; poistu silmukasta      
+done  nop               ; poistu silmukasta
 ```
 
 Toinen tyypillinen ohjelmissa käytetty tietorakenne on tietue, jossa samaan tietoon liittyvät eri kentät on talletettu peräkäisiin mustipaikkoihin. Tällä kertaa viitatun tiedon (tietueen jokin kenttä) osoite saadaan laskemalla yhteen tietueen alkuosoite ja viitatun kentän suhteellinen sijainti tietueen sisällä. Vähän yllättävästi, tällaiseenkin tietoon viittaaminen voidaan toteuttaa indeksoidulla tiedonosoitusmoodilla yhdessä konekäskyssä. Tällä kertaa kuitenkin tietueen alkuosoite annetaan indeksirekisterissä ja viitatun kentän suhteellinen sijainti on käskyn vakiokentässä.
@@ -36,17 +36,17 @@ Per1    ds 3
 Per2    ds 3
 
 ...               ; tietueiden alustus ja muuta koodia
- 
+
    load r2, =Per1      ; r2 osoittaa tietueeseen Per1
-   load  r1, Nr(r2)    ; hae rekisteriin r1 rekisterin r2  
+   load  r1, Nr(r2)    ; hae rekisteriin r1 rekisterin r2
                        ; osoittaman tietueen kentän Nr arvo
-``` 
+```
 
 ## 2-ulotteiset taulukot
-Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ole niitä tukevia tiedonosoitusmoodeja, joten tietoon viittaminen tapahtuu kahdessa vaiheessa. Ensin lasketaan omalla koodilla viitatun tiedon suhteellinen sijainti rakenteisen tiedon sisällä ja sitten indeksoitua tiedonosoitusmoodia käyttäen tehdään varsinainen tiedonosoitus.  
+Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ole niitä tukevia tiedonosoitusmoodeja, joten tietoon viittaminen tapahtuu kahdessa vaiheessa. Ensin lasketaan omalla koodilla viitatun tiedon suhteellinen sijainti rakenteisen tiedon sisällä ja sitten indeksoitua tiedonosoitusmoodia käyttäen tehdään varsinainen tiedonosoitus.
 
 ### Talletus riveittäin
-2-ulotteiset taulukot voidaan tallettaa muistiin ainakin kolmella tavalla. Ne voidaan tallettaa yhtenäiselle alueelle _riveittäin_, jolloin esimerkiksi osoitteeseen 300 talletettu taulukko T[2,3] 
+2-ulotteiset taulukot voidaan tallettaa muistiin ainakin kolmella tavalla. Ne voidaan tallettaa yhtenäiselle alueelle _riveittäin_, jolloin esimerkiksi osoitteeseen 300 talletettu taulukko T[2,3]
 
 ```
 25  88  2
@@ -98,7 +98,7 @@ Alkioon T[i,j] viittaminen tapahtuu nyt kaksivaiheisesti. Ensin haetaan rivin i 
 ```
      load r1, i
      load r2, T(r1)    ; rivin T[i] osoite
-     add r1, j         ; alkion T[i,j] osoite   
+     add r1, j         ; alkion T[i,j] osoite
      load r2, 0(r1)    ; lataa r2:een alkion T[i,j] arvo
 ```
 
@@ -122,7 +122,7 @@ ja tasolla 1 alkiot
 ```
 Alkioden arvot on tässä esimerkissä valittu tahallaan siten, että arvot vastaavat alkioiden indeksejä taulukossa S. Esimerkiksi alkion S[1,2,1] arvo on 121.
 
-Jos S on talletettu "riveittäin", niin alkiot ovat muistissa riveittäin taso kerrallaan järjestyksessä 
+Jos S on talletettu "riveittäin", niin alkiot ovat muistissa riveittäin taso kerrallaan järjestyksessä
 
 ```
 600: 000 001 002 003  010 011 012 013  020 021 022 023  (taso i=0)
@@ -162,7 +162,7 @@ ja sama viite (r2 = S[i,j,k]) toteutuu käskyillä
      load r2, S(r1)  ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
-Jos taas S on talletettu (esim. riveittäin) linkitettynä rakenteena, niin tallennus voisi 
+Jos taas S on talletettu (esim. riveittäin) linkitettynä rakenteena, niin tallennus voisi
 
 ```
 700:  000 001 002 003  (rivi S[0,0,*])
@@ -210,11 +210,11 @@ Esimerkiksi, jos R[20,30] on riveittäin talletettu 2-ulotteinen taulukko, jonka
 Toteutus on monimutkaisellakin rakenteella siis hyvinsuoraviivainen. Kääntäjät generoivat tällaista koodia hyvin helposti ja luotettavasti.
 
 ## Indeksitarkistukset
-Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisista ohjelmointivirheistä ja tietosuojahyökkäyksistä. Ajatellaanpa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X&nbsp;=&nbsp;T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187]&nbsp;=&nbsp;Z" voidaan asettaa muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add&nbsp;r1,&nbsp;=87". 
+Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisista ohjelmointivirheistä ja tietosuojahyökkäyksistä. Ajatellaanpa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X&nbsp;=&nbsp;T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187]&nbsp;=&nbsp;Z" voidaan asettaa muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add&nbsp;r1,&nbsp;=87".
 
 Usein tällaiset taulukon ulkopuolelle tapahtuvat [puskurin ylivuotovirheet](https://fi.wikipedia.org/wiki/Puskurin_ylivuotovirhe) ovat tavallisia ohjelmointivirheitä, jossa esimerkiksi silmukan päättymisehdon toteutus sallii silmukan suorittamisen yhden kerran liikaa tai yhden kerran liian vähän. Joissakin tapauksissa virhe on kuitenkin sellainen, että indeksin arvoa ei tarkisteta ennen taulukkoviitteen käyttöä ja pahatahtoinen _hyökkääjä_ voi silloin ehkä käyttää tilannetta hyödykseen _puskurin ylivuotohyökkäyksen_ tekemiseen. Tällöin taulukon T kautta hyökkääjä voi muuttaa järjestelmän kriittisiä tietokenttiä tai sijoittaa haittaohjelman järjestelmän suoritettavaksi.
 
-Yksinkertainen tapa torjua tällaiset ongelmat on joka kerta taulukkoviitteen yhteydessä tarkistaa indeksin (indeksien) laillisuus. Esimerkiksi aikaisempi taulukkoon T[2,3] kohdistuva viite "r2 = T[i,j]" 
+Yksinkertainen tapa torjua tällaiset ongelmat on joka kerta taulukkoviitteen yhteydessä tarkistaa indeksin (indeksien) laillisuus. Esimerkiksi aikaisempi taulukkoon T[2,3] kohdistuva viite "r2 = T[i,j]"
 
 ```
      load r1, i
@@ -230,28 +230,27 @@ olisi nyt muotoa
      jneq r1, trouble
      comp r1, =2
      jnles trouble
-     
+
      load r2, j           ; tarkista j
      jneq r2, trouble
      comp r2, =3
      jnles trouble
-     
+
      mul r1, =3
      add r1, j
      load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
-     
+
      jump jatka
 trouble svc sp, =BADINDEX  ; käsittele virhetilanne
-jatka nop     
+jatka nop
 ```
 
-Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea suoritusnopeuden hidastuessa ylimääräisten suoritettavien konekäskyjen vuoksi. Toisaalta, haavoittuvaan järjestelmään kohdistuneen puskurin ylivuotohyökkäyksen kustannukset voivat olla valtaisat. On myös muita tapoja tehdä ja välttää indeksitarkistuksia sekä torjua puskurin ylivuotohyökkäyksiä, mutta ne eivät sisälly tämän kurssin oppimistavoitteisiin. 
+Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea suoritusnopeuden hidastuessa ylimääräisten suoritettavien konekäskyjen vuoksi. Toisaalta, haavoittuvaan järjestelmään kohdistuneen puskurin ylivuotohyökkäyksen kustannukset voivat olla valtaisat. On myös muita tapoja tehdä ja välttää indeksitarkistuksia sekä torjua puskurin ylivuotohyökkäyksiä, mutta ne eivät sisälly tämän kurssin oppimistavoitteisiin.
 
 <!-- quiz 5.3 ????????????????? -->
 
-<div><quiznator id="5cdea2803bc2291c11021171"></quiznator></div>
-<div><quiznator id="5cdea417142fa41c2b8c7e35"></quiznator></div>
-<div><quiznator id="5cdea57a3bc2291c11021182"></quiznator></div>
-<div><quiznator id="5cdea76356ccdc1c978a742d"></quiznator></div>
-<div><quiznator id="5cdea924597ed81bbd1bd713"></quiznator></div>
-
+<div><quiz id="3a0f2c32-24f4-414c-8ba7-1db0970b70d7"></quiz></div>
+<div><quiz id="4aa939ca-2f85-4256-aef2-262df1403607"></quiz></div>
+<div><quiz id="467cf2f2-2cdd-4362-a01e-240ba831c2b3"></quiz></div>
+<div><quiz id="5c48cb08-3abc-4a8b-9a26-2f3106828be8"></quiz></div>
+<div><quiz id="5741716d-3789-44a0-91bb-2c9eb6610015"></quiz></div>

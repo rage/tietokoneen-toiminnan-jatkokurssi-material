@@ -18,59 +18,59 @@ export async function fetchQuizProgress() {
   const partToTag = [
     {
       part: "osa01",
-      tag: "ohjelmoinnin-mooc-2019-1",
+      tag: "tietokoneen-toiminnan-jatkokurssi-1",
     },
     {
       part: "osa02",
-      tag: "ohjelmoinnin-mooc-2019-2",
+      tag: "tietokoneen-toiminnan-jatkokurssi-2",
     },
     {
       part: "osa03",
-      tag: "ohjelmoinnin-mooc-2019-3",
+      tag: "tietokoneen-toiminnan-jatkokurssi-3",
     },
     {
       part: "osa04",
-      tag: "ohjelmoinnin-mooc-2019-4",
+      tag: "tietokoneen-toiminnan-jatkokurssi-4",
     },
     {
       part: "osa05",
-      tag: "ohjelmoinnin-mooc-2019-5",
+      tag: "tietokoneen-toiminnan-jatkokurssi-5",
     },
     {
       part: "osa06",
-      tag: "ohjelmoinnin-mooc-2019-6",
+      tag: "tietokoneen-toiminnan-jatkokurssi-6",
     },
     {
       part: "osa07",
-      tag: "ohjelmoinnin-mooc-2019-7",
+      tag: "tietokoneen-toiminnan-jatkokurssi-7",
     },
     {
       part: "osa08",
-      tag: "ohjelmoinnin-mooc-2019-8",
+      tag: "tietokoneen-toiminnan-jatkokurssi-8",
     },
     {
       part: "osa09",
-      tag: "ohjelmoinnin-mooc-2019-9",
+      tag: "tietokoneen-toiminnan-jatkokurssi-9",
     },
     {
       part: "osa10",
-      tag: "ohjelmoinnin-mooc-2019-10",
+      tag: "tietokoneen-toiminnan-jatkokurssi-10",
     },
     {
       part: "osa11",
-      tag: "ohjelmoinnin-mooc-2019-11",
+      tag: "tietokoneen-toiminnan-jatkokurssi-11",
     },
     {
       part: "osa12",
-      tag: "ohjelmoinnin-mooc-2019-12",
+      tag: "tietokoneen-toiminnan-jatkokurssi-12",
     },
     {
       part: "osa13",
-      tag: "ohjelmoinnin-mooc-2019-13",
+      tag: "tietokoneen-toiminnan-jatkokurssi-13",
     },
     {
       part: "osa14",
-      tag: "ohjelmoinnin-mooc-2019-14",
+      tag: "tietokoneen-toiminnan-jatkokurssi-14",
     },
   ]
   const quizIdInformation = await fetchQuizIds()
@@ -102,7 +102,7 @@ export async function fetchQuizProgress() {
 export async function fetchQuizIds() {
   const res = await axios.post(
     `${BASE_URL}/api/v1/tags/quizids`,
-    { tags: ["ohjelmoinnin-mooc-2019"] },
+    { tags: ["tietokoneen-toiminnan-jatkokurssi"] },
     { headers: { Authorization: `Bearer ${accessToken()}` } },
   )
   return res.data

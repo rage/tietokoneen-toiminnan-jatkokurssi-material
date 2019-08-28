@@ -3,7 +3,7 @@ import { accessToken } from "./moocfi"
 
 export async function fetchQuizzesProgress() {
   const response = await axios.get(
-    "https://quizzes.mooc.fi/api/v1/courses/38240a7b-7e64-4202-91e2-91f6d46f6198/users/current/progress",
+    "https://quizzes.mooc.fi/api/v1/courses/833a49b4-1c5e-4c61-b512-8cd64dd8aa7e/users/current/progress",
     { headers: { Authorization: `Bearer ${accessToken()}` } },
   )
   return response.data?.points_by_group
@@ -11,7 +11,7 @@ export async function fetchQuizzesProgress() {
 
 export async function fetchQuizNames() {
   const response = await axios.get(
-    "https://quizzes.mooc.fi/api/v1/quizzes/38240a7b-7e64-4202-91e2-91f6d46f6198/titles/fi_FI",
+    "https://quizzes.mooc.fi/api/v1/quizzes/833a49b4-1c5e-4c61-b512-8cd64dd8aa7e/titles/fi_FI",
   )
   return response.data
 }

@@ -32,10 +32,10 @@ hidden: false
 
 ## Quizit 8.3 ????
 <!--  quizit 8.3.???  -->
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Tyhjiöputki">
-  
+
 Fe.....
 <!-- kuva: ch-8-3-tyhjioputki    -->
 
@@ -43,7 +43,7 @@ Fe.....
 <div>
 <illustrations motive="ch-8-3-tyhjioputki"></illustrations>
 </div>
-credit....???? 
+credit....????
 
 </text-box>
 
@@ -55,4 +55,4 @@ Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
 ### summary quizit ???
 
-<div><quiznator id="5caf0493fd9fd71425c6d6c6"></quiznator></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>

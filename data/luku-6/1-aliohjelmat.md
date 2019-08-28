@@ -8,11 +8,11 @@ title: 'Aliohjelmat, parametrityypit, aktivaatiotietue (AT)'
 </div>
 
 ## Aliohjelmat, funktiot, metodit
-[Aliohjelma](https://fi.wikipedia.org/wiki/Aliohjelma) on koodia, jota voidaan _kutsumalla_ käyttää mistä tahansa ohjelmiston osasta. Aliohjelmista käytetään eri ohjelmointikielissä myös muita nimiä (proseduuri, funktio, metodi, rutiini), mutta periaate on kaikilla sama. Aliohjelman käyttäytymistä yhdessä kutsutilanteessa säädellään yleensä ainoastaan sen [parametrien](https://www.wikiwand.com/fi/Parametri_(tietotekniikka)) avulla, mutta tietenkin myös aliohjelman suorituksen aikana voidaan viitata globaaleihin (kaikkialla käytössä oleviin) muuttujiin. Aliohjelmat voivat antaa _paluuarvon_, jolloin niitä voidaan kutsua yleisesti funktioiksi. 
+[Aliohjelma](https://fi.wikipedia.org/wiki/Aliohjelma) on koodia, jota voidaan _kutsumalla_ käyttää mistä tahansa ohjelmiston osasta. Aliohjelmista käytetään eri ohjelmointikielissä myös muita nimiä (proseduuri, funktio, metodi, rutiini), mutta periaate on kaikilla sama. Aliohjelman käyttäytymistä yhdessä kutsutilanteessa säädellään yleensä ainoastaan sen [parametrien](https://www.wikiwand.com/fi/Parametri_(tietotekniikka)) avulla, mutta tietenkin myös aliohjelman suorituksen aikana voidaan viitata globaaleihin (kaikkialla käytössä oleviin) muuttujiin. Aliohjelmat voivat antaa _paluuarvon_, jolloin niitä voidaan kutsua yleisesti funktioiksi.
 
 Oliokielissä aliohjelmasta käytetään usein nimeä _metodi_. Metodeilla voi olla paluuarvo tai sitten ei.
 
-Aliohjelmille on tyypillistä, että niihin sisältyy oma suoritusympäristö. Suoritusympäristöllä tarkoitetaan sitä, että mitkä tunnukset ovat käytettävissä tietyn aliohjelman suorituksen aikana. Yleensä käytettävä korkean tason ohjelmointikieli määrittelee _tunnusten näkyvyysalueet_. 
+Aliohjelmille on tyypillistä, että niihin sisältyy oma suoritusympäristö. Suoritusympäristöllä tarkoitetaan sitä, että mitkä tunnukset ovat käytettävissä tietyn aliohjelman suorituksen aikana. Yleensä käytettävä korkean tason ohjelmointikieli määrittelee _tunnusten näkyvyysalueet_.
 
 Esimerkiksi, C-kielessä jonkin aliohjelman suorituksen aikana voi viitata ainoastaan sen aliohjelman omiin tietorakenteisiin ja kaikkiin globaaleihin tietorakenteisiin. Jos pääohjelmasta on kutsuttu aliohjelmaa A, sieltä aliohjelmaa B ja sieltä aliohjelmaa C, niin C:n suorituksen aikana ei voi viitata aliohjelmien A tai B tietorakenteisiin. B:n suorituksen aikana ei voi viitata C:n tietorakenteisiin, eikä niitä ole edes olemassa ennen kuin kontrolli (suoritettavien käskyjen virta) on siirtynyt C:lle.
 
@@ -29,7 +29,7 @@ Toisena esimerkkinä viiteparametrin käytöstä on 16MB kuva, joka on ilmaistu 
 
 _Nimiparametri_ on aivan erilainen parametrityyppi. Kun arvoparametrillä välitetään tiedon arvo ja viiteparametrillä tiedon osoite, niin nimiparametrilla välitetään itse tieto merkkijonona. Tämä tarkoittaa sitä, että kutsuhetkellä aliohjelmassa käytetyn parametrin nimi (merkkijono) korvataan todellisen parametrilla (toinen merkkijono). Yleisesti ottaen symbolien (esim. parametrin nimi) käsittely tapahtuu ennen suoritusta, kun taas tiedon arvolla ja osoitteella on merkitys vain ovat ohjelman suopritusaikana.
 
-Useimmat ohjelmointikielet eivät salli nimiparametreja, koska aliohjelman koodi pitäisi kääntää (tai tulkita) uudelleen aliohjelman kutsuhetkellä ja se on todettu liian hankalaksi. 
+Useimmat ohjelmointikielet eivät salli nimiparametreja, koska aliohjelman koodi pitäisi kääntää (tai tulkita) uudelleen aliohjelman kutsuhetkellä ja se on todettu liian hankalaksi.
 
 [Skriptikielet](https://fi.wikipedia.org/wiki/Komentosarjakieli) ja [makrot](https://fi.wikipedia.org/wiki/Makro) sen sijaan käsitellään aina tulkitsemalla ja niissä nimiparametrit ovatkin yleisiä. Makrot ovat aliohjelman tapaisia usein toistuvan koodin määrittelyvälineitä, mutta ne laajennetaan koodiksi jo ennen varsinaista käännöstä. Makroilla ei ole omaa suoritusympäristöä, koska niitä ei ole olemassa enää suopritusaikana. Samasta syystä niiden parametreilla ei voi olla suoritusaikaisia ominaisuuksia kuten arvo tai osoite. Ainoaksi parametrityypiksi jää nimiparametri.
 
@@ -67,7 +67,7 @@ Aliohjelman toteutuksessa täytyy löytää ratkaisu seuraaviin osaongelmiin.
 
 Aliohjelmille on ominaista, että niitä voidaan kutsua lähes mistä päin tahansa koodia ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsukohdan jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla _paluuosoite_ täytyy tallettaa johonkin. Kaikkia aliohjelmia ei kuitenkaan voi kutsua ihan joka paikasta. Esimerkiksi oliohjelmoinnissa olion sisäiset metodeja voi kutsua vain kyseisen olion muista (julkisista tai sisäisistä) metodeista.
 
-Aliohjelmissa voi olla eri tyyppisiä parametreja ja ne täytyy välittää kutsuvalta rutiinilta aliohjelmalle. _Parametrien välityksen_ pitää tapahtua korkean tason kielen semantiikan mukaisesti. Käytännössä yleensä riittää toteuttaa arvo- ja viiteparametrien välitys oikein. Kutsuva rutiini antaa parametreille alkuarvon ja aliohjelma voi lukea (tai kirjoittaa) niitä. Viiteparametrien kautta aliohjelma pääsee myös lukemaan ja kirjoittamaan muita kutsuvan rutiinin tietoja. 
+Aliohjelmissa voi olla eri tyyppisiä parametreja ja ne täytyy välittää kutsuvalta rutiinilta aliohjelmalle. _Parametrien välityksen_ pitää tapahtua korkean tason kielen semantiikan mukaisesti. Käytännössä yleensä riittää toteuttaa arvo- ja viiteparametrien välitys oikein. Kutsuva rutiini antaa parametreille alkuarvon ja aliohjelma voi lukea (tai kirjoittaa) niitä. Viiteparametrien kautta aliohjelma pääsee myös lukemaan ja kirjoittamaan muita kutsuvan rutiinin tietoja.
 
 Jos aliohjelma (funktio) palauttaa jonkin arvon, meillä täytyy olla tätä _paluuarvoa_ varten oma muistialue. Funktio kirjoittaa paluuarvon sinne ja kutsuva rutiini voi funktiosta paluun jälkeen lukea paluuarvon. Tilanne on hyvin samanlainen kuin arvoparametrin käsittely, mutta tätä tietoa funktio kirjoittaa ja kutsuva rutiini lukee.
 
@@ -78,7 +78,7 @@ Aliohjelmilla ei saisi olla mitään sivuvaikutuksia. Rekistereiden tasolla täm
 ## Aktivaatiotietue (AT)
 Aliohjelmien toteutusmekanismi on aktivaatiotietue (AT, aktivointitietue), joka on suurehko tietorakenne. Eri ohjelmointikielillä AT voi olla vähän erilainen, mutta ne kaikki antavat jonkinlaisen ratkaisun em. aliohjelmien toteutuksen osaongelmiin. AT talletetaan yleensä muistissa olevaan pinoon.
 
-Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedot, pienemmästä muistiosoitteesta isompaan (ks. alla oleva kuva ttk-91 funktion F aktivaatiotietueesta). Ensimmäisenä siellä on tila mahdolliselle paluuarvolle (jos sitä tarvitaan) ja sitten kaikkien parametrien arvot. Arvoparametreistä talletetaan jokin kokonaislukuarvo ja viiteparametreistä jokin muistiosoite (joka sekin on kokonaisluku). Seuraavaksi siellä on paluuosoite ja kutsukohdan hetkellä käytössä olleen AT:n osoite (eli vanha FP:n arvo). Tämän jälkeen siellä on tilanvaraukset kaikille paikallisille muuttujille ja muille tietorakenteille. Viimeisenä on tässä aliohjelmassa käytettävien työrekistereiden kutsuhetken arvot, jotta ne voidaan palauttaa ennalleen aliohjelmasta paluun yhteydessä. 
+Ttk-91 järjestelmässä AT on talletettu pinoon. Se sisältää seuraavat tiedot, pienemmästä muistiosoitteesta isompaan (ks. alla oleva kuva ttk-91 funktion F aktivaatiotietueesta). Ensimmäisenä siellä on tila mahdolliselle paluuarvolle (jos sitä tarvitaan) ja sitten kaikkien parametrien arvot. Arvoparametreistä talletetaan jokin kokonaislukuarvo ja viiteparametreistä jokin muistiosoite (joka sekin on kokonaisluku). Seuraavaksi siellä on paluuosoite ja kutsukohdan hetkellä käytössä olleen AT:n osoite (eli vanha FP:n arvo). Tämän jälkeen siellä on tilanvaraukset kaikille paikallisille muuttujille ja muille tietorakenteille. Viimeisenä on tässä aliohjelmassa käytettävien työrekistereiden kutsuhetken arvot, jotta ne voidaan palauttaa ennalleen aliohjelmasta paluun yhteydessä.
 
 <!-- kuva: ch-6-1-a-aktivaatiotietue    -->
 
@@ -93,11 +93,11 @@ AT:n koko on vaihteleva, koska parametrien ja paikallisten muuttujien (ym. paika
 
 Parametrien lukumäärä voi vaihdella, mutta niiden suhteellinen sijainti AT:ssä on aina sama. Viimeinen parametri on osoitteessa FP-2, sitä edellinen osoitteessa FP-3, jne. Funktion paluuarvon sijainti on juuri ennen parametreja. Funktion F AT:ssä paluuarvo on osoitteessa FP-4, parametri x osoitteessa FP-3 ja parametri y osoitteessa FP-2. Emme tiedä parametrien täsmällisiä muistiosoitteita, mutta niihin pystyy viittaamaan käyttämällä näitä FP-suhteellisia osoitteita. Sitä paitsi, eri kutsukerroilla AT:n ja siten myös parametrien sijainti muistissa voi vaihdella.
 
-Paikalliset muuttujat sijaitsevat nekin suhteellisesti aina samassa kohtaa AT:tä, heti FP:n vanhan arvon jälkeen. Esimerkiksi, funktiossa F paikallisten muuttujien i ja j osoitteet ovat FP+1 ja FP+2. Emme tiedä täsmällisiä muistiosoitteita myöskään paikallisille tietorakenteille, mutta niihinkin pystyy viittaamaan käyttämällä näitä FP-suhteellisia osoitteita. 
+Paikalliset muuttujat sijaitsevat nekin suhteellisesti aina samassa kohtaa AT:tä, heti FP:n vanhan arvon jälkeen. Esimerkiksi, funktiossa F paikallisten muuttujien i ja j osoitteet ovat FP+1 ja FP+2. Emme tiedä täsmällisiä muistiosoitteita myöskään paikallisille tietorakenteille, mutta niihinkin pystyy viittaamaan käyttämällä näitä FP-suhteellisia osoitteita.
 
 ```
-load r1, -2(fp)  ; lataa rekisteriin r1 viimeisen parametrin arvo 
-load r2, +2(fp)  ; lataa rekisteriin r2 toisen paikallisen muuttujan arvo 
+load r1, -2(fp)  ; lataa rekisteriin r1 viimeisen parametrin arvo
+load r2, +2(fp)  ; lataa rekisteriin r2 toisen paikallisen muuttujan arvo
 ```
 
 Viimeisenä aktivaatiotietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktion F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu aktivaatiotietueen loppuun. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
@@ -117,7 +117,7 @@ Aktivaatiotietue sijaitsee pinossa, joka sijaitsee muistissa. AT:tä rakennetaan
 Konekäsky push tallettaa pinon pinnalle yhden sanan. Konekäsky pop poistaa sieltä yhden sanan ja tallettaa sen aina rekisteriin.
 
 ```
-push   sp, X   ; sp=sp+1, talleta X:n arvo sp:n osoittamaan muistipaikkaan 
+push   sp, X   ; sp=sp+1, talleta X:n arvo sp:n osoittamaan muistipaikkaan
 pop    sp, r4  ; kopion sp:n osoittama sana r4:een, sp=sp-1
 ```
 
@@ -133,7 +133,7 @@ Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös laskennan v�
 Rekistereiden talletuksen ja arvojen palautuksen voi hyvin tehdä push- ja pop-käskyillä. Ttk-91:ssä on tätä tarkoitusta varten myös erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta. Toisaalta, jos aliohjelma käyttää vain yhtä tai kahta työrekisteriä, niin voi olla turhaa tallettaa ja palauttaa kaikkien työrekistereiden arvoja.
 
 ```
-pushr   sp  ; kopio r0-r5 arvot pinoon, sp=sp+6 
+pushr   sp  ; kopio r0-r5 arvot pinoon, sp=sp+6
 popr    sp  ; palauta r0-r5 arvot pinosta, sp=sp-6
 ```
 
@@ -142,13 +142,13 @@ Todellisissa tietokoneissa on myös muita optimointimenetelmiä, jotta aliohjelm
 Aliohjelman kutsukäsky call suorittaa varsinaisen kontrollin siirron aliohjelmaan. Se tallettaa samassa yhteydessä paluuosoitteen ja vanhan FP-arvon pinoon. Kontrollin siirron lisäksi call-käsky asettaa FP:lle uuden arvon, joka sitten osoittaa kutsutun aliohjelman AT:hen.
 
 ```
-call  sp, funcA ; talleta PC ja FP pinoon, aseta PC=funcA ja FP=SP 
+call  sp, funcA ; talleta PC ja FP pinoon, aseta PC=funcA ja FP=SP
 ```
 
 Aliohjelmasta paluukäsky palauttaa kontrollin kutsukohtaan ja samalla palauttaa FP:n ennalleen. Sen lisäksi se poistaa pinosta kutsussa käytetyt parametrit.
 
 ```
-exit sp, =2 ; aseta SP=SP-2, PC = vanha PC, FP = vanha FP 
+exit sp, =2 ; aseta SP=SP-2, PC = vanha PC, FP = vanha FP
 ```
 
 Suorittimella on yleensä call- ja exit-käskyjen lisäksi käyttöjärjestelmäpalvelujen kutsu- ja paluukäskyt svc ja iret (tms.). Ne toimivat muutoin vastaavalla tavalla, mutta niiden yhteydessä myös suorittimen suoritustila voi vauhtua ja parametrien välitysmenetelmä voi olla erilainen. Emme käsittele niitä tässä tämän enempää.
@@ -157,10 +157,9 @@ Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktiva
 
 <!-- quiz 6.1.? -->
 
-<div><quiznator id="5ce3eb9fa2f5511be16cb8ec"></quiznator></div>
-<div><quiznator id="5ce3ee57d09cea1bc9a2c632"></quiznator></div>
-<div><quiznator id="5ce3eeee4f1e771cc6156a88"></quiznator></div>
-<div><quiznator id="5ce3f019757b271bf9162e56"></quiznator></div>
-<div><quiznator id="5ce3f480d09cea1bc9a2c64b"></quiznator></div>
-<div><quiznator id="5ce3f1943bc2291c1102199d"></quiznator></div>
-
+<div><quiz id="69f04e22-436d-479b-aa72-362c87170dea"></quiz></div>
+<div><quiz id="60d88167-3da3-4e1d-bf66-318628c66b9b"></quiz></div>
+<div><quiz id="66729972-4134-4a6c-9cc8-346383444ac4"></quiz></div>
+<div><quiz id="30f72c3c-1f2a-45c5-a0bc-fa65314d1ef9"></quiz></div>
+<div><quiz id="52f742b0-34ce-4520-8c80-2a6d22555fe9"></quiz></div>
+<div><quiz id="31f060be-1fc8-4f96-89ab-ff5f8df0954d"></quiz></div>
