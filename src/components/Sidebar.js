@@ -119,10 +119,10 @@ var content2 = [
     title: "Usein kysytyt kysymykset",
     path: "/usein-kysytyt-kysymykset",
   },
-  { separator: true },
+  { separator: true, title: "Ohjelmoinnin perusteet" },
 ]
 
-var futurePages = []
+var futurePages = [] // { title: "Osa 14", tba: "19.4.2019" }
 
 const MobileWrapper = styled.div`
   @media only screen and (max-width: ${SMALL_MEDIUM_BREAKPOINT}) {
@@ -160,6 +160,12 @@ class Sidebar extends React.Component {
     )
     let content = content2.concat(edges)
     content = content.concat(futurePages)
+    let middlepoint = content.findIndex(o => o.title === "Osa 7")
+    content.splice(middlepoint + 1, 0, {
+      separator: true,
+      title: "Ohjelmoinnin jatkokurssi",
+    })
+
     return (
       <MobileWrapperOrFragment mobileMenuOpen={this.props.mobileMenuOpen}>
         <MenuExpanderWrapper>
@@ -182,7 +188,7 @@ class Sidebar extends React.Component {
           </Button>
         </MenuExpanderWrapper>
         <SidebarContainer mobileMenuOpen={this.props.mobileMenuOpen}>
-          <Brand>Tietokoneen toiminnan jatkokurssi</Brand>
+          <Brand>Ohjelmoinnin MOOC 2019</Brand>
           <TreeViewContainer>
             <TreeView data={content} />
           </TreeViewContainer>

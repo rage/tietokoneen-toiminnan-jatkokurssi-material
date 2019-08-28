@@ -13,56 +13,64 @@ export async function fetchManyQuizDetails(quizIds) {
   return res.data
 }
 
-export async function fetchQuiznatorProgress() {
+export async function fetchQuizProgress() {
   let res = []
   const partToTag = [
     {
       part: "osa01",
-      tag: "tietokoneen-toiminnan-jatkokurssi-1",
+      tag: "ohjelmoinnin-mooc-2019-1",
     },
     {
       part: "osa02",
-      tag: "tietokoneen-toiminnan-jatkokurssi-2",
+      tag: "ohjelmoinnin-mooc-2019-2",
     },
     {
       part: "osa03",
-      tag: "tietokoneen-toiminnan-jatkokurssi-3",
+      tag: "ohjelmoinnin-mooc-2019-3",
     },
     {
       part: "osa04",
-      tag: "tietokoneen-toiminnan-jatkokurssi-4",
+      tag: "ohjelmoinnin-mooc-2019-4",
     },
     {
       part: "osa05",
-      tag: "tietokoneen-toiminnan-jatkokurssi-5",
+      tag: "ohjelmoinnin-mooc-2019-5",
     },
     {
       part: "osa06",
-      tag: "tietokoneen-toiminnan-jatkokurssi-6",
+      tag: "ohjelmoinnin-mooc-2019-6",
     },
     {
       part: "osa07",
-      tag: "tietokoneen-toiminnan-jatkokurssi-7",
+      tag: "ohjelmoinnin-mooc-2019-7",
     },
     {
       part: "osa08",
-      tag: "tietokoneen-toiminnan-jatkokurssi-8",
+      tag: "ohjelmoinnin-mooc-2019-8",
     },
     {
       part: "osa09",
-      tag: "tietokoneen-toiminnan-jatkokurssi-9",
+      tag: "ohjelmoinnin-mooc-2019-9",
     },
     {
-      part: "osa010",
-      tag: "tietokoneen-toiminnan-jatkokurssi-10",
+      part: "osa10",
+      tag: "ohjelmoinnin-mooc-2019-10",
     },
     {
       part: "osa11",
-      tag: "tietokoneen-toiminnan-jatkokurssi-11",
+      tag: "ohjelmoinnin-mooc-2019-11",
     },
     {
       part: "osa12",
-      tag: "tietokoneen-toiminnan-jatkokurssi-12",
+      tag: "ohjelmoinnin-mooc-2019-12",
+    },
+    {
+      part: "osa13",
+      tag: "ohjelmoinnin-mooc-2019-13",
+    },
+    {
+      part: "osa14",
+      tag: "ohjelmoinnin-mooc-2019-14",
     },
   ]
   const quizIdInformation = await fetchQuizIds()
@@ -94,7 +102,7 @@ export async function fetchQuiznatorProgress() {
 export async function fetchQuizIds() {
   const res = await axios.post(
     `${BASE_URL}/api/v1/tags/quizids`,
-    { tags: ["tietokoneen-toiminnan-jatkokurssi"] },
+    { tags: ["ohjelmoinnin-mooc-2019"] },
     { headers: { Authorization: `Bearer ${accessToken()}` } },
   )
   return res.data
