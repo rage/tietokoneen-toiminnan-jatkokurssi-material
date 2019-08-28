@@ -44,4 +44,5 @@ Yleisin varsinainen vika oli ohjelmoijien puutteellinen koulutus. Esimerkiksi, o
 
 ## Quizit 7.1
 <!-- Quiz 7.1.?? -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="ac73f9aa-8954-4558-95ff-e3f75fa383f9"></quiz></div>
+<div><quiz id="a36fd969-8226-44e2-8ce6-d80c40cc97b5"></quiz></div>
