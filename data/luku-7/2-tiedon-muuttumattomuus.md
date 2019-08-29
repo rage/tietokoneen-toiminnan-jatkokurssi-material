@@ -71,6 +71,7 @@ P(2 bitin virhe) = 1:1000 0000 000 000         = 1E-12
 P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 ```
 
+## Quizit 7.2  - pariteetti
 <!-- Quiz 7.2.1-2 pariteetti etc -->
 <div><quiz id="b9cb891a-93f4-43ed-bd9d-f59a6a603207"></quiz></div>
 <div><quiz id="aae8aca4-8819-48b5-bd69-e1ecd2eeb96d"></quiz></div>
@@ -107,6 +108,11 @@ muuttunut 'B' = 0100 0011   virheellinen data, pariteetti on väärin
 ```
 
 Pariteeettibitin kanssa kyseessä ei ole enää sama koodijärjestelmä. Esimerkiksi 'C' on ASCII-koodissa 0x43, kun se uudessa koodausjärjestelmässä olisi 0xC3.
+
+## Quizit 7.2  - Hamming-etäisyys
+<!-- Quiz 7.2. Hammin-etäisyys-->
+<div><quiz id="a85248db-860a-4105-9c57-de81355c4c43"></quiz></div>
+???? ????
 
 ## Hamming-koodi
 [Hamming-koodissa](https://en.wikipedia.org/wiki/Hamming_code) data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan paikallistaa ja sen jälkeen korjata.  Esimerkiksi nyt myytävissä virheenkorjaavissa ECC-muistipiireissä virheenkorjaus useimmiten edelleen perustuu Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
