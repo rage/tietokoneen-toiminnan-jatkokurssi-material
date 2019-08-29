@@ -71,10 +71,9 @@ P(2 bitin virhe) = 1:1000 0000 000 000         = 1E-12
 P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 ```
 
-## Quizit 7.2   ?????
-<!-- Quiz 7.2.?? pariteetti etc -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
-
+<!-- Quiz 7.2.1-2 pariteetti etc -->
+<div><quiz id="b9cb891a-93f4-43ed-bd9d-f59a6a603207"></quiz></div>
+<div><quiz id="aae8aca4-8819-48b5-bd69-e1ecd2eeb96d"></quiz></div>
 
 <text-box variant="example" name="Richard Hamming">
 
