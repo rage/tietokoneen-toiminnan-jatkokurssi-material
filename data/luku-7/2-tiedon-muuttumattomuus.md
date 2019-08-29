@@ -223,10 +223,12 @@ Hamming-koodista on useita laajennuksia. Esimerkiksi lisäämällä pariteettibi
 
 Mitä lähempänä suoritinta ollaan, sitä tärkeämmäksi tulee suojautuminen (satunnaisilta) virheiltä. Suorittimen sisäisissä rekistereissä oleva ja väylillä liikkuva tieto on tärkeätäsuojat muutoksilta. Kotikoneiden keskusmuisti voi usein olla suojaamatonta, mutta ainakin palvelinkonmeiden muisti on yleensä ECC-muistia. ECC-muisti ei riitä, ellei myös muistiväylä ole ole virheiltä suojattu. Muistipiirit voi vaihtaa halutessaan kalliimpiin ECC-muisteihin. Väylää ei voi vaihtaa., koska se on kiinteä osa järjestelmää. Tämän vuoksi väylä on yleensä valmiiksi suojattu Hamming-koodilla.
 
-## Quizit 7.2  - Hamming
-<!-- Quiz 7.2.?? -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
-???? ????
+## Quizit 7.2 - Hamming-koodi
+<!-- Quiz 7.2. Hamming-koodi -->
+<div><quiz id="b9cb891a-93f4-43ed-bd9d-f59a6a603207"></quiz></div>
+<div><quiz id="aae8aca4-8819-48b5-bd69-e1ecd2eeb96d"></quiz></div>
+<div><quiz id="a85248db-860a-4105-9c57-de81355c4c43"></quiz></div>
+<div><quiz id="a62f183f-8456-4520-a408-dbade0442817"></quiz></div>
 
 ## Tiedon muuttumattomuus tietoliikenteessä
 Hamming-koodi ei sovi tiedon muuttumattomuuden havaitsemiseen sellaisessa tapauksessa, jossa muuttuneiden bittien määrä on todennäköisesti useampi. Esimerkiksi tietoliikenteessä on tyypillistä, että jos virheitä tulee, niin sitten niitä tulee paljon. Virheiden korjaaminen on siten yleensä käytännössä mahdotonta tai sitten sen kustannus ylimääräisten bittien osalta aivan liian suuri.
