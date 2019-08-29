@@ -44,13 +44,10 @@ Nykyaikaan päästiin vasta 1980-luvun lopulla, kun EEPROM:ista kehitettiin [fla
 
 Sittemmin flash-muistiteknologia kehitettiin tukemaan myös massamuistien toteutusta. Esimerkiksi kännyköiden ja kameroiden muistit perustuvat tähän teknologiaan, samoin kuin muistitikut ja kovalevyjä korvaavat SSD-muistit. Edelleenkin pienenä ongelmana on, että kutakin datalohkoa voi kirjoittaa vain jonkin rajallisen (esim. 100&nbsp;000) määrän kertoja. Tämän vuoksi toteutuksissa on yleensä enemmän muistilohkoja kuin mitä esimerkiksi muistitikun kapasiteetti antaa ymmärtää. Kun jokin muistilohko "happanee", otetaan käyttöön sen tilalle joku "varalohkoista". Halvat muistikortit ja muistitikut eivät myöskään ole ikuisia, joten niitä ei tulisi käyttää esimerkiksi valokuvien arkistointiin.
 
-## Quizit 7.3
-<!-- Quiz 7.3.?? -->
+## Quizit 7.3.1-2 
+<!-- Quiz 7.3.1-2 -->
 <div><quiz id="a611e851-843f-413e-8a50-db874b191da8"></quiz></div>
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
-
+<div><quiz id="a5618ecd-83b2-4a53-8a90-da9e2d133e53"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Ferriittirengasmuisti">
 
