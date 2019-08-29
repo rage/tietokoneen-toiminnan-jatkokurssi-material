@@ -71,7 +71,7 @@ P(2 bitin virhe) = 1:1000 0000 000 000         = 1E-12
 P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
 ```
 
-## Quizit 7.2  - pariteetti
+## Quizit 7.2.1-2  - pariteetti
 <!-- Quiz 7.2.1-2 pariteetti etc -->
 <div><quiz id="b9cb891a-93f4-43ed-bd9d-f59a6a603207"></quiz></div>
 <div><quiz id="aae8aca4-8819-48b5-bd69-e1ecd2eeb96d"></quiz></div>
@@ -109,8 +109,8 @@ muuttunut 'B' = 0100 0011   virheellinen data, pariteetti on väärin
 
 Pariteeettibitin kanssa kyseessä ei ole enää sama koodijärjestelmä. Esimerkiksi 'C' on ASCII-koodissa 0x43, kun se uudessa koodausjärjestelmässä olisi 0xC3.
 
-## Quizit 7.2  - Hamming-etäisyys
-<!-- Quiz 7.2. Hammin-etäisyys-->
+## Quizit 7.2.3  - Hamming-etäisyys
+<!-- Quiz 7.2.3 Hamming-etäisyys-->
 <div><quiz id="a85248db-860a-4105-9c57-de81355c4c43"></quiz></div>
 ???? ????
 
@@ -223,7 +223,7 @@ Hamming-koodista on useita laajennuksia. Esimerkiksi lisäämällä pariteettibi
 
 Mitä lähempänä suoritinta ollaan, sitä tärkeämmäksi tulee suojautuminen (satunnaisilta) virheiltä. Suorittimen sisäisissä rekistereissä oleva ja väylillä liikkuva tieto on tärkeätäsuojat muutoksilta. Kotikoneiden keskusmuisti voi usein olla suojaamatonta, mutta ainakin palvelinkonmeiden muisti on yleensä ECC-muistia. ECC-muisti ei riitä, ellei myös muistiväylä ole ole virheiltä suojattu. Muistipiirit voi vaihtaa halutessaan kalliimpiin ECC-muisteihin. Väylää ei voi vaihtaa., koska se on kiinteä osa järjestelmää. Tämän vuoksi väylä on yleensä valmiiksi suojattu Hamming-koodilla.
 
-## Quizit 7.2 - Hamming-koodi
+## Quizit 7.2.4-7 - Hamming-koodi
 <!-- Quiz 7.2. Hamming-koodi -->
 <div><quiz id="b9cb891a-93f4-43ed-bd9d-f59a6a603207"></quiz></div>
 <div><quiz id="aae8aca4-8819-48b5-bd69-e1ecd2eeb96d"></quiz></div>
