@@ -46,6 +46,9 @@ Sittemmin flash-muistiteknologia kehitettiin tukemaan myös massamuistien toteut
 
 ## Quizit 7.3
 <!-- Quiz 7.3.?? -->
+<div><quiz id="a611e851-843f-413e-8a50-db874b191da8"></quiz></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
 <div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
 
 
