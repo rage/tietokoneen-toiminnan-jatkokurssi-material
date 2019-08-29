@@ -112,7 +112,6 @@ Pariteeettibitin kanssa kyseessä ei ole enää sama koodijärjestelmä. Esimerk
 ## Quizit 7.2.3  - Hamming-etäisyys
 <!-- Quiz 7.2.3 Hamming-etäisyys-->
 <div><quiz id="a85248db-860a-4105-9c57-de81355c4c43"></quiz></div>
-???? ????
 
 ## Hamming-koodi
 [Hamming-koodissa](https://en.wikipedia.org/wiki/Hamming_code) data-bittien joukkoon lisätään useita pariteetti-bittejä, joiden avulla yhden bitin virheet voidaan paikallistaa ja sen jälkeen korjata.  Esimerkiksi nyt myytävissä virheenkorjaavissa ECC-muistipiireissä virheenkorjaus useimmiten edelleen perustuu Hamming-koodiin, vaikka myös muita menetelmiä on käytössä.
@@ -260,7 +259,7 @@ Massamuistin monistaminen on aivan yleistä, myös ihan kotikoneissa. Kaupasta v
 
 Laitteiden monistaminen tiedon muuttumattomuuden turvaamiseksi on siis varsin yleistä. Se, millä tasolla virheiltä suojaaminen tapahtuu, riippuu tietenkin järjestelmän käyttötarkoituksesta. Kotikoneille voi riittää tärkeiden kuvatiedostojen replikointi kahdelle kovalevylle. Toisaalta, ydinvoimalan ohjausjärjestelmän täytyy toimia aina virheettömästi ja olemme valmiita maksamaan siitä aiheutuvat ehkä valtavatkin lisäkustannukset.
 
-## Quizit 7.2  - CRC ja laitteiden monistaminen
-<!-- Quiz 7.2.?? -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
-???? ????
+## Quizit 7.2.5  - Tiedon suojausmenetelmät
+<!-- Quiz 7.2.5 Tiedon suojausmenetelmät -->
+<div><quiz id="a55e63d0-83b0-41f6-a4d1-da99fd0a25e4"></quiz></div>
+
