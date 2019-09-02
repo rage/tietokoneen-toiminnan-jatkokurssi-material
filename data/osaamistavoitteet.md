@@ -25,7 +25,7 @@ Lukukohtaiset osaamistavoitteet ovat seuraavat.
     <tr>
         <td>5</td>
         <td>
-Osaat toteuttaa symbolisella esimerkkikonekielellä globaalien muuttujat, vakiot, tietueet ja yksinkertaiset taulukot ja selittää niiden tilanvarauksien toteutuksen käännöksen, latauksen tai suorituksen aikana. Osaat toteuttaa tietueiden, olioiden ja moniulotteisten taulukoiden (eri tavoin talletettuna) tilanvaraukset ja niihin viittaamisen.
+Osaat toteuttaa symbolisella esimerkkikonekielellä globaalien muuttujat, vakiot, tietueet ja yksinkertaiset taulukot ja selittää niiden tilanvarauksien toteutuksen käännöksen, latauksen tai suorituksen aikana. Osaat toteuttaa tietueiden, olioiden ja moniulotteisten taulukoiden (eri tavoin talletettuna) tilanvaraukset ja niihin viittaamisen. Osaat selittää, kuinka käyttöjärjestelmän palvelupyynnöt ja niiden käyttö eroaa tavallista aliohjelmista ja niiden kutsuista.
         </td>
     </tr>
     <tr>
