@@ -69,4 +69,4 @@ Tämä luku käsitteli aluksi tietokonejärjestelmän sisäisiä virheensyntymek
 ###  summary quizit ???
 Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
 
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="a820d25a-85e2-4acc-b4c1-de3fd2b91a72"></quiz></div>
