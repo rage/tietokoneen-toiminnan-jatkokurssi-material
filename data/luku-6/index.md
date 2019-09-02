@@ -5,8 +5,7 @@ overview: true
 hidden: false
 ---
 
-Tässä luvussa esittelemme, kuinka aliohjelmia (funktion, metodin) käsitteen ohjelmoinnin toteutustapana.  
-
+Tässä luvussa esittelemme, kuinka aliohjelmia (funktion, metodin) ja käyttöjärjestelmä palveluja käytetään. Käymme läpi erilaiset parametrityypit samoin kuin aktivointitietueen käsitteenä ja kuinka se on toteutettu esimerkkikoneessa. Näytämme kuinka aktivointitietuepinoa rakennetaan ja puretaan aliohjelmien käytön yhteydessä. Lopuksi esittelemme lyhyesti, miten käyttöjärjestelmän palveluja toteutetaan niiden omalla palvelypyyntökonekäskyn avulla. 
 
 <please-login></please-login>
 
