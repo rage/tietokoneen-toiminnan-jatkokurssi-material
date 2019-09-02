@@ -37,7 +37,7 @@ Osaat ohjelmoida symbolisella esimerkkikonekielellä valinta- ja toistorakenteet
     <tr>
         <td>7</td>
         <td>
-Osaat selittää, miksi tiedon muuttumattomuutta täytyy aktiivisesti suojella ja millä menetelmillä sen voi eri tilanteissa tehdä. Osaat selittää pariteettibitin käytön, sen heikkoudet ja vahvuudet. Osaat selittää, kuinka Hamming-koodi toimii ja miten sitä käytetään. Tunnet CRC:n ja tiedon monistamisen järjestelmän ulkoisen tiedon integriteetin suojaustapoina.
+Osaat selittää laitteistoon voi tulla virheitä, vaikka laitteisto toimii moikein. Osaat selittää käsitteet vika, virhe ja häiriö.  Osaat selittää, miksi tiedon muuttumattomuutta täytyy aktiivisesti suojella ja millä menetelmillä sen voi eri tilanteissa tehdä. Osaat selittää pariteettibitin käytön, sen heikkoudet ja vahvuudet. Osaat selittää, kuinka Hamming-koodi toimii ja miten sitä käytetään. Tunnet CRC:n ja tiedon monistamisen järjestelmän ulkoisen tiedon integriteetin suojaustapoina. osaat selittää, kuinka järjestelmän sisäinen muisti on toteutettu.
         </td>
     </tr>
     <tr>
