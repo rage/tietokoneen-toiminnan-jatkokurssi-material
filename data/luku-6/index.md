@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Mikä se ????
+Tässä luvussa esittelemme, kuinka aliohjelmia (funktion, metodin) käsitteen ohjelmoinnin toteutustapana.  
 
 
 <please-login></please-login>
