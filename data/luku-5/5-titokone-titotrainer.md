@@ -87,6 +87,6 @@ Tämä luku käsitteli konekielistä ohjelmointia esimerkkikonetta ttk-91 käytt
 
 Vastaa alla olevaan kyselyyn kun olet valmis luvun 5 tehtävien kanssa.
 
-### summary quiz ?????
+### summary quiz
 
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="a36df58a-8224-4ccd-bf56-d809c12d2e12"></quiz></div>
