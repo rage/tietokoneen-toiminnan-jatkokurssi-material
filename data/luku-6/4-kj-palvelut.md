@@ -104,6 +104,6 @@ Tämä luku käsitteli ??????.
 Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
 
 
-###  summary quizit ????
+###  summary quiz
 
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="4a9ca037-6fbe-4b31-91d7-4653c4f72f84"></quiz></div>
