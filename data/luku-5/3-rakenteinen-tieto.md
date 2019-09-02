@@ -93,7 +93,7 @@ Kolmas vaihtoehto on tallettaa (esim.) kukin rivi kerrallaan omalle yhtenäisell
 300: 400 430              (Taulukon T rivien osoitteet)
 ```
 
-Alkioon T[i,j] viittaminen tapahtuu nyt kaksivaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten tehdään varsinainen  viite kyseisen rivin alkioon j.
+Huomaa, että taulukko T voi olla nyt talletetettuna ei yhtenäiselle alueille keskusmuistiin. Alkioon T[i,j] viittaminen tapahtuu nyt kaksivaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten tehdään varsinainen  viite kyseisen rivin alkioon j.
 
 ```
      load r1, i
@@ -132,12 +132,19 @@ Jos S on talletettu "riveittäin", niin alkiot ovat muistissa riveittäin taso k
 ja niihin voisi viitata esimerkiksi seuraavalla tavalla.
 
 ```
+     ; laske tason i (suhteellinen) osoite (taulukossa S)
      load r1, i
      mul r1, =12   ; joka tasossa 12 sanaa
+     
+     ; laske rivin j osoite tasolla i
      load r2, j
      mul r2, =4    ; joka rivillä 4 sanaa
      add r1, r2
+     
+     ; laske alkion k osoite rivilläj tasolla i
      add r1, k
+     
+     ; tee varsinainen muistiviite
      load r2, S(r1)  ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
@@ -184,8 +191,8 @@ ja sama viite (r2 = S[i,j,k]) toteutuu käskyillä
      load r1, i
      load r2, S(r1)    ; tason i osoite
      add r2, j         ; rivin j osoitteen osoite
-     load r1, 0(r2)    ; rivin j osoite
-     add r1, k         ; alkio k osoite
+     load r1, 0(r2)    ; rivin j osoite tasolla i
+     add r1, k         ; alkio k osoite rivillä j tasolla i
      load r2, S(r1)    ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
@@ -197,13 +204,22 @@ Monimutkaisemmat tietorakenteet talletetaan muistiin vastaavilla tavoilla. Usein
 Esimerkiksi, jos R[20,30] on riveittäin talletettu 2-ulotteinen taulukko, jonka kukin alkio on 14-sanainen tietue, jonka kentät ovat _id_, _lkm_ ja 12-alkioinen taulukko _pisteet_, niin viite alkioon R[i,j].pisteet[kk] voisi olla toteutettuna
 
 ```
+     ; rivin i osoite R:ssä
      load r1, i
      mul  r1, =420   ; rivillä 30 tietuetta, kussakin 14 sanaa
+     
+     ; alkion j osoite rivillä i
      load r2, j
      mul r2, 14      ; kussakin alkiossa 14 sanaa
      add r1, r2      ; alkion R[i,j] suhteellinen osoite R:n sisällä
+     
+     ; kentän pisteet osoite alkiossa R[i,j]
      add r1, =2      ; taulukon R[i,j] kentän pisteet suhteellinen osoite
+     
+     ; alkion kk osoite taulukossa pisteet
      add r1, kk      ; alkion R[i,j].pisteet[kk] suhteellinen osoite
+     
+     ; tee muistiviite
      load r2, R(r1)  ; lataa r2:een alkion R[i,j].pisteet[kk] arvo
 ```
 
@@ -212,7 +228,7 @@ Toteutus on monimutkaisellakin rakenteella siis hyvinsuoraviivainen. Kääntäj�
 ## Indeksitarkistukset
 Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisista ohjelmointivirheistä ja tietosuojahyökkäyksistä. Ajatellaanpa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X&nbsp;=&nbsp;T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187]&nbsp;=&nbsp;Z" voidaan asettaa muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add&nbsp;r1,&nbsp;=87".
 
-Usein tällaiset taulukon ulkopuolelle tapahtuvat [puskurin ylivuotovirheet](https://fi.wikipedia.org/wiki/Puskurin_ylivuotovirhe) ovat tavallisia ohjelmointivirheitä, jossa esimerkiksi silmukan päättymisehdon toteutus sallii silmukan suorittamisen yhden kerran liikaa tai yhden kerran liian vähän. Joissakin tapauksissa virhe on kuitenkin sellainen, että indeksin arvoa ei tarkisteta ennen taulukkoviitteen käyttöä ja pahatahtoinen _hyökkääjä_ voi silloin ehkä käyttää tilannetta hyödykseen _puskurin ylivuotohyökkäyksen_ tekemiseen. Tällöin taulukon T kautta hyökkääjä voi muuttaa järjestelmän kriittisiä tietokenttiä tai sijoittaa haittaohjelman järjestelmän suoritettavaksi.
+Usein tällaiset taulukon ulkopuolelle tapahtuvat [puskurin ylivuotovirheet](https://fi.wikipedia.org/wiki/Puskurin_ylivuotovirhe) ovat tavallisia ohjelmointivirheitä, jossa esimerkiksi silmukan päättymisehdon toteutus sallii silmukan suorittamisen yhden kerran liikaa tai yhden kerran liian vähän. Joissakin tapauksissa virhe on kuitenkin sellainen, että indeksin arvoa ei tarkisteta ennen taulukkoviitteen käyttöä ja pahantahtoinen _hyökkääjä_ voi silloin ehkä käyttää tilannetta hyödykseen _puskurin ylivuotohyökkäyksen_ tekemiseen. Tällöin taulukon T kautta hyökkääjä voi muuttaa järjestelmän kriittisiä tietokenttiä tai sijoittaa haittaohjelman järjestelmän suoritettavaksi.
 
 Yksinkertainen tapa torjua tällaiset ongelmat on joka kerta taulukkoviitteen yhteydessä tarkistaa indeksin (indeksien) laillisuus. Esimerkiksi aikaisempi taulukkoon T[2,3] kohdistuva viite "r2 = T[i,j]"
 
