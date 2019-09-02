@@ -99,11 +99,8 @@ Freddie Williams and Tom Kilburn kehittivät vuonna 1946 ensimmäisen RAM-muisti
 
 
 ## Yhteenveto
-Tämä luku käsitteli ??????.
+Tämä luku käsitteli aliohjelmien toteutusta. Kävimme läpi arvo- ja viiteparametrityypit ja esittelimme myös yleensä makroissa käytettävät arvoparametrit. Pääpaino oli aliohjelmien toteutuksella aktivointitietueen (AT) ja aktivointitietuepinon avulla. AT:n kautta väliettään parametrit ja sieltä varataan tila aliohjelman paikallisille tietorakenteille. Käyttöjärjestelmän aliohjelmina kutsuttavat palvelut ovat hyvin samankaltaisia kuin aliohjelmat, mutta kuitenkin erilaisia. Niiden kutsurajapinta on omien konekäskyjen (SVC, IRET, tms.) takana ja parametrien välitys voi tapahtua eri tavalla.
 
 Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
-
-
-###  summary quiz
 
 <div><quiz id="4a9ca037-6fbe-4b31-91d7-4653c4f72f84"></quiz></div>
