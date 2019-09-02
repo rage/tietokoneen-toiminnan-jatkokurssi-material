@@ -65,8 +65,6 @@ Jay Forrester kehitti MIT:n Whirlwind-projektissa ferriittirengasmuistin (magnet
 ## Yhteenveto
 Tämä luku käsitteli aluksi tietokonejärjestelmän sisäisiä virheensyntymekanismeja, kuinka satunnaisia virheitä voi havaita ja kuinka niitä ehkä myös voi korjata. Tarkoituksena on havaita ja mahdollisesti heti samalla heti korjata yleisimmät 1 bitin virheet, joita voi tapahtua muistipiireissä ja tiedon siirron aikana. Suorittimen sisällä tällaisia virheitä vastaan suojaudutaan yleensä Hamming-koodin avulla. Tämä tarkoittaa käytännössä ylimääräisiä bittejä muistipiireissä ja rekistereissä, samoin kuin ylimääräisiä johtimia tiedonsiirtoväylissä. Tietoliikenneverkoissa on on todennäköisempää useamman bitin virheet ja niitä vastaan suojaudutaan tarkistussummilla ja tietoliikennepakettien uudelleenlähetyksillä. Lopuksi esittelimme järjestelmän sisäisten muistien toteutusteknologiat. Niissä kaikissa voidaan käyttää myös Hamming-koodia tiedon suojaamiseen.
 
-
-###  summary quizit ???
 Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
 
 <div><quiz id="a820d25a-85e2-4acc-b4c1-de3fd2b91a72"></quiz></div>
