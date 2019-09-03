@@ -158,8 +158,5 @@ Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktiva
 <!-- quiz 6.1.? -->
 
 <div><quiz id="69f04e22-436d-479b-aa72-362c87170dea"></quiz></div>
-<div><quiz id="60d88167-3da3-4e1d-bf66-318628c66b9b"></quiz></div>
-<div><quiz id="66729972-4134-4a6c-9cc8-346383444ac4"></quiz></div>
-<div><quiz id="30f72c3c-1f2a-45c5-a0bc-fa65314d1ef9"></quiz></div>
 <div><quiz id="52f742b0-34ce-4520-8c80-2a6d22555fe9"></quiz></div>
 <div><quiz id="31f060be-1fc8-4f96-89ab-ff5f8df0954d"></quiz></div>
