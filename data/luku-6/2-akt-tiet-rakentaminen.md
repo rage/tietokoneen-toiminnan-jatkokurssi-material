@@ -73,15 +73,15 @@ t  dc 55      ; t on globaali muuttuja, alkuarvo 55
 ;
 ; toteuta t = fA(200, r)
 ;
-r1 push sp, =0   ; tila paluuarvolle
-r2 push sp, =200 ; vakio 200
-r3 push sp, r    ; muuttujan r arvo
-r4 call sp, fA   ; funktion kutsu
-r5 pop sp, r1    ; paluuarvon poisto pinosta
-r6 store r1, t
+k1    push sp, =0   ; tila paluuarvolle
+k2    push sp, =200 ; vakio 200
+k3    push sp, r    ; muuttujan r arvo
+k4    call sp, fA   ; funktion kutsu
+k5    pop sp, r1    ; paluuarvon poisto pinosta
+k6    store r1, t
 
 ```
-Ennen funktion kutsun aloittamista (käsky r1) pinossa on kutsuvan rutiinin AT.
+Ennen funktion kutsun aloittamista (käsky k1) pinossa on kutsuvan rutiinin AT.
 
 ```
     FP  -->   ??    ; kutsuvan rutiinin AT
@@ -90,7 +90,7 @@ Ennen funktion kutsun aloittamista (käsky r1) pinossa on kutsuvan rutiinin AT.
 ```
 
 
-Juuri ennen funktion kutsua (käsky r4) pinossa on paikka paluuarvolle ja parametrit.
+Juuri ennen funktion kutsua (käsky k4) pinossa on paikka paluuarvolle ja parametrit.
 
 ```
     FP  -->   ??    ; kutsuvan rutiinin AT
@@ -101,7 +101,7 @@ Juuri ennen funktion kutsua (käsky r4) pinossa on paikka paluuarvolle ja parame
     SP -->    24
 ```
 
-Heti funktiosta palattua (ennen käskyn r5 suoritusta) pinossa on kutsutun rutiiin AT:stä jäljellä vain paluuarvo (jos sitä yleensä oli).
+Heti funktiosta palattua (ennen käskyn k5 suoritusta) pinossa on kutsutun rutiinin AT:stä jäljellä vain paluuarvo (jos sitä yleensä oli).
 
 ```
     FP  -->   ??    ; kutsuvan rutiinin AT
@@ -110,7 +110,7 @@ Heti funktiosta palattua (ennen käskyn r5 suoritusta) pinossa on kutsutun rutii
     SP -->    1024  ; funktion paluuarvo
 ```
 
-Lopulta, käskyn r5 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu kutsuvan rutiinin ympäristössä.
+Lopulta, käskyn k5 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu kutsuvan rutiinin ympäristössä.
 
 ```
     FP  -->   ??    ; kutsuvan rutiinin AT
@@ -119,13 +119,13 @@ Lopulta, käskyn r5 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu 
 ```
 
 ### Kutsutun rutiinin koodi
-Funktio fA() voidaan toteuttaa konekielellä seuraavalla tavalla. Määrittelemme aluksi symbolit paluuarvon, parametrien ja paikallisten tietorakenteiden sijainneille AT:ssä. Kaikki viitteet noihin tietorakenteisiin tehdään sitten noiden symbolien avulla käyttäen niitä suhteellisina osoitteina AT:ssa.
+Funktio fA() voidaan toteuttaa konekielellä seuraavalla tavalla. Määrittelemme aluksi symbolit paluuarvon, parametrien ja paikallisten tietorakenteiden suhteellisille sijainneille AT:ssä. Kaikki viitteet noihin tietorakenteisiin tehdään sitten noiden symbolien avulla käyttäen niitä suhteellisina osoitteina AT:ssa.
 
 ```
 ;
 ; funktio fA(x,y)    x ja y ovat arvoparametreja
 ;
-retfA  equ -4  ; paluuarvon suhteellinen osoite AT:ssa
+retfA equ -4  ; paluuarvon suhteellinen osoite AT:ssa
 parX  equ -3   ; parametrien x ja y suhteelliset osoitteet AT:ssa
 parY  equ -2
 locZ  equ 1    ; paikallisen muuttujan z suhteellinen osoite AT:ssä
@@ -148,7 +148,7 @@ f10   pop sp, r1   ; palauta r1
 f12   exit sp, =2  ; paluu kutsuvaan rutiiniin
 ```
 
-Kun kontrolli on siirtynyt fA:lle (käsky fa), pinossa on paikka paluuarvolle, parametrit sekä vanha PC ja FP.
+Kun kontrolli on siirtynyt fA:lle (käsky fa), pinossa on paikka paluuarvolle, parametrit sekä vanha PC ja FP:
 
 ```
               ??
@@ -161,7 +161,7 @@ vanha FP -->  ...   ; kutsuvan rutiinin AT
 FP, SP -->    vanha FP
 ```
 
-Kun prologi ja paikallisen muuttujan z alustus on tehty, uusi AT on valmis ja pinon sisältö on seuraavanlainen.
+Kun prologi ja paikallisen muuttujan z alustus on tehty (käsky f4), uusi AT on valmis ja pinon sisältö on seuraavanlainen:
 
 ```
               ??
@@ -176,7 +176,7 @@ vanha FP -->  ...  ; kutsuvan rutiinin AT
     SP -->    vanha r1
 ```
 
-Juuri ennen epilogia (f10) funktion työ on tehty ja paluuarvo on paikallaan.
+Juuri ennen epilogia (f10) funktion työ on tehty ja paluuarvo on paikallaan:
 
 ```
               ??
@@ -191,7 +191,7 @@ vanha FP -->  ...  ; kutsuvan rutiinin AT
     SP -->    vanha r1
 ```
 
-Epilogissa palautetaan r1:n vanha arvo ja vapautetaan Z:n tilanvaraus.
+Epilogissa palautetaan r1:n vanha arvo ja vapautetaan Z:n tilanvaraus:
 
 ```
               ??
@@ -206,7 +206,7 @@ FP, SP -->    vanha FP
               vanha r1
 ```
 
-Lopulta, exit-käsky (f12) palauttaa pinosta FP:n ja PC:n arvot ennalleen ja poistaa lisäksi 2 parametria sieltä. Nyt enää funktion paluuarvo on jäljellä ja kutsuva rutiini poistaa sen kohta.
+Lopulta, exit-käsky (f12) palauttaa pinosta FP:n ja PC:n arvot ennalleen ja poistaa lisäksi 2 parametria sieltä. Nyt enää funktion paluuarvo (1024) on jäljellä ja kutsuva rutiini poistaa sen kohta:
 
 ```
               ??
