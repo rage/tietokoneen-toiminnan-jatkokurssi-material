@@ -159,4 +159,3 @@ Seuraavassa osiossa näytämme tarkemmin, kuinka näiden käskyjen avulla aktiva
 
 <div><quiz id="69f04e22-436d-479b-aa72-362c87170dea"></quiz></div>
 <div><quiz id="52f742b0-34ce-4520-8c80-2a6d22555fe9"></quiz></div>
-<div><quiz id="31f060be-1fc8-4f96-89ab-ff5f8df0954d"></quiz></div>
