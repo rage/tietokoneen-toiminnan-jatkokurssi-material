@@ -16,12 +16,8 @@ const introductionCourseGroups = [
 
 export async function fetchProgress() {
   // await fetchQuizzesProgress()
-  const serviceIdentifiers = ["Ohjelmointitehtävät", "Kyselyt", "Crowdsorcerer"]
-  const progressesCollection = await Promise.all([
-    fetchProgrammingProgress(),
-    fetchQuizzesProgress(),
-    fetchCrowdsorcererProgress(),
-  ])
+  const serviceIdentifiers = ["Kyselyt"]
+  const progressesCollection = await Promise.all([fetchQuizzesProgress()])
   const userDetails = await getCachedUserDetails()
   const currentCourseVariant = userDetails?.extra_fields?.course_variant
   const progressByGroup = {}
@@ -38,11 +34,6 @@ export async function fetchProgress() {
     },
   )
   const toBeDeleted = []
-  Object.entries(progressByGroup).forEach(([group, serviceEntries]) => {
-    if (!Object.keys(serviceEntries).find(o => o === "Ohjelmointitehtävät")) {
-      toBeDeleted.push(group)
-    }
-  })
   if (
     currentCourseVariant === "ohja-dl" ||
     currentCourseVariant === "ohja-nodl"
