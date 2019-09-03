@@ -120,7 +120,7 @@ ja tasolla 1 alkiot
 110 111 112 113
 120 121 122 123
 ```
-Alkioden arvot on tässä esimerkissä valittu tahallaan siten, että arvot vastaavat alkioiden indeksejä taulukossa S. Esimerkiksi alkion S[1,2,1] arvo on 121.
+Alkioiden arvot on tässä esimerkissä valittu tahallaan siten, että arvot vastaavat alkioiden indeksejä taulukossa S. Esimerkiksi alkion S[1,2,1] arvo on 121.
 
 Jos S on talletettu "riveittäin", niin alkiot ovat muistissa riveittäin taso kerrallaan järjestyksessä
 
@@ -148,7 +148,7 @@ ja niihin voisi viitata esimerkiksi seuraavalla tavalla.
      load r2, S(r1)  ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
-Jos taas S on talletettu sarakettain, niin tasoja on viimeisen indeksin mukaisesti neljä ja alkiot ovat muistissa järjestyksessä
+Jos S on talletettu sarakettain, niin tasoja on viimeisen indeksin mukaisesti neljä ja alkiot ovat muistissa järjestyksessä
 
 ```
 600: 000 100 010 110 020 120     (taso k=0)
@@ -157,7 +157,7 @@ Jos taas S on talletettu sarakettain, niin tasoja on viimeisen indeksin mukaises
 606: 003 103 013 113 023 123     (taso k=3)
 ```
 
-ja sama viite (r2 = S[i,j,k]) toteutuu käskyillä
+Viite (r2 = S[i,j,k]) toteutuu nyt käskyillä
 
 ```
      load r1, k
@@ -169,7 +169,7 @@ ja sama viite (r2 = S[i,j,k]) toteutuu käskyillä
      load r2, S(r1)  ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
-Jos taas S on talletettu (esim. riveittäin) linkitettynä rakenteena, niin tallennus voisi
+Jos S on talletettu (riveittäin) linkitettynä rakenteena, niin tallennus voisi olla
 
 ```
 700:  000 001 002 003  (rivi S[0,0,*])
@@ -185,7 +185,7 @@ Jos taas S on talletettu (esim. riveittäin) linkitettynä rakenteena, niin tall
 600:  630   541       (taulukon S tasojen osoitteet)
 ```
 
-ja sama viite (r2 = S[i,j,k]) toteutuu käskyillä
+Viite (r2 = S[i,j,k]) toteutuu nyt käskyillä
 
 ```
      load r1, i
@@ -263,7 +263,7 @@ jatka nop
 
 Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea suoritusnopeuden hidastuessa ylimääräisten suoritettavien konekäskyjen vuoksi. Toisaalta, haavoittuvaan järjestelmään kohdistuneen puskurin ylivuotohyökkäyksen kustannukset voivat olla valtaisat. On myös muita tapoja tehdä ja välttää indeksitarkistuksia sekä torjua puskurin ylivuotohyökkäyksiä, mutta ne eivät sisälly tämän kurssin oppimistavoitteisiin.
 
-<!-- quiz 5.3 ????????????????? -->
+<!-- quizes 5.3 rakenteinen tieto -->
 
 <div><quiz id="3a0f2c32-24f4-414c-8ba7-1db0970b70d7"></quiz></div>
 <div><quiz id="4aa939ca-2f85-4256-aef2-262df1403607"></quiz></div>
