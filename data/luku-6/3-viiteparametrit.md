@@ -42,9 +42,9 @@ Viiteparametreihin viittaamisessa täytyy muistaa, että parametrina on annettu 
 ; funktio fB(x,y,z).  X on arvoparametri. Y ja Z ovat viiteparametreja.
 ;
 retfB   equ  -5    ; paluuarvon suhteellinen osoite
-parX    equ -4     ; arvoparametrin X osoite AT:ssä
-vparY   equ -3     ; viiteparametrin osoite AT:ssä
-vparZ   equ -2
+parX    equ -4     ; arvoparametrin X suhteellinen osoite AT:ssä
+vparY   equ -3     ; viiteparametrin Y suhteellinen osoite AT:ssä
+vparZ   equ -2     ; viiteparametrin Z suhteellinen osoite AT:ssä
 
 fB      push sp, r1  ; talleta r1
 
@@ -115,7 +115,7 @@ S     pushr sp   ; talleta rekisterit
 ## Viiteparametrien riskit
 Toisaalta jokainen viiteparametri voi olla riski, koska sen kautta aliohjelma pääsee muuttamaan kutsuvan rutiinin dataa. Esimerkiksi, jos henkilörekisterin palkkataulukko annetaan parametrina tulostusrutiinille, niin olisi toivottavaa, että tulostusrutiini ei muuta käyttäjien palkkatietoja samalla. Tällaista _hyökkäystä_ vastaan voi suojautua käyttämällä vain luotettavissa kirjastoissa olevia tulostusrutiineja.
 
-Joissakin ohjelmointikielissä kaikki merkkijonot välitetään viiteparametreina, jolloin aliohjelmat voisivat manipuloida parametreina annettuja merkkijonoja haluamikseen. Tältä voidaan suojautua tallettamalla merkkijonot _read only_ muistialueelle ja rajaamalla merkkijonojen käsittely luotettaville kirjastoaliohjelmille.
+Joissakin ohjelmointikielissä kaikki merkkijonot välitetään viiteparametreina, jolloin aliohjelmat voisivat manipuloida parametreina annettuja merkkijonoja haluamikseen. Tältä voidaan suojautua tallettamalla merkkijonot _read only_ -muistialueelle ja rajaamalla merkkijonojen käsittely luotettaville kirjastoaliohjelmille.
 
 
 <!-- quiz 6.3.??  ????? -->
