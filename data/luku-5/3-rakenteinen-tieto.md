@@ -266,7 +266,5 @@ Kuten tästä esimerkistä huomataan, tarkistusten hinta voi olla korkea suoritu
 <!-- quizes 5.3 rakenteinen tieto -->
 
 <div><quiz id="3a0f2c32-24f4-414c-8ba7-1db0970b70d7"></quiz></div>
-<div><quiz id="4aa939ca-2f85-4256-aef2-262df1403607"></quiz></div>
-<div><quiz id="467cf2f2-2cdd-4362-a01e-240ba831c2b3"></quiz></div>
-<div><quiz id="5c48cb08-3abc-4a8b-9a26-2f3106828be8"></quiz></div>
+
 <div><quiz id="5741716d-3789-44a0-91bb-2c9eb6610015"></quiz></div>
