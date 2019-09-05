@@ -50,7 +50,7 @@ pidDriver  equ 3254  ; laiteajuriprosessin tunniste
 MsgService equ   52
       ...
       ;  lähetä palvelupyyntöviesti
-      push  sp, =0             ; paluuarvo
+      push  sp, =0             ; paluuarvo svc-kutsulle
       push  sp, =pidDriver     ; viestin vastaanottajan tunniste (pid)
       push  sp, =Send          ; viestin tyyppi
       push  sp, =FileBuffer    ; datapuskuri tiedon siirtoa varten
@@ -61,15 +61,15 @@ MsgService equ   52
       pop   sp, r1
       jnzer r1, SendTrouble    ; käsittele virhetilanteet
 
-      ; vastaanota vastaus palvelupyyntöön
-      push  sp, =0             ; paluuarvo
-      push  sp, =pidDriver     ; viestin lähettäjän tunniste (pid)
+      ; vastaanota vastaus palvelupyyntöön laiteajurilta
+      push  sp, =0             ; paluuarvo svc-kutsulle
+      push  sp, =pidDriver     ; viestin lähettäjän eli laiteajurin tunniste (pid)
       push  sp, =Receive       ; viestin tyyppi
       push  sp, =maxWaitTime   ; maksimiodotusaika viestin vastaanotolle
-      push  sp, =MsgBuffer     ; datapuskuri tiedon siirtoa varten
-      push  sp, &MsgByteCnt        ; luettavien tavujen lukumäärä
+      push  sp, =MsgBuffer     ; datapuskurin osoite tiedon siirtoa varten
+      push  sp, &MsgByteCnt    ; vastaanotettavien tavujen lukumäärä
 
-      svc   sp, =MsgService    ; vastaanota viesti DiskDrive-prosessilta
+      svc   sp, =MsgService    ; vastaanota viesti DiskDriver-prosessilta
       pop   sp, r1
       jnzer r1, RecvTrouble    ; käsittele virhetilanteet
 ```
