@@ -9,7 +9,7 @@ hidden: false
 </div>
 
 ## Muistihierarkia
-Tietoa talletetaan tietokonejärjestelmiin hyvin monella eri tasolla. Lähtökohta eri tasojen käytölle on periaate, että pienempi muisti on nopeampaa ja suurempi muisti on halvempi toteuttaa. Tämä on johtanut ns. muistihierarkiapyramidiin, jonka olennaisia osia illustroitiin  Luvun 1 Juustokakkuesimerkillä.
+Tietoa talletetaan tietokonejärjestelmiin hyvin monella eri tasolla. Lähtökohta eri tasojen käytölle on periaate, että pienempi muisti on nopeampaa ja suurempi muisti on halvempi toteuttaa. Tämä on johtanut muistihierarkiaan, jonka olennaisia osia illustroitiin Luvun 1 Juustokakkuesimerkillä.
 
 
 <!-- kuva: ch-1-3-muistihierarkia    -->
@@ -25,20 +25,29 @@ Kaikkien sisimpänä samalla mikropiirillä suorittimen laiterekistereiden kanss
 
 Keskusmuisti sijaitsee samalla piirikortilla ([emolevyllä](https://fi.wikipedia.org/wiki/Emolevy)) suorittimen kanssa ja on yhteydessä siihen väylän kautta. Keskusmuistin käyttö on huomattavasti (esim. 50x) hitaampaa kuin rekistereiden, mutta keskusmuisti on kooltaan huomattavasti suurempi (esim. 10<sup>7</sup>x) kuin rekisterijoukko. Välimuistiteknologian avulla keskusmuisti saadaan tuntumaan lähes yhtä nopealta kuin rekisterit.
 
-Massamuistilaitteet (esim. kovalevy, CD-levy, DVD-levy tai Blu-ray-levy) sijaitsevat samassa järjestelmässä ja niitä voi käyttää järjestelmän väylien kautta. Kullekin laitetyypille on sille sopivan nopeuksinen väylä. Eri nopeuksiset väylät muodostavat väylähierarkian järjestelmässä. Hitaammat väylät liitetään erityisen sovittimen kautta nopeampiin, jotta ne eivät hidastaisi nopeampien väylien toimintaa. 
+Massamuistilaitteet (esim. kovalevy, CD-levy, DVD-levy tai Blu-ray-levy) sijaitsevat samassa järjestelmässä ja niitä voi käyttää järjestelmän väylien kautta. Kullekin laitetyypille on sille sopivan nopeuksinen väylä. Eri nopeuksiset väylät muodostavat väylähierarkian järjestelmässä. Hitaammat väylät liitetään erityisen sovittimen kautta nopeampiin, jotta ne eivät hidastaisi nopeampien väylien toimintaa. Massamuistit ms-aikaskaalassa eli ne ovat suuruusluokkaa 10<sup>6</sup> hitaampia kuin suoritin.
 
-Uusi flash-teknologiaan perustuva SSD (Solid State Disk) massamuisti on usein vielä toteutettu kovalevyn lailla ulkoisena massamuistina, mutta se voi sijaita myös valmiiksi asennettuna emolevyllä. 
+Uusi flash-teknologiaan perustuva [SSD](https://fi.wikipedia.org/wiki/SSD) (Solid State Disk) massamuisti on usein vielä toteutettu kovalevyn lailla ulkoisena massamuistina, mutta se voi sijaita myös valmiiksi asennettuna emolevyllä. SSD massamuisti on yleensä toteutettu niin, että se näyttää samalta kuin pyörivä kovalevy, vaikka onkin selvästi nopeampi (esim. 10x). Samasta teknologiasta on myös nopeampi versio, [NVMe](https://en.wikipedia.org/wiki/NVM_Express) (NVM Express, Non-Volatile Memory), joka toimii nopeampien väylien kautta.
 
-levypalvelimet, pilvipalvelimet, magneettinauha, ....
-
-Jotkut ulkoiset laitteet ovat niin hitait
-
-??????????????????????????????????
+Ihmisen kanssa kommunikointiin tarkoitetut laitteet (esim. näppäimistö tai hiiri) kuuluvat myös järjestelmän "sisäisiin" laitteisiin, mutta ne ovat yleensä vielä monta kertaluokkaa hitaampia kuin massamuistit. Yleensä ihminen toimii sekunnin aikaskaalassa, mutta joiden graafisten käyttöliittymien kautta toiminta voi olla huomattavasti nopeampaa. 
 
 
+Järjestelmän ulkopuoliset muistit toimivat nekin sekunnin aikaskaalassa, koska tiedon siirtoon verkon läpi kuluu niin paljon aikaa. Tällaisia muistijärjestelmiä ovat organisaatioiden omat levypalvelimet ja erilaiset internetin pilvipalvelimet. Teoriassa tiedon hakeminen maapallon toiselta puolelta kestää tietenkin aika kauan aikaa, mutta käytännössä tieto haetaan useimmiten lähempänä olevasta www-välimuistista.
+
+Jotkut järjestelmän laitteet (esim. magneettinauha) ovat yhtä hitaita kuin järjestelmän ulkopuoliset muistit ja niitä käsitellään myös samalla tavalla.
 
 ## Virtuaalimuisti
-????
+Käytännössä ohjelman suorituksen aikana tiedot tulee säilyttää joko keskusmuistissa tai massamuistissa. Massamuisti on voi olla 1000 kertaa niin suuri kuin keskusmuisti, kun taas keskusmuisti voi olla 10<sup>6</sup> kertaa niin nopea kuin massamuisti. Käyttöjärjestelmän [virtuaalimuistiteknologia](https://fi.wikipedia.org/wiki/N%C3%A4enn%C3%A4ismuisti) antaa ohjelman käyttöön näennäisen muistialueen, joka on lähes yhtä nopea kuin keskusmuisti, mutta yhtä suuri kuin massamuisti.
+
+Virtuaalimuisti on toteutettu kaikissa nykyisissä yleiskäyttöisissä käyttöjärjestelmissä (esim. Windows, Linux ja MacOS). Ratkaisu on kaksitasoinen. Kaikki ohjelman tiedot pidetään massamuistissa ja vain kulloinkin tarvittavat muistialueet pidetään keskusmuistissa. Tietoja kopioidaan aina tarvittaessa keskusmuistin ja massamuistin välillä sillä tavoin, että lähes aina viitatut muistialueet löytyvät keskusmuistista.
+
+Jos ohjelma suoritusaikana viittaa muistipaikkaan, joka ei ole keskusmuistissa, tapahtuu _sivunpuutoskeskeytys_. Se on yksi etukäteen määritellyistä keskeytystyypeistä. Sivunpuutoskeskeytyksen yhteydessä sen aiheuttanut prosessi siirretään odotustilaan ja viitattu muistialue kopioidaan massamuistista keskusmuistiin, minkä jälkeen kyseinen prosessi pääsee takaisin suoritukseen. Tällöin se suorittaa saman konekäskyn uudelleen, mutta tällä kertaa viitattu tieto löytyy keskusmuistista. Tähän kaikkeen kuluu hyvin paljon aikaa, mutta toivottavasti sivunpuutoskeskeytyksiä ei tapahdu kovin usein.
+
+Jokaisen muistiviitteen kohdalla täytyy siis tarkistaa, onko viitattu muistialue keskusmuistissa ja missä siellä se mahdollisesti sijaitsee. Tällaista osoitteenmuunnosta ei voi tehdä yleensä ohjelmallisesti (usealla konekäskyllä), koska se hidastaisi suoritusta liikaa. Osoitteenmuunnosten tekemiseen nopeasti suorittimella (sen [MMU](https://en.wikipedia.org/wiki/Memory_management_unit):ssa) on oma erityislaitteistonsa, [TLB](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (Translation Lookaside Buffer), joka toimii välimuistin tavoin. Useimmiten osoitteenmuunnos löytyy TLB:stä, mikä tekee virtuaalimuistijärjestelmien toiminnan mahdolliseksi. _TLB-hudin_ yhteydessä osoitteenmuunnos täytyy tehdä tavallisilla konekäskyillä muistissa olevia osoitteenmuunnostaulukoita (_sivutaulu_ tai _segmenttitaulu_) käyttäen. 
+
+Virtuaalimuistin toteutuksessa on muutamia eri tapoja. Yleensä massamuistista kopioidaan vakiokokoisia muistilohkoja (_sivuja_) kerrallaan ja muistilohkojen koko (sivun koko) sopii hyvin yhteen käytössä olevan massamuistin toteutukseen. Toinen vaihtoehto on tehdä kerralla kopioitavista muistilohkoista vaihtelevan kokoisia _segmenttejä_, jolloin ne taas sopivat paremmin yhteen prosessien hallinnoimien eri kokoisten muistialueiden (esim. _koodisegmentti_, _datasegmentti_ tai _pino_) kanssa. Osoitteenmuunnos voidaan toteuttaa monitasoisena, jolloin siinä voi olla sekaisin _segmentointia_ ja _sivutusta_. Lisäksi osoitteenmuutokseen voi liittyä aikaisemmin esitetty kanta- ja rajarekistereiden käyttö.
+
+Virtuaalimuistin toteutukseen liittyy huomattava määrä käyttöjärjestelmän ohjelmistoa, mutta emme käsittele niitä tällä kurssilla. Virtuaalimuistia käsitellään tarkemmin esimerkiksi yliopistojen käyttöjärjestelmäkursseilla.
 
 ### Massamuistin käyttö
 ???
