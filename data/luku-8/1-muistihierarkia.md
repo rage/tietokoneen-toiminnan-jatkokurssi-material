@@ -52,19 +52,27 @@ Virtuaalimuistin toteutukseen liittyy huomattava määrä käyttöjärjestelmän
 ### Massamuistin käyttö
 ???
 
-<text-box variant="example" name="Historiaa:  Akustinen elohopeaviiveputki">
+<text-box variant="example" name="Luvun 8 loppuun: Historiaa:  Transistori ja mikropiiri">
 
-Akustinen elohopeaviiveputki
-<!-- kuva: ch-7-3-ferriitti    -->
+Transtori kuva:  https://commons.wikimedia.org/wiki/File:1st-Transistor.jpg 
+1947. 1956 Nobel (Shockleen, Bardeen, Brattain)
 
-![kuvan selitysteksti puuttuu... ????.](./ch-8-1-viiveputki.svg)
+Mikropiirikuva??
+Kilby & Noyce 1960, Noyce perustamassa Intel'iä 1968, Kilbylle Nobel 2000
+Intel 4004 (1971)
+  
+
+<!-- kuva: ch-8-1-transitori    -->
+
+![Vasemmalla  ](./ch-8-1-transitori.svg)
 <div>
-<illustrations motive="ch-8-1-viiveputki"></illustrations>
+<illustrations motive="ch-8-1-transitori"></illustrations>
 </div>
-credit....????
 
 </text-box>
 
-## Quizit 9.1
-<!-- Quiz 9.1.?? -->
+
+
+## Quizit 8.1
+<!-- Quiz 8.1.?? -->
 <div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
