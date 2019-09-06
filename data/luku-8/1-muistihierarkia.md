@@ -14,9 +14,9 @@ Tietoa talletetaan tietokonejärjestelmiin hyvin monella eri tasolla. Lähtökoh
 
 <!-- kuva: ch-1-3-muistihierarkia    -->
 
-![kuvan selitysteksti puuttuu... ????.](./ch-1-1-muistihierarkia.svg)
+![Kolme sisäkkäistä aluetta. Sisimpänä on laitteisto, jossa on rekisterit, muisti ja niiden välissä välimuistit. Nuoli menee muistista välimuistien läpi rekistereihin. Keskellä on järjestelmätaso, jolla on laitteisto, massamuisti ja niiden välissä käyttöjärjestelmän ylläpitämä virtuaalimuisti ja levyvälimuisti. Nuoli menee massamuistista virtuaalimuistin ja levyvälimuistin läpi muistiin. Uloin alue on internet, jossa on tämä järjestelmän, pilvipalvelu/www ja niiden välissä välityspalvelin eli proxy. Nuoli pilvipalvelusta proxyn kautta massamuistiin. Laitteiston nopeus on ns-luokkaa, järjestelmän massamuistin nopeus ms-luokkaa. Pilvipalveluiden ja muun internetin nopeus on sekuntien luokkaa.](./ch-1-3-muistihierarkia.svg)
 <div>
-<illustrations motive="ch-1-3-muistihierarkia"></illustrations>
+<illustrations motive="ch-1-3-muistihierarkia" frombottom="0" totalheight="100%"></illustrations>
 </div>
 
 Muistihierarkiapyramidissa on kolme isompaa kerrosta. Lähinnä huippua ovat samalla piirikortilla toteutetut muistiteknologiat, keskimmäisellä tasolla yhdessä järjestelmässä (samassa kotelossa?) muistilaitteet ja alimmalla tasolla ovat verkossa olevat tai muuten vain hyvin hitaat laitteet.
