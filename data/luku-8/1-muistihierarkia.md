@@ -19,9 +19,21 @@ Tietoa talletetaan tietokonejärjestelmiin hyvin monella eri tasolla. Lähtökoh
 <illustrations motive="ch-1-3-muistihierarkia" frombottom="0" totalheight="100%"></illustrations>
 </div>
 
-Muistihierarkiapyramidissa on kolme isompaa kerrosta. Lähinnä huippua ovat samalla piirikortilla toteutetut muistiteknologiat, keskimmäisellä tasolla yhdessä järjestelmässä (samassa kotelossa?) muistilaitteet ja alimmalla tasolla ovat verkossa olevat tai muuten vain hyvin hitaat laitteet.
+Muistihierarkiassa on kolme selkeää tasoa. Sisimpänä ovat suorittimen kanssa samalla piirikortilla toteutetut muistit, keskimmäisellä tasolla yhdessä järjestelmässä (samassa kotelossa?) olevat nopeahkot muistit. Uloimpana verkossa olevat tai samassa järjestelmässä olevat hyvin hitaat laitteet. 
 
+Kaikkien sisimpänä samalla mikropiirillä suorittimen laiterekistereiden kanssa ovat nopeimmat välimuistit. Esimerkiksi, nopeimmat tason L1 ja L2 välimuistit voi olla toteutettuna samalla mikropiirillä suorittimen kanssa, mutta vähän hitaammat tason L3 ja L4 välimuistit voivat sijaita omilla mikropiireillään välittömästi suorittimen vieressä.
 
+Keskusmuisti sijaitsee samalla piirikortilla ([emolevyllä](https://fi.wikipedia.org/wiki/Emolevy)) suorittimen kanssa ja on yhteydessä siihen väylän kautta. Keskusmuistin käyttö on huomattavasti (esim. 50x) hitaampaa kuin rekistereiden, mutta keskusmuisti on kooltaan huomattavasti suurempi (esim. 10<sup>7</sup>x) kuin rekisterijoukko. Välimuistiteknologian avulla keskusmuisti saadaan tuntumaan lähes yhtä nopealta kuin rekisterit.
+
+Massamuistilaitteet (esim. kovalevy, CD-levy, DVD-levy tai Blu-ray-levy) sijaitsevat samassa järjestelmässä ja niitä voi käyttää järjestelmän väylien kautta. Kullekin laitetyypille on sille sopivan nopeuksinen väylä. Eri nopeuksiset väylät muodostavat väylähierarkian järjestelmässä. Hitaammat väylät liitetään erityisen sovittimen kautta nopeampiin, jotta ne eivät hidastaisi nopeampien väylien toimintaa. 
+
+Uusi flash-teknologiaan perustuva SSD (Solid State Disk) massamuisti on usein vielä toteutettu kovalevyn lailla ulkoisena massamuistina, mutta se voi sijaita myös valmiiksi asennettuna emolevyllä. 
+
+levypalvelimet, pilvipalvelimet, magneettinauha, ....
+
+Jotkut ulkoiset laitteet ovat niin hitait
+
+??????????????????????????????????
 
 
 
