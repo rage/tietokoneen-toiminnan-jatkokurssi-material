@@ -9,12 +9,14 @@ hidden: false
 </lead>
 </div>
 
-## Laiteajuri
-???
-
-## Laiteohjain
+## Laiteohjain ja laiteajuri
 ????
 
+#### I/O tyypit
+????
+
+#### I/O:n toteutus konekäskyillä
+????
 ### Laiterekisterit
 ???
 
@@ -29,6 +31,10 @@ hidden: false
 
 ## Esimerkki: ttk-91 kirjoittimen laiteajuri
 ????
+
+#### Ttk-91 kirjoittimen laiteajuri
+????
+
 
 ## Quizit 8.3 ????
 <!--  quizit 8.3.???  -->
