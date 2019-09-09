@@ -53,6 +53,24 @@ credit....????
 
 </text-box>
 
+<text-box variant="example" name="Historiaa:  Transistori ja mikropiiri">
+
+Transtori kuva:  https://commons.wikimedia.org/wiki/File:1st-Transistor.jpg 
+1947. 1956 Nobel (Shockleen, Bardeen, Brattain)
+
+Mikropiirikuva??
+Kilby & Noyce 1960, Noyce perustamassa Intel'iä 1968, Kilbylle Nobel 2000
+Intel 4004 (1971)
+  
+
+<!-- kuva: ch-8-1-transitori    -->
+
+![Vasemmalla  ](./ch-8-1-transitori.svg)
+<div>
+<illustrations motive="ch-8-1-transitori"></illustrations>
+</div>
+
+</text-box>
 
 ## Yhteenveto
 Tämä luku ...
