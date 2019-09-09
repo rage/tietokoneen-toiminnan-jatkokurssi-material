@@ -55,12 +55,6 @@ Virtuaalimuistin toteutuksessa on muutamia eri tapoja. Yleensä massamuistista k
 
 Virtuaalimuistin toteutukseen liittyy huomattava määrä käyttöjärjestelmän ohjelmistoa, mutta emme käsittele sitä tällä kurssilla tämän enempää. Virtuaalimuistijärjestelmän toiminta esitellään tarkemmin yliopiston käyttöjärjestelmäkurssilla.
 
-### Kovalevyn (kiintolevyn) toteutus
-???
-
-### SSD ja NVMe
-????
-
 ### Tiedostojärjestelmä
 Tieto massamuistissa on yleensä organisoitu erillisiksi tiedostoiksi. Esimerkiksi, tiedosto program.exe sisältää windows-käyttöjärjestelmän tunnistaman ladattavan ohjelman ja cute-cat.jpg sisältää käyttäjän tallettaman soman kissakuvan. Käyttöjärjestelmä pitää kirjaa kaikista tiedostoista ja niiden sijainneista massamuistissa. Se valvoo tiedon pääsyoikeuksia, jotta Pekka ei vahingossa pääse katsomaan Maijan kissakuvia, tai että kukaan tavallinen käyttäjä ei pääse ohjelmakoodeja ilman lupaa.
 
@@ -74,7 +68,15 @@ Aina kun tiedostoa avataan käyttöä varten, järjestelmä tarkistaa, mitä oik
 
 Jos tiedostoa voidaan lukea vähän kerrallaan, niin tiedostojärjestelmä pitää kirjaa siitä, missä kohtaa kukin prosessi on kutakin tiedostoa lukemassa. Vaikka prosessi lukisi tiedostoa yksi merkki kerrallaan, niin tiedostojärjestelmä lukee niitä isompi lohko kerrallaan ja lohkon koko sopii hyvin yhteen massamuistilaitteen teknologian kanssa. Esimerkiksi, levymuistista voisi lukea 4 KB lohkoja käyttöjärjestelmän ylläpitämään puskuriin, josta käyttäjäprosessi saa tietoja käyttöönsä tavu kerrallaan halutessaan. 
 
+Tiedoston lohkot on talletettu kovalevylle siellä oleviin vapaisiin paikkoihin ja tiedostojärjestelmä pitää kirjaa lohkojen sijainnista kovalevyllä. 
+
 Tiedostojärjestelmän tarkempi toiminta esitellään yliopiston käyttöjärjestelmäkurssilla.
+
+### Kovalevyn (kiintolevyn) toteutus
+
+
+### SSD ja NVMe
+????
 
 ### I/O:n toteutus 
 ????
