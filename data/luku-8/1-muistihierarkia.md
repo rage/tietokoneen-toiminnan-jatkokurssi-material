@@ -23,9 +23,16 @@ Muistihierarkiassa on kolme selkeää tasoa. Sisimpänä ovat suorittimen kanssa
 
 Kaikkien sisimpänä samalla mikropiirillä suorittimen laiterekistereiden kanssa ovat nopeimmat välimuistit. Esimerkiksi, nopeimmat tason L1 ja L2 välimuistit voi olla toteutettuna samalla mikropiirillä suorittimen kanssa, mutta vähän hitaammat tason L3 ja L4 välimuistit voivat sijaita omilla mikropiireillään välittömästi suorittimen vieressä.
 
-Keskusmuisti sijaitsee samalla piirikortilla ([emolevyllä](https://fi.wikipedia.org/wiki/Emolevy)) suorittimen kanssa ja on yhteydessä siihen väylän kautta. Keskusmuistin käyttö on huomattavasti (esim. 50x) hitaampaa kuin rekistereiden, mutta keskusmuisti on kooltaan huomattavasti suurempi (esim. 10<sup>7</sup>x) kuin rekisterijoukko. Välimuistiteknologian avulla keskusmuisti saadaan tuntumaan lähes yhtä nopealta kuin rekisterit.
+Keskusmuisti sijaitsee samalla piirikortilla ([emolevyllä](https://fi.wikipedia.org/wiki/Emolevy)) suorittimen kanssa ja on yhteydessä siihen väylän kautta. Keskusmuistin käyttö on huomattavasti (esim. 50x) hitaampaa kuin rekistereiden, mutta keskusmuisti on kooltaan huomattavasti suurempi (esim. 1 GB) kuin rekisterijoukko (esim. 0.5 MB). Välimuistiteknologian avulla keskusmuisti saadaan tuntumaan lähes yhtä nopealta kuin rekisterit.
 
-Massamuistilaitteet (esim. kovalevy, CD-levy, DVD-levy tai Blu-ray-levy) sijaitsevat samassa järjestelmässä ja niitä voi käyttää järjestelmän väylien kautta. Kullekin laitetyypille on sille sopivan nopeuksinen väylä. Eri nopeuksiset väylät muodostavat väylähierarkian järjestelmässä. Hitaammat väylät liitetään erityisen sovittimen kautta nopeampiin, jotta ne eivät hidastaisi nopeampien väylien toimintaa. Massamuistit ms-aikaskaalassa eli ne ovat suuruusluokkaa 10<sup>6</sup> hitaampia kuin suoritin.
+Massamuistilaitteet (esim. kovalevy, SSD-levy, CD-levy, DVD-levy, Blu-ray-levy, USB-muistitikku) sijaitsevat samassa järjestelmässä ja niitä voi käyttää järjestelmän väylähierarkian kautta. Kullekin laitetyypille on sille sopivan nopeuksinen väylä. Hitaammat väylät liitetään erityisen sovittimen kautta nopeampiin, jotta ne eivät hidastaisi nopeampien väylien toimintaa. Eri nopeuksiset väylät muodostavat hierarkian järjestelmässä. Massamuistit ms-aikaskaalassa eli ne ovat suuruusluokkaa 10<sup>6</sup> hitaampia kuin suoritin.
+
+<!-- Kuva: ch-1-1-vaylahierarkia -->
+
+![Nopein väylä on sisäinen väylä suorittimen ja välimuistin välillä. Seuraavaksi nopein muistiväylä yhdistää välimuistin muistiin. Muistiväylässä on myös sovitin vähän hitaammalle PCI-väylälle, jossa on kiinni kovalevy. PCI-väylässä on myös sovitin vielä hitaammalle USB-väylälle, jossa on kiinni USB-muistitikku ja näppäimistö.](./ch-1-1-vaylahierarkia.svg)
+<div>
+<illustrations motive="ch-1-1-vaylahierarkia" frombottom="0" totalheight="40%"></illustrations>
+</div>
 
 Uusi flash-teknologiaan perustuva [SSD](https://fi.wikipedia.org/wiki/SSD) (Solid State Disk) massamuisti on usein vielä toteutettu kovalevyn lailla ulkoisena massamuistina, mutta se voi sijaita myös valmiiksi asennettuna emolevyllä. SSD massamuisti on yleensä toteutettu niin, että se näyttää samalta kuin pyörivä kovalevy, vaikka onkin selvästi nopeampi (esim. 10x). Samasta teknologiasta on myös nopeampi versio, [NVMe](https://en.wikipedia.org/wiki/NVM_Express) (NVM Express, Non-Volatile Memory), joka toimii nopeampien väylien kautta.
 
