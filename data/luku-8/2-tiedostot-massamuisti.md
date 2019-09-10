@@ -33,13 +33,20 @@ Tiedoston lohkot on talletettu kovalevylle siellä oleviin vapaisiin paikkoihin 
 Tiedostojärjestelmän tarkempi toiminta esitellään yliopiston käyttöjärjestelmäkurssilla.
 
 ## Kovalevyn (kiintolevyn) toteutus
-Tyypillisin massamuistilaite nykyisissä tietokoneissa on edelleen kovalevy, vaikkakin varsinkin kannettavissa laitteissa SSD-levyt ovat yleistymässä kovasti. Käsittelemme SSD-levyjä lisää vähän myöhemmin.
+Tyypillisin massamuistilaite nykyisissä tietokoneissa on edelleen kovalevy, vaikkakin varsinkin kannettavissa laitteissa SSD-levyt ovat yleistymässä. Käsittelemme SSD-levyjä lisää vähän myöhemmin.
 
 Kovalevyä käytetään järjestelmässä kahteen tarkoitukseen, virtuaalimuistin tukimuistina ja tiedostojen talletukseen. Kummassakin tapauksessa tieto talletetaan levylle samalla tavalla, sektori kerrallaan. Sektori on pienin datamäärä, jota levylle voi yhdellä kertaa kirjoittaa tai jota sieltä voi lukea. Sektorin koko on tyypillisesti 0.5-4 KB. 
 
-Tiedostojärjestelmä siirtää tietoja keskusmuistin ja levyn välillä tehokkuussyistä isohkoina _levylohkoina_. Levylohkon koko on kussakin tiedostojärjestelmässä vakio ja käytännössä sektorin koon pieni monikerta, esimerkiksi 2 tai 4 sektoria. Kunkin levylohkon sektorit ovat sellaisia, että ne on nopea lukea yhteen menoon levyltä. Jos tiedoston koko on pienempi kuin levylohkon koko, sille varataan silti aina kokonainen levylohko tilaa. Suuret tiedostot varaavat hukkatilaa levyltä aina puolikkaan levylohkon verran, koska viimeinen levylohko jää vajaaksi. 
+Tiedostojärjestelmä siirtää tietoja keskusmuistin ja levyn välillä tehokkuussyistä isohkoina _levylohkoina_. Levylohkon koko on kussakin tiedostojärjestelmässä vakio ja käytännössä sektorin koon pieni monikerta, esimerkiksi 2 tai 4 sektoria. Kunkin levylohkon sektorit ovat sellaisia, että ne on nopea lukea yhteen menoon levyltä. Jos tiedoston koko on pienempi kuin levylohkon koko, sille varataan silti aina kokonainen levylohko tilaa. Suuret tiedostot varaavat hukkatilaa levyltä keskimäärin puolikkaan levylohkon verran, koska viimeinen levylohko jää vajaaksi. 
 
 Virtuaalimuisti siirtää tietoja keskusmuistin ja levyn välillä _sivuina_, mikä on vain eri nimi muistilohkoille. Usein sivun koko ja levylohkon koko ovat samoja.
+
+<!-- kuva: ch-8-2-levyn-kaytto    -->
+
+![Yksinkertaistettu kuva, jossa ylhäällä muisti, keskellä väylä ja alhaalla kovalevy. Levy on jaettu kahteen osaan, jossa vasemmalla puolella on paljon saman kokoisia sivuja ja oikealla puolella paljon saman kokoisia levylohkoja. Myös keskusmuisti on jaettu saman kokoisiin keskusmuistilohkoihin, joista vasemmalla puolella olevissa on virtuaalimuistin sivuja ja oikealla puolella levylohkoja.](./ch-8-2-levyn-kaytto.svg)
+<div>
+<illustrations motive="ch-8-2-levyn-kaytto" frombottom="0" totalheight="100%"></illustrations>
+</div>
 
 Virtuaalimuisti ja tiedostojärjestelmä siis käyttävät kovalevyä hyvin samalla tavalla. Tämän vuoksi käyttöjärjestelmissä on esimerkiksi toteutettu ensin tiedostojärjestelmä ja sitten sen päälle virtuaalimuisti, jotta samoja asioita ei tarvitse toteuttaa moneen kertaan. Tai sitten ensin on toteutettu virtuaalimuisti ja tiedostojärjestelmä sen päälle.
 
