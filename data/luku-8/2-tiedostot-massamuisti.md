@@ -75,26 +75,34 @@ Sektoreiden ja urien välissä on levypinnoilla välejä ja ehkä myös erikoism
 ### Kovalevyn saantiaika
 Ajatellaan yksinkertaista levyä, jossa joka uralla on sama määrä sektoreita. Kuinka kauan kestää tietyn sektorin lukeminen? Sektorin _saantiaika_ koostuu kolmesta komponentista. Ensinnäkin on _hakuaika_, mikä tarkoittaa luku- ja kirjoituspään siirtämistä oikealle uralle. Yksinkertaistetussa muodossa tätä voi estimoida lineaarisesti siirrettävien urienlukumäärän suhteen. Todellisuudessa hakuvarsi kiihdyttää ensin huippunopeuteensa, jatkaa siirtymistä huippunopeudella ja lopulta hidastaa pysähtyen juuri oikealle uralle.
 
-Toinen komponentti on _pyörähdysviive_ eli se aika mikä kuluu kunnes oikea sektori on luku- ja kirjoituspään kohdalla. Jos sektori on satunnainen, niintämä on keskimäärin puolen kierroksen kääntymiseen kuluva aika. Esimerkiksi, jos pyörimisnopeus on 3600 rpm, niin yhteen kierrokseen kuluu 1/3600&nbsp;=&nbsp;16.6&nbsp;ms, mikä on tosi pitkä aika! Tätä voidaan huomattavasti keskimäärin pienentää lukemalla (kirjoittamalla) yhteen menoon usea sektori samalla sylinterillä.
+Toinen komponentti on _pyörähdysviive_ eli se aika mikä kuluu kunnes oikea sektori on luku- ja kirjoituspään kohdalla. Jos sektori on satunnainen, niin tämä on keskimäärin puolen kierroksen kääntymiseen kuluva aika. Esimerkiksi, jos pyörimisnopeus on 3600 rpm, niin yhteen kierrokseen kuluu 1/3600&nbsp;min&nbsp;=&nbsp;16.6&nbsp;ms, mikä on tosi pitkä aika! Tätä voidaan huomattavasti keskimäärin pienentää lukemalla (kirjoittamalla) yhteen menoon usea sektori samalla sylinterillä.
 
-Kolmas saantiajan komponentti on itse datan siirto, mikä tarkoittaa yksinkertaisesti yhden sektorin lukemista tai kirjoittamista. Jos sektoreita on100 kpl uralla, niin siihen viittamiseen menee 1/100-osa levyn pyörähdysajasta. Esimerkiksi, jos pyörimisnopeus on 3600 rpm ja sektoreita uralla 100 kpl, niin yhden sektorin lukemiseen kuluu 1/100\*16.6&nbsp;ms&nbsp;=&nbsp;0.16&nbsp;ms.
+Kolmas saantiajan komponentti on itse datan siirto, mikä tarkoittaa yksinkertaisesti yhden sektorin lukemista tai kirjoittamista. Jos sektoreita on uralla 100 kpl, niin sektorin lukemiseen (kirjoittamiseen) menee 1/100-osa levyn pyörähdysajasta. Esimerkiksi, jos pyörimisnopeus on 3600 rpm ja sektoreita uralla 100 kpl, niin yhden sektorin lukemiseen kuluu 1/100\*16.6&nbsp;ms&nbsp;=&nbsp;0.16&nbsp;ms.
 
 ### Quiz 8.3.1 Sektorin ja levylohkon saantiajat
 
 <div><quiz id="ad4ba2d8-8a00-4123-90f8-e51474de1b76"></quiz></div>
 
-Kovalevyjen laiteohjaimet ja käyttöjärjestelmän laiteajurit optimoivat erilaisin keinoin keskimääräistä saantiaikaa. Jo mainittu usan sektorin levylohko on yksi keino. Palvelinkeskuksissa seuraavaksi luettava/kirjoitettava levylohko voisi olla esimerkiksi se, jonka tämän hetlkinen hakuaika on pienin. Kotikoneessa tämä ei usein ole mahdollista tai sillä ei ole väliä, kun suorituksessa on yhdellä kertaa yleensä vain yksi sovellus. Levyjenlaiteohjaimissa on usein suuria sisäisiä puskureita, joihin pyritään lukemaan auki olevien suurten tiedostojen seuraavia lohkoja mahdollisuuksien mukaan etukäteen. Levyjen käytön optimointimenetelmiin perehdytään tarkemmin ylioipiston käyttöjärjestelmäkurssilla.
+Käytössä on erilaisia tapoja optimoida keskimääräistä saantiaikaa jo mainitun usean sektorin levylohkon lisäksi. Konstit perustuvat yleensä siihen, että oletetaan jonossa olevan koko ajan usea levypyyntö. Sen jälkeen koetetaan palvella nuo levypyynnöt sellaisessa järjestyksessä, että kokonaishakuaikojen summa olisi mahdollismman pieni. Kotikoneessa tämä ei usein ole merkittävä ongelma, koska suorituksessa on yhdellä kertaa yleensä vain yksi sovellus. Levyjen käytön optimointimenetelmiin perehdytään tarkemmin yliopiston käyttöjärjestelmäkurssilla.
 
 ## SSD ja NVMe
-????
+Kovalevyjen rinnalle massamuisteiksi on viime vuosina tullut flash-teknologiaan perustuvia muisteja. [SSD-levyissä](https://fi.wikipedia.org/wiki/SSD) ei ole lainkaan liikkuvia osia, minkä vuoksi ne erityisen käyttökelpoisia kannettavissa laitteissa. Ne ovat toistaiseksi kalliimpia ja kuin kovalevyt (per GB). Ne ovat selvästi kovalevyä nopeampia, koska tietoon viittamiseen ei tarvita hakuaikoja tai pyörähdysviipeitä. Tiedot voi lukea pieniä paloina, mutta kirjoitus täytyy tehdä aina suhteellisen suurina lohkoina. Lisäksi niissä ei ole lämpöä tuottavaa sähkömoottoreita ja ne ovat hiljaisia. Pienenä ongelmana (hinnan lisäksi) tällä hetkellä on, että muistilohkoja voi kirjoittaa uudelleen vain rajallisen määrän kertoja (esim. 2000-100000 kertaa).  
 
+Alkuaan SSD-levyjä tuotiin markkinoille nimenomaan korvaamaan kovalevyjä ja ne myös liitettiin järjestelmään samojen väylien kautta. Niiden käyttöönotto oli helppoa, kun niitä pystyttiin käyttämään samojen rajapintojen läpi kovalevyjen kanssa. Tälla tavoin SSD-levyistä ei saatu kaikkea tehoa irti, koska kovalevyjen rajapinnat (ja väylät) rajoittivat niidennopeutta. Nykyään SSD-levyjäkin liitetään järjestelmään myös nopeampien väylien kautta.
+
+SSD-levyjen rinnalle on nyt tullut [NVMe-levyjä](https://en.wikipedia.org/wiki/NVM_Express), jotka eivät yritäkään näyttää kovalevyiltä. Tuollaista massamuistia käytetään erityisesti flash-teknologialle optimoiduilla tavoilla, jolloin ne ovat paljon nopeampia kuin SSD-toteutukset. Ne liitetään aina nopeaan väylään. 
+
+On luultavaa, että tämä flash-muistiteknologian kehittäminen massamuistien toteutuksessa jatkuu ja johtaa (vuosien päästä) lopulta kovalevyjen käytön loppumiseen. Uusi teknologia tulee luultavasti aiheuttamaan merkittäviä muutoksia käyttöjärjestelmien ja sovellusten toteutuksiin, kun muistihierarkiaan tulee uusi selkeä taso keskusmuistin ja kovalevyn väliin.
 
 ## Levypalvelimet
-????
+Levypalvelimet antavat samanlaista palvelua kuin muutkin massamuistit, mutta ne sijaitsevat eri tilassa (eri rakennuksessa? eri kaupungissa?) kuin niitä käyttävät järjestelmät. Levypalvelimet ovat yleensä suuria ja niissä on yleensä varauduttu yhden tai kahden levykön rikkoutumiseen jollain tavalla (esim. [RAID-teknologialla](https://simple.wikipedia.org/wiki/RAID)). Tiedot ovat siis siellä paremmassa turvassa kuin omalla kovalevyllä. 
 
-## Pilvipalvelimet
+Levypalvelimia käytetään verkon ylitse, minkä vuoksi niiden saantiajat ovat sekuntiluokkaa. Tätä kuitenkin nopeutetaan tehokkaalla puskuroinnilla, jossa tarvittavat tiedot kopioidaan taustalla omalle koneelle ja tarvittaessa sitten takaisin palvelimelle.
 
-???
+## Pilvitallennus
+Pilvitallennus ovat suhteellisen uusi tapa tallettaa tietoja. Pilvitallennus liittyy usea suuri palvelinkeskus, joissa kussakin on suuri määrä levypalvelimia. Tietoja kopioidaan eri palvelinkeskusten välillä, jolloin ne ovat varmemmin tallessa. Samoihin tietoihin voi päästä käsiksi ympäri maailmaa ja kukin käyttäjä luultavasti käyttää lopulta häntä lähinnä olevaa palvelinkeskusta. Käytettäessä pilvitallennusta pilvipalvelun tiedostot näkyvät paikallisena levypalvelimena. Pilvitallennus on hyvä vaihtoehto esimerkiksi valokuvien tai videoiden varmuuskopiointiin.
+
+Pilvitallennus ovat osa laajempaa pilvipalvelua, jossa asiakkaat voivat ostaa/vuokrata erilaisia palveluja verkon takana olevasta pilvestä haluamansa määrän. Pilvilaskennassa ostetaan/vuokrataan laskentakapasiteettia (suoritinaikaa) ja pilvijärjestelmässä ostetaan/vuokrataan kokonainen järjestelmä ohjelmistoineen. Pilvijärjestelmä voi sisältää suuren määrän suorittimia tai esimerkiksi tehokkaan tietokantaohjelmiston, joita asiakas ei haluaisi itse ostaa ja hallinnoida.
 
 ## Quizit 9.2
 <!-- Quiz 9.2.?? -->
