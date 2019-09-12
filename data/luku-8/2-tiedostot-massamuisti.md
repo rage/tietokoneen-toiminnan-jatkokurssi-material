@@ -33,7 +33,7 @@ Tiedoston lohkot on talletettu kovalevylle siellä oleviin vapaisiin paikkoihin 
 Tiedostojärjestelmän tarkempi toiminta esitellään yliopiston käyttöjärjestelmäkurssilla.
 
 ## Kovalevyn (kiintolevyn) toteutus
-Tyypillisin massamuistilaite nykyisissä tietokoneissa on edelleen kovalevy, vaikkakin varsinkin kannettavissa laitteissa SSD-levyt ovat yleistymässä. Käsittelemme SSD-levyjä lisää vähän myöhemmin.
+Tyypillisin massamuistilaite nykyisissä tietokoneissa on edelleen [kovalevy](https://www.wikiwand.com/fi/Kiintolevy), vaikkakin varsinkin kannettavissa laitteissa SSD-levyt ovat yleistymässä. Käsittelemme SSD-levyjä lisää vähän myöhemmin.
 
 Kovalevyä käytetään järjestelmässä kahteen tarkoitukseen, virtuaalimuistin tukimuistina ja tiedostojen talletukseen. Kummassakin tapauksessa tieto talletetaan levylle samalla tavalla, sektori kerrallaan. Sektori on pienin datamäärä, jota levylle voi yhdellä kertaa kirjoittaa tai jota sieltä voi lukea. Sektorin koko on tyypillisesti 0.5-4 KB. 
 
@@ -52,8 +52,38 @@ Virtuaalimuisti ja tiedostojärjestelmä siis käyttävät kovalevyä hyvin sama
 
 Kovalevyn kapasiteetista on huomattavan iso osuus varattu virtuaalimuistin tukimuistiksi. Siellä täytyy olla tilaa jokaiselle järjestelmässä olevan prosessin kaikille tiedoille. Et siis voi käyttää järjestelmäsi 500 GB kovalevyä pelkästää tiedostojen tallentamiseen! Käyttöjärjestelmä päättää järjestelmän alustuksen yhteydessä, kuinka suuri osuus kovalevystä varataan virtuaalimuistin toteutukseen.
 
-### Kovalevyn rakenne ja saantiaika
-???
+### Kovalevyn rakenne 
+Levy (levykkö) koostuu yhdestä tai useammasta päällekkäisestä levystä, joissa kussakin tietoa on yleensä talletettu molemmille levypinnoille. Suuremmissa (esim. 8 levyn) levyköissä voi olla, että ylin tai alin levypinta ei ole käytössä. Tiedot talletus levypinnoille tapahtuu samankeskisten urien (esim. 500-1000 kpl) avulla, jolloin uralta voi (esim.) lukea dataa luku- ja kirjoituspäätä liikuttamatta. Päällekkäin olevat urat eri levypinnoilla muodostavat sylinterin ja koko sylinteriltä voi lukea tai kirjoittaa dataa liikuttamatta luku- ja kirjoituspäätä.
+
+Levykkö pyörii koko ajan, esimerkiksi nopeudella 3600 rpm (rounds per minute, kierrosta minuutissa), 7200 rpm tai jopa 10000 rpm. Levyt ovat hermeettisesti suljettuja, jotta niiden sisään ei pääse pölyä tai muuta roskaa. Levypinnat liikkuvat luku- ja kirjoituspään alla hyvin nopeasti (esim. 1000-2000 m/s), joten luku- ja kirjoituspäähän kohdistuvat aerodynaamiset voimat ovat valtavat. Näitä voidaan vähentää täyttämät levyköt ilmaa kevyemmällä kaasulla, yleensä heliumilla. Luku-ja kirjoituspäiden aerodynamiikkaa kehitetään tuulitunnelien avulla.
+
+Jokaisella levypinnalla on oma luku- ja kirjoituspäänsä, joiden hakuvarret ovat kaikki kiinni samassa akselissa. Hakuvarret kääntyvät siis kaikki yhtäaikaa ja niillä valitaan nyt käytössä oleva ura. Jos seuraavaksi viitattava data ei ole samalla uralla kuin edellinen, niin hakuvartta pitää kääntää oikealle uralle. Tästä aiheutuu usein selvästi kuuluva surraava ääni tietkoneessa. Hakuvarren siirtoaika on merkittävä hidaste datan viittaamiseen levyllä.
+
+Jokainen ura on jaettu sektoreihin (esim 100 kpl) ja sektori on pienin mahdollinen yhdellä kertaa levyltä luettavissa/kirjoitettavissa oleva data. Usein kuitenkin levyltä luetaan/kirjoitetaan vielä suurempia levylohkoja kerrallaan, jolloin levylohkon koko on sektorien koon pieni monikerta. Tällä tavoin levyn tiedonsiirtonopeus saadaan suuremmaksi. 
+
+<!-- kuva: ch-8-2-levyn-rakenne    -->
+
+![Kaksi kuvaa. Vasemmalla koko levypakka eli levykkö. Siinä on 4 levylautasta päällekkäin ja levypinnat 0-7. Yhteisessä hakuvarressa on joka levypinnalle oma luku- ja kirjoitus päänsä. Jokasen levypinnan luku ja kirjoituspäät ovat siis aina samassa kohtaa. Oikealla on kuva yhdestä levypinnasta. Siinä on 3 samankeskistä uraa, joista jokainen on jaettu 8 sektoriin. Eri levypinnoillaolevat urat muodostavat sylinterin, jota voi lukea/kirjoittaa luku- ja kirjoituspäitä liikuttamatta.](./ch-8-2-levyn-rakenne.svg)
+<div>
+<illustrations motive="ch-8-2-levyn-rakenne" frombottom="0" totalheight="100%"></illustrations>
+</div>
+
+Pienissä ja halvoissa levyasemissa joka uralla on sama määrä sektoreita. Suurissa levyissä uloimmilla urilla voi enemmän sektoreita, mikä tekee levyn käytöstä vaikeampaa mutta kasvattaa sen kapasiteettia huomattavasti. Yleensä levyissä (pieni) osa sektoreista on merkitty varasektoreiksi, jotka otetaan käyttöön alkuperäisten sektoreiden vikaannuttua. Näin koko levyn muodollinen kapasiteetti säilyy samana, vaikka muutamia sektoreita vikaantuisikin.
+
+Sektoreiden ja urien välissä on levypinnoilla välejä ja ehkä myös erikoismerkkejä, joiden avulla luku-ja kirjoituspään ja levyn asento voidaan tunnistaa.
+
+### Kovalevyn saantiaika
+Ajatellaan yksinkertaista levyä, jossa joka uralla on sama määrä sektoreita. Kuinka kauan kestää tietyn sektorin lukeminen? Sektorin _saantiaika_ koostuu kolmesta komponentista. Ensinnäkin on _hakuaika_, mikä tarkoittaa luku- ja kirjoituspään siirtämistä oikealle uralle. Yksinkertaistetussa muodossa tätä voi estimoida lineaarisesti siirrettävien urienlukumäärän suhteen. Todellisuudessa hakuvarsi kiihdyttää ensin huippunopeuteensa, jatkaa siirtymistä huippunopeudella ja lopulta hidastaa pysähtyen juuri oikealle uralle.
+
+Toinen komponentti on _pyörähdysviive_ eli se aika mikä kuluu kunnes oikea sektori on luku- ja kirjoituspään kohdalla. Jos sektori on satunnainen, niintämä on keskimäärin puolen kierroksen kääntymiseen kuluva aika. Esimerkiksi, jos pyörimisnopeus on 3600 rpm, niin yhteen kierrokseen kuluu 1/3600&nbsp;=&nbsp;16.6&nbsp;ms, mikä on tosi pitkä aika! Tätä voidaan huomattavasti keskimäärin pienentää lukemalla (kirjoittamalla) yhteen menoon usea sektori samalla sylinterillä.
+
+Kolmas saantiajan komponentti on itse datan siirto, mikä tarkoittaa yksinkertaisesti yhden sektorin lukemista tai kirjoittamista. Jos sektoreita on100 kpl uralla, niin siihen viittamiseen menee 1/100-osa levyn pyörähdysajasta. Esimerkiksi, jos pyörimisnopeus on 3600 rpm ja sektoreita uralla 100 kpl, niin yhden sektorin lukemiseen kuluu 1/100\*16.6&nbsp;ms&nbsp;=&nbsp;0.16&nbsp;ms.
+
+### Quiz 8.3.1 Sektorin ja levylohkon saantiajat
+
+<div><quiz id="ad4ba2d8-8a00-4123-90f8-e51474de1b76"></quiz></div>
+
+Kovalevyjen laiteohjaimet ja käyttöjärjestelmän laiteajurit optimoivat erilaisin keinoin keskimääräistä saantiaikaa. Jo mainittu usan sektorin levylohko on yksi keino. Palvelinkeskuksissa seuraavaksi luettava/kirjoitettava levylohko voisi olla esimerkiksi se, jonka tämän hetlkinen hakuaika on pienin. Kotikoneessa tämä ei usein ole mahdollista tai sillä ei ole väliä, kun suorituksessa on yhdellä kertaa yleensä vain yksi sovellus. Levyjenlaiteohjaimissa on usein suuria sisäisiä puskureita, joihin pyritään lukemaan auki olevien suurten tiedostojen seuraavia lohkoja mahdollisuuksien mukaan etukäteen. Levyjen käytön optimointimenetelmiin perehdytään tarkemmin ylioipiston käyttöjärjestelmäkurssilla.
 
 ## SSD ja NVMe
 ????
