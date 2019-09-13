@@ -79,10 +79,6 @@ Toinen komponentti on _pyörähdysviive_ eli se aika mikä kuluu kunnes oikea se
 
 Kolmas saantiajan komponentti on itse datan siirto, mikä tarkoittaa yksinkertaisesti yhden sektorin lukemista tai kirjoittamista. Jos sektoreita on uralla 100 kpl, niin sektorin lukemiseen (kirjoittamiseen) menee 1/100-osa levyn pyörähdysajasta. Esimerkiksi, jos pyörimisnopeus on 3600 rpm ja sektoreita uralla 100 kpl, niin yhden sektorin lukemiseen kuluu 1/100\*16.6&nbsp;ms&nbsp;=&nbsp;0.16&nbsp;ms.
 
-### Quiz 8.3.1 Sektorin ja levylohkon saantiajat
-
-<div><quiz id="ad4ba2d8-8a00-4123-90f8-e51474de1b76"></quiz></div>
-
 Käytössä on erilaisia tapoja optimoida keskimääräistä saantiaikaa jo mainitun usean sektorin levylohkon lisäksi. Konstit perustuvat yleensä siihen, että oletetaan jonossa olevan koko ajan usea levypyyntö. Sen jälkeen koetetaan palvella nuo levypyynnöt sellaisessa järjestyksessä, että kokonaishakuaikojen summa olisi mahdollismman pieni. Kotikoneessa tämä ei usein ole merkittävä ongelma, koska suorituksessa on yhdellä kertaa yleensä vain yksi sovellus. Levyjen käytön optimointimenetelmiin perehdytään tarkemmin yliopiston käyttöjärjestelmäkurssilla.
 
 ## SSD ja NVMe
@@ -104,7 +100,7 @@ Pilvitallennus ovat suhteellisen uusi tapa tallettaa tietoja. Pilvitallennus lii
 
 Pilvitallennus ovat osa laajempaa pilvipalvelua, jossa asiakkaat voivat ostaa/vuokrata erilaisia palveluja verkon takana olevasta pilvestä haluamansa määrän. Pilvilaskennassa ostetaan/vuokrataan laskentakapasiteettia (suoritinaikaa) ja pilvijärjestelmässä ostetaan/vuokrataan kokonainen järjestelmä ohjelmistoineen. Pilvijärjestelmä voi sisältää suuren määrän suorittimia tai esimerkiksi tehokkaan tietokantaohjelmiston, joita asiakas ei haluaisi itse ostaa ja hallinnoida.
 
-## Quizit 9.2
-<!-- Quiz 9.2.?? -->
+### Quiz 8.2.1 Sektorin ja levylohkon saantiajat
 
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="ad4ba2d8-8a00-4123-90f8-e51474de1b76"></quiz></div>
+
