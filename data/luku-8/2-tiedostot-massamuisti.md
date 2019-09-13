@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Tässä????</lead>
+<lead>Tässä aliluvussa käydään läpi massamuistien eri toteutustavat. Erityisesti keskitytään kovalevyjen toteutukseen ja saantiajan laskentaan.</lead>
 </div>
 
 ## Tiedostojärjestelmä ja tiedostot
@@ -28,7 +28,7 @@ Jos tiedostoa luetaan vähän kerrallaan, niin tiedostojärjestelmä pitää kir
 <illustrations motive="ch-8-2-tiedoston-lohkot" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-Tiedoston lohkot on talletettu kovalevylle siellä oleviin vapaisiin paikkoihin ja tiedostojärjestelmä pitää kirjaa lohkojen sijainnista kovalevyllä. Tiedoston nimen perusteella hakemistosta löytyy tiedoston hakemistoalkio, josta löytyy esim. linkki sen tiedoston lohkolistaan. Lohkolistassa on tiedot jokaisen tämän tiedoston levylohkon sijainnista.
+Tiedoston lohkot on talletettu kovalevylle siellä oleviin vapaisiin paikkoihin ja tiedostojärjestelmä pitää kirjaa lohkojen sijainnista kovalevyllä. Tiedoston nimen perusteella hakemistosta löytyy tiedoston _hakemistoalkio_, josta löytyy esim. linkki sen tiedoston lohkolistaan. Lohkolistassa on tiedot jokaisen tämän tiedoston levylohkon sijainnista.
 
 Tiedostojärjestelmän tarkempi toiminta esitellään yliopiston käyttöjärjestelmäkurssilla.
 
