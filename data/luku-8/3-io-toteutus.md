@@ -23,9 +23,23 @@ Laiteohjaimella on kaksi rajapintaa, toinen järjestelmään päin ja toinen sen
 <illustrations motive="ch-8-3-laiteohjain"></illustrations>
 </div>
 
-Laiteohjaimen rekisterit ovat myös DCP:n viitattavissa, mistä voisi aiheutua samanaikaisuusongelmia. Esimerkiksi, jos sekä DD että DCP kirjoittaisivat yhtä aikaa samaan rekisteriin, niin lopputulos voisi olla hyvin sekava. Tämä mahdollisuus on vältetty ovelasti sillä tavoin, että ainoastaan DD kirjoittaa kontrollirekisteriin ja ainoastaan DCP kirjoittaa status-rekisteriin. DD viestii DCP:lle kontrollirekisterin kautta ja DCP viestii laiteajurille statusrekisterin kautta. 
+Laiteohjaimen rekisterit ovat myös DCP:n viitattavissa, mistä voisi aiheutua samanaikaisuusongelmia. Esimerkiksi, jos sekä DD että DCP kirjoittaisivat täsmälleen yhtä aikaa samaan rekisteriin, niin lopputulos voisi olla hyvin sekava. Tämä mahdollisuus on vältetty ovelasti sillä tavoin, että ainoastaan DD kirjoittaa kontrollirekisteriin ja ainoastaan DCP kirjoittaa status-rekisteriin. DD viestii DCP:lle kontrollirekisterin kautta ja DCP viestii laiteajurille statusrekisterin kautta. 
 
 Datarekisteri voi itse asiassa olla laitteesta riippuen hyvinkin suuri. Esimerkiksi levyohjaimien laiterekisterissä voi sijaita usea monen megatavun puskuri. Laiterekisteriä voivat lukea ja kirjoittaa sekä DD että DCP. Kirjoittamista ja lukemista synkronoidaan kontrolli- ja statusrekistereiden avulla.
+
+### Laiterekistereihin osoittaminen laiteajurista
+Laiteajuri voi siis viitata laiteohjaimen rekistereihin samalla tavalla kuin keskusmuistiinkin. Tästäseuraa, että konekäskyissä pitää jollain tavoin määritellä, kumpaan muistiin (keskusmuistiin vai laiteohjaimen rekistereihin) ollaan viittaamassa. 
+
+Yksi tapa on käyttää erityiskonekäskyjä, jolloin näiden käskyjen yhteydessä viittaus tapahtuu aina laiteohjaimen rekistereihin. Ttk-91 koneessa in- ja out-käskyt toimivat juuri näin. Esimerkiksi out-käsky kirjoittaa aina näytön datarekisteriin sen sijaan, että kirjoitettasiin johonkin päin muistia. 
+
+```
+in  r1, =kbd
+out r2, =crt
+```
+
+Intelin x86 arkkitehtuurissa on aivan vastaavat IN ja OUT käskyt. Esimerkiksi IN-käskyllä luetaan valitulta laitteelta 1, 2 tai neljä tavua dataa johonkin rekisteriin. Näitä käskyjä käyttämällä operaatiokoodista päätellään, mihin muistiin (keskusmuistiin vai laiteohjaimien rekistereihin) muistiviittaukset kohdistuvat.
+
+Toinen tapa on  ??????
 
 #### I/O tyypit
 ????
