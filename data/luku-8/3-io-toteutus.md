@@ -10,7 +10,22 @@ hidden: false
 </div>
 
 ## Laiteohjain ja laiteajuri
-????
+I/O:n toteutus on monimutkainen, koska siinä suoritetaan oikeasti samanaikaisesti kahta eri prosessia, joiden tulee koordinoida toimintaansa keskenään. Työnjako on jaettu kahteeneri prosessiin: suorittimella suorittavaan laiteajuriin (DD, device driver) ja laiteohjaimella suorittavaan laiteohjainprosessiin (DCP, device controller process). Laiteajuri on osa käyttöjärjestelmää ja jokaista laiteohjainta varten on siihen sopiva laiteajuri. 
+
+Laiteajuri pääsee suorittimelle suorittamaan aika ajoin, mutta DCP on periaatteessa suorituksessa koko ajan, koska laiteohjaimella ei ole mitään muuta tekemistä. Laiteajuri voi olla itsenäinen prosessi, jolloin käyttäjätason prosessin kutsuvat sitä viestein. Laiteajuri voi olla toteutettuna myös aliohjelmana, jolloin käyttäjäprosessit kutsuvat sitä aliohjelmien kutsukäskyillä tai SVC:llä. Joka tapauksessa laiteajuri (tai ainakin sen tärkeimmät osat) suoritetaan etuoikeutetussa tilassa.
+
+Laiteohjaimella on kaksi rajapintaa, toinen järjestelmään päin ja toinen sen kontrolloimiin laitteisiin. Emme käsittele varsinaisten laitteiden (esim. kovalevy, näyttä, näppäimistö) ohjauslogiikkaa.  Rajapinta järjestelmään tapahtuu väylän kautta ja siihen liittyy kolme muistialuetta, joita yleensä kutsutaan kontrolli-, status- ja datarekistereiksi. Suorittimella suorituksessa oleva laiteajuri pystyy viittaamaan näihin laiteohjaimen rekistereihin samalla tavalla kuin keskusmuistiinkin. 
+
+<!-- kuva: ch-8-3-laiteohjain    -->
+
+![Kaavakuva järjestelmästä, jossa on muisti, suoritin ja väylä. Muistissa on puskuri. Suorittimella on käyttäjäprosessi ja laiteajuri. Väylään on liitetty myös laiteohjain. Laiteohjaimen rajapinta väylälle koostuu data, kontrolli- ja statusrekistereistä. Laiteohjaimen ulkoiasten laitteiden rajapinnassa on kahden laittee ohjauslogiikat ja kumpaankin niistä on liitetty kovalevy. Laiteohjaimen toimintaa ohjaa siellä suorituksessa oleva laiteohjainprosssi.](./ch-8-3-laiteohjain.svg)
+<div>
+<illustrations motive="ch-8-3-laiteohjain"></illustrations>
+</div>
+
+Laiteohjaimen rekisterit ovat myös DCP:n viitattavissa, mistä voisi aiheutua samanaikaisuusongelmia. Esimerkiksi, jos sekä DD että DCP kirjoittaisivat yhtä aikaa samaan rekisteriin, niin lopputulos voisi olla hyvin sekava. Tämä mahdollisuus on vältetty ovelasti sillä tavoin, että ainoastaan DD kirjoittaa kontrollirekisteriin ja ainoastaan DCP kirjoittaa status-rekisteriin. DD viestii DCP:lle kontrollirekisterin kautta ja DCP viestii laiteajurille statusrekisterin kautta. 
+
+Datarekisteri voi itse asiassa olla laitteesta riippuen hyvinkin suuri. Esimerkiksi levyohjaimien laiterekisterissä voi sijaita usea monen megatavun puskuri. Laiterekisteriä voivat lukea ja kirjoittaa sekä DD että DCP. Kirjoittamista ja lukemista synkronoidaan kontrolli- ja statusrekistereiden avulla.
 
 #### I/O tyypit
 ????
