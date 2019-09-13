@@ -104,4 +104,5 @@ Pilvitallennus ovat osa laajempaa pilvipalvelua, jossa asiakkaat voivat ostaa/vu
 
 <div><quiz id="ad4ba2d8-8a00-4123-90f8-e51474de1b76"></quiz></div>
 <div><quiz id="b3fb891d-8f53-44ea-85df-edeb6c3e7f87"></quiz></div>
+<div><quiz id="afc11b28-8bf5-4563-a6c9-e8548e2669e7"></quiz></div>
 
