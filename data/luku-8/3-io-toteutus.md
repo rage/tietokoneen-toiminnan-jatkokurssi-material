@@ -86,7 +86,8 @@ loop load r1, &KBStatus   ; odota kunnes merkki valmis
      jneg r1, KBError     ; näppäimistö rikki, ei kytketty, tms.
      jzer r1, loop
 
-     load r1, &KBData     ; lue merkki
+     load r1, &KBData     ; lue merkki laitteelta
+     store r1, Buffer     ; vie se keskusmuistiin
      
      
 Laiteohjainprosessi (DCP)
@@ -115,7 +116,7 @@ Suorittimella suorituksessa oleva DD on eri asia. Koska oheislaite (esim. näpp�
 #### Keskeyttävä I/O (epäsuora I/O, indirect I/O, interrupt-driven I/O)
 Keskeyttävää I/O:ta käyttävä laiteohjain on kytketty dataväylän lisäksi myös _kontrolliväylään_. Siellä on erityisesti yksi johdin varattu I/O-laitekeskeytykselle. Kun DCP kirjoittaa tuolle johtimelle (eli aiheuttaa I/O-laitekeskeytyksen), niin keskusyksikön suoritin havaitsee tämän heti nykyisen konekäskyn suorituksen jälkeen ja siirtyy suorittamaan siihen liittyvää keskeytyskäsittelijää.
 
-DD voi nyt I/O-komennon annettuaan siirtyä odotustilaan ja järjestelmä voi suorittaa muita prosesseja odotusaikana. Kun DCP on lopulta saanut tehtävänsä tehtyä, niin se ensin kertoo siitä tilarekisterissä ja sitten aiheuttaa I/O-laitekeskeytyksen. Suorittimella suorituksessa oleva ohjelma suorittaa (etuoikeutetussa tilassa) nyt heti I/O-laitekeskeytyksen keskeytyskäsittelijän, joka siirtää DD:n odotustilasta valmis suoritukseen -tilaan (Ready-tilaan). Käyttöjärjestelmän vuoronantopolitiikasta riippuen DD pääsee suoritukseen heti paikalla tai sitten vasta vähän ajan päästä. Sitten DD heti lukee statusrekisterin arvon ja päättää jatkotoimista tämän I/O-tapahtuman suhteen.
+DD voi nyt I/O-komennon annettuaan siirtyä odotustilaan ja järjestelmä voi suorittaa muita prosesseja odotusaikana. Kun DCP on lopulta saanut tehtävänsä tehtyä, niin se ensin kertoo siitä tilarekisterissä ja sitten aiheuttaa I/O-laitekeskeytyksen. Suorittimella suorituksessa oleva ohjelma suorittaa (etuoikeutetussa tilassa) nyt heti I/O-laitekeskeytyksen keskeytyskäsittelijän, joka siirtää DD:n odotustilasta Valmis suoritukseen -tilaan (Ready-tilaan). Käyttöjärjestelmän vuoronantopolitiikasta riippuen DD pääsee suoritukseen heti paikalla tai sitten vasta vähän ajan päästä. Sitten DD heti lukee statusrekisterin arvon ja päättää jatkotoimista tämän I/O-tapahtuman suhteen.
 
 Aikaisempi esimerkin näppäimistö toimisi nyt seuraavanlaisesti:
 
@@ -133,7 +134,8 @@ Laiteajuri (DD)
      load r1, &KBStatus   ; lue status
      jneg r1, KBError     ; oliko jotain vialla?
 
-     load r1, &KBData     ; lue merkki
+     load r1, &KBData     ; lue merkki laitteelta
+     store r1, Buffer     ; vie se keskusmuistiin
      
      
 Laiteohjainprosessi (DCP)
@@ -155,6 +157,9 @@ wait load r1, Control    ; odota kunnes uusi pyyntö
      load r1, =1         ; aiheuta I/O-laitekeskeytys
      store r1, IOInt
 ```
+Keskeyttävän I/O:n yksi heikkous on sen suoraa I/O:ta hitaampi reagointinopeus. Suorassa I/O:ssa DD jatkaa suoritusta muutaman konekäskyä myöhemmin sen jälkeen kun DCP on ilmoittanut sille annetun tehtävän valmistumisesta. Keskeyttävässä I/O:ssa pitää ensin suorittaa keskeytyskäsittelijä, joka kutsuu siirtää DD:n Valmis suoritukseen -jonoon, josta se lopultan pääsee suoritukseen. Aikaa tähän kuluu vähintää yhden prosessin vaihdon verran.
+
+Edellisen esimerkin laiteajurin kaksi viimeistä riviä näyttävän selkeästi näiden kahden I/O-tyypin yhteisen heikkouden. Kaikki data virtaa sana kerrallaan CPU-rekisterin kautta ja sen tarvitsee kulkea muistiväylän läpi kaksi kertaa. Jos siirrettävä datamäärä on pieni (muutama tavu?), niin tästä ei ole haittaa. Mutta jos siirrettävänä on 4 KB tai 4 MB virtuaalimuistin sivu tai levylohko, niin tämä hidastaa I/O:ta tekevän prosessin ja koko järjestelmän suoritusta merkittävästi. Tämän ongelman ratkaisu on seuraavaksi esiteltävä DMA-I/O.
 
 #### DMA I/O
 
