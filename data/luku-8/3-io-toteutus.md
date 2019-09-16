@@ -23,7 +23,7 @@ Laiteohjaimella on kaksi rajapintaa, toinen järjestelmään päin ja toinen sen
 <illustrations motive="ch-8-3-laiteohjain"></illustrations>
 </div>
 
-Laiteohjaimen rekisterit ovat myös DCP:n viitattavissa, mistä voisi aiheutua samanaikaisuusongelmia. Esimerkiksi, jos sekä DD että DCP kirjoittaisivat täsmälleen yhtä aikaa samaan rekisteriin, niin lopputulos voisi olla sekava tai ainakin epämääräinen. Tämä mahdollisuus on vältetty ovelasti sillä tavoin, että ainoastaan DD kirjoittaa kontrollirekisteriin ja ainoastaan DCP kirjoittaa status-rekisteriin. DD viestii DCP:lle kontrollirekisterin kautta ja DCP viestii laiteajurille statusrekisterin kautta. 
+Laiteohjaimen rekisterit ovat myös DCP:n viitattavissa, mistä voisi aiheutua samanaikaisuusongelmia. Esimerkiksi, jos sekä DD että DCP kirjoittaisivat täsmälleen yhtä aikaa samaan rekisteriin, niin lopputulos voisi olla sekava tai ainakin epämääräinen. Tämä mahdollisuus on vältetty ovelasti esimerkiksi sillä tavoin, että ainoastaan DD kirjoittaa kontrollirekisteriin ja ainoastaan DCP kirjoittaa status-rekisteriin. DD viestii DCP:lle kontrollirekisterin kautta ja DCP viestii laiteajurille statusrekisterin kautta. 
 
 Datarekisteri voi itse asiassa olla laitteesta riippuen hyvinkin suuri. Esimerkiksi levyohjaimien laiterekisterissä voi sijaita usea monen megatavun puskuri. Laiterekisteriä voivat lukea ja kirjoittaa sekä DD että DCP. Datarekisterin kirjoittamista ja lukemista synkronoidaan kontrolli- ja statusrekistereiden avulla, joten sen käyttö on mahdollista ilman samanaikaisuusongelmia.
 
@@ -66,15 +66,99 @@ CmdPrint  equ 1    # tulostuskomento
 ### I/O-tyypit
 I/O-laitteet voidaan luokitella kolmeen eri tyyppiin sen mukaan, miten niiden laiteohjaimet on liitetty järjestelmään. Kaikki laiteohjaimet liitetään samaan väylähierarkiaan, mutta laitteiden funktionaalisuudessa on eroja. 
 
-Kaikkein yksinkertaisin toteutus on suora I/O, jossa laiteajuri ohjaa koko toimi
+#### Suora I/O (Direct I/O, Programmed I/O)
+Kaikkein yksinkertaisin toteutus on suora I/O, jota käyttävät laitteet tarvitsevat väyläliittymän ainoastaan sen _dataväylän_ osalta. Kuten luvussa 2 kerrottiin, niin väylän voi jakaa kolmeen komponenttiin: dDataväylässä siirtyy data, osoiteväylässä muistiosoitteet ja kontrolliväylässä väylänhallintaan liittyvät signaalit.
 
-#### I/O:n toteutus konekäskyillä
-????
-### Laiterekisterit
-???
+Suorassa I/O:ssa laiteajuri (DD) ohjaa koko toimintaa ja pysyy suorituksessa koko I/O-toiminnan ajan. Laiteajuri antaa laitteelle (sen laiteohjain prosessille, DCP:lle) komennon kirjoittamalla kyseinen komento laiteohjaimen kontrollirekisteriin. Sen jälkeen DD aktiivisesti pollaa (lukee) tilarekisterin arvoa, kunnes DCP on kirjoittanut sinne annetun komennon tulleen suoritetuksi.
 
-#### Laiterekistereihin osoittaminen laiteajurista
-???
+Laiteohjain ei siis käytä väylää lainkaan itse, vaan se kirjoittaa ja lukee omassa muistissaan olevia laiterekistereitä I/O:n toteuttamiseksi. Kun DCP on valmis uuteen I/O-tapahtumaan, se ensin nollaa (resetoi) tilarekisterin ja sitten pollaa (ikuisessa loopissa) kunnes tämän laitteen ajuri DD antaa sille uuden komennon.
+
+Oletetaan esimerkiksi, että uusi näppäimistö olisi toteutettu näin. Käytämme muistiinkuvattua I/O:ta, ja näppäimistön laiterekisterien osoitteeet ovat KBControl (kontrollirekisteri), KBStatus (statusrekisteri) ja KBData (data rekisteri). Näppäimistöltä voisi nyt lukea yhden merkin (yksinkertaistetun koodin avulla) seuraavanlaisesti:
+
+```
+Laiteajuri (DD)
+---------------
+    
+     load r1, =1          ; komento "Lue"
+     store r1, &KBControl
+
+loop load r1, &KBStatus   ; odota kunnes merkki valmis
+     jneg r1, KBError     ; näppäimistö rikki, ei kytketty, tms.
+     jzer r1, loop
+
+     load r1, &KBData     ; lue merkki
+     
+     
+Laiteohjainprosessi (DCP)
+-------------------------
+    
+     load r1, =0          ; resetoi status
+     store r1, Status     
+     
+wait load r1, Control    ; odota kunnes uusi pyyntö
+     jnzer r1, wait
+     
+     ...    ; odota, kunnes jotain näppäintä painettu.
+            ; painetun näppäimen koodi on r2:ssa 
+     store r2, Data
+     
+     load r1, =1         ; ilmoita ajurille
+     store r1, Status
+```
+
+Huomaa, että esimerkin DCP suorittaa laiteohjaimella. Laiteohjaimen suoritin ei yleensä ole lainkaan samantyyppinen keskusyksikön suorittimen kanssa eikä se yleensä käyttää lainkaan samanlaisia konekäskyjä. Tässä esimerkissä molemmilla suorittimilla on kuitenkin epärealistisesti (pedagogista syistä) samanlainen käskykanta. Joka tapauksessa DCP voi viitata laiteohjaimen rekistereihin (muistiin) suoraan. (Esimerkistä on tahallaan jätetty pois yksityiskohdat, joilla merkki annetaan käyttäjätason prosessille tai joilla päästää seuraavan merkin lukemiseen. Samoin siitä on jätetty pois erilaisten virheiden käsittelyrutiinit.)
+
+Suorassa I/O:ssa etuna on, että se on hyvin yksinkertainen toteuttaa. Huonona puolena on se, että kaikki odotus tapahtuu suorittamalla tiukkaa silmukkaa, kunnes luettu tieto on halutun mukainen. DCP:llä tämä ei haittaa, koska se on muusta järjestelmästä irrallinen laite. Sillä ole mitään muutakaan tekemistä sillä aikaa, kun se odottaa jonkin prosessin haluavan käyttää sitä (esim. näppäimistöä).
+
+Suorittimella suorituksessa oleva DD on eri asia. Koska oheislaite (esim. näppäimistö) voi olla hyvinkin hidas, niin odotusaika silmukassa voi olla suorittimen nopeuteen nähden hyvinkin pitkä, miljardeja looppeja. Esimerkiksi artikkelin kirjoittaja voi vaikka lähteä lounaalle välillä. Olisi järkevää, jos odotusaikana voisi tehdä jotain hyödyllistä. Hyödyllisiä tehtäviä voisi olla vaikkapa käyttöjärjestelmän hallinto tai kissankuvavideon näyttäminen. Tähän ongelmaan vastauksena on seuraavaksi esiteltävä keskeyttävä I/O.
+
+#### Keskeyttävä I/O (epäsuora I/O, indirect I/O, interrupt-driven I/O)
+Keskeyttävää I/O:ta käyttävä laiteohjain on kytketty dataväylän lisäksi myös _kontrolliväylään_. Siellä on erityisesti yksi johdin varattu I/O-laitekeskeytykselle. Kun DCP kirjoittaa tuolle johtimelle (eli aiheuttaa I/O-laitekeskeytyksen), niin keskusyksikön suoritin havaitsee tämän heti nykyisen konekäskyn suorituksen jälkeen ja siirtyy suorittamaan siihen liittyvää keskeytyskäsittelijää.
+
+DD voi nyt I/O-komennon annettuaan siirtyä odotustilaan ja järjestelmä voi suorittaa muita prosesseja odotusaikana. Kun DCP on lopulta saanut tehtävänsä tehtyä, niin se ensin kertoo siitä tilarekisterissä ja sitten aiheuttaa I/O-laitekeskeytyksen. Suorittimella suorituksessa oleva ohjelma suorittaa (etuoikeutetussa tilassa) nyt heti I/O-laitekeskeytyksen keskeytyskäsittelijän, joka siirtää DD:n odotustilasta valmis suoritukseen -tilaan (Ready-tilaan). Käyttöjärjestelmän vuoronantopolitiikasta riippuen DD pääsee suoritukseen heti paikalla tai sitten vasta vähän ajan päästä. Sitten DD heti lukee statusrekisterin arvon ja päättää jatkotoimista tämän I/O-tapahtuman suhteen.
+
+Aikaisempi esimerkin näppäimistö toimisi nyt seuraavanlaisesti:
+
+```
+Laiteajuri (DD)
+---------------
+    
+     load r1, =1          ; komento "Lue"
+     store r1, &KBControl
+
+     svc sp, =SLEEP       ; mene odotustilaan
+     
+     ... ; herää henkiin sitten joskus, kun käyttöjärjestelmä päättää
+     
+     load r1, &KBStatus   ; lue status
+     jneg r1, KBError     ; oliko jotain vialla?
+
+     load r1, &KBData     ; lue merkki
+     
+     
+Laiteohjainprosessi (DCP)
+-------------------------
+    
+     load r1, =0          ; resetoi status
+     store r1, Status     
+     
+wait load r1, Control    ; odota kunnes uusi pyyntö
+     jnzer r1, wait
+     
+     ...    ; odota, kunnes jotain näppäintä painettu.
+            ; painetun näppäimen koodi on r2:ssa 
+     store r2, Data
+     
+     load r1, =1         ; ilmoita ajurille
+     store r1, Status
+     
+     load r1, =1         ; aiheuta I/O-laitekeskeytys
+     store r1, IOInt
+```
+
+#### DMA I/O
+
+
 
 ###  Laiteohjainprosessi
 
