@@ -64,7 +64,9 @@ CmdPrint  equ 1    # tulostuskomento
 ```
 
 ### I/O-tyypit
-????
+I/O-laitteet voidaan luokitella kolmeen eri tyyppiin sen mukaan, miten niiden laiteohjaimet on liitetty järjestelmään. Kaikki laiteohjaimet liitetään samaan väylähierarkiaan, mutta laitteiden funktionaalisuudessa on eroja. 
+
+Kaikkein yksinkertaisin toteutus on suora I/O, jossa laiteajuri ohjaa koko toimi
 
 #### I/O:n toteutus konekäskyillä
 ????
