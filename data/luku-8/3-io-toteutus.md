@@ -219,11 +219,11 @@ Todellisuudessa DMA-I/O:lla kerralla siirrettävä data on yleensä suuri. Esime
 
 
 <text-box variant="example" name="Historiaa:  Transistori ja mikropiiri">
-Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Kilbyn piiri oli ensimmäinen (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Npuce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa.
+Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Kilbyn piiri oli ensimmäinen (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Npuce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa. Ensimmäinen kaupallinen mikripiiri Intel 4004 julkistettiin 1971. Sitä käytettiin japanilaisen Busicom-yhtiön tekemän laskimen toteutuksessa.   
 
 <!-- kuva: ch-8-1-ch-8-3-trans-mikropros    -->
 
-![selitys puuttuu ????  ](./ch-8-3-trans-mikropros.svg)
+![Vasemmalla kuva ensimmäisestä transitorissa. Se on asennettu (nyt) muovitelineeseen, jossa alhaalla on eri metalleja epämäääräisissä kerroksissa. Välissä on jokin eriste. Metallit on kytketty toisiinsa sekavalta näyttävien ohuempien ja paksumpien johtimien avulla. Oikealla on kuva Intel 4004 mikroprosessorista. Se on asennettu keraamisen eristeen päälle ja johtimet 16 alassojottavaan kuparijalkaan kulkevat keramiikan sisällä. ](./ch-8-3-trans-mikropros.svg)
 <div>
 <illustrations motive="ch-8-3-trans-mikropros"></illustrations>
 </div>
@@ -231,7 +231,7 @@ Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tu
 </text-box>
 
 ## Yhteenveto
-Tämä luku ...
+Tämä luvussa näytimme ensin, kunka virtuaalimuisti toimii ja kuinka ratkaisee keskusmuistin ja kovalevyn välisen suuren nopeuskuilun muistihierarkiassa. Seuraavaksi esiteltiin tiedostojärjestelmän päätoiminnot ja kuinka tiedostot voidaan toteuttaa erilaisilla massamuistilaitteilla. Pääasiassa keskityimme kuitenkin kovalevyjen toteutukseen. Tässä viimeisessä aliluvussa näytimme eri tavat toteuttaa I/O millä tahansa laitteella. erityisesti esittelimme, kuinka I/O:n toteutus tehdään yhteistyöllä keskusyksikön suorittimella suorittavan laiteohjaimen ja oheislaitteen laiteohjaimella suorittavan laiteohjainprosessin välillä. Mitä viisaampi laiteohjain on, sitä suuremman osan työstä se tekee ja sitä enemmän suoritinaikaa jää muille prosesseille keskusyksikön suorittimella.
 
 Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
