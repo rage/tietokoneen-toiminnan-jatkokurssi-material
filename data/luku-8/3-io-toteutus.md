@@ -213,10 +213,10 @@ wait load r1, Control    ; odota kunnes uusi pyyntö
 
 Todellisuudessa DMA-I/O:lla kerralla siirrettävä data on yleensä suuri. Esimerkiksi, kerralla voisi siirtää koko 4 KB levylohkon. Jos kovalevyn laiteohjain toteutetaan DMA-I/O:lla keskeyttävän I/O:n asemesta, niin DMA-I/O tapahtuu nopeammin kahdesta syystä. Ensinnäkin, tuo 4 KB virtaa väylän läpi vain kerran. Toiseksi, yhdessä I/O tapahtumassa kerralla siirettävä datamäärä on DMA-I/O:ssa suurempi (esim. 4 KB) kuin keskeyttävässä I/O:ssa (esim. 256 B), joten laiteajurin tarvitsee puuttua harvemmin I/O:n johtamiseen. Älykkään DMA-laitteen DCP tekee pääosan työstä itsenäisesti. Jos siirrettävä on vain yksi levylohko, niin DMA-laitteen laiteajuri aktivoituu vain kaksi kertaa. Ensin se pyytää DMA-laitetta siirtämään datan ja lopuksi se tarkistaa, että datasiirto on onnistunut.
 
-## Quizit 8.3 ????
 <!--  quizit 8.3.???  -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
-
+<div><quiz id="a5aab3ae-83ec-4e46-a3b5-dafedd922606"></quiz></div>
+<div><quiz id="a6471e8c-8469-473b-9e69-dbcda2612f6e"></quiz></div>
+<div><quiz id="aa38f3a3-878d-49c7-b93b-e104891a1971"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Transistori ja mikropiiri">
 Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Transistoreilla pystyttiin toteuttamaan sekä muisti että suorittimen logiikka. Kilbyn piiri oli ensimmäinen transistori (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Npuce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa. Ensimmäinen kaupallinen mikripiiri Intel 4004 julkistettiin 1971. Sitä käytettiin japanilaisen Busicom-yhtiön tekemän laskimen toteutuksessa.   </text-box>
