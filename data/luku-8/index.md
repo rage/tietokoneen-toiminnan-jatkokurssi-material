@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Ulkoinen muisti.... ??????
+Tässä luvussa kertaamme ensin muistihierarkian käsitteen ja sitten käymme läpi virtuaalimuistin pääperiaatteet. Seuraavassa aliluvussa esittelemme tiedostojärjestelmän yleensä ja sen toteutuksen erilaisilla massamuistilaitteilla. Erityisesti käymme läpi levymuistin toteutuksen. Lopuksi näytämme erilaiset I/O:n toteutusperiaatteet, joilla mikä tahansa laite voidaan liittää järjestelmään.
 
 <please-login></please-login>
 
