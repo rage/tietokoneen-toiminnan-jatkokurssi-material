@@ -76,21 +76,21 @@ Laiteohjain ei siis käytä väylää lainkaan itse, vaan se kirjoittaa ja lukee
 Oletetaan esimerkiksi, että uusi näppäimistö olisi toteutettu näin. Käytämme muistiinkuvattua I/O:ta, ja näppäimistön laiterekisterien osoitteeet ovat KBControl (kontrollirekisteri), KBStatus (statusrekisteri) ja KBData (data rekisteri). Näppäimistöltä voisi nyt lukea yhden merkin (yksinkertaistetun koodin avulla) seuraavanlaisesti:
 
 ```
-Laiteajuri (DD)
----------------
+Laiteajuri (DD) -- suora I/O
+----------------------------
     
      load r1, =1          ; komento "Lue"
      store r1, &KBControl
 
-loop load r1, &KBStatus   ; odota kunnes merkki valmis
+loop load r1, &KBStatus   ; odota näppäintä, 1 = OK, negat. arvo = vika
      jneg r1, KBError     ; näppäimistö rikki, ei kytketty, tms.
      jzer r1, loop
 
-     load r1, &KBData     ; lue merkki laitteelta
-     store r1, Buffer     ; vie se keskusmuistiin
+     load r1, &KBData     ; lue merkki laitteelta datarekisteristä
+     store r1, Buffer     ; vie merkki keskusmuistiin puskuriin
      
      
-Laiteohjainprosessi (DCP)
+Laiteohjainprosessi (DCP) 
 -------------------------
     
      load r1, =0          ; resetoi status
@@ -107,11 +107,11 @@ wait load r1, Control    ; odota kunnes uusi pyyntö
      store r1, Status
 ```
 
-Huomaa, että esimerkin DCP suorittaa laiteohjaimella. Laiteohjaimen suoritin ei yleensä ole lainkaan samantyyppinen keskusyksikön suorittimen kanssa eikä se yleensä käyttää lainkaan samanlaisia konekäskyjä. Tässä esimerkissä molemmilla suorittimilla on kuitenkin epärealistisesti (pedagogista syistä) samanlainen käskykanta. Joka tapauksessa DCP voi viitata laiteohjaimen rekistereihin (muistiin) suoraan. (Esimerkistä on tahallaan jätetty pois yksityiskohdat, joilla merkki annetaan käyttäjätason prosessille tai joilla päästää seuraavan merkin lukemiseen. Samoin siitä on jätetty pois erilaisten virheiden käsittelyrutiinit.)
+Huomaa, että esimerkin DCP suorittaa laiteohjaimella. Laiteohjaimen suoritin ei yleensä ole lainkaan samantyyppinen keskusyksikön suorittimen (CPU) kanssa eikä se käytä samanlaisia konekäskyjä. Yksinkertaisen laitteen laiteohjain voi olla suoraan toteutettuna mikropiireillä, jolloin mitään suoritinta tai laiteohjain_prosessia_ ei edes ole. Laitteen toimintaa voi silti hyvin kuvata DCP:n kaltaiseksi. Tässä esimerkissä laiteohjaimella on suoritin, jonka rakenne ja käskykanta ovat (pedagogista syistä) samanlaisia CPU:n kanssa. DCP voi viitata laiteohjaimen rekistereihin (sen muistiin) suoraan. Esimerkistä on tahallaan jätetty pois yksityiskohdat, joilla merkki siirretään puskurista (Buffer) käyttäjätason prosessille ja joilla DCP pääsee seuraavan merkin lukemiseen. Samoin siitä on jätetty pois erilaisten virheiden käsittelyrutiinit.
 
 Suorassa I/O:ssa etuna on, että se on hyvin yksinkertainen toteuttaa. Huonona puolena on se, että kaikki odotus tapahtuu suorittamalla tiukkaa silmukkaa, kunnes luettu tieto on halutun mukainen. DCP:llä tämä ei haittaa, koska se on muusta järjestelmästä irrallinen laite. Sillä ole mitään muutakaan tekemistä sillä aikaa, kun se odottaa jonkin prosessin haluavan käyttää sitä (esim. näppäimistöä).
 
-Suorittimella suorituksessa oleva DD on eri asia. Koska oheislaite (esim. näppäimistö) voi olla hyvinkin hidas, niin odotusaika silmukassa voi olla suorittimen nopeuteen nähden hyvinkin pitkä, miljardeja looppeja. Esimerkiksi artikkelin kirjoittaja voi vaikka lähteä lounaalle välillä. Olisi järkevää, jos odotusaikana voisi tehdä jotain hyödyllistä. Hyödyllisiä tehtäviä voisi olla vaikkapa käyttöjärjestelmän hallinto tai kissankuvavideon näyttäminen. Tähän ongelmaan vastauksena on seuraavaksi esiteltävä keskeyttävä I/O.
+Suorittimella suorituksessa oleva DD on eri asia. Koska oheislaite (esim. näppäimistö) voi olla hyvinkin hidas, niin odotusaika silmukassa voi olla suorittimen nopeuteen nähden hyvinkin pitkä, miljardeja looppeja. Esimerkiksi, artikkelin kirjoittaja voi vaikka lähteä lounaalle välillä. Olisi järkevää, jos odotusaikana voisi tehdä jotain hyödyllistä. Hyödyllisiä tehtäviä voisi olla vaikkapa käyttöjärjestelmän hallinto tai kissavideon näyttäminen. Tähän ongelmaan vastauksena on seuraavaksi esiteltävä keskeyttävä I/O.
 
 #### Keskeyttävä I/O (epäsuora I/O, indirect I/O, interrupt-driven I/O)
 Keskeyttävää I/O:ta käyttävä laiteohjain on kytketty dataväylän lisäksi myös _kontrolliväylään_. Siellä on erityisesti yksi johdin varattu I/O-laitekeskeytykselle. Kun DCP kirjoittaa tuolle johtimelle (eli aiheuttaa I/O-laitekeskeytyksen), niin keskusyksikön suoritin havaitsee tämän heti nykyisen konekäskyn suorituksen jälkeen ja siirtyy suorittamaan siihen liittyvää keskeytyskäsittelijää.
@@ -121,17 +121,17 @@ DD voi nyt I/O-komennon annettuaan siirtyä odotustilaan ja järjestelmä voi su
 Aikaisempi esimerkin näppäimistö toimisi nyt seuraavanlaisesti:
 
 ```
-Laiteajuri (DD)
----------------
+Laiteajuri (DD) -- keskeyttävä I/O
+----------------------------------
     
      load r1, =1          ; komento "Lue"
-     store r1, &KBControl
+     store r1, &KBControl ; kirjoita komento kontrollirekisteriin
 
      svc sp, =SLEEP       ; mene odotustilaan
      
      ... ; herää henkiin sitten joskus, kun käyttöjärjestelmä päättää
      
-     load r1, &KBStatus   ; lue status
+     load r1, &KBStatus   ; lue status, 1 = OK, negat. arvo = vika
      jneg r1, KBError     ; oliko jotain vialla?
 
      load r1, &KBData     ; lue merkki laitteelta
@@ -149,67 +149,83 @@ wait load r1, Control    ; odota kunnes uusi pyyntö
      
      ...    ; odota, kunnes jotain näppäintä painettu.
             ; painetun näppäimen koodi on r2:ssa 
-     store r2, Data
+     store r2, Data      ; kirjoita merkki datarekisteriin
+     
+     load r1, =1         ; ilmoita merkistä ajurille
+     store r1, Status    
+     
+     load r1, =1         ; aiheuta I/O-laitekeskeytys, jotta 
+     store r1, IOInt     ; ajuri pääsee joskus suoritukseen
+```
+
+Keskeyttävän I/O:n yksi heikkous on sen suoraa I/O:ta hitaampi reagointinopeus. Suorassa I/O:ssa DD jatkaa suoritusta muutaman konekäskyä myöhemmin sen jälkeen, kun DCP on ilmoittanut sille annetun tehtävän valmistumisesta. Keskeyttävässä I/O:ssa pitää ensin suorittaa keskeytyskäsittelijä, joka siirtää DD:n Valmis suoritukseen -jonoon, josta se lopultan pääsee suoritukseen. Aikaa tähän kuluu vähintää yhden prosessin vaihdon verran. Lisäksi aikaa on kulunut yhden prosessin vaihdon verran, kun DD meni odotustilaan aikoinaan.
+
+Edellisen esimerkin DD:n kaksi viimeistä riviä näyttävän selkeästi näiden kahden I/O-tyypin yhteisen heikkouden. Kaikki data virtaa sana kerrallaan CPU-rekisterin kautta ja sen tarvitsee kulkea muistiväylän läpi kaksi kertaa. Jos siirrettävä datamäärä on pieni (muutama tavu tai sana), niin tästä ei ole haittaa. Mutta jos siirrettävänä on 4 KB tai 4 MB virtuaalimuistin sivu tai levylohko, niin tämä hidastaa I/O:ta tekevän prosessin ja koko järjestelmän suoritusta merkittävästi. Ongelman ratkaisu on seuraavaksi esiteltävä DMA-I/O.
+
+#### DMA I/O
+DMA I/O:ssa ([Direct Memory Access](https://en.wikipedia.org/wiki/Direct_memory_access)) laiteohjain on vielä aikaisempia laitteita älykkäämpi. DMA-laiteohjain pystyy nyt siirtämään itse dataa keskusmuistin ja laiteohjaimen datarekisterin välillä, joten datan ei tarvitse kiertää CPU-rekisterien kautta. Datarekisteri voi näissä laitteissa olla hyvinkin suuri, sisältäen esimerkiksi 32 kappaletta 4 MB puskureita.
+
+On mahdollista, että DMA-laite voi itse käyttää _osoiteväylää_ ja tehdä itsenäisesti datasiirtoja. Yleensä järjestelmässä on kuitenkin erityinen _DMA-ohjain_, joka tekee tiedon siirron DMA-laitteiden puolesta. DMA-laitteen DCP pyytää tällöin DMA-laiteohjainta datasiirtoihin. Isommissa järjestelmissä tällainen keskitetty DMA-ohjain on parempi DMA:n toteutustapa, koska suurten DMA-datasiirtojen hallinta on vaikeata. Mikään laite ei saisi varata väylää liian pitkäksi aikaa, koska se hidastaa muiden prosessien suoritusta suorittimella. DMA-ohjainta käytettäessä kaikki DMA-laitteet toimivat samalla tavalla väylän käytön suhteen.
+
+Edellinen esimerkki ei ole hyvä DMA-laitteen osalta. Näppäimistöä ei mitenkään kannata toteuttaa DMA-I/O:n avulla, mutta jos näin tehtäisiin, niin esimerkkimme olisi seuraavanlainen.
+
+
+```
+Laiteajuri (DD) -- DMA I/O
+--------------------------
+
+     load r1, =Buffer     ; anna DCP:lle puskurin muistiosoite
+     store r1, &KBData
+
+     load r1, =1          ; komento "Lue" kontrollirekisteriin
+     store r1, &KBControl
+
+     svc sp, =SLEEP       ; mene odotustilaan
+     
+     ... ; herää henkiin sitten joskus, kun käyttöjärjestelmä päättää
+     
+     load r1, &KBStatus   ; lue status, 1 = OK, negat. arvo = vika
+     jneg r1, KBError     ; oliko jotain vialla?
+
+
+     
+     
+Laiteohjainprosessi (DCP)
+-------------------------
+    
+     load r1, =0          ; resetoi status
+     store r1, Status     
+     
+wait load r1, Control    ; odota kunnes uusi pyyntö
+     jnzer r1, wait
+     
+     ...    ; odota, kunnes jotain näppäintä painettu.
+            ; painetun näppäimen koodi on r2:ssa 
+            
+     store r2, &Data     ; talleta näppäinkoodi suoraan muistiin
      
      load r1, =1         ; ilmoita ajurille
      store r1, Status
      
-     load r1, =1         ; aiheuta I/O-laitekeskeytys
-     store r1, IOInt
+     load r1, =1         ; aiheuta I/O-laitekeskeytys, jotta 
+     store r1, IOInt     ; ajuri pääsee joskus suoritukseen
 ```
-Keskeyttävän I/O:n yksi heikkous on sen suoraa I/O:ta hitaampi reagointinopeus. Suorassa I/O:ssa DD jatkaa suoritusta muutaman konekäskyä myöhemmin sen jälkeen kun DCP on ilmoittanut sille annetun tehtävän valmistumisesta. Keskeyttävässä I/O:ssa pitää ensin suorittaa keskeytyskäsittelijä, joka kutsuu siirtää DD:n Valmis suoritukseen -jonoon, josta se lopultan pääsee suoritukseen. Aikaa tähän kuluu vähintää yhden prosessin vaihdon verran.
 
-Edellisen esimerkin laiteajurin kaksi viimeistä riviä näyttävän selkeästi näiden kahden I/O-tyypin yhteisen heikkouden. Kaikki data virtaa sana kerrallaan CPU-rekisterin kautta ja sen tarvitsee kulkea muistiväylän läpi kaksi kertaa. Jos siirrettävä datamäärä on pieni (muutama tavu?), niin tästä ei ole haittaa. Mutta jos siirrettävänä on 4 KB tai 4 MB virtuaalimuistin sivu tai levylohko, niin tämä hidastaa I/O:ta tekevän prosessin ja koko järjestelmän suoritusta merkittävästi. Tämän ongelman ratkaisu on seuraavaksi esiteltävä DMA-I/O.
-
-#### DMA I/O
-
-
-
-###  Laiteohjainprosessi
-
-
-## I/O:n toteutustavat
-???
-
-## Esimerkki: ttk-91 kirjoittimen laiteajuri
-????
-
-#### Ttk-91 kirjoittimen laiteajuri
-????
-
+Todellisuudessa DMA-I/O:lla kerralla siirrettävä data on yleensä suuri. Esimerkiksi, kerralla voisi siirtää koko 4 KB levylohkon. Jos kovalevyn laiteohjain toteutetaan DMA-I/O:lla keskeyttävän I/O:n asemesta, niin DMA-I/O tapahtuu nopeammin kahdesta syystä. Ensinnäkin, tuo 4 KB virtaa väylän läpi vain kerran. Toiseksi, yhdessä I/O tapahtumassa kerralla siirettävä datamäärä on DMA-I/O:ssa suurempi (esim. 4 KB) kuin keskeyttävässä I/O:ssa (esim. 256 B), joten laiteajurin tarvitsee puuttua harvemmin I/O:n johtamiseen. Älykkään DMA-laitteen DCP tekee pääosan työstä itsenäisesti. Jos siirrettävä on vain yksi levylohko, niin DMA-laitteen laiteajuri aktivoituu vain kaksi kertaa. Ensin se pyytää DMA-laitetta siirtämään datan ja lopuksi se tarkistaa, että datasiirto on onnistunut.
 
 ## Quizit 8.3 ????
 <!--  quizit 8.3.???  -->
 <div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
 
-<text-box variant="example" name="Historiaa:  Tyhjiöputki">
-
-Fe.....
-<!-- kuva: ch-8-3-tyhjioputki    -->
-
-![Kuvaselitys puuttuu ???.](./ch-8-3-tyhjioputki.svg)
-<div>
-<illustrations motive="ch-8-3-tyhjioputki"></illustrations>
-</div>
-credit....????
-
-</text-box>
 
 <text-box variant="example" name="Historiaa:  Transistori ja mikropiiri">
+Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Kilbyn piiri oli ensimmäinen (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Npuce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa.
 
-Transtori kuva:  https://commons.wikimedia.org/wiki/File:1st-Transistor.jpg 
-1947. 1956 Nobel (Shockleen, Bardeen, Brattain)
+<!-- kuva: ch-8-1-ch-8-3-trans-mikropros    -->
 
-Mikropiirikuva??
-Kilby & Noyce 1960, Noyce perustamassa Intel'iä 1968, Kilbylle Nobel 2000
-Intel 4004 (1971)
-  
-
-<!-- kuva: ch-8-1-transitori    -->
-
-![Vasemmalla  ](./ch-8-1-transitori.svg)
+![selitys puuttuu ????  ](./ch-8-3-trans-mikropros.svg)
 <div>
-<illustrations motive="ch-8-1-transitori"></illustrations>
+<illustrations motive="ch-8-3-trans-mikropros"></illustrations>
 </div>
 
 </text-box>
