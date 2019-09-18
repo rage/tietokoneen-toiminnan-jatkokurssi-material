@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Ulkoinen muisti.... ??????
+Tässä luvussa.....  Käännös, linkitys ja lataus
 
 <please-login></please-login>
 
