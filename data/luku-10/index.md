@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-??????
+Tässä luvussa ...... Luku 10: Tulkinta ja emulointi 
 
 <please-login></please-login>
 
