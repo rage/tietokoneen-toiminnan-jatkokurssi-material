@@ -1,5 +1,5 @@
 ---
-path: '/luku-9/4-emulointi-suorittimen-toteutustapana'
+path: '/luku-10/4-emulointi-suorittimen-toteutustapana'
 title: 'Emulointi suorittimen toteutustapana'
 hidden: false
 ---
