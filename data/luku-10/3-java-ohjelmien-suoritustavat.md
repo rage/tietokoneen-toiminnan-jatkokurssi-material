@@ -1,5 +1,5 @@
 ---
-path: '/luku-9/3-java-ohjelmien-suoritustavat'
+path: '/luku-10/3-java-ohjelmien-suoritustavat'
 title: 'Java-ohjelmien suoritustavat'
 hidden: false
 ---
