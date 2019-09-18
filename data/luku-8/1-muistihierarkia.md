@@ -60,4 +60,4 @@ Virtuaalimuistin toteutukseen liittyy huomattava määrä käyttöjärjestelmän
 
 ## Quizit 8.1
 <!-- Quiz 8.1.?? -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="a49e7f40-8317-4500-8162-d99c53124eb2"></quiz></div>
