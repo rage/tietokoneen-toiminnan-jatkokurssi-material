@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Käyttöjärjestelmän ?????</lead>
+<lead>Tässä aliluvussa kertaamme ensin muistihierarkian käsitteen. Useat järjestelmän laitteisto- ja ohjelmistoratkaisut ovat ratkaisuja muistihierarkiasta. Esittelemme sitten keskusmuistin ja levymuistin suuria koko- ja nopeuseroja tasoittavan virtuaalimuistin perustoiminnon.</lead>
 </div>
 
 ## Muistihierarkia
