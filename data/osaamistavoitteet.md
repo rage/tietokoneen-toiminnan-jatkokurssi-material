@@ -43,7 +43,7 @@ Osaat selittää laitteistoon voi tulla virheitä, vaikka laitteisto toimii moik
     <tr>
         <td>8</td>
         <td>
-Osaat selittää levymuistin rakenteen ja toiminnan sekä laskea levymuistiin talletetun tiedoston saantiajan. Osaat luokitella erilaiset I/O-menetelmät. Osaat selittää niiden toimintamenetelmät pääpiirteissään. Osaat selittää käyttöjärjestelmän laitteistorajapinnan toteutuksen laiteajurien ja keskeytyskäsittelijöiden avulla.  Osaat selittää tiedostopalvelimen ja tiedostovälimuistin perusidean.
+Osaat selittää tiedostopalvelimen ja tiedostovälimuistin perusideat. Osaat selittää levymuistin rakenteen ja toiminnan sekä laskea levymuistiin talletetun tiedoston saantiajan. Osaat luokitella erilaiset I/O-menetelmät. Osaat selittää niiden toimintamenetelmät pääpiirteissään. Osaat selittää käyttöjärjestelmän laitteistorajapinnan toteutuksen laiteajurien, laiteohjainprosessien ja keskeytyskäsittelijöiden avulla.  
         </td>
     </tr>    <tr>
         <td>9</td>
