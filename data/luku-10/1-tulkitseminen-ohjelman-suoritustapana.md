@@ -1,5 +1,5 @@
 ---
-path: '/luku-9/1-tulkitseminen-ohjelman-suoritustapana'
+path: '/luku-10/1-tulkitseminen-ohjelman-suoritustapana'
 title: 'Tulkitseminen ohjelman suoritustapana'
 hidden: false
 ---
