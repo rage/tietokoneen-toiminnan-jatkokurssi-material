@@ -1,5 +1,5 @@
 ---
-path: '/luku-9/2-java-virtuaalikone'
+path: '/luku-10/2-java-virtuaalikone'
 title: 'Java virtuaalikone (JVM)'
 hidden: false
 ---
