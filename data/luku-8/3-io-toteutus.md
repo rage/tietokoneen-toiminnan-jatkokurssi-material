@@ -235,6 +235,4 @@ Tämä luvussa näytettiin ensin, kunka virtuaalimuisti toimii ja kuinka se ratk
 
 Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
-### summary quizit ???
-
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="b203bc29-8dc2-41da-9ea6-eb51726af830"></quiz></div>
