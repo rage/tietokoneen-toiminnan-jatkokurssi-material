@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Tässä luvussa.....  Käännös, linkitys ja lataus
+Tässä luvussa.....  Käännös, linkitys ja lataus...  ????????
 
 <please-login></please-login>
 
@@ -13,7 +13,7 @@ Tässä luvussa.....  Käännös, linkitys ja lataus
 
 Yllä oleva sisällysluettelo sisältää kurssin luvun 9 aihealueet.
 
-Tämän tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminnan perusteet luvuille 1-4.
+Tämän Tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminnan perusteet luvuille 1-4.
 
 
 <exercises-in-this-section></exercises-in-this-section>
