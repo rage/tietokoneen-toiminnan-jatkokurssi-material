@@ -13,6 +13,6 @@ Tässä luvussa esittelemme, kuinka aliohjelmia (mukaanlukien funktiot ja metodi
 
 Yllä oleva sisällysluettelo sisältää kurssin luvun 6 aihealueet.
 
-Tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminnan perusteet luvuille 1-4.
+Tämän Tietokoneen toiminnan jatkokurssin luvut on numeroitu 5-10, koska ne ovat suoraan jatkumoa kurssin Tietokoneen toiminnan perusteet luvuille 1-4.
 
 <exercises-in-this-section></exercises-in-this-section>
