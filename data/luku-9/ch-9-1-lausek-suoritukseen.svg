@@ -380,10 +380,8 @@
        xml:space="preserve"><tspan
          y="159.91292"
          x="164.4558"
-         id="tspan5887">pid</tspan><tspan
-         y="166.08653"
-         x="164.4558"
-         id="tspan5889">1034</tspan></text>
+         id="tspan991">pid</tspan><tspan
+         id="tspan993">11034</tspan></text>
     <path
        id="path3680"
        d="m 174.28294,46.876431 12.37008,28.663325"
@@ -457,13 +455,13 @@
        xml:space="preserve"><tspan
          y="91.198166"
          x="5.9146376"
-         id="tspan5644">linkitys</tspan><tspan
+         id="tspan990">Linkitys</tspan><tspan
          y="97.37178"
          x="5.9146376"
-         id="tspan5646">muihin</tspan><tspan
+         id="tspan992">muihin</tspan><tspan
          y="103.54539"
          x="5.9146376"
-         id="tspan5648">moduuleihin </tspan></text>
+         id="tspan994">moduuleihin </tspan></text>
     <text
        id="text5433-7-2"
        y="134.66542"
@@ -491,6 +489,8 @@
        x="49.003918"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
+         y="25.732683"
+         x="49.003918"
          id="tspan989">Lausekielisestä ohjelmasta prosessiksi</tspan></text>
   </g>
 </svg>
