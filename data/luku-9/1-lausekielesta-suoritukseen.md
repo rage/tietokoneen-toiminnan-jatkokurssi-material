@@ -28,37 +28,39 @@ Hyvin tyypillistä ohjelmoinnissa on käyttää valmiita kirjastomoduuleja. Niis
 </div>
 
 ### Käännösyksikkö
-Korkean tason kielellä (kielillä) toteutetussa ohjelmassa perusyksikkö on _käännösyksikkö_. Ohjelma koostuu useasta käännösyksiköstä, joista kukin käännetään yksi kerrallaan. Tämä helpottaa suurenkin ohjelmiston kehitystyötä, kun suuri ohjelmisto koostuu pienemmistä käännösyksiköistä, jotka kukin ratkaisevat jonkin pienemmän osa ongelman. Esimerkiksi käyttöliittymä ihmisille voisi olla oma käännösyksikkönsä, samoin kuin matriisien kertolasku
+Korkean tason kielellä (kielillä) toteutetussa ohjelmassa perusyksikkö on _käännösyksikkö_. Ohjelma koostuu useasta käännösyksiköstä, joista kukin käännetään yksi kerrallaan. Tämä helpottaa suurenkin ohjelmiston kehitystyötä, kun suuri ohjelmisto koostuu pienemmistä käännösyksiköistä, jotka kukin ratkaisevat jonkin pienemmän osa ongelman. Esimerkiksi käyttöliittymä ihmisille voisi olla oma käännösyksikkönsä, samoin kuin matriisien kertolasku.
 
-Käännösyksikössä ei ole vielä mitään (muisti)osoitteita ("osoiteavaruutta"), vaan kaikki viittaukset muuttujiin, tietorakenteisiin ja ohjelman osoitteisiin tehdään kyseisen korkean tason ohjelmointikielen symbolien avulla.  
+Käännösyksikössä ei ole vielä mitään (muisti)osoitteita ("osoiteavaruutta"), vaan kaikki viittaukset muuttujiin, tietorakenteisiin ja ohjelman osoitteisiin tehdään kyseisen korkean tason ohjelmointikielen symbolien avulla.  Mitä pienempiä käännösyksiköt ovat, sitä nopeammin niiden kääntäminen tapahtuu.
 
-Linux- ja window-järjestelmissä C-kieliset käännösyksiköt nimetään loppuliitteellä _.c_. Pieni ohjelma voi koostua vain yhdestä käännösyksiköstä, esim. _prog.c_. Kääntäjä kääntää käännösyksiköt yksi kerrallaan _objektimoduuleiksi_.
+Linux- ja window-järjestelmissä C-kieliset käännösyksiköt (tiedostot) nimetään loppuliitteellä _.c_. Pieni ohjelma voi koostua vain yhdestä käännösyksiköstä, esim. _prog.c_. Kääntäjä kääntää käännösyksiköt yksi kerrallaan _objektimoduuleiksi_.
 
 
 ### Objektimoduuli
-Objektimoduulissa koodi on jonkin tietyn suorittimen konekieltä. Käännösyksikön muistiosoitteita vastaavat symbolit on nyt muutettu muistiosoitteiksi tämän käännösyksikön omaan _osoiteavaruuteen_. Kukin objektimoduuli on suhteellisen pieni, joten sen osoiteavaruuskin on suhteellisen pieni, esim. 0-4765, 0-234567 tai 0-87654321. Jokaisella objektimoduulilla on ihan oma nollasta alkava osoiteavaruutensa, johon kaikki koodi- ja data muistiviitteet kohdistuvat.
+Objektimoduulissa koodi on jonkin tietyn suorittimen konekieltä. Käännösyksikön muistiosoitteita vastaavat symbolit on nyt muutettu muistiosoitteiksi tämän käännösyksikön omaan _osoiteavaruuteen_. Kukin objektimoduuli on suhteellisen pieni, joten sen osoiteavaruuskin on suhteellisen pieni, esim. 0-4765, 0-234567 tai 0-7654321. Kaikki on suhteellista. Jokaisella objektimoduulilla on oma nollasta alkava osoiteavaruutensa, johon kaikki koodi- ja data muistiviitteet kohdistuvat.
 
-Linuxissa tavallisen käännetyn objektimoduulin nimen loppuliite on _.o_, mutta kirjastojen objektimoduulien loppuliite on _.l_. Muutoin kirjastojen objektimoduulit ovat ihan samanlaisia ja ne on käännetty (suoritusaikaa optimoiden) samanlaisista käännösyksiköistä. Windows-järjestelmissä objektimoduulien loppuliite tavallisilla objektimoduuleilla on _.obj_ ja kirjastomoduuleilla _.sll_ (tai _.dll_, mutta emme käsittele niitä nyt). 
+Linuxissa tavallisen käännetyn objektimoduulin nimen loppuliite on _.o_, mutta kirjastojen objektimoduulien loppuliite on _.l_. Muutoin kirjastojen objektimoduulit ovat ihan samanlaisia ja ne on käännetty (suoritusaikaa optimoiden) samanlaisista käännösyksiköistä. Windows-järjestelmissä objektimoduulien loppuliite tavallisilla objektimoduuleilla on _.obj_ ja kirjastomoduuleilla _.sll_ (statically linked library). 
 
-Eri ohjelmointikielillä kirjoitettujen käännösyksiköiden objektimoduuleilla on sama rakenne. Tämä on hyvin käyttökelpoista, koska se tekee helpoksi erilaisten ohjelmointikielien käytön saman ohjelman toteutuksessa. Esimerkiksi jokin Java-ohjelma saattaa käyttää helpommin optimoitavalla C-kielellä kirjoitettua matematiikkakirjastoa tai tekoälykielellä kirjoitettua puheentunnistuskirjastoa.
+Eri ohjelmointikielillä kirjoitettujen käännösyksiköiden objektimoduuleilla on sama rakenne. Tämä on hyvin käyttökelpoista, koska se tekee helpoksi eri ohjelmointikielien käytön saman ohjelman toteutuksessa. Esimerkiksi, Java-ohjelma saattaa käyttää helpommin optimoitavalla C-kielellä kirjoitettua matematiikkakirjastoa tai tekoälykielellä kirjoitettua puheentunnistuskirjastoa.
 
-Esimerkkimme ohjelman _prog.c_ objektimoduuli Linux-järjestelmässä olisi nimeltään _prog.o_ ja sen käyttämä matematiikkakirjasto (sen objektimoduuli) _math.l_. Windows-järjestelmissä nuo moduulit olisivat vastaavasti _prog.obj_ ja _math.sll_.
+Esimerkkimme ohjelman _prog.c_ objektimoduuli (tiedosto) Linux-järjestelmässä olisi nimeltään _prog.o_ ja sen käyttämä matematiikkakirjasto (sen objektimoduuli) _math.l_. Windows-järjestelmissä nuo moduulit olisivat vastaavasti _prog.obj_ ja _math.sll_.
 
 ### Ajomoduuli eli latausmoduuli
-Käännösyksiköistä käännetyt objektimoduulit linkitetään yhteen _ajomoduuliksi_. Ajomoduulissa yksittäisten objektimoduulien osoiteavaruudet täytyy yhdistää, mikä on jonkin verran hankala tehtävä. Esimerkiksi, jos muuttujan X osoite objektimoduulissa _prog.o_ oli 0x0A57, niin ajomoduulissa se voi olla 0x00045424 ja kaikki viittaukset osoitteeseen 0x0A57 moduulissa _prog.o_ täytyy päivittää arvoon 0x00045424.
+Käännösyksiköistä käännetyt objektimoduulit linkitetään yhteen _ajomoduuliksi_. Ajomoduulissa yksittäisten objektimoduulien osoiteavaruudet täytyy yhdistää linkittämällä, mikä on jonkin verran hankala tehtävä. Esimerkiksi, jos muuttujan X osoite objektimoduulissa _prog.o_ oli 0x0A57, niin ajomoduulissa se voi olla 0x00045424 ja kaikki viittaukset osoitteeseen 0x0A57 moduulissa _prog.o_ täytyy päivittää arvoon 0x00045424.
 
-Ajomoduulin osoiteavaruuden koko on siihen linkitettyjen objektimoduulien osoiteavaruuksien kokojen summa ja se voi olla aika iso. Kaikki data- ja koodiviittaukset eri moduuleissa kohdistuvat nyt kuietnkin tähän yhteen ja samaan lineaariseen isoon osoiteavaruuteen.
+Ajomoduulin osoiteavaruuden koko on siihen linkitettyjen objektimoduulien osoiteavaruuksien kokojen summa ja se voi olla aika iso. Kaikki data- ja koodiviittaukset eri moduuleissa kohdistuvat nyt kuitenkin tähän yhteen ja samaan lineaariseen isoon osoiteavaruuteen.
 
-Linuxissa latausmoduuleilla ei ole tiedoston nimessä mitään erityistä loppuliitettä, mutta Windowsissa nimessä on usein loppuliite _.exe_. Esimerkin ohjelman _prog.c_ ajomoduuli (tiedosto) voisi olla Linuxissa nimeltään _prog_ ja Windowsissa _prog.exe_.
+Linkitys on sitä monimutkaisempaa, mitä useampi objektimoduuli linkitetään yhteen. Kun isohko ohjelma jaetaan erillisiin käännösyksiköihin, joiden erikseen käännetyt objektimoduulit pitää yhdistää linkittämällä, tilanne on aina kompromissi. Jos käännösyksiköt ovat pieniä, ne on nopea kääntää ja ohjelmiston kehitys on nopeata sen käännösyksikön osalta. Toisaalta taas siitä seuraa suuri määrä objektimoduuleja. Näillä voi suuri määrä liitoksia toisiinsa ja niiden linkitys voi olla työlästä. Jos taas käännösyksiköt ovat suuria, niiden kehittäminen on hitaampaa, kun jokaisen pikkumuutoksen jälkeen pitää suuri käännösyksikkö kääntää uudelleen. Lopuksi tapahtuva linkitys on kuitenkin tässä tapauksessa helpompaa.
+
+Usein linkitystä tehdään myös vaiheittain. Ensin voidaan esimerkiksi linkittää paljon toisiinsa sidoksissa olevat objektimoduulit toisiinsa ja vasta lopuksi linkitetään yhteen kaikki osittain linkitetyt moduulit. 
+
+Joissakin tapauksissa osa linkityksestä voidaan tehdä vasta suoritusaikana tarvittaessa. Huonona puolena on suorituksen keskeytyminen pitkäksikin aikaa, koska linkitys voi kestää kauan. Windowsissa useat kirjastomoduulit ovat tällaisia suoritusaikana dynaamisesti linkitettäviä moduuuleja ja ne on nimetty _.dll_ (dynamically linked library) loppuliitteellä. Etuna dynaamisesti linkitettävien moduulien käytöstä on, että ajomoduuleista tulee näin pienempiä, jolloin ne on nopeampia ladata muistiin suoritusta varten. Esimerkiksi tietokonepelissä eri pelitasojen toteutus voi olla omissa dynaamisesti linkitettävissä kirjastomoduuleissaan, jotka linkitetään paikalleen vasta tarvittaessa. Pelaaja huomaa tänä selvänä viiveenä tasolta toiseen siirryttäessä. Useimpien pelaajien osalta ylempiä tasoja ei tosin tarvita koskaan.
+
+Linuxissa ajomoduuleilla ei ole tiedoston nimessä mitään erityistä loppuliitettä, mutta Windowsissa nimessä on usein loppuliite _.exe_. Käyttöjärjestelmän lataaja tunnistaa ajomoduulit niiden sisäisestä tiedoista riippumatta siitä, minkä nimisiä ne ovat. Esimerkin ohjelman _prog.c_ ajomoduuli (tiedosto) voisi olla Linuxissa nimeltään _prog_ ja Windowsissa _prog.exe_.
 
 ### Prosessi
 Prosessi on käyttöjärjestelmän tunnistama jonkin ohjelman instanssi. Se luodaan ajomuoduulista lataamalla. Samasta ohjelmasta voi olla monta prosessia samaan aikaan järjestelmässä. Prosessilla on oma suurehko osoiteavaruutensa, joka on vielä vähän isompi kuin ajomoduulissa oli. Siinä on nyt mukana käyttöjärjestelmän tarvitsemat prosessin hallintaan liittyvät alueet.
 
-Prosessit tunnistetaan järjestelmässä niiden uniikeista tunnuksista (pid, process id). Esimerkin ohjelmasta _prog.c_ saataisiin Linuxista vaikkapa prosessi 1326 ja Windowsissa prosessi 1034.
-
-
-
-
+Prosessit tunnistetaan järjestelmässä niiden uniikeista tunnuksista (pid, process id). Esimerkin ohjelmasta _prog.c_ saataisiin Linuxista vaikkapa prosessi 1326 ja Windowsissa prosessi 11034.
 
 
 ## Quizit 9.1  
