@@ -7,7 +7,7 @@ hidden: false
 <div>
 <lead>Tässä luvussa 9 esittelemme, kuinka korkean tason kielellä (esim. Java tai C) kirjoitetusta ohjelmasta saadaan järjestelmän suorittimella suoritettava prosessi. Vaiheet ovat kääntäminen, linkittäminen ja lataaminen. 
 <br><br>
-Seuraavassa luvussa 10 käsitellään toisenlainen ohjelmien suoritustapa tulkitsemalla, jossa annettua ohjelmaa suorittaakin toinen ohjelma (tulkki), joka on suorituksessa suorittimella. </lead>
+Seuraavassa luvussa 10 käsitellään toisenlainen ohjelmien suoritustapa tulkitsemalla, jossa annettua ohjelmaa suorittaakin toinen ohjelma (tulkki, emulaattori tai simulaattori), joka on suorituksessa suorittimella. </lead>
 </div>
 
 ## Lausekielisestä ohjelmasta prosessiksi
