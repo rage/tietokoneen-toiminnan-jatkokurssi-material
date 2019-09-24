@@ -10,7 +10,7 @@ hidden: false
 Seuraavassa luvussa 10 käsitellään toisenlainen ohjelmien suoritustapa tulkitsemalla, jossa annettua ohjelmaa suorittaakin toinen ohjelma (tulkki), joka on suorituksessa suorittimella. </lead>
 </div>
 
-## Lausekielestä prosessiksi
+## Lausekielisestä ohjelmasta prosessiksi
 Tavanomainen tapa suorittaa ohjelmia on tehdä niistä käyttöjärjestelmän tunnistama prosessi, jonka konekielisiä käskyjä suoritin suorittaa. Ohjelmien kirjoittaminen konekielellä on jonkin verran työlästä, minkä vuoksi on kehitetty ensin symbolisia konekieliä ja sitten korkean tasonkieliä. Ttk-91 koneen symbolinen konekieli on hyvä esimerkki. On paljon mukavampaa kirjoittaa koodia käyttäen symbolista konekieltä kuin puhdasta numeerista konekieltä. Ennen suoritusta symbolinen konekieli pitää kuitenkin sitten kääntää konekielelle ja palaamme tähän käännökseen vähän myöhemmin.
 
 Korkean tason kielet on kehitetty ohjelmoijan näkökulmasta. Kukin korkean tason kieli antaa vähän erilaisen ajattelun välineen jonkin ohjelmointiongelman ratkaisemiseksi. Ohjelmoinnin ammattilaiset osaavat useita ohjelmointikieliä ja yleensä ensimmäinen vaihe ohjelmointiprojektissa on valita juuri siihen ongelmaan sopiva ohjelmointikieli. Puhtaan numeerisen laskennan määrittelyyn paras ohjemointikieli voisi olla Fortran tai C, tietokannan toiminnan kuvaamiseen SQL, monimutkaisen sumean logiikan kuvaamiseen Prolog tai Lisp, jne. Usein kielen valintaan vaikuttaa myös oman organisaation ohjelmointistandardit, jolloin standardoinnin tarve voi olla tärkeämpää kuin ongelman ratkaisu siihen parhaiten sopivalla kielellä.
@@ -50,24 +50,8 @@ Käännösyksiköistä käännetyt objektimoduulit linkitetään yhteen _ajomodu
 <illustrations motive="ch-9-1-lausek-suoritukseen" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-### Käännös
-????
 
-### Objektimoduuli ja symbolitaulu
-????
 
-### Makrot
-????
-
-### Literaalit
-????
-
-## Linkitys
-???
-
-## Lataus
-????
-
-## Quizit 9.1
+## Quizit 9.1  
 <!-- Quiz 9.1.?? -->
 <div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
