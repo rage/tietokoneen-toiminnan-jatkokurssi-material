@@ -190,7 +190,7 @@
        height="173.49107"
        width="210.53275"
        id="rect14155"
-       style="opacity:1;fill:#ffedb9;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#ffedb9;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="145.99313"
        x="41.962975"
@@ -381,6 +381,8 @@
          y="159.91292"
          x="164.4558"
          id="tspan991">pid</tspan><tspan
+         y="166.08653"
+         x="164.4558"
          id="tspan993">11034</tspan></text>
     <path
        id="path3680"
@@ -485,12 +487,12 @@
          id="tspan7234">windows</tspan></text>
     <text
        id="text5433-7-7"
-       y="25.732683"
-       x="49.003918"
+       y="26.801762"
+       x="25.751469"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="25.732683"
-         x="49.003918"
+         y="26.801762"
+         x="25.751469"
          id="tspan989">Lausekielisestä ohjelmasta prosessiksi</tspan></text>
   </g>
 </svg>
