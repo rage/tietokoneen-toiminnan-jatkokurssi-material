@@ -6,6 +6,8 @@ overview: true
 
 Kertaamme aluksi luvussa 2 esitellyn esimerkkisuorittimen ttk-91 rakenteen. Seuraavaksi näytämme peruskontrollirakenteiden eli valinnan ja toiston toteutusmekanismit. Tieto on usein organisoitu rakenteiseksi, käyttäen taulukoita ja tietueita. Käymme läpi rakenteisin tiedon esitysmuodot ja kuinka niihin viitataan. Käymme sitten läpi, kuinka koodin suoritusnopeutta voi optimoida. Tarkoitus on harjoitella myös käytännössä konekielistä ohjelmointia ja sitä varten esittelemme harjoitteluympäristöt Titokone ja TitoTrainer.
 
+Seuraavassa luvussa 6 esittelemme, kuinka aliohjelmat (metodit) toteutetaan konekielellä.
+
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
