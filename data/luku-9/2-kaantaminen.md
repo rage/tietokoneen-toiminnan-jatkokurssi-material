@@ -134,10 +134,29 @@ Tässä esimerkissä makro Prelude-f-2-1-1() on vähän kompelö, koska sen käy
 
 Makroilla on muutama tärkeä ominaisuus verrattuna aliohjelmiin. Mainitsimmekin jo, että makrot siis lajennetaan koodiksi ennen käännöstä, kun taas aliohjelmia kutsutaan suoritusaikana. Koska jokainen makron käyttökerta laajenee aina koodiksi, niin 100 50-rivisen makron käyttökertaa laajenee 5000 riviksi koodia. Jos 50-rivistä aliohjelmaa kutsutaan 100 kertaa, niin koodin määrä on vain yhden aliohjelman toteutuksen n. 60 riviä. Lisäksi jokaisen kutsukerran toteutus on ehkä 10 riviä, joten yhteistarve on ehkä 60+100\*10&nbsp;=&nbsp;1060 riviä koodia. Makrosta generoitu koodi on paikallaan sellaisenaan, eikä vaadi kontrollin siirtoa suoritusaikana. Aliohjelman yhteydessä taas jokainen kontrollin siirto vaatii esim. 10-15 konekäskyn suorituksen aktivaatiotietuetta rakennettaessa tai purettaessa.
 
-Makroilla on merkittävä ..........     viiteympäristön muutos...  ????
+Makrojen merkittävä ero aliohjelmiin on, että makroilla ei ole omaa viiteympäristöä, koska makrot laajennetaan sellaisenaan käyttökohtiinsa. Aliohjelmilla voidaan toteuttaa korkean tason kielten erilaiset viiteympäristöt. Esimerkiksi C-kielessä kussakin aliohjelmassa voi viitata vain sen omiin paikallisiin tietorakenteisiin ja globaaleihin kaikkialla viitattaviin tietorakenteisiin, mutta ei minkään muun aliohjelman paikallisiin tietorakenteisiin. Kullakin ohjelmointikielellä on omat määrittelynsä siitä, mikä on kunkin tunnuksen näkyvyysalue (käyttöalue). Tunnusten näkyvyysalueet toteutetaan aktivaatiotietueiden avulla. 
 
 ## Assembler kääntäminen
-????
+Symbolisen konekielen käännös tapahtuu periaatteesa kolmessa eri vaiheessa, mutta joskus näitä vaiheita voi yhdistellä. Kussakin vaiheessa käydään läpi koko käännösyksikkö alusta loppuun. Ensimmäisessä vaiheessa lasketaan kunkin konekäskyn vievä tila, generoidaan symbolitaulu ja uudelleensijoitustaulu. Ttk-91 koneessa kukin konekäsky on saman mittainen (4 tavua), mutta esimerkiksi Intelin x86 arkkitehtuurin käskyt voivat olla 1-21 tavua mittaisia. Ensimmäisen vaiheen jälkeen symbolitauluun on saatu tieto kaikkien tämän moduulin symbolien arvoista.
+
+``` 
+käännösyksikkö              data/koodi     symb.taulu
+x 	dc 	13          -->  0:            13       x: 0
+y 	dc 	15          -->  1:            15       y: 1
+
+st   in   r1, =kbd  -->  2:   3 1 0 0   1      st: 2
+	   jzer r1, done  -->  3:  34 1 0 0   ?    done: ? 
+     out r1, =crt   -->  4:   4 1 0 0   0
+	   jump st        -->  5:  32 0 0 0   2
+done svc sp,=hal    -->  6: 112 6 0 0  11    done: 6
+```
+
+Huomaa, että kun symboli _done_ esitellään käskyn 3 yhteydessä, sen arvoa ei vielä tunneta. Käskyn 6 kohdalla tunnus _done_ esiintyy osoitekentässä, joten sen arvo 6 määräytyy symbolitauluun. Yhden läpikäynnin jälkeen kaikilla tämän moduulin sisäisillä tunnuksilla on arvo.
+
+Toisella läpikäynnillä koodi käydään uudestaan läpi konekäsky kerrallaan ja kaikki ensimmäisellä kerralla tuntemattomaksi jääneet tunnukset korvataan niiden arvolla symbolitaulusta. Koodissa voi tietenkin olla vielä viittauksia muihin moduuleihin, mutta ne ratkotaan vasta linkityksessä. Konekäskyt voivat tässä vaiheessa olla vielä kentittäin koodattuna, eikä välttämättä bvielä lopullisessa muodossa.
+
+Kolmannella läpikäynnillä varsinainen konekielinen koodi yhdistelemällä kentät ja samalla optimoimalla koodia suoritusajan suhteen. Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan miten tehokkaasti koodia halutaan optimoida. Rekistereiden allokointiongelma on tärekeä osa optimointia. Sen avulla päätellään, milloin ja mihin laiterekisteriin mitäkin dataa tulisi ohjelman suoritusaikana tallettaa.  Rekistereitä on vähän ja niiden optimaalinen käyttö on tärkeätä. Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa. Ongelman tekee vielä vaativammaksi se, että nykyisissä suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden.
+
 
 ## Korkean tason kielen kääntäminen
 ????
