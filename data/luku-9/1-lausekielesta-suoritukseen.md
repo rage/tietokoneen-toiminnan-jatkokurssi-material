@@ -70,3 +70,4 @@ Prosessit tunnistetaan järjestelmässä niiden uniikeista tunnuksista (pid, pro
 <!-- Quiz 9.1.?? -->
 <div><quiz id="9d362f0d-7d31-438f-b168-cfd194bb3719"></quiz></div>
 <div><quiz id="9a5e8c70-7aed-4c90-9148-cc0fb79adcf0"></quiz></div>
+<div><quiz id="aa632fda-87af-43e8-90c8-e13c5dc139ef"></quiz></div>
