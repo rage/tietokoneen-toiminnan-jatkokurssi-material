@@ -152,7 +152,7 @@ st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 0
 done svc sp,=halt    -->  4: 112 6 0 0  11    done: 4
 ```
 
-Huomaa, että symboli _done_ esitellään käskyn 3 yhteydessä, mutta sen arvoa ei vielä tunneta. Käskyn 6 kohdalla tunnus _done_ esiintyy osoitekentässä, joten sen arvo 6 saadaan selville. Vastaavasti muuttujien x ja y sijainnit (symbolien x ja y arvot) tiedetään avsta kun koko koodisegmentin koko (5 sanaa) tunnetaan. Yhden läpikäynnin jälkeen kaikilla tämän moduulin sisäisillä tunnuksilla on arvo.
+Huomaa, että symboli _done_ esitellään käskyn 3 yhteydessä, mutta sen arvoa ei vielä tunneta. Käskyn 4 kohdalla tunnus _done_ esiintyy osoitekentässä, joten sen arvo 4 saadaan selville. Vastaavasti muuttujien x ja y sijainnit (symbolien x ja y arvot) tiedetään vasta kun koodisegmentin koko (5 sanaa) tunnetaan. Yhden läpikäynnin jälkeen kaikilla tämän moduulin sisäisillä tunnuksilla on arvo.
 
 Toisella läpikäynnillä koodi käydään uudestaan läpi konekäsky kerrallaan ja kaikki ensimmäisellä kerralla tuntemattomaksi jääneet tunnukset korvataan niiden arvolla symbolitaulusta. Koodissa voi tietenkin olla vielä viittauksia muihin moduuleihin, mutta ne ratkotaan vasta linkityksessä. Konekäskyt voivat tässä vaiheessa olla vielä kentittäin koodattuna, eikä välttämättä vielä lopullisessa muodossa.
 
@@ -169,7 +169,7 @@ st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 2
 done svc sp,=halt    -->  4: 112 6 0 0  11    
 ```
 
-Kolmannella läpikäynnillä luodaan varsinainen konekielinen koodi yhdistelemällä kentät ja ehkä samalla optimoimalla koodia suoritusajan suhteen. Yleensä symbolisella konekielellä kirjoitettua ei juurikaan enää optimoida, koska ohjelmoija on nimenomaan halunnut kirjoittaa kyseisen ohjelman osan annetussa muodossa. Todellisen suorittimen optimoidun konekielisen koodin kirjoittaminen on vaikeata, koska siinä pitää ottaa huomioon kyseessä olevan suorittimen, väylän ja muistin yksityiskohdat. Optimoinnissa täytyy esimerkiksi ottaa huomioon, kuinka kauan aikaa menee datan hakemiseen muistista jotta data on saatavilla seuraavissa konekäskyissä ilman odotusta. Korkean tason kielten kääntäjien tekijät ovat tässä asiantuntijoita ja sen vuoksi korkean tason kielten kääntäjien tekemää koodia on vaikea tavallisen ohjelmoijan tehdä paremmaksi.
+Kolmannella läpikäynnillä luodaan varsinainen konekielinen koodi yhdistelemällä kentät ja ehkä samalla optimoimalla koodia suoritusajan suhteen. Yleensä symbolisella konekielellä kirjoitettua ei juurikaan enää optimoida, koska ohjelmoija on nimenomaan halunnut kirjoittaa kyseisen ohjelman osan symbolisella konekielellä annetussa muodossa. Todellisen suorittimen optimoidun konekielisen koodin kirjoittaminen on vaikeata, koska siinä pitää ottaa huomioon kyseessä olevan suorittimen, väylän ja muistin yksityiskohdat. Optimoinnissa täytyy esimerkiksi ottaa huomioon, kuinka kauan aikaa menee datan hakemiseen muistista, jotta data on saatavilla seuraavissa konekäskyissä ilman odotusta. Korkean tason kielten kääntäjien tekijät ovat tässä asiantuntijoita ja sen vuoksi korkean tason kielten kääntäjien tekemää koodia on vaikea tavallisen ohjelmoijan tehdä paremmaksi.
 
 ``` 
 Kolmannen vaiheen (koodin läpikäynnin) jälkeen.
@@ -192,20 +192,22 @@ Korkean tason kielen (Java, C, Pascal, Fortran, etc) kääntämisessä on useamp
 
 int main(void)
 {
-    int x = 234;
+    int x,
+
+    x = 234;
     printf("%d\n", x);
 }
 ``` 
 
-ohjelmointikielen varatut sanat "include", "int", "main", "void" ja "printf". Niitä ovat myös kielen syntaktiset (kieliopilliset) merkit '#', '<', '>', '(', ')', ';', '{' ja '}'. Lisäksi sieltä muuttujan nimi "x", kokonaisluku "234" sekä merkkijonot "stdio" ja "%d\n".
+ohjelmointikielen varatut sanat "include", "int", "main", "void" ja "printf". Niitä ovat myös kielen syntaktiset (kieliopilliset) merkit '#', '<', '>', '=', '(', ')', ';', '{' ja '}'. Lisäksi sieltä muuttujan nimi "x", kokonaisluku "234" sekä merkkijonot "stdio" ja "%d\n".
 
-Näiden syntaktisten alkioden avulla luodaan symbolitaulu ja ohjelmointikielen mukainen _syntaksipuu_, jonka avulla tunnistetaan ohjelmointikieleen lauseet. Syntaksipuu noudattaa ohjelmointikielen hyväksymää rakennetta ja löydettyjen syntaktisten alkioiden pitää sopia siihen oikeisiin kohtiin.
+Näiden syntaktisten alkioden avulla luodaan symbolitaulu ja ohjelmointikielen mukainen _syntaksipuu_, jonka avulla tunnistetaan ohjelmointikielen oikein muotoillut lauseet. Syntaksipuu noudattaa ohjelmointikielen hyväksymää rakennetta ja löydettyjen syntaktisten alkioiden pitää sopia siihen oikeisiin kohtiin.
 
 Useissa ohjelmointikielten kääntäjissä (esim. Pascal, Java) syntaksipuusta generoidaan ns. _välikieliesitys_, mikä on käännösmoduulin kuvaus hypoteettiselle tietokoneelle. Usein tällaista välikieliesitystä on helpompi käsitellä jatkossa kuin pelkkää syntaksipuuta. Ensimmäisiä välikieliä oli Pascal-kielen [P-code](https://en.wikipedia.org/wiki/P-code_machine). Java-kielen välikieliesitys on nimeltään [bytecode](https://en.wikipedia.org/wiki/Java_bytecode). Käsittelemme sitä lisää viimeisessä luvussa 10.
 
-Mikrosoftin ohjelmistoympäristössä [C#-kielen](https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29) välikieliesitys [CLI](https://en.wikipedia.org/wiki/Common_Intermediate_Language) on tavallinen toteuttaa niin C#-kielen kuin muidenkin samassa ohjelmointiympäristössä käytettävien ohjelmointikielten kääntäjä. Niistä kaikista generoidaan CLI-moduuleja, joita jatkossa käsitellään kaikkia samalla tavalla. Tämä on mielenkiintoinen lähestymistapa, koska se korvaa objektimoduulin käytön eri ohjelmointikielten yhdistävänä tekijänä. Objektimoduuli on sidoksissa jonkin tietyn suorittimen käskykantaan, kun taas CLI (ja bytecode) ovat geneerisiä ja sopivat yhtä hyvin kaikille suorittimille.
+Mikrosoftin ohjelmistoympäristössä [C#-kielen](https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29) välikieliesitys [CLI](https://en.wikipedia.org/wiki/Common_Intermediate_Language) on tavallinen tapa toteuttaa niin C#-kielen kuin muidenkin samassa ohjelmointiympäristössä käytettävien ohjelmointikielten kääntäjä. Niistä kaikista generoidaan CLI-moduuleja, joita jatkossa käsitellään kaikkia samalla tavalla. Tämä on mielenkiintoinen lähestymistapa, koska se korvaa objektimoduulin käytön eri ohjelmointikielten yhdistävänä tekijänä. Objektimoduuli on sidoksissa jonkin tietyn suorittimen käskykantaan, kun taas CLI (ja bytecode) ovat geneerisiä ja sopivat yhtä hyvin kaikille suorittimille.
 
-Välikielestä generoidaan konekielinen koodi. Esimerkkinä annetusta ohjelmasta voisi generoida ttk-91 arkkitehtuurin suorittimelle objektimoduuli
+Välikielestä (tai syntaksipuusta) generoidaan konekielinen koodi. Esimerkkinä annetusta ohjelmasta voisi generoida ttk-91 arkkitehtuurin suorittimelle objektimoduuli
 
 ```
                               koodi/data      symb.taulu
@@ -218,13 +220,12 @@ main   load r2, =234  -->    0:   37748970       ...
                              5:          0
 ``` 
 
-
-????
+Koodin generoinnista kääntäjän viimeisenä vaiheena käytetään myös nimitystä _back end_. Jos jo olemassa olevan ohjelmointikielen kääntäjästä halutaan uudelle suorittimelle sopiva versio, niin ainoastaan kääntäjän _back end_ osa tarvitsee toteuttaa. Se on ainoa osa kääntää, joka on sidoksissa suorittimen konekieleen. Vastaavasti kääntäjän osia syntaktisten alkioiden etsinnästä välikielisen koodin (tai syntaksipuun) generointiin kutsutaan yhteisnimellä _front end_. Kun haluamme toteuttaa uuden ohjelmointikielen kääntäjän, niin riittää toteuttaa sille uusi _front end_. Muut kääntäjän osat ovat jo valmiina eri suorittimille.
 
 ### Koodin optimointi
-Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan miten tehokkaasti koodia halutaan optimoida. Rekistereiden allokointiongelma on tärekeä osa optimointia. Sen avulla päätellään, milloin ja mihin laiterekisteriin mitäkin dataa tulisi ohjelman suoritusaikana tallettaa.  Rekistereitä on vähän ja niiden optimaalinen käyttö on tärkeätä. Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa. Ongelman tekee vielä vaativammaksi se, että nykyisissä suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden.  ??????
+Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan miten tehokkaasti koodia halutaan optimoida. _Rekistereiden allokointiongelma_ on tärkeä osa optimointia. Sen avulla päätellään, milloin ja mihin laiterekisteriin mitäkin dataa tulisi ohjelman suoritusaikana tallettaa. Rekistereitä on vähän ja niiden optimaalinen käyttö on tärkeätä. Esimerkiksi pitää päättää, pidetäänkö jonkin silmukan muuntelumuuttuja arvoa silmukan suorituksen aikana muistissa vai jossakin tietyssä rekisterissä (esim. r3) tai varataanko jokin rekisteri (esim. r5) koko ohjelman suorituksen ajaksi usein päivitettävälle globaalille muuttujalle.
 
-
+Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa, tai voisiko jotkut konekäskyt jäöttää kokonaan pois. Esimerkiksi edellisen esimerkin konekäsky "load/nbsp;r1,&nbsp;x" on ihan turha, mutta sen päätteleminen ei ole ihanhelppoa. Ongelman tekee vielä vaativammaksi se, että nykyisissä todellisissa suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden. 
 
 ## Quizit 9.2
 <!-- Quiz 9.2.?? -->
