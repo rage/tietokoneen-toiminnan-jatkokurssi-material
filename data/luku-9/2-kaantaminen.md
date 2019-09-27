@@ -137,53 +137,55 @@ Makroilla on muutama tärkeä ominaisuus verrattuna aliohjelmiin. Mainitsimmekin
 Makrojen merkittävä ero aliohjelmiin on, että makroilla ei ole omaa viiteympäristöä, koska makrot laajennetaan sellaisenaan käyttökohtiinsa. Aliohjelmilla voidaan toteuttaa korkean tason kielten erilaiset viiteympäristöt. Esimerkiksi C-kielessä kussakin aliohjelmassa voi viitata vain sen omiin paikallisiin tietorakenteisiin ja globaaleihin kaikkialla viitattaviin tietorakenteisiin, mutta ei minkään muun aliohjelman paikallisiin tietorakenteisiin. Kullakin ohjelmointikielellä on omat määrittelynsä siitä, mikä on kunkin tunnuksen näkyvyysalue (käyttöalue). Tunnusten näkyvyysalueet toteutetaan aktivaatiotietueiden avulla. 
 
 ## Assembler kääntäminen
-Symbolisen konekielen käännös tapahtuu periaatteesa kolmessa eri vaiheessa, mutta joskus näitä vaiheita voi yhdistellä. Kussakin vaiheessa käydään läpi koko käännösyksikkö alusta loppuun. Ensimmäisessä vaiheessa lasketaan kunkin konekäskyn vievä tila, generoidaan symbolitaulu ja uudelleensijoitustaulu. Ttk-91 koneessa kukin konekäsky on saman mittainen (4 tavua), mutta esimerkiksi Intelin x86 arkkitehtuurin käskyt voivat olla 1-21 tavua mittaisia. Ensimmäisen vaiheen jälkeen symbolitauluun on saatu tieto kaikkien tämän moduulin symbolien arvoista.
+Symbolisen konekielen käännös tapahtuu periaatteessa kolmessa eri vaiheessa, mutta joskus näitä vaiheita voi yhdistellä. Kussakin vaiheessa käydään läpi koko käännösyksikkö alusta loppuun. Ensimmäisessä vaiheessa lasketaan kunkin konekäskyn vievä tila, generoidaan symbolitaulu ja uudelleensijoitustaulu. Ttk-91 koneessa tämä on helppoa, koska kukin konekäsky on saman mittainen (4 tavua), mutta esimerkiksi Intelin x86 arkkitehtuurin käskyt voivat olla 1-21 tavua mittaisia. Kun koodin (ja datan) pituus tiedetään, on helppo päätellä koodiin ja dataan viittavien symbolien arvot. Ensimmäisen vaiheen jälkeen symbolitauluun on saatu tieto kaikkien tämän moduulin symbolien arvoista.
 
 ``` 
-Ensimmäisen vaiheen (koodin läpikäynnin) jälkeen
-käännösyksikkö                  data/koodi  symb.taulu
-x 	dc 	13   -->  0:            13       x: 0
-y 	dc 	15   -->  1:            15       y: 1
+Ensimmäisen vaiheen (koodin läpikäynnin) jälkeen.
+Käännösyksikkö                  Data/koodi  Symb.taulu
+x 	dc 	13           -->  ?:           13       x: ?
+y 	dc 	15           -->  ?:           15       y: ?
 
-st   in   r1, =kbd   -->  2:   3 1 0 0   1      st: 2
-     jzer r1, done   -->  3:  34 1 0 0   ?    done: ? 
-     out r1, =crt    -->  4:   4 1 0 0   0
-     jump st         -->  5:  32 0 0 0   2
-done svc sp,=halt    -->  6: 112 6 0 0  11    done: 6
+st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 0
+     jzer r1, done   -->  1:  34 1 0 0   ?    done: ? 
+     out r1, =crt    -->  5:   4 1 0 0   0
+     jump st         -->  3:  32 0 0 0   2
+done svc sp,=halt    -->  4: 112 6 0 0  11    done: 4
 ```
 
-Huomaa, että kun symboli _done_ esitellään käskyn 3 yhteydessä, sen arvoa ei vielä tunneta. Käskyn 6 kohdalla tunnus _done_ esiintyy osoitekentässä, joten sen arvo 6 määräytyy symbolitauluun. Yhden läpikäynnin jälkeen kaikilla tämän moduulin sisäisillä tunnuksilla on arvo.
+Huomaa, että symboli _done_ esitellään käskyn 3 yhteydessä, mutta sen arvoa ei vielä tunneta. Käskyn 6 kohdalla tunnus _done_ esiintyy osoitekentässä, joten sen arvo 6 saadaan selville. Vastaavasti muuttujien x ja y sijainnit (symbolien x ja y arvot) tiedetään avsta kun koko koodisegmentin koko (5 sanaa) tunnetaan. Yhden läpikäynnin jälkeen kaikilla tämän moduulin sisäisillä tunnuksilla on arvo.
 
 Toisella läpikäynnillä koodi käydään uudestaan läpi konekäsky kerrallaan ja kaikki ensimmäisellä kerralla tuntemattomaksi jääneet tunnukset korvataan niiden arvolla symbolitaulusta. Koodissa voi tietenkin olla vielä viittauksia muihin moduuleihin, mutta ne ratkotaan vasta linkityksessä. Konekäskyt voivat tässä vaiheessa olla vielä kentittäin koodattuna, eikä välttämättä vielä lopullisessa muodossa.
-``` 
-Toisen vaiheen (koodin läpikäynnin) jälkeen
-käännösyksikkö                  data/koodi  symb.taulu
-x 	dc 	13   -->  0:            13       x: 0
-y 	dc 	15   -->  1:            15       y: 1
 
-st   in   r1, =kbd   -->  2:   3 1 0 0   1      st: 2
-     jzer r1, done   -->  3:  34 1 0 0   6    done: 6 
-     out r1, =crt    -->  4:   4 1 0 0   0
-     jump st         -->  5:  32 0 0 0   2
-done svc sp,=halt    -->  6: 112 6 0 0  11    
+``` 
+Toisen vaiheen (koodin läpikäynnin) jälkeen.
+Käännösyksikkö                  Data/koodi  Symb.taulu
+x 	dc 	13           -->  5:            13       x: 5
+y 	dc 	15           -->  6:            15       y: 6
+
+st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 2
+     jzer r1, done   -->  1:  34 1 0 0   6    done: 4 
+     out r1, =crt    -->  2:   4 1 0 0   0     ...
+     jump st         -->  3:  32 0 0 0   2
+done svc sp,=halt    -->  4: 112 6 0 0  11    
 ```
 
-Kolmannella läpikäynnillä varsinainen konekielinen koodi yhdistelemällä kentät ja samalla optimoimalla koodia suoritusajan suhteen. Yleensä symbolisella konekielellä kirjoitettua ei juurikaan enää optimoida, koska ohjelmoija on nimenomaan halunnut kirjoittaa kyseisen ohjelman osan annetussa muodossa. Optimoidun konekielisen koodin kirjoittaminen on vaikeata, koska siinä pitää ottaa huomioon kyseessä olevan suorittimen, väylän ja muistin yksityiskohdat. Korkean tason kielten kääntäjien tekijät ovat tässä asiantuntijoita ja sen vuoksi korkean tason kielten kääntäjien tekemää koodia on vaikea tavallisen ohjelmoijan tehdä paremmaksi.
+Kolmannella läpikäynnillä luodaan varsinainen konekielinen koodi yhdistelemällä kentät ja ehkä samalla optimoimalla koodia suoritusajan suhteen. Yleensä symbolisella konekielellä kirjoitettua ei juurikaan enää optimoida, koska ohjelmoija on nimenomaan halunnut kirjoittaa kyseisen ohjelman osan annetussa muodossa. Todellisen suorittimen optimoidun konekielisen koodin kirjoittaminen on vaikeata, koska siinä pitää ottaa huomioon kyseessä olevan suorittimen, väylän ja muistin yksityiskohdat. Optimoinnissa täytyy esimerkiksi ottaa huomioon, kuinka kauan aikaa menee datan hakemiseen muistista jotta data on saatavilla seuraavissa konekäskyissä ilman odotusta. Korkean tason kielten kääntäjien tekijät ovat tässä asiantuntijoita ja sen vuoksi korkean tason kielten kääntäjien tekemää koodia on vaikea tavallisen ohjelmoijan tehdä paremmaksi.
 
 ``` 
-Kolmannen vaiheen (koodin läpikäynnin) jälkeen
-käännösyksikkö                data/koodi   symb.taulu
-x 	dc 	13    -->  0:         13       x:  0
-y 	dc 	15    -->  1:         15       y:  1
-st   in   r1, =kbd    -->  2:   52428801      st:  2
-     jzer r1, done    -->  3:  572522500    done:  6 
-     out r1, =crt     -->  4:   69206016    add:  17
-     jump st          -->  5:  536870912    scv: 112
-done svc sp,=halt     -->  6: 1891631115    ...
+Kolmannen vaiheen (koodin läpikäynnin) jälkeen.
+Käännösyksikkö                Data/koodi   Symb.taulu
+x 	dc 	13            -->  5:         13       x:  5
+y 	dc 	15            -->  6:         15       y:  6
+
+st   in   r1, =kbd    -->  0:   52428801      st:  2
+     jzer r1, done    -->  1:  572522500    done:  4 
+     out r1, =crt     -->  2:   69206016    add:  17
+     jump st          -->  3:  536870912    scv: 112
+done svc sp,=halt     -->  4: 1891631115    ...
 ```
 
 ## Korkean tason kielen kääntäminen
-Korkean tason kielen (Jave,C, Pascal, Fortran, etc) on useampi vaihe. Ensimmäisessä vaiheessa koodista etistään kaikki sen kyseisen ohjelmoinkielen _syntaktiset alkiot_. Tällaisia ovat esimerkiksi C-kielisen ohjelman 
+Korkean tason kielen (Java, C, Pascal, Fortran, etc) kääntämisessä on useampi vaihe. Ensimmäisessä vaiheessa koodista etsitään kaikki sen kyseisen ohjelmoinkielen _syntaktiset alkiot_ (kieliopilliset elementit). Tällaisia ovat esimerkiksi C-kielisen ohjelman 
 
 ```
 #include <stdio.h>
@@ -191,17 +193,31 @@ Korkean tason kielen (Jave,C, Pascal, Fortran, etc) on useampi vaihe. Ensimmäis
 int main(void)
 {
     int x = 234;
-    printf("hello, world\n");
+    printf("%d\n", x);
 }
 ``` 
 
-ohjelmointikielen varatut sanat "include", "int", "main", "void" ja "printf". Niitä ovat myös kielen syntaktiset (kieliopilliset) merkit '#', '<', '>', '(', ')', ';', '{' ja '}'. Lisäksi sieltä muuttujan nimi "x", kokonaisluku "234" ja merkkijono "hello, world\n".
+ohjelmointikielen varatut sanat "include", "int", "main", "void" ja "printf". Niitä ovat myös kielen syntaktiset (kieliopilliset) merkit '#', '<', '>', '(', ')', ';', '{' ja '}'. Lisäksi sieltä muuttujan nimi "x", kokonaisluku "234" sekä merkkijonot "stdio" ja "%d\n".
 
-Näiden syntaktisten alkioden avulla luodaan symbolitaulu ja ohjelmointikielen mukainen _syntaksipuu_, jonka avulla tunnistetaan ohjelmointikieleen lauseet.
+Näiden syntaktisten alkioden avulla luodaan symbolitaulu ja ohjelmointikielen mukainen _syntaksipuu_, jonka avulla tunnistetaan ohjelmointikieleen lauseet. Syntaksipuu noudattaa ohjelmointikielen hyväksymää rakennetta ja löydettyjen syntaktisten alkioiden pitää sopia siihen oikeisiin kohtiin.
 
 Useissa ohjelmointikielten kääntäjissä (esim. Pascal, Java) syntaksipuusta generoidaan ns. _välikieliesitys_, mikä on käännösmoduulin kuvaus hypoteettiselle tietokoneelle. Usein tällaista välikieliesitystä on helpompi käsitellä jatkossa kuin pelkkää syntaksipuuta. Ensimmäisiä välikieliä oli Pascal-kielen [P-code](https://en.wikipedia.org/wiki/P-code_machine). Java-kielen välikieliesitys on nimeltään [bytecode](https://en.wikipedia.org/wiki/Java_bytecode). Käsittelemme sitä lisää viimeisessä luvussa 10.
 
 Mikrosoftin ohjelmistoympäristössä [C#-kielen](https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29) välikieliesitys [CLI](https://en.wikipedia.org/wiki/Common_Intermediate_Language) on tavallinen toteuttaa niin C#-kielen kuin muidenkin samassa ohjelmointiympäristössä käytettävien ohjelmointikielten kääntäjä. Niistä kaikista generoidaan CLI-moduuleja, joita jatkossa käsitellään kaikkia samalla tavalla. Tämä on mielenkiintoinen lähestymistapa, koska se korvaa objektimoduulin käytön eri ohjelmointikielten yhdistävänä tekijänä. Objektimoduuli on sidoksissa jonkin tietyn suorittimen käskykantaan, kun taas CLI (ja bytecode) ovat geneerisiä ja sopivat yhtä hyvin kaikille suorittimille.
+
+Välikielestä generoidaan konekielinen koodi. Esimerkkinä annetusta ohjelmasta voisi generoida ttk-91 arkkitehtuurin suorittimelle objektimoduuli
+
+```
+                              koodi/data      symb.taulu
+x      dc 0           -->                        x: 5
+main   load r2, =234  -->    0:   37748970       ...
+       store r2, x    -->    1:   20971525
+       load r1, x     -->    2:   36175877
+       out r1, =CRT   -->    3:   69206016
+       svc sp, =halt  -->    4: 1891631115
+                             5:          0
+``` 
+
 
 ????
 
