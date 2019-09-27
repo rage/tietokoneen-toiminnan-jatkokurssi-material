@@ -183,10 +183,30 @@ done svc sp,=halt     -->  6: 1891631115    ...
 ```
 
 ## Korkean tason kielen kääntäminen
+Korkean tason kielen (Jave,C, Pascal, Fortran, etc) on useampi vaihe. Ensimmäisessä vaiheessa koodista etistään kaikki sen kyseisen ohjelmoinkielen _syntaktiset alkiot_. Tällaisia ovat esimerkiksi C-kielisen ohjelman 
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    int x = 234;
+    printf("hello, world\n");
+}
+``` 
+
+ohjelmointikielen varatut sanat "include", "int", "main", "void" ja "printf". Niitä ovat myös kielen syntaktiset (kieliopilliset) merkit '#', '<', '>', '(', ')', ';', '{' ja '}'. Lisäksi sieltä muuttujan nimi "x", kokonaisluku "234" ja merkkijono "hello, world\n".
+
+Näiden syntaktisten alkioden avulla luodaan symbolitaulu ja ohjelmointikielen mukainen _syntaksipuu_, jonka avulla tunnistetaan ohjelmointikieleen lauseet.
+
+Useissa ohjelmointikielten kääntäjissä (esim. Pascal, Java) syntaksipuusta generoidaan ns. _välikieliesitys_, mikä on käännösmoduulin kuvaus hypoteettiselle tietokoneelle. Usein tällaista välikieliesitystä on helpompi käsitellä jatkossa kuin pelkkää syntaksipuuta. Ensimmäisiä välikieliä oli Pascal-kielen [P-code](https://en.wikipedia.org/wiki/P-code_machine). Java-kielen välikieliesitys on nimeltään [bytecode](https://en.wikipedia.org/wiki/Java_bytecode). Käsittelemme sitä lisää viimeisessä luvussa 10.
+
+Mikrosoftin ohjelmistoympäristössä [C#-kielen](https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29) välikieliesitys [CLI](https://en.wikipedia.org/wiki/Common_Intermediate_Language) on tavallinen toteuttaa niin C#-kielen kuin muidenkin samassa ohjelmointiympäristössä käytettävien ohjelmointikielten kääntäjä. Niistä kaikista generoidaan CLI-moduuleja, joita jatkossa käsitellään kaikkia samalla tavalla. Tämä on mielenkiintoinen lähestymistapa, koska se korvaa objektimoduulin käytön eri ohjelmointikielten yhdistävänä tekijänä. Objektimoduuli on sidoksissa jonkin tietyn suorittimen käskykantaan, kun taas CLI (ja bytecode) ovat geneerisiä ja sopivat yhtä hyvin kaikille suorittimille.
+
 ????
 
 ### Koodin optimointi
-Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan miten tehokkaasti koodia halutaan optimoida. Rekistereiden allokointiongelma on tärekeä osa optimointia. Sen avulla päätellään, milloin ja mihin laiterekisteriin mitäkin dataa tulisi ohjelman suoritusaikana tallettaa.  Rekistereitä on vähän ja niiden optimaalinen käyttö on tärkeätä. Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa. Ongelman tekee vielä vaativammaksi se, että nykyisissä suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden.
+Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan miten tehokkaasti koodia halutaan optimoida. Rekistereiden allokointiongelma on tärekeä osa optimointia. Sen avulla päätellään, milloin ja mihin laiterekisteriin mitäkin dataa tulisi ohjelman suoritusaikana tallettaa.  Rekistereitä on vähän ja niiden optimaalinen käyttö on tärkeätä. Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa. Ongelman tekee vielä vaativammaksi se, että nykyisissä suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden.  ??????
 
 
 
