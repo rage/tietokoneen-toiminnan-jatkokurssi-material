@@ -5,21 +5,23 @@ hidden: false
 ---
 
 <div>
-<lead>Pääoppimistavoitteena ... ?????
+<lead>Tässä aliluvussa annamme yleiskuvan linkityksen toteuttamisesta. Staattisesti ennen suoritusta 
 </lead>
 </div>
 
-## Uudelleensijoitusvakio
+## Staattinen linkitys
+Normaalitapaus linkityksestä on staattinen linkitys, jossa ohjelman kaikki objektimoduulit yhdistetään yhdeksi ajomoduuliksi ennen suoritusta. Kaikilla tunnuksilla on tunnettu arvo, eikä mitään ohjelman osia puutu.
+
+Kuva objektimoduuleista...
+
 ???
 
-## Assembler-kääntäminen
+## Dynaaminen linkitys
 ????
 
-## Korkean tason kielen kääntäminen
+### Windowsin kaksi eri dynaamista linkitystä
 ????
 
-### Välikieli, fromt end, back end
-????
 
 ## Quizit 9.3 ????
 <!--  quizit 9.3.???  -->
