@@ -14,6 +14,21 @@ Normaalitapaus linkityksestä on staattinen linkitys, jossa ohjelman kaikki obje
 
 Kuva objektimoduuleista...
 
+<!-- kuva: ch-9-3-moduulit-ennen-linkitysta  -->
+
+![  Puuttuu ???? .](./ch-9-3-moduulit-ennen-linkitysta.svg)
+<div>
+<illustrations motive="ch-9-3-moduulit-ennen-linkitysta"></illustrations>
+</div>
+
+<!-- kuva: ch-9-3-moduulit-jälkeen-linkityksen  -->
+
+![  Puuttuu ???? .](./ch-9-3-moduulit-jälkeen-linkityksen.svg)
+<div>
+<illustrations motive="ch-9-3-moduulit-jälkeen-linkityksen"></illustrations>
+</div>
+
+
 ???
 
 ## Dynaaminen linkitys
