@@ -50,14 +50,14 @@ Jos dynaamista linkitystä ei ole käytössä, niin koko symbolitaulun voi jätt
 ### Literaalit
 Literaali tarkoittaa ohjelmassa olevia vakioita. Ne on usein sijoitettu omalle muistialueelle, eikä tällaisella _literaalialueella_ olevia arvoja saisi muuttaa. On ilmeisen virhealtista muuttaa literaalin Sata arvoksi 101, jne. Esimerkkikonekielessä ttk-91 kaikki vakiot ovat literaaleja, mutta niiden muuttamattomuutta valvotaan vain ohjelmointikurilla. Useissa järjestelmissä vakiot talletetaan omalle suojatulle muistisegmentille. Siellä olevia tietoja voi lukea ja niitä voi lisätä, mutta tietoja ei voi muuttaa.
 
-Joissakin kielissä kaikki merkkijonot ovat literaaleja. Joissakin kielissä kaikki koodissa isot vakiot ovat literaaleja, jolloin ison vakion käyttäminen koodissa automaattisesti johtaa uuden vakion määrittelyyn.
+Joissakin kielissä kaikki merkkijonot ovat literaaleja. Joissakin kielissä kaikki koodissa olevat isot vakiot ovat literaaleja, jolloin ison vakion käyttäminen koodissa automaattisesti johtaa uuden vakion määrittelyyn.
 
 ```
-load r2, "mystring" -->   Lmystring  ds "mystring"
-                          load r2, &Lmystring  ; merkkijonon osoite
+load r2, "mystring" -->  Lmystring ds "mystring" ; ei ttk-92:ssä
+                                   load r2, =Lmystring ; merkkijonon osoite
 
-load r1, =800000    -->   L800000 dc 800000
-                          load r1, L800000   ; viittaus muistiin ei vakio-osaan
+load r1, =800000    -->  L800000 dc 800000
+                                 load r1, L800000   ; viittaus muistiin, ei käskyn vakio-osaan
 ```
 Literaalia ei saisi välittää viiteparametrina, koska tällöin kutsuttu rutiini voisi (vahingossa) muuttaa sen arvoa. Useissa kielissä esimerkiksi kaikki merkkijonot välitetään joka tapauksessa viiteparametreina. Arvon muutoksen voi kuitenkin estää, jos literaalit on talletettu suojatulle literaalialueelle. 
 
@@ -130,7 +130,7 @@ f10 Epilog-f-2-1-1 ()  -- 1 paik. muuttuja, 2 parametria
 
 Makron _Epilog-f-2-1-1()_ jätetään harjoitustehtäväksi. 
 
-Tässä esimerkissä makro Prelude-f-2-1-1() on vähän kompelö, koska sen käyttö sopii vain funktioille, joilla on kaksi parametria ja yksi paikallinen muuttuja. Hyvä ohjelmoija kirjoittasi käyttökelpoisempia makroja, jos vain käytettävissä oleva makrojen määrittelykieli sen vain sallisi.
+Tässä esimerkissä makro Prelude-f-2-1-1() on vähän kompelö, koska sen käyttö sopii vain funktioille, joilla on kaksi parametria ja yksi paikallinen muuttuja. Hyvä ohjelmoija kirjoittaisi käyttökelpoisempia makroja, jos vain käytettävissä oleva makrojen määrittelykieli sen vain sallisi.
 
 Makroilla on muutama tärkeä ominaisuus verrattuna aliohjelmiin. Mainitsimmekin jo, että makrot siis lajennetaan koodiksi ennen käännöstä, kun taas aliohjelmia kutsutaan suoritusaikana. Koska jokainen makron käyttökerta laajenee aina koodiksi, niin 100 50-rivisen makron käyttökertaa laajenee 5000 riviksi koodia. Jos 50-rivistä aliohjelmaa kutsutaan 100 kertaa, niin koodin määrä on vain yhden aliohjelman toteutuksen n. 60 riviä. Lisäksi jokaisen kutsukerran toteutus on ehkä 10 riviä, joten yhteistarve on ehkä 60+100\*10&nbsp;=&nbsp;1060 riviä koodia. Makrosta generoitu koodi on paikallaan sellaisenaan, eikä vaadi kontrollin siirtoa suoritusaikana. Aliohjelman yhteydessä taas jokainen kontrollin siirto vaatii esim. 10-15 konekäskyn suorituksen aktivaatiotietuetta rakennettaessa tai purettaessa.
 
@@ -232,4 +232,9 @@ Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olis
 ## Quizit 9.2
 <!-- Quiz 9.2.?? -->
 
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="b4d8f08c-9003-49e2-adc9-ef10190263cf"></quiz></div>
+<div><quiz id="ae13b1d5-8a9f-4623-9da6-e61cea2632bf"></quiz></div>
+<div><quiz id="ab644589-887b-4f7e-8a6d-e2903521693d"></quiz></div>
+<div><quiz id="aa5e02b7-87ab-41f4-92b7-e13586121b6c"></quiz></div>
+<div><quiz id="a97d1cdf-86f8-4079-8388-e00c3b0264fb"></quiz></div>
+
