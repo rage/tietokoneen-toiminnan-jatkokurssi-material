@@ -229,7 +229,6 @@ _Rekistereiden allokointiongelma_ on tärkeä osa optimointia. Sen avulla päät
 
 Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa, tai voisiko jotkut konekäskyt jäöttää kokonaan pois. Esimerkiksi edellisen esimerkin konekäsky "load&nbsp;r1,&nbsp;x" on ihan turha, mutta sen päätteleminen ei ole ihan helppoa. Ongelman tekee vielä vaativammaksi se, että nykyisissä todellisissa suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden. 
 
-## Quizit 9.2
 <!-- Quiz 9.2.?? -->
 
 <div><quiz id="b4d8f08c-9003-49e2-adc9-ef10190263cf"></quiz></div>
