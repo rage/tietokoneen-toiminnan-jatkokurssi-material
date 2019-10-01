@@ -295,11 +295,11 @@
        xml:space="preserve"><tspan
          y="42.272682"
          x="106.71856"
-         id="tspan941">Main:        0</tspan><tspan
+         id="tspan936">GameX:       0</tspan><tspan
          y="48.446293"
          x="106.71856"
-         id="tspan943">Stats:   8000</tspan><tspan
-         id="tspan945">Math: 14000</tspan></text>
+         id="tspan938">Stats:     8000</tspan><tspan
+         id="tspan940">Math:   14000</tspan></text>
     <text
        id="text5433-4-1"
        y="80.52388"
@@ -339,7 +339,7 @@
          id="tspan923">...</tspan><tspan
          y="121.85116"
          x="108.72382"
-         id="tspan925"></tspan><tspan
+         id="tspan925" /><tspan
          y="128.02477"
          x="108.72382"
          id="tspan927">EXPORT</tspan><tspan
@@ -354,7 +354,7 @@
          id="tspan933">..</tspan><tspan
          y="152.71921"
          x="108.72382"
-         id="tspan935"></tspan><tspan
+         id="tspan935" /><tspan
          y="158.89282"
          x="108.72382"
          id="tspan937">IMPORT</tspan><tspan
@@ -373,13 +373,12 @@
     <text
        id="text5433-9-1-6"
        y="28.011166"
-       x="77.95005"
+       x="73.716713"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="28.011166"
-         x="77.95005"
-         id="tspan6031-6"
-         style="stroke-width:0.26458332"> Main</tspan></text>
+         x="73.716713"
+         id="tspan916">GameX</tspan></text>
     <text
        id="text5433-9-1-8"
        y="73.388802"
