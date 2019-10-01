@@ -14,7 +14,7 @@ Normaalitapaus linkityksestä on staattinen linkitys, jossa ohjelman kaikki obje
 
 Tämän pääluvun alussa ensimmäsessä aliluvussa esiteltiin linkityksen perusidea. Täsmennämme nyt sitä tässä esimerkin avulla.
 
-Meillä on kolme käännettyä moduulia, jotka ovat Main, Stats ja Math. Math-moduuli voi olla kirjastomoduuli, mutta sillä ei ole tässä merkitystä. Pääohjelma on moduulissa Main, jonka osoiteavaruus on 0-7999. Siellä on määritelty ainakin yksi muuttuja X (osoitteessa 0), johon viitataan ainakin osoitteessa 234 olevassa konekäskyssä. Konekäskyssä osoitteessa 3333 kutsutaan moduulin Stats tilastorutiinia Report. Main'in uudelleensijoitustaulusta löytyy paikallisen symbolin X arvo 0 ja sen viittauskohdat.  Main'in EXPORT-hakemisto on tyhjä, koska siinä moduulissa ei ole muiden moduulien viitattavissa olevia rakenteita. Sen IMPORT-hakemistossa on tilastorutiini Stats.Report, johon on viitattu käskyssä 3333.
+Meillä on kolme käännettyä moduulia, jotka ovat GameX, Stats ja Math. Math-moduuli on kirjastomoduuli, vaikka sillä ei ole tässä merkitystä. Pääohjelma on moduulissa GameX, jonka osoiteavaruus on 0-7999. Siellä on määritelty ainakin yksi muuttuja X (osoitteessa 0), johon viitataan ainakin osoitteessa 234 olevassa konekäskyssä. Konekäskyssä osoitteessa 3333 kutsutaan moduulin Stats tilastorutiinia Report. GameX'n uudelleensijoitustaulusta löytyy paikallisen symbolin X arvo 0 ja sen viittauskohdat.  GameX'n EXPORT-hakemisto on tyhjä, koska siinä moduulissa ei ole muiden moduulien viitattavissa olevia rakenteita. Sen IMPORT-hakemistossa on tilastorutiini Stats.Report, johon on viitattu käskyssä 3333.
 
 Moduulin Stats osoiteavaruus on 0-5999. Siellä on (ainakin) yksi muuttuja A, joka on osoitteessa 0 ja johon on viitattu osoitteissa 302 ja 850. EXPORT-hakemistossa on (ainakin) moduulin palvelurutiini Report, jonka osoite on 800. IMPORT-hakemistossa on (ainakin) matematiikkarutiini Math.Aver, johon on viitattu osoitteessa 840.
 
@@ -27,11 +27,11 @@ Moduulin Math osoiteavaruus on 0-4999. Siellä on (ainakin) yksi muuttuja Sum, j
 <illustrations motive="ch-9-3-moduulit-ennen-linkitysta"></illustrations>
 </div>
 
-Linkityksessä moduulit täytyy laittaa muistiin johonkin järjestykseen ja samalla niiden osoiteavaruudet täytyy yhdistää. Tääl kertaa laitamme ne edellä esitetyssä järjestyksessä, jolloin Main tulee ensimmäisenä ja Math viimeisenä. Koska Main on ensimmäisenä, niin sen osoitteet eivät muutu ja sen uudelleensijoitusvakio on nolla (0). 
+Linkityksessä moduulit täytyy laittaa muistiin johonkin järjestykseen ja samalla niiden osoiteavaruudet täytyy yhdistää. Tääl kertaa laitamme ne edellä esitetyssä järjestyksessä, jolloin GameX tulee ensimmäisenä ja Math viimeisenä. Koska GameX on ensimmäisenä, niin sen osoitteet eivät muutu ja sen uudelleensijoitusvakio on nolla (0). 
 
-Seuraavaksi tulee moduuli Stats. Sitä edeltää moduuli Main, jonka koko on 8000 sanaa, joten uudelleensijoitusvakio on 8000. Moduulin kaikkiin sisäisiin viitteisiin täytyy lisätä tuo 8000, joten kaikki muuttujan a viittaukset täytyy päivittää osoitteeseen 8000. Palvelurutiinin Report osoite oli 800, mutta nyt se päivittyy osoitteeksi 8800.  
+Seuraavaksi tulee moduuli Stats. Sitä edeltää moduuli GameX, jonka koko on 8000 sanaa, joten uudelleensijoitusvakio on 8000. Moduulin kaikkiin sisäisiin viitteisiin täytyy lisätä tuo 8000, joten kaikki muuttujan a viittaukset täytyy päivittää osoitteeseen 8000. Palvelurutiinin Report osoite oli 800, mutta nyt se päivittyy osoitteeksi 8800.  
 
-Kirjastomoduuli Math on viimeisenä. Sitä edeltävät moduulit Main ja Stats, joiden yhteinen koko 14000 on siten moduulin Math uudelleensijoitusvakio.  kaikki viitteet muuttujaan Sum kohdistuvatkin nyt osoitteeseen 14000 ja keskiarvonlaskentarutiinin Aver osoite pitää päivittää lisäämällä siihen 14000.
+Kirjastomoduuli Math on viimeisenä. Sitä edeltävät moduulit GameX ja Stats, joiden yhteinen koko 14000 on siten moduulin Math uudelleensijoitusvakio.  Kaikki viitteet muuttujaan Sum kohdistuvatkin nyt osoitteeseen 14000 ja keskiarvon laskentarutiinin Aver osoite pitää päivittää lisäämällä siihen 14000.
 
 <!-- kuva: ch-9-3-moduulit-jälkeen-linkityksen  -->
 
