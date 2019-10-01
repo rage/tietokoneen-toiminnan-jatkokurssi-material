@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg995"
    version="1.1"
-   viewBox="0 0 210.65475 240.89285"
-   height="240.89285mm"
+   viewBox="0 0 210.65475 245.42856"
+   height="245.42856mm"
    width="210.65475mm">
   <defs
      id="defs989" />
@@ -25,15 +25,15 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-0.27916667,1.4732153)"
+     transform="translate(-0.27916668,6.0089297)"
      id="layer1">
     <rect
-       y="-1.2232153"
+       y="-5.7589297"
        x="0.52916664"
-       height="240.39285"
+       height="244.92856"
        width="210.15475"
        id="rect6825"
-       style="opacity:1;fill:#f9ddb9;fill-opacity:1;stroke:#000000;stroke-width:0.49999994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#f9ddb9;fill-opacity:1;stroke:#000000;stroke-width:0.49999991;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="31.872894"
        x="104.03362"
@@ -365,13 +365,13 @@
          id="tspan7169">(tyhjä)</tspan></text>
     <text
        id="text5433-9-1-88"
-       y="11.596851"
-       x="33.373642"
+       y="9.3289938"
+       x="52.272453"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="11.596851"
-         x="33.373642"
-         id="tspan7179">Linkityksen jälkeen</tspan></text>
+         y="9.3289938"
+         x="52.272453"
+         id="tspan914">Moduulit linkityksen jälkeen</tspan></text>
     <text
        id="text5433-9-1-6"
        y="28.011166"
