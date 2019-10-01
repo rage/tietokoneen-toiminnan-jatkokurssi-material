@@ -48,10 +48,8 @@ Symbolien viittauskohdat on päivitetty linkitetyn moduulin uudelleensijoitustau
 <!--  quizit 9.3.???  -->
 <div><quiz id="aec1b502-8b29-4f47-a0a8-e702f13cbda7"></quiz></div>
 
-???
-
 ## Dynaaminen linkitys
-????
+Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana. Oletetaan esimerkiksi, että edellisen esimerkin kirjastomoduuli Math on dynaamisesti linkitettävä moduuli.  
 
 ### Windowsin kaksi eri dynaamista linkitystä
 ????
