@@ -49,7 +49,9 @@ Symbolien viittauskohdat on päivitetty linkitetyn moduulin uudelleensijoitustau
 <div><quiz id="aec1b502-8b29-4f47-a0a8-e702f13cbda7"></quiz></div>
 
 ## Dynaaminen linkitys
-Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana. Oletetaan esimerkiksi, että edellisen esimerkin kirjastomoduuli Math on dynaamisesti linkitettävä moduuli.  
+Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana. Oletetaan esimerkiksi, että edellisen esimerkin GameX kirjastomoduuli Math olisi dynaamisesti linkitettävä moduuli. Nyt ajomoduulista puuttuu moduuli Math ja rutiini Math.Aver on merkitty puuttuvaksi ajomoduulin IMPORT-hakemistoon. Rutiinin Math.Aver kutsukohtaan on jollain tavoin koodattu, että viite kohdistuu dynaamiseksi linkitettävään moduuliin. Koodaus voisi olla esimerkiksi epäkelpo muistiosoite. 
+
+Jos nyt suoritusaikana tulee kutsu rutiiniin Math.Aver, niin epäkelvon muistiosoitteen kautta kontrolli siirtyy keskeytyskäsittelijälle, joka (a) huomaa, että kysymyksessä on dynaamisen linkityksen tarve ja (b) huomaa, että kyseessä on moduuli Math. Keskeytyskäsittelijä laittaa prosessin GameX odotustilaan, etsii moduulin Math (sen uusimman version) ja käynnistää linkittäjän. Kun linkitys on valmis, prosessi GameX voi taas jatkaa suoritusta (samasta konekäskystä), mutta tällä kertaa rutiinin Math.Aver kutsu voidaan toteuttaa normaalisti.
 
 <!-- kuva: ch-9-3-ajomoduuli-ennen-dyn-linkitysta  -->
 
@@ -57,6 +59,8 @@ Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suor
 <div>
 <illustrations motive="ch-9-3-ajomoduuli-ennen-dyn-linkitysta"></illustrations>
 </div>
+
+Dynaamisen linkityksen käytöstä ohjelman GameX yhteydessä on useita etuja. Sen ajomoduuli on pienempi, koska siitä puuttuu moduuli Math. Jos tietyllä suorituskerralla moduulin Math palveluja ei tarvita lainkaan, niin sitä ei tarvitse linkittää paikalleen missään vaiheessa. Lisäksi dynaamisesti linkitettävästä moduulista Math voidaan helposti ottaa aina uusin versio käyttöön ilman että sitä käyttäviä ohjelmia tarvitsisi kääntää uudelleen. Tämä on erityisen kätevää esimerkiksi verkosta ladatun pelin GameX yhteydessä, koska alkuperäistä korkean tason kielellä kirjoitettua ohjelmaa ei ole saatavilla.
 
 ### Windowsin kaksi eri dynaamista linkitystä
 ????
