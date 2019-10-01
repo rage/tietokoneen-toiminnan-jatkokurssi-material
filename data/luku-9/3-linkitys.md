@@ -22,7 +22,7 @@ Moduulin Math osoiteavaruus on 0-4999. Siellä on (ainakin) yksi muuttuja Sum, j
 
 <!-- kuva: ch-9-3-moduulit-ennen-linkitysta  -->
 
-![  Puuttuu ???? .](./ch-9-3-moduulit-ennen-linkitysta.svg)
+![  Puuttuu ???? ch-9-3-moduulit-ennen-linkitysta.](./ch-9-3-moduulit-ennen-linkitysta.svg)
 <div>
 <illustrations motive="ch-9-3-moduulit-ennen-linkitysta"></illustrations>
 </div>
@@ -35,7 +35,7 @@ Kirjastomoduuli Math on viimeisenä. Sitä edeltävät moduulit Main ja Stats, j
 
 <!-- kuva: ch-9-3-moduulit-jälkeen-linkityksen  -->
 
-![  Puuttuu ???? .](./ch-9-3-moduulit-jälkeen-linkityksen.svg)
+![  Puuttuu ???? ch-9-3-moduulit-jälkeen-linkityksen .](./ch-9-3-moduulit-jälkeen-linkityksen.svg)
 <div>
 <illustrations motive="ch-9-3-moduulit-jälkeen-linkityksen"></illustrations>
 </div>
@@ -50,6 +50,13 @@ Symbolien viittauskohdat on päivitetty linkitetyn moduulin uudelleensijoitustau
 
 ## Dynaaminen linkitys
 Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana. Oletetaan esimerkiksi, että edellisen esimerkin kirjastomoduuli Math on dynaamisesti linkitettävä moduuli.  
+
+<!-- kuva: ch-9-3-ajomoduuli-ennen-dyn-linkitysta  -->
+
+![  Puuttuu ???? ch-9-3-ajomoduuli-ennen-dyn-linkitysta.](./ch-9-3-ajomoduuli-ennen-dyn-linkitysta.svg)
+<div>
+<illustrations motive="ch-9-3-ajomoduuli-ennen-dyn-linkitysta"></illustrations>
+</div>
 
 ### Windowsin kaksi eri dynaamista linkitystä
 ????
