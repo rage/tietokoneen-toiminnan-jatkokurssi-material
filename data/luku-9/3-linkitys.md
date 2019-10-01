@@ -35,7 +35,7 @@ Kirjastomoduuli Math on viimeisenä. Sitä edeltävät moduulit GameX ja Stats, 
 
 <!-- kuva: ch-9-3-moduulit-jälkeen-linkityksen  -->
 
-![  Puuttuu ???? ch-9-3-moduulit-jälkeen-linkityksen .](./ch-9-3-moduulit-jälkeen-linkityksen.svg)
+![  Puuttuu ???? ch-9-3-moduulit-jalkeen-linkityksen .](./ch-9-3-moduulit-jälkeen-linkityksen.svg)
 <div>
 <illustrations motive="ch-9-3-moduulit-jälkeen-linkityksen"></illustrations>
 </div>
