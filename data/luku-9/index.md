@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Tässä luvussa 9 esittelemme, kuinka korkean tason kielellä (esim. Java tai C) kirjoitetusta ohjelmasta saadaan järjestelmän suorittimella suoritettava prosessi. Ensin käymme läpi yleiskuvan tarvittavista muunnoksista ja sitten esittelemme kunkin vaiheen vähän tarkemmin. Vaiheet ovat kääntäminen, linkittäminen ja lataaminen.
+Tässä luvussa 9 esittelemme, kuinka korkean tason kielellä (esim. Fortran, C tai C++) kirjoitetusta ohjelmasta saadaan järjestelmän suorittimella suoritettava prosessi. Ensin käymme läpi yleiskuvan tarvittavista muunnoksista ja sitten esittelemme kunkin vaiheen vähän tarkemmin. Vaiheet ovat kääntäminen, linkittäminen ja lataaminen.
 
 Viimeisessä luvussa 10 käsitellään toisenlainen ohjelmien suoritustapa tulkitsemalla, jossa annettua ohjelmaa suorittaakin toinen ohjelma (tulkki, emulaattori tai simulaattori), joka on suorituksessa suorittimella.
 
