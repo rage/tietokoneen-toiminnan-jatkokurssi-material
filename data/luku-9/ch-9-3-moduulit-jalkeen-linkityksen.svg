@@ -295,13 +295,11 @@
        xml:space="preserve"><tspan
          y="42.272682"
          x="106.71856"
-         id="tspan7099">Main =        0</tspan><tspan
+         id="tspan941">Main:        0</tspan><tspan
          y="48.446293"
          x="106.71856"
-         id="tspan7101">Stats =   8000</tspan><tspan
-         y="54.619904"
-         x="106.71856"
-         id="tspan7103">Math = 14000</tspan></text>
+         id="tspan943">Stats:   8000</tspan><tspan
+         id="tspan945">Math: 14000</tspan></text>
     <text
        id="text5433-4-1"
        y="80.52388"
@@ -326,43 +324,43 @@
        xml:space="preserve"><tspan
          y="90.983101"
          x="108.72382"
-         id="tspan7145">SYMBOL     arvo   viitteet</tspan><tspan
+         id="tspan915">SYMBOL     arvo   viitteet</tspan><tspan
          y="97.156715"
          x="108.72382"
-         id="tspan7147">x:                  0       234, ...</tspan><tspan
+         id="tspan917">x:                  0       234, ...</tspan><tspan
          y="103.33032"
          x="108.72382"
-         id="tspan7149">a:             8000     8302, 8850, ...</tspan><tspan
+         id="tspan919">a:             8000     8302, 8850, ...</tspan><tspan
          y="109.50394"
          x="108.72382"
-         id="tspan7151">sum:      14000    14005, ...</tspan><tspan
+         id="tspan921">sum:       14000    14005, ...</tspan><tspan
          y="115.67754"
          x="108.72382"
-         id="tspan7153">...</tspan><tspan
+         id="tspan923">...</tspan><tspan
          y="121.85116"
          x="108.72382"
-         id="tspan7155" /><tspan
+         id="tspan925"></tspan><tspan
          y="128.02477"
          x="108.72382"
-         id="tspan7157">EXPORT</tspan><tspan
+         id="tspan927">EXPORT</tspan><tspan
          y="134.19838"
          x="108.72382"
-         id="tspan7159">Stats.Report:   8800</tspan><tspan
+         id="tspan929">Stats.Report:   8800</tspan><tspan
          y="140.37199"
          x="108.72382"
-         id="tspan7161">Math.Aver:     16400</tspan><tspan
+         id="tspan931">Math.Aver:     16400</tspan><tspan
          y="146.54561"
          x="108.72382"
-         id="tspan7163">..</tspan><tspan
+         id="tspan933">..</tspan><tspan
          y="152.71921"
          x="108.72382"
-         id="tspan7165" /><tspan
+         id="tspan935"></tspan><tspan
          y="158.89282"
          x="108.72382"
-         id="tspan7167">IMPORT</tspan><tspan
+         id="tspan937">IMPORT</tspan><tspan
          y="165.06644"
          x="108.72382"
-         id="tspan7169">(tyhjä)</tspan></text>
+         id="tspan939">(tyhjä)</tspan></text>
     <text
        id="text5433-9-1-88"
        y="9.3289938"
