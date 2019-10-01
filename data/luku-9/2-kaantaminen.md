@@ -201,29 +201,16 @@ int main(void)
 
 ohjelmointikielen varatut sanat "include", "int", "main", "void" ja "printf". Niitä ovat myös kielen syntaktiset (kieliopilliset) merkit '#', '<', '>', '=', '(', ')', ';', '{' ja '}'. Lisäksi sieltä löytyy muuttujan nimi "x", kokonaisluku "234" sekä merkkijonot "stdio" ja "%d\n".
 
-Näiden syntaktisten alkioden avulla luodaan symbolitaulu ja ohjelmointikielen mukainen _syntaksipuu_, jonka avulla tunnistetaan ohjelmointikielen oikein muotoillut lauseet ja muut rakenteet. Syntaksipuu noudattaa ohjelmointikielen hyväksymää rakennetta ja löydettyjen syntaktisten alkioiden pitää sopia siihen oikeisiin kohtiin.
+Näiden syntaktisten alkioiden avulla luodaan symbolitaulu. Kääntäjän _jäsentäjä_ tunnistaa ohjelmointikielen lauseet ja muut rakenteet yrittämällä sovittaa ne ohjelmointikielen määrittelyn mukaiseen _syntaksipuuhun_. Jos rakenne on oikein, jäsentelijä voi generoida ohjelman syntaksipuuta vastaavan konekielisen koodin.
 
-Useissa ohjelmointikielten kääntäjissä (esim. Pascal, Java) syntaksipuusta generoidaan ns. _välikieliesitys_, mikä on käännösmoduulin kuvaus hypoteettiselle tietokoneelle. Tällaista välikieliesitystä voi olla helpompi käsitellä jatkossa kuin pelkkää syntaksipuuta. Ensimmäisiä välikieliä oli Pascal-kielen [P-code](https://en.wikipedia.org/wiki/P-code_machine). Java-kielen välikieliesitys on nimeltään [bytecode](https://en.wikipedia.org/wiki/Java_bytecode). Käsittelemme sitä lisää viimeisessä luvussa 10.
+Useissa ohjelmointikielten kääntäjissä (esim. Pascal, Java) jäsentäjä generoi konekielisen koodin asemesta ns. _välikieliesityksen_, mikä hypoteettisen tietokoneen konekieltä. Tällaista välikieliesitystä on jatkossa joustavampi käsitellä. Ensimmäisiä välikieliä oli Pascal-kielen [P-code](https://en.wikipedia.org/wiki/P-code_machine). Java-kielen välikieliesitys on nimeltään [bytecode](https://en.wikipedia.org/wiki/Java_bytecode). Käsittelemme sitä lisää viimeisessä luvussa 10.
 
 Mikrosoftin ohjelmistoympäristön [C#-kielen](https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29) välikieliesitys [CLI](https://en.wikipedia.org/wiki/Common_Intermediate_Language) on tavallinen tapa toteuttaa niin C#-kielen kuin muidenkin samassa ohjelmointiympäristössä käytettävien ohjelmointikielten kääntäjä. Niistä kaikista generoidaan CLI-moduuleja, joita jatkossa käsitellään kaikkia samalla tavalla. Tämä on mielenkiintoinen lähestymistapa, koska se korvaa objektimoduulin käytön eri ohjelmointikielten yhdistävänä tekijänä. Objektimoduuli on sidoksissa jonkin tietyn suorittimen käskykantaan, kun taas CLI (ja bytecode) ovat geneerisiä ja sopivat yhtä hyvin (tai huonosti) kaikille suorittimille.
 
-Välikielestä (tai syntaksipuusta) generoidaan konekielinen koodi. Esimerkkinä annetusta ohjelmasta voisi generoida ttk-91 arkkitehtuurin suorittimelle seuraavanlaisen koodin.
-
-```
-                              koodi/data      symb.taulu
-x      dc 0           -->                        x: 5
-main   load r2, =234  -->    0:   37748970       ...
-       store r2, x    -->    1:   20971525
-       load r1, x     -->    2:   36175877
-       out r1, =CRT   -->    3:   69206016
-       svc sp, =halt  -->    4: 1891631115
-                             5:          0
-``` 
-
-Koodin generoinnista kääntäjän viimeisenä vaiheena käytetään myös nimitystä _back end_. Jos jo olemassa olevan ohjelmointikielen kääntäjästä halutaan uudelle suorittimelle sopiva versio, niin ainoastaan kääntäjän _back end_ tarvitsee ohjelmoida uudelleen. Se on ainoa kääntäjän osa, joka on sidoksissa suorittimen konekieleen. Vastaavasti kääntäjän osia syntaktisten alkioiden etsinnästä välikielisen koodin (tai syntaksipuun) generointiin kutsutaan yhteisnimellä _front end_. Kun haluamme toteuttaa kääntäjän uudelle ohjelmointikielelle, niin riittää toteuttaa uusi _front end_. Muut kääntäjän osat (niiden _back end_) ovat jo valmiina eri suorittimille.
+Välikielestä generoidaan konekielinen koodi. Koodin generoinnista kääntäjän viimeisenä vaiheena käytetään myös nimitystä _back end_. Jos jo olemassa olevan ohjelmointikielen kääntäjästä halutaan uudelle suorittimelle sopiva versio, niin ainoastaan kääntäjän _back end_ tarvitsee ohjelmoida uudelleen. Se on ainoa kääntäjän osa, joka on sidoksissa suorittimen konekieleen. Vastaavasti kääntäjän osia syntaktisten alkioiden etsinnästä välikielisen koodin generointiin kutsutaan yhteisnimellä _front end_. Kun haluamme toteuttaa kääntäjän uudelle ohjelmointikielelle, niin riittää toteuttaa uusi _front end_. Muut kääntäjän osat (niiden _back end_) ovat jo valmiina eri suorittimille.
 
 ## Koodin optimointi
-Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan, miten tehokkaasti koodia halutaan optimoida. Osan optimoinnista voi tehdä jo välikielen tasolla, mutta pääosa tehdään koodin generoinnin yhteydessä. Optimoidun koodin genroimiseen voi kulua monta kertaa niin paljon aikaa kuin ilman optimointia. Tämän vuoksi ohjelmistojen kehityksessä ohjelmat koodataan ja testataan ensin valmiiksi optimoimattomalla koodilla ja sitten lopuksi käännetään maksimioptimoinnilla ennen käyttöön ottoa.
+Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan, miten tehokkaasti koodia halutaan optimoida. Osan optimoinnista voi tehdä jo välikielen tasolla, mutta pääosa tehdään koodin generoinnin yhteydessä. Optimoidun koodin generoimiseen voi kulua monta kertaa niin paljon aikaa kuin ilman optimointia. Tämän vuoksi ohjelmistojen kehityksessä ohjelmat koodataan ja testataan ensin valmiiksi optimoimattomalla koodilla ja sitten lopuksi käännetään maksimioptimoinnilla ennen käyttöön ottoa.
 
 _Rekistereiden allokointiongelma_ on tärkeä osa optimointia. Sen avulla päätellään, milloin ja mihin laiterekisteriin mitäkin dataa tulisi ohjelman suoritusaikana tallettaa. Rekistereitä on vähän ja niiden optimaalinen käyttö on tärkeätä. Esimerkiksi pitää päättää, pidetäänkö jonkin silmukan muuntelumuuttujan arvoa silmukan suorituksen aikana muistissa vai jossakin tietyssä rekisterissä (esim. r3), tai varataanko jokin rekisteri (esim. r5) koko moduulin suorituksen ajaksi usein päivitettävälle globaalille muuttujalle X.
 
