@@ -66,6 +66,10 @@ Dynaaminen linkitys ei sovi kaikkialle. Esimerkiksi, jos kyseessä on lentokonee
 
 Toinen esimerkki dynaamisen linkityksen tarpeesta on useat tietokonepelit. Niissä erityisesti halutaa pieniä latausmoduuleja, jotta pelit käynnistyvät nopeasti. Lisäksi niissä voi olla monta kymmentä erilaista tasoa, joisa pelin yhdellä suorituskerralla voi ollasuorituksessa vain yksi tai muutama. On turhaa pitää latausmoduulissa mukana tasoja, joita ei luultavasti tarvita. Toinen käyttömahdollisuus dynaamiselle linkitykselle on pelin erilaiset lisäosat, jota voi pelin aikanakin (ostaa ja) ladata verkon kautta ja sitten dynaamisesti linkittää paikalleen. Tällaisia voisi olla vaikkapa jokin uusi pelialue, joka on toteutettu vasta pelin valmistumisen jälkeen.
 
+Dynaamista linkitystä voidaan tehdä myös pelkästään latausaikana. Tämä tarkoittaa, että kaikki mahdollisesti suoritusaikana tarvittavat moduulit linkitetään dynaamisesti paikalleen vasta latauksen yhteydessä. Tällöin joka suorituskerta käyttöön saadaan automaattizsesti uusimmat versiot kyseisistä moduuleista. Huonona puolena tässä lähestymistavassa on tietenkin ohjelman käynnistymisen hidastuminen.
+
+??????  Windows ?????
+
 ### Windowsin kaksi eri dynaamista linkitystä
 ????
 
