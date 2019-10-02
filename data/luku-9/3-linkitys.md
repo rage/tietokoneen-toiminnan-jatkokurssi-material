@@ -49,7 +49,7 @@ Symbolien viittauskohdat on päivitetty linkitetyn moduulin uudelleensijoitustau
 <div><quiz id="aec1b502-8b29-4f47-a0a8-e702f13cbda7"></quiz></div>
 
 ## Dynaaminen linkitys
-Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana. Oletetaan esimerkiksi, että edellisen esimerkin GameX kirjastomoduuli Math olisi dynaamisesti linkitettävä moduuli. Nyt latausmoduulista puuttuu moduuli Math ja rutiini Math.Aver on merkitty puuttuvaksi latausmoduulin IMPORT-hakemistoon. Rutiinin Math.Aver kutsukohtaan on jollain tavoin koodattu, että viite kohdistuu dynaamiseksi linkitettävään moduuliin. Koodaus voisi olla esimerkiksi epäkelpo muistiosoite, jonka avulla käyttöjärjestelmälle voidaan antaa suoritusvuoro tarpeen tullessa.
+Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana ([run-time dynamic linking](https://en.wikipedia.org/wiki/Dynamic_linker)). Oletetaan esimerkiksi, että edellisen esimerkin GameX kirjastomoduuli Math olisi dynaamisesti linkitettävä moduuli. Nyt latausmoduulista puuttuu moduuli Math ja rutiini Math.Aver on merkitty puuttuvaksi latausmoduulin IMPORT-hakemistoon. Rutiinin Math.Aver kutsukohtaan on jollain tavoin koodattu, että viite kohdistuu dynaamiseksi linkitettävään moduuliin. Koodaus voisi olla esimerkiksi epäkelpo muistiosoite, jonka avulla käyttöjärjestelmälle voidaan antaa suoritusvuoro tarpeen tullessa.
 
 Jos nyt suoritusaikana tulee kutsu rutiiniin Math.Aver, niin epäkelvon muistiosoitteen kautta kontrolli siirtyy keskeytyskäsittelijälle, joka (a) huomaa, että kysymyksessä on dynaamisen linkityksen tarve ja (b) huomaa, että kyseessä on moduuli Math. Keskeytyskäsittelijä laittaa prosessin GameX odotustilaan, etsii moduulin Math (sen uusimman version) ja käynnistää linkittäjän. Kun linkitys on valmis, prosessi GameX voi taas jatkaa suoritusta (samasta konekäskystä), mutta tällä kertaa rutiinin Math.Aver kutsu voidaan toteuttaa normaalisti.
 
@@ -66,12 +66,7 @@ Dynaaminen linkitys ei sovi kaikkialle. Esimerkiksi, jos kyseessä on lentokonee
 
 Toinen esimerkki dynaamisen linkityksen tarpeesta on useat tietokonepelit. Niissä erityisesti halutaa pieniä latausmoduuleja, jotta pelit käynnistyvät nopeasti. Lisäksi niissä voi olla monta kymmentä erilaista tasoa, joisa pelin yhdellä suorituskerralla voi ollasuorituksessa vain yksi tai muutama. On turhaa pitää latausmoduulissa mukana tasoja, joita ei luultavasti tarvita. Toinen käyttömahdollisuus dynaamiselle linkitykselle on pelin erilaiset lisäosat, jota voi pelin aikanakin (ostaa ja) ladata verkon kautta ja sitten dynaamisesti linkittää paikalleen. Tällaisia voisi olla vaikkapa jokin uusi pelialue, joka on toteutettu vasta pelin valmistumisen jälkeen.
 
-Dynaamista linkitystä voidaan tehdä myös pelkästään latausaikana. Tämä tarkoittaa, että kaikki mahdollisesti suoritusaikana tarvittavat moduulit linkitetään dynaamisesti paikalleen vasta latauksen yhteydessä. Tällöin joka suorituskerta käyttöön saadaan automaattizsesti uusimmat versiot kyseisistä moduuleista. Huonona puolena tässä lähestymistavassa on tietenkin ohjelman käynnistymisen hidastuminen.
-
-??????  Windows ?????
-
-### Windowsin kaksi eri dynaamista linkitystä
-????
+Dynaamista linkitystä voidaan tehdä myös pelkästään latausaikana (load-time dynamic linking). Tämä tarkoittaa, että kaikki mahdollisesti suoritusaikana tarvittavat moduulit linkitetään dynaamisesti paikalleen latauksen yhteydessä. Tällöin joka suorituskerta käyttöön saadaan automaattisesti uusimmat versiot kyseisistä moduuleista. Huonona puolena tässä lähestymistavassa on tietenkin ohjelman käynnistymisajan pidentyminen.
 
 
 ## Quizit 9.3 ????
