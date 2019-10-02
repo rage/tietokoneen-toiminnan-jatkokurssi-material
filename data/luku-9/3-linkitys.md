@@ -22,7 +22,13 @@ Moduulin Math osoiteavaruus on 0-4999. Siellä on (ainakin) muuttuja Sum, joka o
 
 <!-- kuva: ch-9-3-moduulit-ennen-linkitysta  -->
 
-![  Puuttuu ???? ch-9-3-moduulit-ennen-linkitysta.](./ch-9-3-moduulit-ennen-linkitysta.svg)
+![Kolmen moduulin tiedot. Ylhäällä on pääohjelman moduuli GameX, jossa on muuttuja x osoitteessa 0, x:ään tallennuskäsky osoitteessa 234 ja Stats.Report rutiiniun kutsu osoitteesa 3333. Moduulin koko on 8000 sanaa. GameX:n uudelleensijoitustaulussa on symbolin x arvobna 0 ja sen viittauspaikkana 234. ERxport-taulu on tyhjä, mutta Import-taulussa Stats.Report viite osoitteessa 3333.
+
+Keskellä on moduuli Stats, jossa on muuttja a osoitteessa 0 ja siihen viitataan osoitteissa 302 ja 850. Osoitteessa 800 on määritelty rutiini Report, joka osoitteessa 840 kutsuu rutiinia Math.Aver. Stats'in uudelleensijoitustaulussa on symboli a, jonka arvo on 0 ja johon on viitattu osoitteista 302 ja 850. Export-taulussa on Report-rutiinin osoite 800 ja Import-taulussa rutiinin Math.Aver osoite 840. 
+
+Alimpana on kirjastomoduuli Math, jossa on muuttuja sum osoitteessa 0 ja siihen viitataan osoitteissa 5 ja 2450. Osoitteessa 2400  on määritelty rutiini Aver. Math'in uudelleensijoitustaulussa on symboli sum, jonka rvoon 0 ja johon on viitattu osoitteissa 5 ja 2450. Export-taulussa on palvelurutiinin Aver osoite 2400 ja Import-taulu on tyhjä.
+
+](./ch-9-3-moduulit-ennen-linkitysta.svg)
 <div>
 <illustrations motive="ch-9-3-moduulit-ennen-linkitysta"></illustrations>
 </div>
@@ -51,7 +57,7 @@ Symbolien viittauskohdat on päivitetty linkitetyn moduulin uudelleensijoitustau
 ## Dynaaminen linkitys
 Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana ([run-time dynamic linking](https://en.wikipedia.org/wiki/Dynamic_linker)). Oletetaan esimerkiksi, että edellisen esimerkin GameX kirjastomoduuli Math olisi dynaamisesti linkitettävä moduuli. Nyt latausmoduulista puuttuu moduuli Math ja rutiini Math.Aver on merkitty puuttuvaksi latausmoduulin IMPORT-hakemistoon. Rutiinin Math.Aver kutsukohtaan on jollain tavoin koodattu, että viite kohdistuu dynaamiseksi linkitettävään moduuliin. Koodaus voisi olla esimerkiksi epäkelpo muistiosoite, jonka avulla käyttöjärjestelmälle voidaan antaa suoritusvuoro tarpeen tullessa.
 
-Jos nyt suoritusaikana tulee kutsu rutiiniin Math.Aver, niin epäkelvon muistiosoitteen kautta kontrolli siirtyy keskeytyskäsittelijälle, joka (a) huomaa, että kysymyksessä on dynaamisen linkityksen tarve ja (b) huomaa, että kyseessä on moduuli Math. Keskeytyskäsittelijä laittaa prosessin GameX odotustilaan, etsii moduulin Math (sen uusimman version) ja käynnistää linkittäjän. Kun linkitys on valmis, prosessi GameX voi taas jatkaa suoritusta (samasta konekäskystä), mutta tällä kertaa rutiinin Math.Aver kutsu voidaan toteuttaa normaalisti.
+Jos nyt suoritusaikana tulee kutsu rutiiniin Math.Aver, niin epäkelvon muistiosoitteen kautta kontrolli siirtyy keskeytyskäsittelijälle, joka (a) huomaa, että kysymyksessä on dynaamisen linkityksen tarve ja (b) huomaa, että kyseessä on moduuli Math. Keskeytyskäsittelijä  laittaa prosessin GameX odotustilaan, etsii moduulin Math (sen uusimman version) ja käynnistää dynaamisen linkittäjän. Kun linkitys on valmis, prosessi GameX voi taas jatkaa suoritusta (samasta konekäskystä). Tällä kertaa rutiinin Math.Aver kutsukäskyssä (osoitteessa 8840) on toimiva osoite ja kutsu voidaan toteuttaa normaalisti.
 
 <!-- kuva: ch-9-3-ajomoduuli-ennen-dyn-linkitysta  -->
 
