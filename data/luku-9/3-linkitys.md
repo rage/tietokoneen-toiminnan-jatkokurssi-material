@@ -64,6 +64,8 @@ Dynaamisen linkityksen käytöstä ohjelman GameX yhteydessä on useita etuja. S
 
 Dynaaminen linkitys ei sovi kaikkialle. Esimerkiksi, jos kyseessä on lentokoneen ohjausjärjestelmä, niin siinä ei välttämättä ole aikaa ruveta linkittämään lennon aikana. Usein halutaan, että latausmoduulissa on nimenomaan kaikki mahdolliset osat valmiina. Tällöin riittää latausmoduulin kopiointi toiseen järjestelmään. Jos dynaamista linkitystä käytetään, niin sitten kaikki mahdollisesti dynaamisesti linkitettävät moduulit täytyy olla myös saaavutettavissa. Lisäksi järjestelmään täytyy tietenkin kuulua käyttöjärjestelmän osana dynaaminen linkittäjä, mikä tekee käyttöjärjestelmästä suuremman ja monimutkaisemman.
 
+Toinen esimerkki dynaamisen linkityksen tarpeesta on useat tietokonepelit. Niissä erityisesti halutaa pieniä latausmoduuleja, jotta pelit käynnistyvät nopeasti. Lisäksi niissä voi olla monta kymmentä erilaista tasoa, joisa pelin yhdellä suorituskerralla voi ollasuorituksessa vain yksi tai muutama. On turhaa pitää latausmoduulissa mukana tasoja, joita ei luultavasti tarvita. Toinen käyttömahdollisuus dynaamiselle linkitykselle on pelin erilaiset lisäosat, jota voi pelin aikanakin (ostaa ja) ladata verkon kautta ja sitten dynaamisesti linkittää paikalleen. Tällaisia voisi olla vaikkapa jokin uusi pelialue, joka on toteutettu vasta pelin valmistumisen jälkeen.
+
 ### Windowsin kaksi eri dynaamista linkitystä
 ????
 
