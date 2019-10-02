@@ -33,11 +33,11 @@ Seuraavaksi tulee moduuli Stats. Sitä edeltää moduuli GameX, jonka koko on 80
 
 Kirjastomoduuli Math on viimeisenä. Sitä edeltävät moduulit GameX ja Stats, joiden yhteinen koko 14000 on siten moduulin Math uudelleensijoitusvakio.  Kaikki viitteet muuttujaan Sum kohdistuvatkin nyt osoitteeseen 14000 (=0+14000) ja keskiarvon laskentarutiinin Aver osoite pitää päivittää arvoon 16400 (=2400+14000).
 
-<!-- kuva: ch-9-3-moduulit-jälkeen-linkityksen  -->
+<!-- kuva: ch-9-3-moduulit-jalkeen-linkityksen  -->
 
-![  Puuttuu ???? ch-9-3-moduulit-jalkeen-linkityksen .](./ch-9-3-moduulit-jälkeen-linkityksen.svg)
+![  Puuttuu ???? ch-9-3-moduulit-jalkeen-linkityksen .](./ch-9-3-moduulit-jalkeen-linkityksen.svg)
 <div>
-<illustrations motive="ch-9-3-moduulit-jälkeen-linkityksen"></illustrations>
+<illustrations motive="ch-9-3-moduulit-jalkeen-linkityksen"></illustrations>
 </div>
 
 Linkitetyn moduulissa kaikilla symboleilla on arvo. Sen EXPORT-hakemistossa on uuden linkitetyn moduulin osoitteet kaikille palvelurutiineille ja IMPORT-hakemisto on tyhjä, koska kaikki viitteet muihin moduuleihin on ratkaistu. 
@@ -49,7 +49,7 @@ Symbolien viittauskohdat on päivitetty linkitetyn moduulin uudelleensijoitustau
 <div><quiz id="aec1b502-8b29-4f47-a0a8-e702f13cbda7"></quiz></div>
 
 ## Dynaaminen linkitys
-Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana. Oletetaan esimerkiksi, että edellisen esimerkin GameX kirjastomoduuli Math olisi dynaamisesti linkitettävä moduuli. Nyt ajomoduulista puuttuu moduuli Math ja rutiini Math.Aver on merkitty puuttuvaksi ajomoduulin IMPORT-hakemistoon. Rutiinin Math.Aver kutsukohtaan on jollain tavoin koodattu, että viite kohdistuu dynaamiseksi linkitettävään moduuliin. Koodaus voisi olla esimerkiksi epäkelpo muistiosoite. 
+Useissa tapauksissa voi olla järkevää tehdä linkitys dynaamisesti vasta suoritusaikana. Oletetaan esimerkiksi, että edellisen esimerkin GameX kirjastomoduuli Math olisi dynaamisesti linkitettävä moduuli. Nyt latausmoduulista puuttuu moduuli Math ja rutiini Math.Aver on merkitty puuttuvaksi latausmoduulin IMPORT-hakemistoon. Rutiinin Math.Aver kutsukohtaan on jollain tavoin koodattu, että viite kohdistuu dynaamiseksi linkitettävään moduuliin. Koodaus voisi olla esimerkiksi epäkelpo muistiosoite, jonka avulla käyttöjärjestelmälle voidaan antaa suoritusvuoro tarpeen tullessa.
 
 Jos nyt suoritusaikana tulee kutsu rutiiniin Math.Aver, niin epäkelvon muistiosoitteen kautta kontrolli siirtyy keskeytyskäsittelijälle, joka (a) huomaa, että kysymyksessä on dynaamisen linkityksen tarve ja (b) huomaa, että kyseessä on moduuli Math. Keskeytyskäsittelijä laittaa prosessin GameX odotustilaan, etsii moduulin Math (sen uusimman version) ja käynnistää linkittäjän. Kun linkitys on valmis, prosessi GameX voi taas jatkaa suoritusta (samasta konekäskystä), mutta tällä kertaa rutiinin Math.Aver kutsu voidaan toteuttaa normaalisti.
 
@@ -60,9 +60,9 @@ Jos nyt suoritusaikana tulee kutsu rutiiniin Math.Aver, niin epäkelvon muistios
 <illustrations motive="ch-9-3-ajomoduuli-ennen-dyn-linkitysta"></illustrations>
 </div>
 
-Dynaamisen linkityksen käytöstä ohjelman GameX yhteydessä on useita etuja. Sen ajomoduuli on pienempi, koska siitä puuttuu moduuli Math. Jos tietyllä suorituskerralla moduulin Math palveluja ei tarvita lainkaan, niin sitä ei tarvitse linkittää paikalleen missään vaiheessa. Lisäksi dynaamisesti linkitettävästä moduulista Math voidaan helposti ottaa aina uusin versio käyttöön ilman että sitä käyttäviä ohjelmia tarvitsisi kääntää uudelleen. Tämä on erityisen kätevää esimerkiksi verkosta ladatun pelin GameX yhteydessä, koska alkuperäistä korkean tason kielellä kirjoitettua ohjelmaa ei ole saatavilla.
+Dynaamisen linkityksen käytöstä ohjelman GameX yhteydessä on useita etuja. Sen latausmoduuli on pienempi, koska siitä puuttuu moduuli Math. Jos tietyllä suorituskerralla moduulin Math palveluja ei tarvita lainkaan, niin sitä ei tarvitse linkittää paikalleen missään vaiheessa. Lisäksi dynaamisesti linkitettävästä moduulista Math voidaan helposti ottaa aina uusin versio käyttöön ilman että sitä käyttäviä ohjelmia tarvitsisi kääntää uudelleen. Tämä on erityisen kätevää esimerkiksi verkosta ladatun pelin GameX yhteydessä, koska alkuperäistä korkean tason kielellä kirjoitettua ohjelmaa ei ole saatavilla.
 
-Dynaaminen linkitys ei sovi kaikkialle. Esimerkiksi, jos kyseessä on lentokoneen ohjausjärjestelmä, niin siinä ei välttämättä ole aikaa ruveta linkittämään lennon aikana. Usein halutaan, että ajomoduulissa on nimenomaan kaikki mahdolliset osat valmiina. Tällöin riittää ajomoduulin kopiointi toiseen järjestelmään. Jos dynaamista linkitystä käytetään, niin sitten kaikki mahdollisesti dynaamisesti linkitettävät moduulit täytyy olla myös saaavutettavissa. Lisäksi järjestelmään täytyy tietenkin kuulua käyttöjärjestelmän osana dynaaminen linkittäjä.
+Dynaaminen linkitys ei sovi kaikkialle. Esimerkiksi, jos kyseessä on lentokoneen ohjausjärjestelmä, niin siinä ei välttämättä ole aikaa ruveta linkittämään lennon aikana. Usein halutaan, että latausmoduulissa on nimenomaan kaikki mahdolliset osat valmiina. Tällöin riittää latausmoduulin kopiointi toiseen järjestelmään. Jos dynaamista linkitystä käytetään, niin sitten kaikki mahdollisesti dynaamisesti linkitettävät moduulit täytyy olla myös saaavutettavissa. Lisäksi järjestelmään täytyy tietenkin kuulua käyttöjärjestelmän osana dynaaminen linkittäjä.
 
 ### Windowsin kaksi eri dynaamista linkitystä
 ????
