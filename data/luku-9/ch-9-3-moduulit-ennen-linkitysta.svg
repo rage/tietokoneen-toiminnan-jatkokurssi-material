@@ -150,6 +150,8 @@
        x="101.35469"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
+         y="19.640402"
+         x="101.35469"
          id="tspan956">Uudelleensijoitustaulu (GameX)</tspan></text>
     <rect
        y="103.96021"
@@ -463,12 +465,12 @@
          id="tspan6361">Uudelleensijoitustaulu (Math)</tspan></text>
     <text
        id="text5433-9-1-88"
-       y="4.5766315"
-       x="52.247669"
+       y="4.954608"
+       x="33.726837"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="4.5766315"
-         x="52.247669"
-         id="tspan935">Moduulit ennen linkitystä</tspan></text>
+         y="4.954608"
+         x="33.726837"
+         id="tspan935">GameX moduulit ennen linkitystä</tspan></text>
   </g>
 </svg>

@@ -299,6 +299,8 @@
          y="48.446293"
          x="106.71856"
          id="tspan938">Stats:     8000</tspan><tspan
+         y="54.619904"
+         x="106.71856"
          id="tspan940">Math:   14000</tspan></text>
     <text
        id="text5433-4-1"
@@ -364,12 +366,12 @@
     <text
        id="text5433-9-1-88"
        y="9.3289938"
-       x="52.272453"
+       x="13.718882"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="9.3289938"
-         x="52.272453"
-         id="tspan914">Moduulit linkityksen jälkeen</tspan></text>
+         x="13.718882"
+         id="tspan914">Staattisesti linkitetty GameX latausmoduuli</tspan></text>
     <text
        id="text5433-9-1-6"
        y="28.011166"
