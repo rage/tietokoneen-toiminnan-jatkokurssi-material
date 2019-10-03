@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Tässä aliluvussa annamme yleiskuvan linkityksen toteuttamisesta. Staattisesti ennen suoritusta 
+<lead>Tässä aliluvussa annamme yleiskuvan linkityksen toteuttamisesta. Se voidaan tehdä heti kääntämisen jälkeen, latauksen yhteydessä tai suoritusaikana.  
 </lead>
 </div>
 
