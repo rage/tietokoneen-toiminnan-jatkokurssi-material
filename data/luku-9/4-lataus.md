@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Pääoppimistavoitteena ... ?????
+<lead>Tääsä aliluvussa kuvaamme, kuinka latausmoduulista saadaan järjestelmässä suorituskelpoinen prosessi.
 </lead>
 </div>
 
