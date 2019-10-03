@@ -37,9 +37,9 @@ Prosessin kuvaajan tietoja ja prosessien hallintaa yleensä käsitellään tarke
 
 
 
-## Quizit 9.4 ????
+## Quizit 9.4 lataus
 <!--  quizit 9.4.???  -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="98478074-7943-4b62-a2f3-c94c6fd5b260"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  ?????  ">
 
