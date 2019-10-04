@@ -41,13 +41,13 @@ Prosessin kuvaajan tietoja ja prosessien hallintaa yleensä käsitellään tarke
 <!--  quizit 9.4.???  -->
 <div><quiz id="98478074-7943-4b62-a2f3-c94c6fd5b260"></quiz></div>
 
-<text-box variant="example" name="Historiaa:  ?????  ">
+<text-box variant="example" name="Historiaa:  Nykyaikainen suoritin Intel Core i9-9900K">
 
-Fe.....
+jkjkjkjkj 
 
-![Valt????  puuttuu ????.](./ch-9-3-transistori.svg)
+![Valt????  puuttuu ????.](./ch-9-4-i9-9900k.svg)
 <div>
-<illustrations motive="ch-9-3-transistori"></illustrations>
+<illustrations motive="ch-9-4-i9-9900k"></illustrations>
 </div>
 
 </text-box>
