@@ -5,7 +5,9 @@ overview: true
 hidden: false
 ---
 
-Tässä luvussa ...... Luku 10: Tulkinta ja emulointi 
+Tässä viimeisessä luvussa 10 esittelemme toisen yleisen tavan suorittaa käyttäjän antamia ohjelmia. Edellisessä luvussa 9 näytettiin, kuinka korkean tason kielellä kirjoitetuista ohjelmista saada käyttöjärjestelmän tunnistamia prosesseja, joissa annetun ohjelman esitysmuoto on suorittimen konekieli.
+
+Tässä luvussa 10 näytämme, kuinka suoritettavien ohjelmien esitysmuoto voi olla myös muunlainen (kuin järjestelmän oman suorittimen konekieli). Ohjelma syötetään datana suorituksessa olevalle ohjelmalle, jonka esitysmuoto on järjestelmän konekieli. Tuo ohjelma voi olla esimerkiksi komentotulkki, välikielen tulkki tai jonkin muun suorittimen simulaattori. Pääasiallisena esimerkkinä käytämme Java-ohjelmointikieltä ja sillä kirjoitettujen ohjelmien neljää erilaista suoritustapaa.
 
 <please-login></please-login>
 
