@@ -43,9 +43,13 @@ Prosessin kuvaajan tietoja ja prosessien hallintaa yleensä käsitellään tarke
 
 <text-box variant="example" name="Historiaa:  Nykyaikainen suoritin Intel Core i9-9900K">
 
-jkjkjkjkj 
+Suorittimessa on 8 ydintä (core), jotka ovat kukin tällä kurssilla esitetyn mallin mukaisia suorittimia. Lisäksi kuhunkin ytimeen sisältyy kaksi joukkoa kaikkia laiterekistereitä, joiden avulla kukin ydin voi olla suorittamassa kahta eri prosessia (säiettä, thread), mutta yhtä kerrallaan. Idea tässä on, että kun yksi säie tekee muistiviitteen välimuistihudin takia, niin suoritus siirtyy saman ytimen toiselle säikeelle. Jos sekin tarvitsee muistiviitteen, niin sitten vain odotellaan. Tällä tavoin yhdestä ytimestä saadaan kuitenkin esim. 50-70% enemmän laskentatehoa kuin vain yhtä rekisterijoukkoa käytettäessä. Intel käyttää teknologiasta nimeä Intel Hyper-Threading.
 
-![Valt????  puuttuu ????.](./ch-9-4-i9-9900k.svg)
+Kullakin ytimellä on 64 KB L1-välimuisti, 256 KB L2-välimuisti ja 2 MB L3-välimuisti. Muistinhallintayksikkö nopealle DDR-keskusmuistille ja se voi pitää yllä kahta yhteyttä yhtäaikaisesti. Muistiosoitteet ovat 64-bittisiä. Oikealla kuvassa on samalle mikropiirille toteutettu näytönohjain. Ytimet ja näytönohjain on yhdistetty toisiinsa rengasmaisesti. 
+
+Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi siellä on 16 kappaletta 128-bittistä XMM-rekisteriä (MultiMedia eXtension). Niitä voidaan kutakin käyttää grafiikkasovelluksissa esimerkiksi 16 kappaleena 8-bitin vektorirekistereitä ja XMM-konekäskyt voivat vastaavasti toteuttaa operaatioita yhdellä kertaa kaikille 16 kappaleelle 8-bitin tietoalkioita. Liukulukulaskenta tapahtuu omien 8 liukulukurekisterin avulla. Nimettyjen rekistereiden asemesta liukulukurekistereitä käsitellään pinona. Kaikki konekäskyjen viittaukset liukulukurekistereihin tapahtuvat suhteessa tämänhetkiseen pinon huippuun.
+
+![???? selitys puuttuu ch-9-4-i9-9900k ????.](./ch-9-4-i9-9900k.svg)
 <div>
 <illustrations motive="ch-9-4-i9-9900k"></illustrations>
 </div>
