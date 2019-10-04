@@ -47,9 +47,9 @@ Suorittimessa on 8 ydintä (core), jotka ovat kukin tällä kurssilla esitetyn m
 
 Kullakin ytimellä on 64 KB L1-välimuisti, 256 KB L2-välimuisti ja 2 MB L3-välimuisti. Muistinhallintayksikkö nopealle DDR-keskusmuistille ja se voi pitää yllä kahta yhteyttä yhtäaikaisesti. Muistiosoitteet ovat 64-bittisiä. Oikealla kuvassa on samalle mikropiirille toteutettu näytönohjain. Ytimet ja näytönohjain on yhdistetty toisiinsa rengasmaisesti. 
 
-Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi siellä on 16 kappaletta 128-bittistä XMM-rekisteriä (MultiMedia eXtension). Niitä voidaan kutakin käyttää grafiikkasovelluksissa esimerkiksi 16 kappaleena 8-bitin vektorirekistereitä ja XMM-konekäskyt voivat vastaavasti toteuttaa operaatioita yhdellä kertaa kaikille 16 kappaleelle 8-bitin tietoalkioita. Liukulukulaskenta tapahtuu omien 8 liukulukurekisterin avulla. Nimettyjen rekistereiden asemesta liukulukurekistereitä käsitellään pinona. Kaikki konekäskyjen viittaukset liukulukurekistereihin tapahtuvat suhteessa tämänhetkiseen pinon huippuun.
+Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi siellä on 16 kappaletta 128-bittistä XMM-rekisteriä (MultiMedia eXtension). Niitä voidaan kutakin käyttää grafiikkasovelluksissa esimerkiksi 16 8-bitin vektorirekisterinä ja XMM-konekäskyt voivat vastaavasti toteuttaa operaatioita yhdellä kertaa kaikille 16 8-bitin tietoalkiolle. Liukulukulaskenta tapahtuu 8 liukulukurekisterin avulla. Nimettyjen rekistereiden asemesta liukulukurekistereitä käsitellään pinona,jolloin kaikki konekäskyjen viittaukset liukulukurekistereihin tapahtuvat suhteessa tämänhetkiseen pinon huippuun.
 
-![???? selitys puuttuu ch-9-4-i9-9900k ????.](./ch-9-4-i9-9900k.svg)
+![Kuva Intelin i9 9900K suorittimesta, joka on toteutettu Intelin Coffee Lake piirillä. Keskellä on 8 ydintä, oikealla GPU ja vasemmalla ylhäällä muistinhallinnan liittymä väylään. L3-tason välimuistit ovat vielä erikseen näkyvillä kunkin ytiemn ympärillä.](./ch-9-4-i9-9900k.svg)
 <div>
 <illustrations motive="ch-9-4-i9-9900k"></illustrations>
 </div>
@@ -57,7 +57,9 @@ Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi
 </text-box>
 
 ## Yhteenveto
-Tämä luku ...
+Tässä luvussa annoimme yleiskuvan siitä, kuinka ns. "tavallisella" korkean tason kielellä kirjoitetusta ohjelmasta saadaan järjestelmässä suoritettava prosessi. Ohjelman esitysmuotona on järjestelmän suorittimen ymmärtämä konekieli, joka annetaan suorittimelle koodina. Käännösmoduuleista saadaan eri ohjelmointikielistä _kääntämällä_ kohdearkkitehtuurin konekielisiä objektimoduuleita. Niissä on kussakin uudelleensijoitustaulu, jonka on määritelty liitokset kaikkiin muihin objektimoduuleihin. Objektimoduulit _linkitetään_ yhteen osoiteavaruuteen latausmoduuliksi, joska _lataaja_ sitten muodostaa käyttöjärjestelmän tunteman suorituskelpoisen prosessin. Eri ohjelmointikielten kääntäjät, staattiset ja synaamiset linkittäjät sekä lataaja ovat normaaleja käyttöjärjestelmään sisältyviä peruspalikoita.
+
+On myös olemassa toisen tyyppinen ohjelmien suoritustapa. Siinä suoritettava ohjelma annetaan datana (syötteenä) jollekin käyttöjärjestelmän tunnistamalle prosessille, joka voi olla esimerkiksi tulkki, emulaattori tai simulaattori. Suoritettavan ohjelman esitysmuoto voi olla esimerkiksi jotain skriptikieltä, jonkin toisen koneen konekieltä tai korkean tason kielen kääntäjän välikieltä. Tällaista ohjelmien suoritustapaa käsitellään seuraavassa luvussa 10.
 
 Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
