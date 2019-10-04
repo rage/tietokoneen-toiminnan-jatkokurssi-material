@@ -43,13 +43,13 @@ Prosessin kuvaajan tietoja ja prosessien hallintaa yleensä käsitellään tarke
 
 <text-box variant="example" name="Historiaa:  Nykyaikainen suoritin Intel Core i9-9900K">
 
-Suorittimessa on 8 ydintä (core), jotka ovat kukin tällä kurssilla esitetyn mallin mukaisia suorittimia. Lisäksi kuhunkin ytimeen sisältyy kaksi joukkoa kaikkia laiterekistereitä, joiden avulla kukin ydin voi olla suorittamassa kahta eri prosessia (säiettä, thread), mutta yhtä kerrallaan. Idea tässä on, että kun yksi säie tekee muistiviitteen välimuistihudin takia, niin suoritus siirtyy saman ytimen toiselle säikeelle. Jos sekin tarvitsee muistiviitteen, niin sitten vain odotellaan. Tällä tavoin yhdestä ytimestä saadaan kuitenkin esim. 50-70% enemmän laskentatehoa kuin vain yhtä rekisterijoukkoa käytettäessä. Intel käyttää teknologiasta nimeä Intel Hyper-Threading.
+Suorittimessa on 8 ydintä (core), jotka ovat kukin tällä kurssilla esitetyn mallin mukaisia suorittimia. Lisäksi kuhunkin ytimeen sisältyy kaksi joukkoa kaikkia laiterekistereitä, joiden avulla kukin ydin voi olla suorittamassa kahta eri prosessia (_säiettä_, thread), mutta yhtä kerrallaan. Idea tässä on, että kun yksi säie tekee muistiviitteen välimuistihudin takia, niin suoritus siirtyy saman ytimen toiselle säikeelle. Jos sekin tarvitsee muistiviitteen, niin sitten vain odotellaan. Tällä tavoin yhdestä ytimestä saadaan kuitenkin esim. 50-70% enemmän laskentatehoa kuin vain yhtä rekisterijoukkoa käytettäessä. Tämä teknologia on nimeltään _hyper threading_.
 
-Kullakin ytimellä on 64 KB L1-välimuisti, 256 KB L2-välimuisti ja 2 MB L3-välimuisti. Muistinhallintayksikkö nopealle DDR-keskusmuistille ja se voi pitää yllä kahta yhteyttä yhtäaikaisesti. Muistiosoitteet ovat 64-bittisiä. Oikealla kuvassa on samalle mikropiirille toteutettu näytönohjain. Ytimet ja näytönohjain on yhdistetty toisiinsa rengasmaisesti. 
+Kullakin ytimellä on 64 KB L1-välimuisti, 256 KB L2-välimuisti ja 2 MB L3-välimuisti. Muistiosoitteet ovat 64-bittisiä. Oikealla kuvassa on samalle mikropiirille toteutettu näytönohjain. Ytimet ja näytönohjain on yhdistetty toisiinsa rengasmaisesti. 
 
-Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi siellä on 16 kappaletta 128-bittistä XMM-rekisteriä (MultiMedia eXtension). Niitä voidaan kutakin käyttää grafiikkasovelluksissa esimerkiksi 16 8-bitin vektorirekisterinä ja XMM-konekäskyt voivat vastaavasti toteuttaa operaatioita yhdellä kertaa kaikille 16 8-bitin tietoalkiolle. Liukulukulaskenta tapahtuu 8 liukulukurekisterin avulla. Nimettyjen rekistereiden asemesta liukulukurekistereitä käsitellään pinona,jolloin kaikki konekäskyjen viittaukset liukulukurekistereihin tapahtuvat suhteessa tämänhetkiseen pinon huippuun.
+Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi siellä on 16 kappaletta 128-bittistä XMM-rekisteriä (MultiMedia eXtension). Niitä voidaan kutakin käyttää grafiikkasovelluksissa esimerkiksi 16 8-bitin vektorirekisterinä ja XMM-konekäskyt toteuttavat yhdellä kertaa  operaatioita kaikille 16 8-bitin tietoalkiolle. Liukulukulaskenta tapahtuu 8 liukulukurekisterin avulla. Nimettyjen rekistereiden asemesta liukulukurekistereitä käsitellään pinona, johon liukulukukonekäskyjen viittaukset kohdistivat.
 
-![Kuva Intelin i9 9900K suorittimesta, joka on toteutettu Intelin Coffee Lake piirillä. Keskellä on 8 ydintä, oikealla GPU ja vasemmalla ylhäällä muistinhallinnan liittymä väylään. L3-tason välimuistit ovat vielä erikseen näkyvillä kunkin ytiemn ympärillä.](./ch-9-4-i9-9900k.svg)
+![Kuva Intelin i9 9900K suorittimesta, joka on toteutettu Intelin Coffee Lake piirillä. Keskellä on 8 ydintä, oikealla GPU ja vasemmalla ylhäällä muistinhallinnan liittymä väylään. L3-tason välimuistit ovat vielä erikseen näkyvillä kunkin ytimen ympärillä.](./ch-9-4-i9-9900k.svg)
 <div>
 <illustrations motive="ch-9-4-i9-9900k"></illustrations>
 </div>
@@ -63,7 +63,7 @@ On myös olemassa toisen tyyppinen ohjelmien suoritustapa. Siinä suoritettava o
 
 Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
-### summary quizit lukuun 9 ???
+<!-- ### summary quizit lukuun 9 ??? -->
 
 <div><quiz id="9dadff01-7d90-4a1f-b3cc-d06ff6151d0a"></quiz></div>
 © 2019 GitHub, Inc.
