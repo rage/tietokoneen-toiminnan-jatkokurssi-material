@@ -50,16 +50,9 @@ C:\>dir
 C:\>
 ``` 
 
-<!-- kuva: ch-10-1-command-prompt  -->
-
-!Kuva Windowsin komentotulkin käytöstä. Aluksi kotihakemistona on partitio Z:n juurihakemisto \. Komennon "C:" seurauksena kotihakemisto vaihtuu partition C juurihakemistoksi \ ja uusi kehote on "C:\>". Komento "dir" tulostaa nykyisen kotihakemiston tiedot. Siellä on mm. hakemistot LocalData, ProgramFiles ja Users. Hakemistoista kerrotaan niiden viimeinen käyttöpäivä ja -aika.](./ch-10-1-command-prompt.svg)
-<div>
-<illustrations motive="ch-10-1-command-prompt"></illustrations>
-</div>
-
 Komentotulkkien skriptikielet ovat normaali käyttöliittymä järjestelmien ylläpitäjille. Ne antavat suoran käyttöliittymän järjestelmän hallintaan ja uusien skriptien tekeminen erilaisiin hallintotehtäviin on hyvin helppoa. Skriptejä tulkitsee aina sen oman skriptikielen tulkki, jonka oikeudet määräytyvät sen käynnistämisen yhteydessä. Windows-10:n graafisessa käyttöliittymässä klikkaamalla hiiren oikealla napilla sovellusta Komentokehote (Command Prompt) voidaan pyytää suorittamaan se pääkäyttäjän (admin) oikeuksin. Sen jälkeen komentotulkissa voi tehdä ihan mitä tahansa käyttöjärjestelmän toimintoja. Tehokkailla skripteillä saa paljon hyvää ja pahaa aikaiseksi hyvin kätevästi. 
 
-Komentotulkille voi syöttää skriptejä rivi kerrallaan, kuten edellä olevassa esimerkissä tehtiin. Usein skriptit talletetaan omiin tiedostoihinsa, jotka suoritetaan sellaisenaan komentotulkissa. Linux-järjestelmissä skriptitiedostojen alussa on rivi, joka kertoo mikä skriptikieli siinä on käytössä. Näin skriptejä voi myös "suorittaa", kun käyttöjärjestelmä osaa käynnistää oikean tulkin kullekin skriptille. Käyttäjän näkökulmasta ne tuolloin tuntuvat suoritettavilta ohjelmilta. Suoritettavissa skripteissä voi käyttää myös muita skriptejä, jotka voi olla kirjoitetu samalla tai eri skriptikielellä. Allaolevalla C shell skriptillä voidaan yhdellä komennolla kertaa tehdä samat editoinnit vaikka miten monelle tiedostolle, kunhan rivieditorin [ed](https://en.wikipedia.org/wiki/Ed_(text_editor)) komennot on vain ensin tallennettu tiedostoon nimeltä edfile. Esimerkiksi, kaikki merkkijonot "vanha" voisi yhdellä ed-komennolla "1,$s/vanha/uusi/g" vaihtaa 3000 tiedostossa merkkijonoon "uusi".
+Komentotulkille voi syöttää skriptejä rivi kerrallaan, kuten edellä olevassa esimerkissä tehtiin. Usein skriptit talletetaan omiin tiedostoihinsa, jotka suoritetaan sellaisenaan komentotulkissa. Linux-järjestelmissä skriptitiedostojen alussa on rivi, joka kertoo mikä skriptikieli siinä on käytössä. Näin skriptejä voi myös "suorittaa", kun käyttöjärjestelmä osaa käynnistää oikean tulkin kullekin skriptille. Käyttäjän näkökulmasta ne tuolloin tuntuvat suoritettavilta ohjelmilta. Suoritettavissa skripteissä voi käyttää myös muita skriptejä, jotka voi olla kirjoitetu samalla tai eri skriptikielellä. Allaolevalla C shell skriptillä voidaan yhdellä komennolla kertaa tehdä samat editoinnit vaikka miten monelle tiedostolle, kunhan rivieditorin [ed](https://en.wikipedia.org/wiki/Ed_(text_editor)) komennot on vain ensin tallennettu tiedostoon nimeltä edfile. Esimerkiksi, 3000 tiedostossa kaikki merkkijonot "vanha" voisi vaihtaa  merkkijonoon "uusi" yhdellä ed-komennolla "1,$s/vanha/uusi/g".
 
 
 ```
@@ -72,25 +65,21 @@ foreach par ( $*  )
 end
 ``` 
 
-
-<!-- kuva: ch-10-1-edit-all  -->
-
-![C shell Skripti monen tiedoston editointiin.,  
-
-Kolmen ?????   ch-10-1-edit-all.](./ch-10-1-edit-all.svg)
-<div>
-<illustrations motive="ch-10-1-edit-all"></illustrations>
-</div>
-
 ## Emulointi
 [Emulaattori](https://en.wikipedia.org/wiki/Emulator) tarkoittaa ohjelmaa (tai laitteistoa), jonka kautta käytössä oleva järjestelmä saadaan tuntumaan samalta kuin jokin muu järjestelmä. Esimerkiksi Titokone on ohjelma, joka emuloi ttk-91 suoritinta missä tahansa järjestelmässä, missä Titokoneen voi suorittaa. Titokoneessa on ohjelman sisäisinä tietorakenteina kaikki hypoteettisen ttk-91 suorittimen rekisterit ja muisti. Kaikki ttk-91 ohjelmat voidaan suorittaa Titokoneessa ja ne käyttäytyvät (suoritusaikaa lukuunottamatta) samalla tavalla kuin jos ne olisi suoritettu todellisella ttk-91 suorittimella. 
 
-Intelin hyvin kauan käytössä olleelle x86 suoritinarkkitehtuurille toimivia ohjelmia on valtava määrä ja Intel haluaa, että niiden DOS-käyttöjärjestelmälle suunniteltuja latausmoduuleja voi suorittaa sellaisenaan (joskus muinoin käännetyssä ja linkitetty konekielisessä muodossa) nykyisissä järjestelmissä. Tällaisia ohjelmia kutsutaan joskus nimellä "dusty deck", koska osa niistä voi olla kirjoitettu [reikäkorttiaikaan](https://fi.wikipedia.org/wiki/Reik%C3%A4kortti). Uusissa suorittimissa voi laitteistolla samalla mikropiirillä toteutettu x86-emulaattori. Toinen vaihtoehto on ohjelmana toteutettu x86-emulaattori, jolle vanhat x86-ohjelmat voi antaa suoritettavaksi.
+Intelin hyvin kauan käytössä olleelle x86 suoritinarkkitehtuurille toimivia ohjelmia on valtava määrä ja Intel haluaa, että niiden latausmoduuleja voi suorittaa sellaisenaan (joskus muinoin käännetyssä ja linkitetyssä x86-konekielisessä muodossa) nykyisissä Intelin suorittimissa. Tällaisia vanhoja ohjelmia kutsutaan joskus nimellä "dusty deck", koska osa niistä voi olla kirjoitettu [reikäkorttiaikaan](https://fi.wikipedia.org/wiki/Reik%C3%A4kortti). Uusissa suorittimissa voi laitteistolla samalla mikropiirillä toteutettu x86-emulaattori. Toinen vaihtoehto on ohjelmana toteutettu x86-emulaattori, jolle vanhat x86-ohjelmat voi antaa suoritettavaksi. Tai sitten uuden suorittimen konekieli on suoraan x86-konekielen laajennus, jolloin x86-käskyt toimivat sellaisenaan. Joka tapauksessa näin saadaan pelaajille kaikki vanhat x86-pelit edelleen suorituskelpoisiksi.
 
-[Transmetalla](https://fi.wikipedia.org/wiki/Transmeta) oli mielenkiintoinen emulaattori [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuurille. Transmetan alkuperäinen tarkoitus vuonna 1995 oli emuloida Intelin x86-arkkitehtuurin suoritinta nopeammin kuin mihin Intelin omat suorittimet pystyivät. Emulaattorin idea oli lennossa kääntää x86-konekäskyjen lohkot Transmetan oman suorittimen konekielelle hyödyntäen useaa rinnakkain suoritettavaan pientä konekäskyä. Transmetan oma suoritin sitten pystyisi suorittamaan näitä pieniä konekäskyjä rinnakkain hyvin nopeasti. Idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella, joka lennossa käänsi jokaisen x86-konekäskyn pienempiin rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa painopisteen alhaiseen virrankulutukseen, millä alueella se vielä saattoi kilpailla kannettavissa laitteissa. Lopulta yhtiö meni konkurssiin 2009. Transmeta sivuaa suomalaisia, koska se palkkasi [Linux-käyttöjärjestelmän](https://fi.wikipedia.org/wiki/Linux) kehittäneen [Linus Torvaldsin](https://en.wikipedia.org/wiki/Linus_Torvalds) 1997-2003 mm. porttaamaan Linux-käyttöjärjestelmän Transmetan suorittimille.  
+[Transmetalla](https://fi.wikipedia.org/wiki/Transmeta) oli mielenkiintoinen emulaattori [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuurille. Transmetan alkuperäinen tarkoitus vuonna 1995 oli emuloida Intelin x86-arkkitehtuurin suoritinta nopeammin kuin mihin Intelin omat suorittimet pystyivät. Emulaattorin idea oli lennossa kääntää x86-konekäskyjen lohkot Transmetan oman suorittimen konekielelle hyödyntäen useaa rinnakkain suoritettavaan pientä konekäskyä. Transmetan oma suoritin sitten pystyisi suorittamaan näitä pieniä konekäskyjä rinnakkain hyvin nopeasti. Idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella, joka lennossa käänsi jokaisen x86-konekäskyn pienempiin rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa painopisteen alhaiseen virrankulutukseen, millä alueella se saattoi vielä kilpailla kannettavissa laitteissa. Lopulta yhtiö meni konkurssiin 2009. Transmeta sivuaa suomalaisia, koska se palkkasi [Linux-käyttöjärjestelmän](https://fi.wikipedia.org/wiki/Linux) kehittäneen [Linus Torvaldsin](https://en.wikipedia.org/wiki/Linus_Torvalds) 1997-2003 mm. porttaamaan Linux-käyttöjärjestelmän Transmetan suorittimille.  
 
 ## Simulointi
-????
+[Simulointi](https://en.wikipedia.org/wiki/Simulation) on sukua tulkitsemiselle ja emuloinnille, mutta tarkoittaa vähän eri asiaa. Tulkitsemisessa annetaan täsmällisiä komentoja järjestelmälle ja emuloinnissa imitoidaan yhden laitteen toimintaa toisella laitteella tai järjestelmällä. Simulointi on lähempänä emulointia, koska siinäkin jäljitellään jonkin toisen laitteen tai systeemin toimintaa joiltakin osin. 
+
+Lentokonesimulaattori esimerkiksi jäljittelee todellisen lentokoneen ohjaamista sillä tarkkuudella kuin on kussakin käyttökohteessa järkevää. Tietokonepelissä riittää jäljitellä yksinkertaisimmat toiminnot, jolloin käyttöliittymäksi voi riittää tietokoneen näppäimistö, hiiri ja näyttö. Lentäjien koulutuksessa halutaan mahdollisimman paljon realismia simulointiin, jolloin käyttöliittymä voisi olla täsmälleen oikean lentokoneen ohjaimisto ja jokaisen säätimen toiminta täsmälleen sama kuin mitä se olisi oikeassa koneessa. Lisäksi lentäjien koulutuksessa simuloitu aika etenee samaa tahtia kuin todellisuudessa. 
+
+Tietokoneen ohjelman simuloinnissa voitaisiin sen suorituskykyarvioinnin yhteydessä keskittyä laskennan käyttämään aikaan. Tällöin esimerkiksi sovelluksen UhkaArvio aliohjelman LaskeOhjuksenSijainti suorituksen simuloinnissa ei suoriteta itse koodia, vaan ainoastaan kulutetaan simuloitua aikaa sen verran kuin koodin suoritus oikealla _ensi vuonna käyttöön tulevalla suorittimella_ kestäisi. Simuloinnin lopputulos voi olla, että sovelluksen UhkaArvio suorittamiseen kuluu 0.84 sekuntia. Jos tämä on liikaa, niin ehkä aliohjelman LaskeOhjuksenSijainti koodia pitää vielä optimoida lisää.
+
+Tavallaan Titokone on myöskin oikeastaa simulaattori, koska se ei emuloi ihan kaikkia ttk-91 suorittimen toimintoja täsmällisesti. Ttk-91 suorittimen ja sen käyttöjärjestelmän määrittely ei ole täydellinen, joten täsmällistä toimintaa ei ole edes määritelty kunnolla. Titokone on kuitenkin riittävän hyvin määritelty, jotta Titokone voi simuloida sen toimintaa tärkeiden komponenttien osalta funktionaalisesti oikein. 
 
 
 ## Quizit 10.1
