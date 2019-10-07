@@ -22,11 +22,11 @@ Tietokonejärjestelmissä on (ehkä mukana olevan graafisen käyttöliittymän l
 
 Windows-järjestelmissä on vain yksi komentotulkki ([Cmd](https://en.wikipedia.org/wiki/Command_Prompt)), joka on ollut käytössä vuodesta 1987.
 
-Jos käyttöjärjestelmässä ei ole graafista käyttöliittymää, sitä käytetään suoraan komentotulkin kautta. Jos siinä on graafinen käyttöliittymä, niin komentotulkin voi käynnistää omaan käyttöliittymän ikkunaan. Esimerkiksi Windows-10 järjestelmässä komentotulkin Cmd voi käynnistää sovelluksena Komentokehote (Command Prompt). Alla olevassa esimerkissä Windows-10 komentotulkille on annettu kaksi komentoa. Komento "C:" vaihtoi hakemiston tiedostojärjestelmän C-partition juureen ja komento "dir" tulosti juurihakemiston tiedot oletusarvoisilla parametreilla.
+Jos käyttöjärjestelmässä ei ole graafista käyttöliittymää, sitä käytetään suoraan komentotulkin kautta. Jos siinä on graafinen käyttöliittymä, niin komentotulkin voi käynnistää omaan käyttöliittymän ikkunaan. Esimerkiksi Windows-10 järjestelmässä komentotulkin Cmd voi käynnistää sovelluksena Komentokehote (Command Prompt). Alla olevassa esimerkissä Windows-10 komentotulkin nykyhakemisto on alkuaan Z-partition juurihakemisto \\. Tämä ilmenee uuden komennon kehotteena "Z:\>". Komentotulkille  on annettu kaksi komentoa. Komento "C:" vaihtoi hakemiston tiedostojärjestelmän C-partition juureen ja komento "dir" tulosti juurihakemiston tiedot oletusarvoisilla parametreilla. Lopuksi jäljellä on seuraavan komennon kehote nykyhakemistossa "C:\>".
 
 <!-- kuva: ch-10-1-command-prompt  -->
 
-![Kolmen ?????   ch-10-1-command-prompt.](./ch-10-1-command-prompt.svg)
+!Kuva Windowsin komentotulkin käytöstä. Aluksi kotihakemistona on partitio Z:n juurihakemisto \. Komennon "C:" seurauksena kotihakemisto vaihtuu partition C juurihakemistoksi \ ja uusi kehote on "C:\>". Komento "dir" tulostaa nykyisen kotihakemiston tiedot. Siellä on mm. hakemistot LocalData, ProgramFiles ja Users. Hakemistoista kerrotaan niiden tyyppi (<DIR>) sekä viimeinen käyttöpäivä ja -aika.](./ch-10-1-command-prompt.svg)
 <div>
 <illustrations motive="ch-10-1-command-prompt"></illustrations>
 </div>
