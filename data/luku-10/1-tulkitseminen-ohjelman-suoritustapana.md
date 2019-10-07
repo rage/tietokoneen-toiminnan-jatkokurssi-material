@@ -24,6 +24,32 @@ Windows-järjestelmissä on vain yksi komentotulkki ([Cmd](https://en.wikipedia.
 
 Jos käyttöjärjestelmässä ei ole graafista käyttöliittymää, sitä käytetään suoraan komentotulkin kautta. Jos siinä on graafinen käyttöliittymä, niin komentotulkin voi käynnistää omaan käyttöliittymän ikkunaan. Esimerkiksi Windows-10 järjestelmässä komentotulkin Cmd voi käynnistää sovelluksena Komentokehote (Command Prompt). Alla olevassa esimerkissä Windows-10 komentotulkin nykyhakemisto on alkuaan Z-partition juurihakemisto \\. Tämä ilmenee uuden komennon kehotteena "Z:\>". Komentotulkille  on annettu kaksi komentoa. Komento "C:" vaihtoi hakemiston tiedostojärjestelmän C-partition juureen ja komento "dir" tulosti juurihakemiston tiedot oletusarvoisilla parametreilla. Lopuksi jäljellä on seuraavan komennon kehote nykyhakemistossa "C:\>".
 
+```
+Microsoft Windows [Version 10.0.17763.737]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+Z:\>C:
+
+C:\>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 82E7-F226
+
+ Directory of C:\
+
+05.02.2019  18.42    <DIR>          Intel
+08.02.2019  11.41    <DIR>          LocalData
+15.09.2018  10.33    <DIR>          PerfLogs
+25.09.2019  12.03    <DIR>          Program Files
+24.09.2019  04.43    <DIR>          Program Files (x86)
+23.09.2019  17.45    <DIR>          Users
+26.09.2019  18.01    <DIR>          Windows
+23.09.2019  17.51    <DIR>          Windows.old
+               0 File(s)              0 bytes
+               8 Dir(s)  401 707 028 480 bytes free
+
+C:\>
+``` 
+
 <!-- kuva: ch-10-1-command-prompt  -->
 
 !Kuva Windowsin komentotulkin käytöstä. Aluksi kotihakemistona on partitio Z:n juurihakemisto \. Komennon "C:" seurauksena kotihakemisto vaihtuu partition C juurihakemistoksi \ ja uusi kehote on "C:\>". Komento "dir" tulostaa nykyisen kotihakemiston tiedot. Siellä on mm. hakemistot LocalData, ProgramFiles ja Users. Hakemistoista kerrotaan niiden viimeinen käyttöpäivä ja -aika.](./ch-10-1-command-prompt.svg)
@@ -35,9 +61,23 @@ Komentotulkkien skriptikielet ovat normaali käyttöliittymä järjestelmien yll
 
 Komentotulkille voi syöttää skriptejä rivi kerrallaan, kuten edellä olevassa esimerkissä tehtiin. Usein skriptit talletetaan omiin tiedostoihinsa, jotka suoritetaan sellaisenaan komentotulkissa. Linux-järjestelmissä skriptitiedostojen alussa on rivi, joka kertoo mikä skriptikieli siinä on käytössä. Näin skriptejä voi myös "suorittaa", kun käyttöjärjestelmä osaa käynnistää oikean tulkin kullekin skriptille. Käyttäjän näkökulmasta ne tuolloin tuntuvat suoritettavilta ohjelmilta. Suoritettavissa skripteissä voi käyttää myös muita skriptejä, jotka voi olla kirjoitetu samalla tai eri skriptikielellä. Allaolevalla C shell skriptillä voidaan yhdellä komennolla kertaa tehdä samat editoinnit vaikka miten monelle tiedostolle, kunhan rivieditorin [ed](https://en.wikipedia.org/wiki/Ed_(text_editor)) komennot on vain ensin tallennettu tiedostoon nimeltä edfile. Esimerkiksi, kaikki merkkijonot "vanha" voisi yhdellä ed-komennolla "1,$s/vanha/uusi/g" vaihtaa 3000 tiedostossa merkkijonoon "uusi".
 
+
+```
+#! /bin/csh -f
+# edit_all -- run ed for all source files
+# create first "edfile"  for editing commands
+
+foreach par ( $*  )
+    cat  edfile | ed $par 
+end
+``` 
+
+
 <!-- kuva: ch-10-1-edit-all  -->
 
-![Kolmen ?????   ch-10-1-edit-all.](./ch-10-1-edit-all.svg)
+![C shell Skripti monen tiedoston editointiin.,  
+
+Kolmen ?????   ch-10-1-edit-all.](./ch-10-1-edit-all.svg)
 <div>
 <illustrations motive="ch-10-1-edit-all"></illustrations>
 </div>
