@@ -85,3 +85,4 @@ Tavallaan Titokone on myöskin oikeastaan simulaattori, koska se ei emuloi ihan 
 ## Quizit 10.1
 <!-- Quiz 10.1.?? -->
 <div><quiz id="a15e1f66-8080-477e-b987-d550017610f8"></quiz></div>
+<div><quiz id="42571b0e-635b-452d-8533-3e87d91f423b"></quiz></div>
