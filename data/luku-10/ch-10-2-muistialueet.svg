@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg1040"
    version="1.1"
-   viewBox="0 0 210.91072 143.63097"
-   height="143.63097mm"
+   viewBox="0 0 210.91072 133.42562"
+   height="133.42561mm"
    width="210.91072mm">
   <defs
      id="defs1034" />
@@ -25,22 +25,22 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-0.37797621,-21.455357)"
+     transform="translate(-1.8449052e-8,-32.416668)"
      id="layer1">
     <rect
-       y="21.455357"
-       x="0.37797621"
-       height="143.63097"
+       y="32.416668"
+       x="1.8449052e-008"
+       height="133.42561"
        width="210.91072"
        id="rect1907"
-       style="opacity:0.98000004;fill:#ffe2b9;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.25999998, 4.51999995;stroke-dashoffset:21.35433006;stroke-opacity:1" />
+       style="opacity:0.98000004;fill:#ffe2b9;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.25999998, 4.51999997;stroke-dashoffset:21.35433006;stroke-opacity:1" />
     <text
        id="text5433-7-7"
-       y="34.025429"
+       y="45.742691"
        x="30.77878"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="34.025429"
+         y="45.742691"
          x="30.77878"
          id="tspan1603">JVM:n muistialueet ja rekisterit</tspan></text>
     <text
@@ -56,7 +56,7 @@
        y="72.671127"
        x="23.623514"
        height="75.595238"
-       width="21.544641"
+       width="29.482141"
        id="rect13466-7-4-1-8"
        style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
@@ -70,12 +70,12 @@
          id="tspan1658">PC</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-0-8-6"
-       y="55.000771"
-       x="82.441284"
+       y="61.426365"
+       x="82.063309"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="55.000771"
-         x="82.441284"
+         y="61.426365"
+         x="82.063309"
          id="tspan1678">SP</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-0-8-4"
@@ -99,9 +99,9 @@
        y="114.13512"
        x="161.58482"
        height="34.395832"
-       width="21.544641"
+       width="29.104164"
        id="rect13466-7-4-1-8-6"
-       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.49999997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-4"
        y="156.4174"
@@ -112,33 +112,33 @@
          x="160.3793"
          id="tspan1733">vakioallas</tspan></text>
     <rect
-       y="125.02084"
+       y="132.87672"
        x="90.903275"
-       height="23.8125"
-       width="21.544641"
+       height="15.956619"
+       width="32.505951"
        id="rect13466-7-4-1-8-1"
        style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
-       y="98.184532"
+       y="106.50001"
        x="90.903275"
-       height="26.836309"
-       width="21.544641"
+       height="18.520834"
+       width="32.505951"
        id="rect13466-7-4-1-8-1-9"
        style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="71.348228"
        x="90.903275"
        height="26.836309"
-       width="21.544641"
+       width="32.505951"
        id="rect13466-7-4-1-8-1-9-9"
        style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
-       y="50.181561"
+       y="57.741085"
        x="90.903275"
-       height="21.166666"
-       width="21.544641"
+       height="13.607142"
+       width="32.505951"
        id="rect13466-7-4-1-8-1-9-9-9"
-       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.49999997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3"
        y="156.3418"
@@ -150,12 +150,12 @@
          id="tspan847">pino</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3-5"
-       y="138.49548"
-       x="94.927589"
+       y="141.89726"
+       x="95.305565"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="138.49548"
-         x="94.927589"
+         y="141.89726"
+         x="95.305565"
          id="tspan1833">main</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3-5-5"
@@ -165,10 +165,7 @@
        xml:space="preserve"><tspan
          y="114.3177"
          x="92.889923"
-         id="tspan1903">method</tspan><tspan
-         y="120.49132"
-         x="92.889923"
-         id="tspan1905">1</tspan></text>
+         id="tspan923">method 1</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3-5-5-5"
        y="86.04425"
@@ -177,24 +174,47 @@
        xml:space="preserve"><tspan
          y="86.04425"
          x="92.233742"
-         id="tspan1899">method</tspan><tspan
-         y="92.217865"
-         x="92.233742"
-         id="tspan1901">2</tspan></text>
+         id="tspan925">method 2</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3-5-5-5-9"
-       y="56.562111"
-       x="92.131256"
+       y="66.389488"
+       x="92.887207"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="56.562111"
-         x="92.131256"
-         id="tspan1893">väli-</tspan><tspan
-         y="62.735722"
-         x="92.131256"
-         id="tspan1895">tulokset</tspan><tspan
-         y="68.909332"
-         x="92.131256"
-         id="tspan1897">2</tspan></text>
+         y="66.389488"
+         x="92.887207"
+         id="tspan927">välitul. 2</tspan></text>
+    <rect
+       y="125.02084"
+       x="90.903275"
+       height="7.8558807"
+       width="32.505951"
+       id="rect13466-7-4-1-8-1-5"
+       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       y="98.18454"
+       x="90.903275"
+       height="8.3154678"
+       width="32.505951"
+       id="rect13466-7-4-1-8-1-5-0"
+       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3-5-5-5-9-0"
+       y="103.33652"
+       x="92.951874"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         y="103.33652"
+         x="92.951874"
+         id="tspan901">välitul. 1</tspan></text>
+    <text
+       id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3-5-5-5-9-0-1"
+       y="130.26146"
+       x="91.610382"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         y="130.26146"
+         x="91.610382"
+         id="tspan921">välitul. main</tspan></text>
   </g>
 </svg>
