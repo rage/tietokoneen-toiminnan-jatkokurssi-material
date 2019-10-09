@@ -98,10 +98,10 @@ Kutsu voisi toteuttaa vaikkapa seuraavalla tavalla.
 Metodi A
 
 ...
-getstatic #35       0x    Olion Obj osoite on CPP+35:ssä
-iload  x              parametri 1, muuttujan x arvo
-bipush 5              parametri 2, vakio 5
-invokevirtual #37     metodin B osoite on CPP+37:ssä
+getstatic #35       0xb2 0x00 0x23   Olion Obj osoite on CPP+35:ssä
+iload  x            0x15 0x03        parametri 1, muuttujan x arvo
+bipush 5            0x10 0x05        parametri 2, vakio 5
+invokevirtual #37   0xb6 0x00 0x25   metodin B osoite on CPP+37:ssä
 ```
 
 <!-- Kuva: ch-10-2-metodin-kutsu -->
@@ -119,7 +119,7 @@ Oletetaan nyt, että metodi B palauttaa arvonaan yhden kokonaisluvun, joka on en
 metodi Obj.B
 
 ...
-ireturn              palauta paluuarvo ja kontrolli kutsuvaan rutiiniin
+ireturn           0xac       palauta paluuarvo ja kontrolli kutsuvaan rutiiniin
 ```
 
 <!-- Kuva: ch-10-2-metodista-paluu -->
@@ -135,7 +135,7 @@ Käskyn ireturn suorituksessa metodin B kehyksen tiedoilla palautetaan rekistere
 metodi A
 
 ...
-istore y              ota paluuarvo pinosta ja talleta se paikalliseen muuttujaan y
+istore y          0x36 0x04   paluuarvo pinosta paikalliseen muuttujaan y
 ```
 
 
