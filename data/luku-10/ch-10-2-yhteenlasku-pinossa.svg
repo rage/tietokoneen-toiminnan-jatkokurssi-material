@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg1071"
    version="1.1"
-   viewBox="0 0 210.53275 148.88137"
-   height="148.88138mm"
+   viewBox="0 0 210.53275 106.65278"
+   height="106.65279mm"
    width="210.53275mm">
   <defs
      id="defs1065">
@@ -74,45 +74,24 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-0.37797621,-7.4702387)"
+     transform="translate(-0.37797621,-49.698826)"
      id="layer1">
     <rect
-       y="7.4702387"
+       y="49.698826"
        x="0.37797621"
-       height="148.88138"
+       height="106.65279"
        width="210.53275"
        id="rect8335"
-       style="opacity:0.98000004;fill:#ffe2b9;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.26000003, 4.52000002;stroke-dashoffset:21.35433006;stroke-opacity:1" />
+       style="opacity:0.98000004;fill:#ffe2b9;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.26000003, 4.52000001;stroke-dashoffset:21.35433006;stroke-opacity:1" />
     <text
        id="text5433-7-7"
-       y="21.907454"
-       x="49.229332"
+       y="66.006927"
+       x="56.44561"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="21.907454"
-         x="49.229332"
+         y="66.006927"
+         x="56.44561"
          id="tspan5355">Yhteenlasku pinossa</tspan></text>
-    <text
-       id="text5433-7-6-54-5-1-7-8-6"
-       y="39.820477"
-       x="14.831186"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       xml:space="preserve"><tspan
-         y="39.820477"
-         x="14.831186"
-         id="tspan8315">Tavukoodi (tekstuaalinen)</tspan><tspan
-         y="45.994087"
-         x="14.831186"
-         id="tspan8317">iload i</tspan><tspan
-         y="52.167698"
-         x="14.831186"
-         id="tspan8319">iload j</tspan><tspan
-         y="58.341309"
-         x="14.831186"
-         id="tspan8321">iadd</tspan><tspan
-         y="64.514923"
-         x="14.831186"
-         id="tspan8323">istore k</tspan></text>
     <rect
        y="93.081848"
        x="15.799397"
@@ -120,27 +99,6 @@
        width="21.544641"
        id="rect13466"
        style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       id="text5433-7-6-54-5-1-7-8-6-2"
-       y="39.820477"
-       x="158.08647"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       xml:space="preserve"><tspan
-         y="39.820477"
-         x="158.08647"
-         id="tspan964">Symbolitaulu</tspan><tspan
-         y="45.994087"
-         x="158.08647"
-         id="tspan966" /><tspan
-         y="52.167698"
-         x="158.08647"
-         id="tspan968">i:  2</tspan><tspan
-         y="58.341309"
-         x="158.08647"
-         id="tspan970">j:  3</tspan><tspan
-         y="64.514923"
-         x="158.08647"
-         id="tspan972">k: 4</tspan></text>
     <rect
        y="100.2634"
        x="15.799397"
@@ -562,27 +520,6 @@
        id="path6514-8-7"
        d="m 148.98582,135.45356 c 9.59609,10.07937 18.68821,10.07936 27.27632,0"
        style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7990-6-26)" />
-    <text
-       id="text5433-7-6-54-5-1-7-8-6-6"
-       y="39.820477"
-       x="90.12442"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       xml:space="preserve"><tspan
-         y="39.820477"
-         x="90.12442"
-         id="tspan1197">Tavukoodi (tavuina)</tspan><tspan
-         y="45.994087"
-         x="90.12442"
-         id="tspan1199">0x15  0x02</tspan><tspan
-         y="52.167698"
-         x="90.12442"
-         id="tspan1201">0x15  0x03</tspan><tspan
-         y="58.341309"
-         x="90.12442"
-         id="tspan1203">0x60</tspan><tspan
-         y="64.514923"
-         x="90.12442"
-         id="tspan1205">0x36  0x04</tspan></text>
     <rect
        y="114.6265"
        x="15.799395"
