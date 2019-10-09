@@ -48,6 +48,14 @@ Pinoon osoittaa kaksi rekisteriä. SP (stack pointer) osoittaa pinon päällimm�
 
 Allaolevan esimerkin lähtötilanteessa olemme suorittamassa jotain Javan metodia (aliohjelmaa), jossa on kolme kokonaislukuarvoista paikallista muuttujaa. Paikallisen muuttujan i arvo on 111, j:n arvo on 222 ja k:n arvo on 700. Ne ovat pinossa tämän kutsukerran kehyksessä, jonka alkuun osoittaa LV. Rekisteri SP osoittaa pinon huipulle. Tavukoodissa seuraavana olevilla käskyillä lasketaan Javan lause "k=i+j;". Suoritusaikana tavukoodi on (tietenkin) vain numeerisia tavuja, mutta esimerkin vuoksi esitämme sen tässä tekstuaalisessa muodossa. Koodinpätkän seitsemän tavun heksadesimaaliesityksen ja tekstuaalisen tavukoodin välillä on suoraviivainen vastaavuus.
 
+```
+Tavukoodi tekstuaalisena    tavuina        symbolitaulu
+          iload i           0x15 0x02      i:  2
+          iload j           0x15 0x03      J:  3
+          iadd              0x60
+          istore k          0x36 0x04      k: 4
+```
+
 <!-- Kuva: ch-10-2-yhteenlasku-pinossa -->
 
 ![Neljä ??????  ch-10-2-yhteenlasku-pinossa.](./ch-10-2-yhteenlasku-pinossa.svg)
@@ -79,10 +87,58 @@ JVM:ssä on SP:n ja LV:n lisäksi vain kaksi muuta rekisteriä. Rekisteri PC on 
 
 Rekisteri CPP (Constant Pool Pointer) osoittaa vakioaltaaseen, jossa on kaikki ohjelman käyttämät vakiot. Vakioihin viitataan käyttäen niiden suhteellista osoitetta CPP:n suhteen. Joka Javan luokalle (class) ja liittymälle (interface) on oma vakioaltaansa, joka on suoritusaikainen esitystapa tiedoston _class constant pool_ taulukolle. Tämä vastaa vähän symbolitaulua (tai sen osaa). Vakioaltaassa on useita eri tyyppisiä vakioita, kuten esimerkiksi tavalliset literaalit ja suoritusaikana ratkottavat attribuutit dynaamista linkitystä (JIT) varten. Vakioaltaat varataan tietenkin keosta.
 
-
-
-
 ### Metodin kutsu
+Metodin kutsukäsky on nimeltään _invokevirtual_ ja se luo uuden kehyksen pinoon. Ennen käskyä invokevirtual kutsuja laittaa pinoon kutsuttavan _olion_ osoitteen (vakioaltaassa) ja parametrien arvot. Käskyssä invokevirtual annetaan parametrina kutsuttavan metodin osoite (vakioaltaassa) ja käskyn invokevirtual suorituksen jälkeen uusi kehys on valmis. 
+
+Ajatellan esimerkin vuoksi metodia A, jossa on paikalliset muuttujat x ja y. Metodissa A on seuraavana Java-lausetta "y=Obj.B(x, 5)" vastaava tavukoodinen kutsu.
+
+Kutsu voisi toteuttaa vaikkapa seuraavalla tavalla.
+
+```
+Metodi A
+
+...
+getstatic #35       0x    Olion Obj osoite on CPP+35:ssä
+iload  x              parametri 1, muuttujan x arvo
+bipush 5              parametri 2, vakio 5
+invokevirtual #37     metodin B osoite on CPP+37:ssä
+```
+
+<!-- Kuva: ch-10-2-metodin-kutsu -->
+
+![Neljä ??????  ch-10-2-metodin-kutsu.](./ch-10-2-metodin-kutsu.svg)
+<div>
+<illustrations motive="ch-10-2-metodin-kutsu" frombottom="0" totalheight="40%"></illustrations>
+</div>
+
+Esimerkissä käskyn invokevirtual jälkeen kutsutun metodin B kehys on valmis. Paluusoite löytyy osoitteesta LV+0, parametrit osoitteissa LV+1 ja LV+2, minkä jälkeen pinossa on paikalliset muuttujat. Pinon pinnalla on aikaisemman metodin A kehyksen osoite, mitä tarvitaan metodista B paluun yhteydessä.
+
+Oletetaan nyt, että metodi B palauttaa arvonaan yhden kokonaisluvun, joka on ennen metodista paluukäskyä _ireturn_ talletettu pinon pinnalle. 
+
+```
+metodi Obj.B
+
+...
+ireturn              palauta paluuarvo ja kontrolli kutsuvaan rutiiniin
+```
+
+<!-- Kuva: ch-10-2-metodista-paluu -->
+
+![Neljä ??????  ch-10-2-metodista-paluu.](./ch-10-2-metodista-paluu.svg)
+<div>
+<illustrations motive="ch-10-2-metodista-paluu" frombottom="0" totalheight="40%"></illustrations>
+</div>
+
+Käskyn ireturn suorituksessa metodin B kehyksen tiedoilla palautetaan rekistereiden PC, LV ja SP arvot ennalleen ja kopioidaan paluuarvo pinon huipulle. Metodin A suoritus voi nyt jatkua ja ensimmäisenä se tietenkin ottaa paluuarvon talteen.  
+
+```
+metodi A
+
+...
+istore y              ota paluuarvo pinosta ja talleta se paikalliseen muuttujaan y
+```
+
+
 
 ????
 
