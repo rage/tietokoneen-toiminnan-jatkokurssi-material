@@ -75,7 +75,7 @@ Pinossa on jokaiselle metodin kutsulle sitä vastaava kehys, jonka päällä voi
 <illustrations motive="ch-10-2-muistialueet" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-JVM:ssä on SP:n ja LV:n lisäksi vain kaksi muuta rekisteriä. Rekisteri PC on tavanomainen paikanlaskuri ja osoittaa seuraavaksi suoritettavaan (tavukoodi-) käskyyn nykyisessä metodissa. Metodien koodit on talletettu omalle metodialueelleen (JVM Method Area), joka on yhteiden kaikille yhden prosessin säikeille. Joka säikeellä on tietenkin oma PC-rekisterinsä. 
+JVM:ssä on SP:n ja LV:n lisäksi vain kaksi muuta rekisteriä. Rekisteri PC on tavanomainen paikanlaskuri ja osoittaa seuraavaksi suoritettavaan (tavukoodiseen) käskyyn nykyisessä metodissa. Metodien koodit on talletettu omalle metodialueelleen (JVM Method Area), joka on yhteiden kaikille yhden prosessin säikeille. Joka säikeellä on tietenkin oma PC-rekisterinsä. 
 
 Rekisteri CPP (Constant Pool Pointer) osoittaa vakioaltaaseen, jossa on kaikki ohjelman käyttämät vakiot. Vakioihin viitataan käyttäen niiden suhteellista osoitetta CPP:n suhteen. Joka Javan luokalle (class) ja liittymälle (interface) on oma vakioaltaansa, joka on suoritusaikainen esitystapa tiedoston _class constant pool_ taulukolle. Tämä vastaa vähän symbolitaulua (tai sen osaa). Vakioaltaassa on useita eri tyyppisiä vakioita, kuten esimerkiksi tavalliset literaalit ja suoritusaikana ratkottavat attribuutit dynaamista linkitystä (JIT) varten. Vakioaltaat varataan tietenkin keosta.
 
