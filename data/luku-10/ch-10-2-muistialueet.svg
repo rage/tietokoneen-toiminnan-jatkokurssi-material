@@ -55,17 +55,17 @@
     <rect
        y="72.671127"
        x="23.623514"
-       height="75.595238"
-       width="29.482141"
+       height="26.458334"
+       width="36.285713"
        id="rect13466-7-4-1-8"
        style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-0-8"
-       y="109.05136"
+       y="111.6972"
        x="14.622608"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="109.05136"
+         y="111.6972"
          x="14.622608"
          id="tspan1658">PC</tspan></text>
     <text
@@ -231,5 +231,31 @@
          y="136.43507"
          x="93.500259"
          id="tspan873">main</tspan></text>
+    <rect
+       y="99.129456"
+       x="23.623512"
+       height="27.805847"
+       width="36.285713"
+       id="rect13466-7-4-1-8-0"
+       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.49999997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       y="126.9353"
+       x="23.623514"
+       height="22.422173"
+       width="36.285713"
+       id="rect13466-7-4-1-8-0-6"
+       style="opacity:1;fill:#b9fff3;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7-3-5-5-5-5"
+       y="111.21822"
+       x="28.20785"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         y="111.21822"
+         x="28.20785"
+         id="tspan920">metodi B:n</tspan><tspan
+         y="117.39184"
+         x="28.20785"
+         id="tspan922">koodi</tspan></text>
   </g>
 </svg>
