@@ -525,16 +525,13 @@
        style="fill:none;stroke:#000000;stroke-width:0.46500003;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.79000011, 2.79000011;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker7990-6-9-5)" />
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-75-5-7"
-       y="218.30879"
-       x="81.512222"
+       y="219.06474"
+       x="102.67889"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         y="218.30879"
-         x="81.512222"
-         id="tspan3774">            invokevirtual B</tspan><tspan
-         y="224.48241"
-         x="81.512222"
-         id="tspan3776">(metodin B osoite oliossa Obj)</tspan></text>
+         y="219.06474"
+         x="102.67889"
+         id="tspan945">invokevirtual B</tspan></text>
     <path
        id="path6514-8-5"
        d="m 104.45992,204.13503 c 9.59604,10.07937 18.68811,10.07936 27.27617,0"
