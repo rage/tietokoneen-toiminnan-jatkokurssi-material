@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg1071"
    version="1.1"
-   viewBox="0 0 210.53275 134.18153"
-   height="134.18153mm"
+   viewBox="0 0 210.53275 148.88137"
+   height="148.88138mm"
    width="210.53275mm">
   <defs
      id="defs1065">
@@ -74,15 +74,15 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-0.37797621,-7.4702382)"
+     transform="translate(-0.37797621,-7.4702387)"
      id="layer1">
     <rect
        y="7.4702387"
        x="0.37797621"
-       height="161.97758"
+       height="148.88138"
        width="210.53275"
        id="rect8335"
-       style="opacity:0.98000004;fill:#ffe2b9;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.26000003, 4.52000005;stroke-dashoffset:21.35433006;stroke-opacity:1" />
+       style="opacity:0.98000004;fill:#ffe2b9;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2.26000003, 4.52000002;stroke-dashoffset:21.35433006;stroke-opacity:1" />
     <text
        id="text5433-7-7"
        y="21.907454"
@@ -131,13 +131,15 @@
          id="tspan964">Symbolitaulu</tspan><tspan
          y="45.994087"
          x="158.08647"
-         id="tspan966"></tspan><tspan
+         id="tspan966" /><tspan
          y="52.167698"
          x="158.08647"
          id="tspan968">i:  2</tspan><tspan
          y="58.341309"
          x="158.08647"
          id="tspan970">j:  3</tspan><tspan
+         y="64.514923"
+         x="158.08647"
          id="tspan972">k: 4</tspan></text>
     <rect
        y="100.2634"
