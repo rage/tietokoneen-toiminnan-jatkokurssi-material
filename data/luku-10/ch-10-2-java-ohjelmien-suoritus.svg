@@ -262,7 +262,7 @@
        height="204.86308"
        width="210.15475"
        id="rect17064"
-       style="opacity:0.98000004;fill:#eaf9de;fill-opacity:1;stroke:#000000;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.86000005, 1.86000005;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:0.98000004;fill:#eaf9de;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.86, 1.86000000000000010;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
        y="165.01056"
        x="21.620241"
