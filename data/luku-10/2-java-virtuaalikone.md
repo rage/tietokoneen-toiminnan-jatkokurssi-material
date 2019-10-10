@@ -157,9 +157,10 @@ getstatic #35       0xb2 0x00 0x23   Olion Obj osoite on CPP+35:ssä
 iload  x            0x1b             parametri 1, muuttujan x arvo, osoite LV+1
 bipush #5           0x10 0x05        parametri 2, vakio 5
 invokevirtual #37   0xb6 0x00 0x25   metodin B osoite on CPP+37:ssä
-istore y            0x36 0x04   paluuarvo pinosta paikalliseen muuttujaan y
+istore y            0x36 0x04        paluuarvo pinosta muuttujaan y, osoite LV+4
 ```
 ## Tavukoodi
+Tarkoituksemme ei ole...
 
 ### Tiedonosoitusmoodit, käskyt
 ????
