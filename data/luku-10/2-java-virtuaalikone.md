@@ -117,7 +117,7 @@ Metodi A
 ...
 getstatic #35       0xb2 0x00 0x23   Olion Obj osoite on CPP+35:ssä
 iload  x            0x1b             parametri 1, muuttujan x arvo, osoite LV+1
-bipush #5           0x10 0x05        parametri 2, vakio 5
+bipush 5            0x10 0x05        parametri 2, vakio 5
 invokevirtual #37   0xb6 0x00 0x25   metodin B osoite on CPP+37:ssä
 ```
 
@@ -155,15 +155,84 @@ metodi A
 ...
 getstatic #35       0xb2 0x00 0x23   Olion Obj osoite on CPP+35:ssä
 iload  x            0x1b             parametri 1, muuttujan x arvo, osoite LV+1
-bipush #5           0x10 0x05        parametri 2, vakio 5
+bipush 5            0x10 0x05        parametri 2, vakio 5
 invokevirtual #37   0xb6 0x00 0x25   metodin B osoite on CPP+37:ssä
 istore y            0x36 0x04        paluuarvo pinosta muuttujaan y, osoite LV+4
 ```
 ## Tavukoodi
-Tarkoituksemme ei ole...
+Tarkoituksemme ei ole käydä kaikkia [tavukoodin käskyjä](https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings) läpi, vaan antaa yleiskuva niistä. Käymme läpi kursorisesti tavukoodin tietotyypit, tiedonosoitusmoodit ja erilaiset käskytyypit.
 
-### Tiedonosoitusmoodit, käskyt
-????
+### Tietotyypit
+Käytössä on 1-, 2-, 4- ja 8-tavuiset kokonaisluvut. Datatyyppien nimet ovat vastaavasti _byte_, _short_, _int_ ja _long_. Negatiiviset luvut esitetään kahden komplementin esitysmuodossa. 
+
+Liukuluvut esitetään [IEEE liukulukustandin](https://en.wikipedia.org/wiki/IEEE_floating_point) mukaisesti. Tavallinen liukuluku _float_ on 4 tavua (32 bittiä) ja kaksoistarkkuuden liukuluku _double_ on 8 tavua (64 bittiä).
+
+Merkit esitetään käyttäen etumerkitöntä [Unicode](https://en.wikipedia.org/wiki/Unicode) merkistöä, jossa kukin merkki esitetään kahdella tavulla. Emme käsittele JVM:n merkkejä tai merkkijonoja tämän enempää.
+
+### Tiedonosoitusmoodi
+Tavukoodissa kaikki tiedonosoitus on implisiittstä, välitöntä tai indeksoitua. Indeksoidut viittet ovat suhteessa SP-, LV- tai CPP-rekistereihin ja kaikki viittaukset tapahtuvat _sanaosoitteina_. Sana on neljä tavua. 
+
+```
+iadd                              implisiittiset dataviittaukset pinoon
+bipush 5         0x10 0x05        tuo pinoon vakioarvo 5 (välitön operandi)
+iload 6          0x15 0x06        tuo pinoon data osoitteesta LV+6 (indeksoitu viite)
+```
+
+Koodiin voi tehdä myös indeksoituja viitteitä suhteessa PC-rekisterin arvoon. Koodiviitteet ovat _tavuosoitteita_, koska käskyjen pituudet voivat 1-17 tavua (yleensä 1-3 tavua). 
+
+```
+invokevirtual #37   0xb6 0x00 0x25   PCV saa CPP+37:ssä olevan arvon
+goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepäin, 
+                                     siirtymän määrä 16-bittisenä etumerkillisenä kokonaislukuna
+```
+
+### Käskytyypit
+Käytössä on useita tietotyyppejä ja kussakin aritmeettis-loogisessa operaatiossa argumenttien täytyy olla saman kokoisia ja samaa tyyppiä. Tätä varten käskykannassa on useita datan tyypinmuunnoskäskyjä. 
+
+```
+i2b             0x91          muuta 32-bittinen kokonaisluku (word) 8-bittiseksi (byte)
+i2f             0x86          muuta 32-bittinen kokonaisluku (word) 32-bittiseksi liukuluvuksi (float)
+d2l             0x8f          muuta 64-bittinen liukuluku (double) 64-bittiseksi kokonaisluvuksi (long)
+```
+
+Tiedonsiirtokäskyistä onkin jo esitelty käskyjä, joilla kopioidaan 32-bittinen kokonaisluku dataa pinon pinnalle tai siirretään pinon pinnalla olevaa dataa muualle. Vastaavat käskyjä on sitten eri pituisille data-alkioille ja tietotyypeille.
+
+``` 
+iload_2          0x1c         push (LV+2)   4-tavuinen kokonaisluku
+istore 17        0x36 0x11    pop  (LV+17)  4-tavuinen kokonaisluku
+lload  12        0x16 0x0C    push (LV+12)  8-tavuinen kokonaisluku
+fload  10        0x17 0x0A    push (LV+10)  4-tavuinen liukuluku
+dstore 6         0x39 0x06    pop  (LV+6)   8-tavuinen liukuluku
+aload_3          0x2d         push (LV+3)   4-tavuinen osoite
+dup              0x59         push (SP)     4-tavuinen data
+dup_x2           0x5b         push (SP-2)   4-tavuinen data
+dup2             0x5c         push (SP)     8-tavuinen data (pinon 2 päällimmäistä sanaa)
+```
+
+Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Ensin pitää pinon pinnalle saada taulukon alkuosoite ja indeksi, minkä jälkeen vasta voidaan tehdä varsinainen taulukkoviite. Esimerkiksi, Java-lauseen "a=t[i];" toteutus tavukoodilla voisi olla seuraava.
+
+```
+aload_1         0x2b          push (LV+1)   4-tavuinen taulukon alkuosoite t
+iload_2         0x1c          push (LV+2)   4-tavuinen indeksi i
+iaload          0x2e          korvaa t ja i alkion t[i] arvolla
+istore_3        0x3e          pop (LV+3)    4-tavuinen taulukon kokonaislukuarvo
+```
+
+Kontrollinsiirtokäskyjä on paljon, koska eri tietotyypeille tarvitaan kullekin omat ehdolliset haarautumiskäskyt. 
+
+```
+goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepäin
+if_icmpgt  +33      0xa3 0x00 0x21   vertaa pinon päällä olevia arvoa. PC saa arvo PC+33, jos isompi
+iflt  +33           0x9b 0x00 0x21   vertaa pinon päällä olevaa arvoa nollaan. PC saa arvon PC+33, jos <0.
+invokevirtual #37   0xb6 0x00 0x25   call (CPP+37)
+ireturn             0xac             palaa kutsutusta metodista
+```
+
+Aritmeettis-loogisia operaatioita on vastaavasti useita, koska niitä tarvitaan eri pituisille ja eri tietotyypeille. 
+
+```
+
+```
 
 ## Natiivimetodit ja niiden pinot
 ????
