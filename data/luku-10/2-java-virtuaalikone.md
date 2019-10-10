@@ -42,7 +42,7 @@ Neljäs vaihtoehto perustuu _Just-In-Time käännökseen_, jossa kukin viitattu 
 
 Java virtuaalikoneessa on _pino_, jossa on ohjelman tietorakenteet, välitulokset ja aktivaatiotietueita vastaavat _kehykset_. Pinossa on siis mm. kaikki ohjelman käyttämät muuttujat ja laskennan välitulokset. Tämä on hyvin erilainen lähestymistapa kuin todellisissa suorittimissa yleinen tapa säilyttää usein tarvittavien muuttujien arvoja ja laskennan välituloksia nopeissa rekistereissä. Jos JVM toteutetaan rekisterikoneessa, niin toteutusta voi hidastaa se, että kaikki data on (ainakin teoriassa) muistissa olevassa JVM:n pinossa.
 
-Pinolle on normaalien push/pop-käskyjen lisäksi JVM:ssä on myös _kehyksille_ (JVM:n "aktivaatiotietueille") omat push/pop-käskynsä, jolloin niitä ei tarvitse rakentaa ja purkaa sana kerrallaan. Tarkennamme kehysten käyttöä ihan kohta.
+Pinolle on normaalien "push/pop"-käskyjen lisäksi JVM:ssä on myös _kehyksille_ (JVM:n "aktivaatiotietueille") omat "push/pop"-käskynsä, jolloin niitä ei tarvitse rakentaa ja purkaa sana kerrallaan. Tarkennamme kehysten käyttöä ihan kohta.
 
 JVM:n pinon ei tarvitse olla yhtenäisellä muistialueella, vaan se allokoidaan _keosta_ (kuten kaikki muutkin JVM:n tietorakenteet). Pinon koko voi olla rajallinen tai dynaamisesti laajennettavissa, jolloin pinon muistitilan loppuessa sille voidaan varata lisää muistitilaa keosta. Sama pätee kaikkiin muihinkin JVM:n varaamiin tietorakenteisiin. 
 
@@ -69,7 +69,7 @@ Pinokoneiden heikkoutena on, että jokainen aritmeettinen operaatio tuhoaa molem
 
 Paikallisiin muuttujiin ja muihin tietorakenteisiin viitataan käyttäen niiden suhteellisia osoitteita LV:n suhteen. Tilanne on täysin vastaava kuin ttk-91:ssä aliohjelmien paikallisiin muuttujiin viittaaminen kehyksen osoitteen (FP) suhteen.
 
-Ensimmäinen käsky "iload i" kopioi paikallisen muuttujan i arvon 111 pinon huipulle ja toinen käsky "iload j" kopioi vastaavasti paikallisen muuttujan j arvon 222 pinon huipulle. Yhteenlaskukäsky "iadd" ottaa argumentit pois pinosta, laskee niiden summan 333 ja tallettaa sen pinon huipulle. Lopulta pinoon talletuskäsky "istore k" ottaa tuloksen pois pinosta ja tallettaa sen k:n arvoksi. 
+Ensimmäinen käsky _iload i_ kopioi paikallisen muuttujan i arvon 111 pinon huipulle ja toinen käsky _iload j_ kopioi vastaavasti paikallisen muuttujan j arvon 222 pinon huipulle. Yhteenlaskukäsky _iadd_ ottaa argumentit pois pinosta, laskee niiden summan 333 ja tallettaa sen pinon huipulle. Lopulta pinoon talletuskäsky _istore k_ ottaa tuloksen pois pinosta ja tallettaa sen k:n arvoksi. 
 
 Koska iload-käskyn parametrin arvo on useimmiten 0, 1, 2 tai 3, niin niitä varten [tavukoodin käskyissä](https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings) on myös omat yhden tavun konekäskynsä *iload_0*,  *iload_1*, *iload_2* ja  *iload_3*. Käskyllä istore on vastaavat optiot, mutta siinäkin vain parametriarvoihin 0-3. Näitä käskyjä käyttäen em. koodinpätkän saisi tavukoodina mahtumaan vain 5 tavuun.
 
@@ -105,11 +105,9 @@ Rekisteri CPP (Constant Pool Pointer) osoittaa _vakioaltaaseen_ (constant pool),
 Jos suoritettavia säikeitä on useita, niin kaikilla on omat rekisterinsä, pinonsa ja vakioaltaansa. Niillä on kuitenkin yhteinen metodialue ja keko.
 
 ### Metodin kutsu
-Metodin kutsukäsky on nimeltään _invokevirtual_ ja se luo uuden kehyksen pinoon. Ennen käskyä invokevirtual kutsuja laittaa pinoon kutsuttavan _olion_ osoitteen (vakioaltaassa) ja parametrien arvot. Käskyssä invokevirtual annetaan parametrina kutsuttavan metodin osoite (vakioaltaassa) ja käskyn invokevirtual suorituksen jälkeen uusi kehys on valmis. 
+Metodin kutsukäsky on _invokevirtual_ ja se luo uuden kehyksen pinoon. Ennen käskyä invokevirtual kutsuja laittaa pinoon kutsuttavan _olion_ osoitteen (vakioaltaassa) ja parametrien arvot. Käskyssä invokevirtual annetaan parametrina kutsuttavan metodin osoite (vakioaltaassa) ja käskyn invokevirtual suorituksen jälkeen uusi kehys on valmis. 
 
-Ajatellan esimerkin vuoksi metodia A, jossa on paikalliset muuttujat x ja y. Metodissa A on seuraavana Java-lausetta "y=Obj.B(x, 5)" vastaava tavukoodinen kutsu.
-
-Kutsu voisi toteuttaa vaikkapa seuraavalla tavalla.
+Ajatellan esimerkin vuoksi metodia A, jossa on paikalliset muuttujat x ja y. Metodissa A on seuraavana Java-lausetta "y=Obj.B(x, 5)" vastaava tavukoodinen kutsu. Kutsu voisi toteuttaa vaikkapa seuraavalla tavalla.
 
 ```
 Metodi A
@@ -136,7 +134,7 @@ Oletetaan nyt, että metodi B palauttaa arvonaan yhden kokonaisluvun, joka on en
 metodi Obj.B
 
 ...
-iload  g          0x15  0x08  aseta paluuarvo paik. muuttujasta g, osoite LV+8
+iload  g          0x15  0x08  aseta paluuarvo paikallisesta muuttujasta g, osoite LV+8
 ireturn           0xac        palauta paluuarvo ja kontrolli kutsuvaan rutiiniin
 ```
 
@@ -147,7 +145,7 @@ ireturn           0xac        palauta paluuarvo ja kontrolli kutsuvaan rutiiniin
 <illustrations motive="ch-10-2-metodista-paluu" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-Käskyn ireturn suorituksessa metodin B kehyksen tiedoilla palautetaan rekistereiden PC, LV ja SP arvot ennalleen ja kopioidaan paluuarvo pinon huipulle. Metodin A suoritus voi nyt jatkua ja ensimmäisenä se tietenkin ottaa paluuarvon talteen.  Metodin B käyttö on nyt kokonaisuudessaan seuraavanlainen.
+Käskyn _ireturn_ suorituksessa metodin B kehyksen tiedoilla palautetaan rekistereiden PC, LV ja SP arvot ennalleen ja kopioidaan paluuarvo pinon huipulle. Metodin A suoritus voi nyt jatkua ja ensimmäisenä se tietenkin ottaa paluuarvon talteen.  Metodin B käyttö on nyt kokonaisuudessaan seuraavanlainen.
 
 ```
 metodi A
@@ -170,18 +168,20 @@ Liukuluvut esitetään [IEEE liukulukustandin](https://en.wikipedia.org/wiki/IEE
 Merkit esitetään käyttäen etumerkitöntä [Unicode](https://en.wikipedia.org/wiki/Unicode) merkistöä, jossa kukin merkki esitetään kahdella tavulla. Emme käsittele JVM:n merkkejä tai merkkijonoja tämän enempää.
 
 ### Tiedonosoitusmoodi
-Tavukoodissa kaikki tiedonosoitus on implisiittstä, välitöntä tai indeksoitua. Indeksoidut viittet ovat suhteessa SP-, LV- tai CPP-rekistereihin ja kaikki viittaukset tapahtuvat _sanaosoitteina_. Sana on neljä tavua. 
+Tavukoodissa kaikki tiedonosoitus on implisiittstä, välitöntä tai indeksoitua. Indeksoidut viittet ovat suhteessa SP-, LV- tai CPP-rekistereihin ja kaikki dataviittaukset tapahtuvat _sanaosoitteina_. Sana on neljä tavua. 
 
 ```
-iadd                              implisiittiset dataviittaukset pinoon
-bipush 5         0x10 0x05        tuo pinoon vakioarvo 5 (välitön operandi)
-iload 6          0x15 0x06        tuo pinoon data osoitteesta LV+6 (indeksoitu viite)
+iadd             0x60             implisiittiset dataviittaukset pinoon, osoitteet SP, SP-1
+bipush 5         0x10 0x05        viite vakioarvoon 5 (välitön operandi)
+iconst_1         0x04             implisiittinen viite kokonaislukuvakioon 1
+fconst_1         0x0c             implisiittinen viite liukulukuvakioon 1.0
+iload 6          0x15 0x06        viite dataan osoitteessa LV+6 (indeksoitu viite)
 ```
 
 Koodiin voi tehdä myös indeksoituja viitteitä suhteessa PC-rekisterin arvoon. Koodiviitteet ovat _tavuosoitteita_, koska käskyjen pituudet voivat 1-17 tavua (yleensä 1-3 tavua). 
 
 ```
-invokevirtual #37   0xb6 0x00 0x25   PCV saa CPP+37:ssä olevan arvon
+invokevirtual #37   0xb6 0x00 0x25   PC saa CPP+37:ssä olevan arvon
 goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepäin, 
                                      siirtymän määrä 16-bittisenä etumerkillisenä kokonaislukuna
 ```
@@ -195,35 +195,39 @@ i2f             0x86          muuta 32-bittinen kokonaisluku (word) 32-bittiseks
 d2l             0x8f          muuta 64-bittinen liukuluku (double) 64-bittiseksi kokonaisluvuksi (long)
 ```
 
-Tiedonsiirtokäskyistä onkin jo esitelty käskyjä, joilla kopioidaan 32-bittinen kokonaisluku dataa pinon pinnalle tai siirretään pinon pinnalla olevaa dataa muualle. Vastaavat käskyjä on sitten eri pituisille data-alkioille ja tietotyypeille.
+Tiedonsiirtokäskyistä onkin jo esitelty käskyjä, joilla kopioidaan 32-bittinen kokonaisluku dataa pinon pinnalle tai siirretään pinon pinnalla olevaa dataa muualle. Vastaavat käskyjä on sitten eri pituisille data-alkioille ja tietotyypeille. Aritmeetis-loogisten lausekkeiden toteutuksissa tarvitaan usein monistaa pinon pinnalla olevaa dataa tai järjesteää sitä uuteen järjestykseen.
 
 ``` 
-iload_2          0x1c         push (LV+2)   4-tavuinen kokonaisluku
-istore 17        0x36 0x11    pop  (LV+17)  4-tavuinen kokonaisluku
-lload  12        0x16 0x0C    push (LV+12)  8-tavuinen kokonaisluku
-fload  10        0x17 0x0A    push (LV+10)  4-tavuinen liukuluku
-dstore 6         0x39 0x06    pop  (LV+6)   8-tavuinen liukuluku
-aload_3          0x2d         push (LV+3)   4-tavuinen osoite
-dup              0x59         push (SP)     4-tavuinen data
-dup_x2           0x5b         push (SP-2)   4-tavuinen data
-dup2             0x5c         push (SP)     8-tavuinen data (pinon 2 päällimmäistä sanaa)
+iload_2        0x1c            push (LV+2)     tuo kokonaisluku
+istore 17      0x36 0x11       pop  (LV+17)    vie kokonaisluku
+lload  12      0x16 0x0C       push (LV+12)    tuo pitkä kokonaisluku
+fload  10      0x17 0x0A       push (LV+10)    tuo liukuluku
+dstore 6       0x39 0x06       pop  (LV+6)     vie pitkä liukuluku
+aload_3        0x2d            push (LV+3)     tuo osoite
+dup            0x59            push (SP)       monista data
+dup_x2         0x5b            push (SP-2)     monista data
+dup2           0x5c            push (SP)       monista pitkä data 
+swap           0x5f            swap(SP, SP-1)  vaihda sanat
+iconst_1       0x04            push 1          tuo kokonaislukuvakio
+fconst_1       0x0c            push 1.0        tuo liukulukuvakio
+getstatic #35  0xb2 0x00 0x23  push (CPP+35)   tuo olion viite 
 ```
 
 Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Ensin pitää pinon pinnalle saada taulukon alkuosoite ja indeksi, minkä jälkeen vasta voidaan tehdä varsinainen taulukkoviite. Esimerkiksi, Java-lauseen "a=t[i];" toteutus tavukoodilla voisi olla seuraava.
 
 ```
-aload_1         0x2b          push (LV+1)   4-tavuinen taulukon alkuosoite t
-iload_2         0x1c          push (LV+2)   4-tavuinen indeksi i
+aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
+iload_2         0x1c          push (LV+2)   indeksi i
 iaload          0x2e          korvaa t ja i alkion t[i] arvolla
-istore_3        0x3e          pop (LV+3)    4-tavuinen taulukon kokonaislukuarvo
+istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo
 ```
 
-Kontrollinsiirtokäskyjä on paljon, koska eri tietotyypeille tarvitaan kullekin omat ehdolliset haarautumiskäskyt. 
+Kontrollinsiirtokäskyjä on paljon, koska eri tietotyypeille tarvitaan kullekin omat ehdolliset haarautumiskäskynsä. 
 
 ```
 goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepäin
-if_icmpgt  +33      0xa3 0x00 0x21   vertaa pinon päällä olevia arvoa. PC saa arvo PC+33, jos isompi
-iflt  +33           0x9b 0x00 0x21   vertaa pinon päällä olevaa arvoa nollaan. PC saa arvon PC+33, jos <0.
+if_icmpgt  +33      0xa3 0x00 0x21   vertaa pinossa olevia arvoja. Jos isompi, niin PC saa arvo PC+33
+iflt  +33           0x9b 0x00 0x21   jos pinossa olevaa arvo <0, niin PC saa arvon PC+33
 invokevirtual #37   0xb6 0x00 0x25   call (CPP+37)
 ireturn             0xac             palaa kutsutusta metodista
 ```
@@ -231,11 +235,22 @@ ireturn             0xac             palaa kutsutusta metodista
 Aritmeettis-loogisia operaatioita on vastaavasti useita, koska niitä tarvitaan eri pituisille ja eri tietotyypeille. 
 
 ```
-
+iadd      0x60     kokonaislukujen (int) yhteenlasku
+iand      0x7e     and-operaatio pareittain 32-bittisille loogisille arvoille kokonaisluvuissa
+dmul      0x63     64-bittisten liukulukujen yhteenlasku
+ldiv      0x6d     64-bittisten kokonaislukujen jakolasku
+lrem      0x71     64-bittisten kokonaislukujen jakolaskun jakojäännös
 ```
 
-## Natiivimetodit ja niiden pinot
-????
+Lisäksi tavukoodiin sisältyy sekalainen joukko muita käskyjä, joista alla on muutamia esimerkkejä.
+
+```
+nop          0x00             no operation, kuluttaa vähän aikaa
+pop          0x57             ota sana pinosta, heitä pois
+arraylength  0xbe             pinon päällä viitatun taulukon pituus
+athrow       0xbf             aiheuta keskeytys
+new  House   0xbb  0x00 0x03  luo uusi House-tyyppinen olio (instanssi)  
+```
 
 
 ## Quizit 9.2
