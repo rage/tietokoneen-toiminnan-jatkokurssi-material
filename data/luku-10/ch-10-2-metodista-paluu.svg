@@ -151,13 +151,13 @@
        xml:space="preserve"><tspan
          y="166.50253"
          x="153.25653"
-         id="tspan1644">metodin A </tspan><tspan
+         id="tspan945">metodin A </tspan><tspan
          y="172.67615"
          x="153.25653"
-         id="tspan1646">paikalliset </tspan><tspan
+         id="tspan947">paikalliset       x,y</tspan><tspan
          y="178.84976"
          x="153.25653"
-         id="tspan1648">muuttujat</tspan></text>
+         id="tspan949">muuttujat</tspan></text>
     <rect
        y="153.55804"
        x="138.90627"
@@ -276,16 +276,13 @@
        xml:space="preserve"><tspan
          y="165.93556"
          x="48.432739"
-         id="tspan1644-5"
-         style="stroke-width:0.26458332">metodin A </tspan><tspan
+         id="tspan939">metodin A </tspan><tspan
          y="172.10918"
          x="48.432739"
-         id="tspan1646-8"
-         style="stroke-width:0.26458332">paikalliset </tspan><tspan
+         id="tspan941">paikalliset         x,y</tspan><tspan
          y="178.28279"
          x="48.432739"
-         id="tspan1648-7"
-         style="stroke-width:0.26458332">muuttujat</tspan></text>
+         id="tspan943">muuttujat</tspan></text>
     <rect
        y="152.99107"
        x="34.082474"
@@ -425,13 +422,11 @@
        xml:space="preserve"><tspan
          y="107.74016"
          x="48.8535"
-         id="tspan2979">metodin B</tspan><tspan
+         id="tspan963">metodin B</tspan><tspan
          y="113.91377"
          x="48.8535"
-         id="tspan2981">paikalliset </tspan><tspan
-         y="120.08738"
-         x="48.8535"
-         id="tspan2983">muuttujat</tspan></text>
+         id="tspan965">paikalliset           g</tspan><tspan
+         id="tspan967">muuttujat</tspan></text>
     <rect
        y="92.892838"
        x="34.082489"
