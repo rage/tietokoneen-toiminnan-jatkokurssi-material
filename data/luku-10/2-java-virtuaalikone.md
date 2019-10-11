@@ -105,7 +105,7 @@ Rekisteri CPP (Constant Pool Pointer) osoittaa _vakioaltaaseen_ (constant pool),
 Jos suoritettavia säikeitä on useita, niin kaikilla on omat rekisterinsä, pinonsa ja vakioaltaansa. Niillä on kuitenkin yhteinen metodialue ja keko.
 
 ### Metodin kutsu
-Metodin kutsukäsky on _invokevirtual_ ja se luo uuden kehyksen pinoon. Ennen käskyä invokevirtual kutsuja laittaa pinoon kutsuttavan _olion_ osoitteen (vakioaltaassa) ja parametrien arvot. Käskyssä invokevirtual annetaan parametrina kutsuttavan metodin osoite (vakioaltaassa) ja käskyn invokevirtual suorituksen jälkeen uusi kehys on valmis. 
+Metodin kutsukäsky on _invokevirtual_ ja se luo uuden kehyksen pinoon. Ennen käskyä _invokevirtual_ kutsuja laittaa pinoon viitteen kutsuttavan _olion_ luokkaan ja parametrien arvot. Käskyssä _invokevirtual_ annetaan parametrina viite kutsuttavaan metodiin ja käskyn _invokevirtual_ suorituksen jälkeen uusi kehys on valmis. 
 
 Ajatellan esimerkin vuoksi metodia A, jossa on paikalliset muuttujat x ja y. Metodissa A on seuraavana Java-lausetta "y=Obj.B(x, 5)" vastaava tavukoodinen kutsu. Kutsu voisi toteuttaa vaikkapa seuraavalla tavalla.
 
@@ -113,10 +113,10 @@ Ajatellan esimerkin vuoksi metodia A, jossa on paikalliset muuttujat x ja y. Met
 Metodi A
 
 ...
-getstatic #35       0xb2 0x00 0x23   Olion Obj osoite on CPP+35:ssä
+getstatic #35       0xb2 0x00 0x23   viite olion Obj luokkaan on CPP+35:ssä
 iload  x            0x1b             parametri 1, muuttujan x arvo, osoite LV+1
 bipush 5            0x10 0x05        parametri 2, vakio 5
-invokevirtual #37   0xb6 0x00 0x25   metodin B osoite on CPP+37:ssä
+invokevirtual #37   0xb6 0x00 0x25   viite metodiin B on CPP+37:ssä
 ```
 
 <!-- Kuva: ch-10-2-metodin-kutsu -->
@@ -126,7 +126,7 @@ invokevirtual #37   0xb6 0x00 0x25   metodin B osoite on CPP+37:ssä
 <illustrations motive="ch-10-2-metodin-kutsu" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-Esimerkissä käskyn invokevirtual jälkeen kutsutun metodin B kehys on valmis. Paluusoite löytyy epäsuorasti osoitteesta LV:, parametrit ovat osoitteissa LV+1 ja LV+2, minkä jälkeen pinossa on paikalliset muuttujat. Pinon pinnalla on aikaisemman metodin A kehyksen osoite, mitä tarvitaan metodista B paluun yhteydessä.
+Esimerkissä käskyn _invokevirtual_ jälkeen kutsutun metodin B kehys on valmis. Paluusoite löytyy epäsuorasti osoitteesta LV, parametrit ovat osoitteissa LV+1 ja LV+2, minkä jälkeen pinossa on paikalliset muuttujat. Pinon pinnalla on aikaisemman metodin A kehyksen osoite, mitä tarvitaan metodista B paluun yhteydessä.
 
 Oletetaan nyt, että metodi B palauttaa arvonaan yhden kokonaisluvun, joka on ennen metodista paluukäskyä _ireturn_ talletettu pinon pinnalle. 
 
@@ -151,24 +151,24 @@ Käskyn _ireturn_ suorituksessa metodin B kehyksen tiedoilla palautetaan rekiste
 metodi A
 
 ...
-getstatic #35       0xb2 0x00 0x23   Olion Obj osoite on CPP+35:ssä
+getstatic #35       0xb2 0x00 0x23   viite olion Obj luokkaan on CPP+35:ssä
 iload  x            0x1b             parametri 1, muuttujan x arvo, osoite LV+1
 bipush 5            0x10 0x05        parametri 2, vakio 5
-invokevirtual #37   0xb6 0x00 0x25   metodin B osoite on CPP+37:ssä
+invokevirtual #37   0xb6 0x00 0x25   viite metodiin B on CPP+37:ssä
 istore y            0x36 0x04        paluuarvo pinosta muuttujaan y, osoite LV+4
 ```
 ## Tavukoodi
-Tarkoituksemme ei ole käydä kaikkia [tavukoodin käskyjä](https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings) läpi, vaan antaa yleiskuva niistä. Käymme läpi kursorisesti tavukoodin tietotyypit, tiedonosoitusmoodit ja erilaiset käskytyypit.
+Tarkoituksemme ei ole käydä kaikkia [tavukoodin käskyjä](https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings) läpi, vaan antaa yleiskuva niistä. Käymme kursorisesti läpi tavukoodin tietotyypit, tiedonosoitusmoodit ja erilaiset käskytyypit.
 
 ### Tietotyypit
-Käytössä on 1-, 2-, 4- ja 8-tavuiset kokonaisluvut. Datatyyppien nimet ovat vastaavasti _byte_, _short_, _int_ ja _long_. Negatiiviset luvut esitetään kahden komplementin esitysmuodossa. 
+Käytössä on 1-, 2-, 4- ja 8-tavuiset kokonaisluvut. Datatyyppien nimet ovat vastaavasti _byte_, _short_, _int_ ja _long_. Negatiiviset luvut esitetään kahden komplementin esitysmuodossa. Vaikka muistissa olevaan data voi olla 1-2 tavun pituista, pinossa datasta on aina 1 tai 2 sanaan (4 tai 8 tavun) mittaisia alkioita. Pienet 1-2 tavun alkiot talletetaan taulukoihin, ja niihin voi viitata taulukoissa omilla load- ja store-konekäskyillä. 
 
 Liukuluvut esitetään [IEEE liukulukustandin](https://en.wikipedia.org/wiki/IEEE_floating_point) mukaisesti. Tavallinen liukuluku _float_ on 4 tavua (32 bittiä) ja kaksoistarkkuuden liukuluku _double_ on 8 tavua (64 bittiä).
 
-Merkit esitetään käyttäen etumerkitöntä [Unicode](https://en.wikipedia.org/wiki/Unicode) merkistöä, jossa kukin merkki esitetään kahdella tavulla. Emme käsittele JVM:n merkkejä tai merkkijonoja tämän enempää.
+Merkit esitetään käyttäen etumerkitöntä [Unicode](https://en.wikipedia.org/wiki/Unicode) merkistöä, jossa kukin merkki esitetään kahdella tavulla. Merkkijonot talletetaan vakioaltaaseen. Emme käsittele JVM:n merkkejä tai merkkijonoja tämän enempää.
 
 ### Tiedonosoitusmoodi
-Tavukoodissa kaikki tiedonosoitus on implisiittstä, välitöntä tai indeksoitua. Indeksoidut viittet ovat suhteessa SP-, LV- tai CPP-rekistereihin ja kaikki dataviittaukset tapahtuvat _sanaosoitteina_. Sana on neljä tavua. 
+Tavukoodissa tiedonosoitus on välitöntä tai indeksoitua. Indeksoidut viitteet ovat suhteessa SP-, LV- tai CPP-rekistereihin, mutta rekisteri määräytyy implisiittisesti konekäskyyn mukaan. 
 
 ```
 iadd             0x60             implisiittiset dataviittaukset pinoon, osoitteet SP, SP-1
@@ -218,9 +218,19 @@ Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Ensin pitää pinon pinna
 ```
 aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
 iload_2         0x1c          push (LV+2)   indeksi i
-iaload          0x2e          korvaa t ja i alkion t[i] arvolla
+iaload          0x2e          push (t[i])   korvaa t ja i alkion t[i] arvolla
 istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo
 ```
+
+Jos ja taulukko t sisältäisivät 4 tavun kokonaislukujen asemesta 1 tavun kokonaislukuja, niin sama viite olisi 
+
+```
+aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
+iload_2         0x1c          push (LV+2)   indeksi i
+baload          0x2e          push (t[i])   laajennna tavu samalla sanaksi
+istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo sanana
+```
+
 
 Kontrollinsiirtokäskyjä on paljon, koska eri tietotyypeille tarvitaan kullekin omat ehdolliset haarautumiskäskynsä. 
 
