@@ -282,20 +282,22 @@ else
 Kokonaislukuarvoiset muuttujat i, j ja k ovat paikallisia muuttujia kehyksen osoitteissa 7, 8 ja 9. Jos tavukoodinen koodinpätkä alkaa tavusta 100 (desimaaliluku), niin tästä voisi generoitua tavukoodi
 
 ```
-strt  iload i             100:   0x15 0x07
-      bipush 5            102:   0x10 0x05
-      iadd                104:   0x60   
-      dup                 105:   0x59          k tarvitaan kohta taas
-      istore k            106:   0x36 0x09     
+tavukoodi tekstinä       heksadesimaalina
+
+strt  iload i            100:   0x15 0x07
+      bipush 5           102:   0x10 0x05
+      iadd               104:   0x60   
+      dup                105:   0x59             k tarvitaan kohta taas
+      istore k           106:   0x36 0x09     
       
-      bipush 10           108:   0x10 0x0A     k oli pinossa jo
-      if_icmpeq else      110:   0x0f 0x00 0x78   (0x78=120)
-if10  iload i             113:   0x15 0x07
-      istore j            115:   0x36 0x08
-      goto done           117:   0xa7 0x00 0x7C   (0x7C=124)
-else  iload k             120:   0x15 0x09
-      istore j            122:   0x36 0x08
-done  nop                 124:   0x00
+      bipush 10          108:   0x10 0x0A        k oli pinossa jo
+      if_icmpeq else     110:   0x0f 0x00 0x0A   110+10=120
+if10  iload i            113:   0x15 0x07
+      istore j           115:   0x36 0x08
+      goto done          117:   0xa7 0x00 0x07   117+7=124
+else  iload k            120:   0x15 0x09
+      istore j           122:   0x36 0x08
+done  nop                124:   0x00
 ```
 
 Tavun 105 käsky _dup_ käyttö vaati jo vähän optimointia. Lisäoptimoinnilla tämäkin koodi voisi ehkä olla vielä tehokkaampi. Esimerkiksi _istore j_ käskyt voisi yhdistää haarautumisen jälkeen tehtäväksi. 
