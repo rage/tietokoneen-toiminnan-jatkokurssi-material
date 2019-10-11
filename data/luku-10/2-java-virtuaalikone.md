@@ -161,9 +161,9 @@ istore y            0x36 0x04        paluuarvo pinosta muuttujaan y, osoite LV+4
 Tarkoituksemme ei ole käydä kaikkia [tavukoodin käskyjä](https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings) läpi, vaan antaa yleiskuva niistä. Käymme kursorisesti läpi tavukoodin tietotyypit, tiedonosoitusmoodit ja erilaiset käskytyypit.
 
 ### Tietotyypit
-Käytössä on 1-, 2-, 4- ja 8-tavuiset kokonaisluvut. Datatyyppien nimet ovat vastaavasti _byte_, _short_, _int_ ja _long_. Negatiiviset luvut esitetään kahden komplementin esitysmuodossa. Vaikka muistissa olevaan data voi olla 1-2 tavun pituista, pinossa datasta on aina 1 tai 2 sanaan (4 tai 8 tavun) mittaisia alkioita. Pienet 1-2 tavun alkiot talletetaan taulukoihin, ja niihin voi viitata taulukoissa omilla load- ja store-konekäskyillä. 
+Käytössä on 1-, 2-, 4- ja 8-tavuiset kokonaisluvut. Datatyyppien nimet ovat vastaavasti _byte_, _short_, _int_ ja _long_. Negatiiviset luvut esitetään kahden komplementin esitysmuodossa. Pieni 1-2 tavun data pakataan taulukoihin ja niihin viitataan taulukoissa omilla load- ja store-konekäskyillä. Pinossa ja vakioaltaassa kaikki data on kokonaisina sanoina. 
 
-Liukuluvut esitetään [IEEE liukulukustandin](https://en.wikipedia.org/wiki/IEEE_floating_point) mukaisesti. Tavallinen liukuluku _float_ on 4 tavua (32 bittiä) ja kaksoistarkkuuden liukuluku _double_ on 8 tavua (64 bittiä).
+Liukuluvut esitetään [IEEE liukulukustandardin](https://en.wikipedia.org/wiki/IEEE_floating_point) mukaisesti. Tavallinen liukuluku _float_ on 4 tavua (32 bittiä) ja kaksoistarkkuuden liukuluku _double_ on 8 tavua (64 bittiä).
 
 Merkit esitetään käyttäen etumerkitöntä [Unicode](https://en.wikipedia.org/wiki/Unicode) merkistöä, jossa kukin merkki esitetään kahdella tavulla. Merkkijonot talletetaan vakioaltaaseen. Emme käsittele JVM:n merkkejä tai merkkijonoja tämän enempää.
 
@@ -171,18 +171,19 @@ Merkit esitetään käyttäen etumerkitöntä [Unicode](https://en.wikipedia.org
 Tavukoodissa tiedonosoitus on välitöntä tai indeksoitua. Indeksoidut viitteet ovat suhteessa SP-, LV- tai CPP-rekistereihin, mutta rekisteri määräytyy implisiittisesti konekäskyyn mukaan. 
 
 ```
-iadd             0x60             implisiittiset dataviittaukset pinoon, osoitteet SP, SP-1
-bipush 5         0x10 0x05        viite vakioarvoon 5 (välitön operandi)
-iconst_1         0x04             implisiittinen viite kokonaislukuvakioon 1
-fconst_1         0x0c             implisiittinen viite liukulukuvakioon 1.0
-iload 6          0x15 0x06        viite dataan osoitteessa LV+6 (indeksoitu viite)
+iadd               0x60             implisiittiset dataviittaukset pinoon, osoitteet SP, SP-1
+bipush 5           0x10 0x05        viite vakioarvoon 5 (välitön operandi)
+iconst_1           0x04             implisiittinen viite kokonaislukuvakioon 1
+fconst_1           0x0c             implisiittinen viite liukulukuvakioon 1.0
+iload 6            0x15 0x06        viite dataan osoitteessa LV+6 (indeksoitu viite)
+invokevirtual #37  0xb6 0x00 0x25   viite dataan osoitteessa CPP+37 (indeksoitu viite)
 ```
 
 Koodiin voi tehdä myös indeksoituja viitteitä suhteessa PC-rekisterin arvoon. Koodiviitteet ovat _tavuosoitteita_, koska käskyjen pituudet voivat 1-17 tavua (yleensä 1-3 tavua). 
 
 ```
-invokevirtual #37   0xb6 0x00 0x25   PC saa CPP+37:ssä olevan arvon
-goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepäin, 
+invokevirtual #37   0xb6 0x00 0x25   PC saa CPP+37:ssä olevan arvon (metodin osoitteen luokassa)
+goto -27            0xa7 0x80 0x1B   PC saa arvon PC-27, ehdoton hyppy taaksepäin, 
                                      siirtymän määrä 16-bittisenä etumerkillisenä kokonaislukuna
 ```
 
@@ -190,12 +191,13 @@ goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepä
 Käytössä on useita tietotyyppejä ja kussakin aritmeettis-loogisessa operaatiossa argumenttien täytyy olla saman kokoisia ja samaa tyyppiä. Tätä varten käskykannassa on useita datan tyypinmuunnoskäskyjä. 
 
 ```
-i2b             0x91          muuta 32-bittinen kokonaisluku (word) 8-bittiseksi (byte)
-i2f             0x86          muuta 32-bittinen kokonaisluku (word) 32-bittiseksi liukuluvuksi (float)
-d2l             0x8f          muuta 64-bittinen liukuluku (double) 64-bittiseksi kokonaisluvuksi (long)
+i2b       0x91       muuta 32-bittinen kokonaisluku (word) 8-bittiseksi (byte). Etumerkki!
+i2f       0x86       muuta 32-bittinen kokonaisluku (word) 32-bittiseksi liukuluvuksi (float)
+d2l       0x8f       muuta 64-bittinen liukuluku (double) 64-bittiseksi kokonaisluvuksi (long)
+d2i       0x8e       muuta 64-bittinen liukuluku (double) 32-bittiseksi kokonaisluvuksi (int)
 ```
 
-Tiedonsiirtokäskyistä onkin jo esitelty käskyjä, joilla kopioidaan 32-bittinen kokonaisluku dataa pinon pinnalle tai siirretään pinon pinnalla olevaa dataa muualle. Vastaavat käskyjä on sitten eri pituisille data-alkioille ja tietotyypeille. Aritmeetis-loogisten lausekkeiden toteutuksissa tarvitaan usein monistaa pinon pinnalla olevaa dataa tai järjesteää sitä uuteen järjestykseen.
+Tiedonsiirtokäskyistä on jo esitelty käskyjä, joilla kopioidaan 32-bittinen kokonaisluku pinon pinnalle tai siirretään pinon pinnalla olevaa dataa muualle. Vastaavat käskyjä on eri pituisille data-alkioille ja tietotyypeille. Aritmeetis-loogisten lausekkeiden toteutuksissa tarvitaan usein monistaa pinon pinnalla olevaa dataa tai järjestää sitä uuteen järjestykseen.
 
 ``` 
 iload_2        0x1c            push (LV+2)     tuo kokonaisluku
@@ -210,7 +212,7 @@ dup2           0x5c            push (SP)       monista pitkä data
 swap           0x5f            swap(SP, SP-1)  vaihda sanat
 iconst_1       0x04            push 1          tuo kokonaislukuvakio
 fconst_1       0x0c            push 1.0        tuo liukulukuvakio
-getstatic #35  0xb2 0x00 0x23  push (CPP+35)   tuo olion viite 
+getstatic #35  0xb2 0x00 0x23  push (CPP+35)   tuo luokan viite 
 ```
 
 Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Ensin pitää pinon pinnalle saada taulukon alkuosoite ja indeksi, minkä jälkeen vasta voidaan tehdä varsinainen taulukkoviite. Esimerkiksi, Java-lauseen "a=t[i];" toteutus tavukoodilla voisi olla seuraava.
@@ -222,12 +224,12 @@ iaload          0x2e          push (t[i])   korvaa t ja i alkion t[i] arvolla
 istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo
 ```
 
-Jos ja taulukko t sisältäisivät 4 tavun kokonaislukujen asemesta 1 tavun kokonaislukuja, niin sama viite olisi 
+Jos ja taulukko t sisältäisi 1 sanan kokonaislukujen asemesta 1 tavun kokonaislukuja, niin sama viite olisi 
 
 ```
 aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
 iload_2         0x1c          push (LV+2)   indeksi i
-baload          0x2e          push (t[i])   laajennna tavu samalla sanaksi
+baload          0x33          push (t[i])   laajennna tavu samalla sanaksi
 istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo sanana
 ```
 
@@ -237,6 +239,7 @@ Kontrollinsiirtokäskyjä on paljon, koska eri tietotyypeille tarvitaan kullekin
 ```
 goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepäin
 if_icmpgt  +33      0xa3 0x00 0x21   vertaa pinossa olevia arvoja. Jos isompi, niin PC saa arvo PC+33
+if_icmpeq  -27      0x9f 0x80 0x1B   vertaa pinossa olevia arvoja. Jos sama, niin PC saa arvo PC-27
 iflt  +33           0x9b 0x00 0x21   jos pinossa olevaa arvo <0, niin PC saa arvon PC+33
 invokevirtual #37   0xb6 0x00 0x25   call (CPP+37)
 ireturn             0xac             palaa kutsutusta metodista
@@ -262,6 +265,35 @@ athrow       0xbf             aiheuta keskeytys
 new  House   0xbb  0x00 0x03  luo uusi House-tyyppinen olio (instanssi)  
 ```
 
+## Esimerkki tavukoodin käytöstä
+Meillä on Java-kielinen koodinpätkä
+
+```
+k = i+5;
+if (k=10)
+    j=i;
+else 
+    j=k;
+``` 
+
+Kokonaislukuarvoiset muuttujat i, j ja k ovat paikallisia muuttujia osoitteissa 7, 8 ja 9. Jos tavukoodinen koodinpätkä alkaa tavusta 100 (desimaaliluku), niin tästä voisi generoitua tavukoodi
+
+```
+strt  iload i             100:   0x15 0x07
+      bipush 5            102:   0x10 0x05
+      iadd                104:   0x60   
+      dup                 105:   0x59          k tarvitaan kohta taas
+      istore k            106:   0x36 0x09     
+      
+      bipush 10           108:   0x10 0x0A
+      if_icmpeq else      110:   0x0f  ?? ??
+if10  iload i             113:   0x15 0x07
+      istore j            115:   0x36 0x08
+      goto done           117:   0xa7  ??  ??
+else  iload k             120:   0x15 0x09
+      istore j            122:   0x36 0x08
+done  nop                 124:   0x00
+```
 
 ## Quizit 9.2
 <!-- Quiz 9.2.?? -->
