@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Tässä aliluvussa esittelemme pääpiirteet Java-ohjelmien suorittamisesta Java virtuaalikoneen (JVM) avulla. Käymme läpi JVM:n perusrakenteen ja sen konekielen (Javan tavukoodi, bytekode) käskytyypit. Seuraavassa aliluvussa käymme läpi tarkemmin erilaiset tavat toteuttaa Java-ohjelmien suoritus JVM:ssä. </lead>
+<lead>Tässä aliluvussa (10.2) esittelemme pääpiirteet Java-ohjelmien suorittamisesta Java virtuaalikoneen (JVM) avulla. Käymme läpi JVM:n perusrakenteen ja sen konekielen (Javan tavukoodi, bytekode) käskytyypit. Tarkoitus ei ole antaa tyhjentävää esitystä JVM:stä vaanantaa karkea yleiskuva. Seuraavassa aliluvussa (10.3) käymme läpi vähän tarkemmin erilaiset tavat toteuttaa JVM ja Java-ohjelmien suorittaminen niissä. </lead>
 </div>
 
 [Java](https://fi.wikipedia.org/wiki/Java) on korkean tason olioperustainen ohjelmointikieli. Java-kieliset ohjelmat voisi kääntää ja linkittää ajomoduuleiksi samalla tavalla kuin edellisessä luvussa 9 esitettiin. Näin ei kuitenkaan yleensä tehdä. Korkean tason kielten kääntäjän toteutuksessa on usein osana välikieli, joka toimii siltana kääntäjän _front endin_ ja _back_endin_ välillä. Javassa tuo välikieli on nostettu näkyville erityisasemaan ja käännösmoduulit välitetään eteenpäin Javan välikieliesityksessä eikä Java-kielisinä käännösmoduuleina tai niiden objektimoduuleina.
@@ -205,34 +205,34 @@ istore 17      0x36 0x11       pop  (LV+17)    vie kokonaisluku
 lload  12      0x16 0x0C       push (LV+12)    tuo pitkä kokonaisluku
 fload  10      0x17 0x0A       push (LV+10)    tuo liukuluku
 dstore 6       0x39 0x06       pop  (LV+6)     vie pitkä liukuluku
-aload_3        0x2d            push (LV+3)     tuo osoite
+aload 3        0x2d 0x03       push (LV+3)     tuo viite (osoite)
 dup            0x59            push (SP)       monista data
 dup_x2         0x5b            push (SP-2)     monista data
 dup2           0x5c            push (SP)       monista pitkä data 
 swap           0x5f            swap(SP, SP-1)  vaihda sanat
+bipush 5       0x10 0x05       push (5)        tuo kokonaislukuvakio
 iconst_1       0x04            push 1          tuo kokonaislukuvakio
 fconst_1       0x0c            push 1.0        tuo liukulukuvakio
 getstatic #35  0xb2 0x00 0x23  push (CPP+35)   tuo luokan viite 
 ```
 
-Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Ensin pitää pinon pinnalle saada taulukon alkuosoite ja indeksi, minkä jälkeen vasta voidaan tehdä varsinainen taulukkoviite. Esimerkiksi, Java-lauseen "a=t[i];" toteutus tavukoodilla voisi olla 
+Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Taulukot talletetaan vakioaltaaseen ja niihin viitataan kehyksen muuttujista. Taulukkoviittauksesa pinoon tuodaan ensin taulukon viite (osoite vakioaltaassa) ja indeksi, minkä jälkeen vasta voidaan tehdä varsinainen viittaus taulukkoon. Esimerkiksi, Java-lauseen "a=t[i];" toteutus tavukoodilla voisi olla 
 
 ```
-aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
-iload_2         0x1c          push (LV+2)   indeksi i
+aload_1         0x2b          push (LV+1)   taulukon viite t (parametrissa 1)
+iload_2         0x1c          push (LV+2)   indeksi i (parametrissa 2)
 iaload          0x2e          push (t[i])   korvaa t ja i alkion t[i] arvolla
-istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo
+istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo (paikallinen muuttuja 1)
 ```
 
 Jos taulukko t sisältäisi 1 sanan kokonaislukujen asemesta yhden tavun kokonaislukuja, niin saman lauseen toteutus olisi 
 
 ```
-aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
+aload_1         0x2b          push (LV+1)   taulukon viite t
 iload_2         0x1c          push (LV+2)   indeksi i
 baload          0x33          push (t[i])   laajennna tavu samalla sanaksi
 istore_3        0x3e          pop (LV+3)    tallenna kokonaislukuarvo sanana
 ```
-
 
 Kontrollinsiirtokäskyjä on paljon, koska eri tietotyypeille tarvitaan kullekin omat ehdolliset haarautumiskäskynsä. 
 
@@ -300,9 +300,10 @@ else  iload k            120:   0x15 0x09
 done  nop                124:   0x00
 ```
 
-Tavun 105 käsky _dup_ käyttö vaati jo vähän optimointia. Lisäoptimoinnilla tämäkin koodi voisi ehkä olla vielä tehokkaampi. Esimerkiksi _istore j_ käskyt voisi yhdistää haarautumisen jälkeen tehtäväksi. 
+Tavun 105 käsky _dup_ käyttö vaati jo vähän optimointia. Lisäoptimoinnilla tämäkin koodi voisi ehkä olla vielä tehokkaampi. Esimerkiksi,  _istore j_ käskyt voisi yhdistää haarautumisen jälkeen tehtäväksi. Tällöin koodista tulisi kolme tavua lyhyempi, kun nop-käskyäkään ei enää tarvittaisi vain haarautumisen loppuosoitetta varten.
 
-## Quizit 9.2
-<!-- Quiz 9.2.?? -->
+<!-- Quizit 9.2.  JVM -->
 
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="a6535db1-8473-4344-921d-dbddd2bc77d8"></quiz></div>
+<div><quiz id="b0a217ca-8ca8-4801-bc1c-e97df76110e8"></quiz></div>
+<div><quiz id="a8f03453-8687-4d1e-9036-df51f690f488"></quiz></div>
