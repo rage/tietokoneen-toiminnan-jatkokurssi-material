@@ -128,36 +128,36 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-56"
        y="194.0948"
-       x="53.132305"
+       x="49.428135"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="194.0948"
-         x="53.132305"
+         x="49.428135"
          id="tspan1580">link pointer</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9"
        y="186.15849"
-       x="52.76041"
+       x="49.05624"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="186.15849"
-         x="52.76041"
+         x="49.05624"
          id="tspan1582">parametri 1</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-1"
        y="166.50253"
-       x="53.092834"
+       x="49.388664"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="166.50253"
-         x="53.092834"
-         id="tspan954">metodin A </tspan><tspan
+         x="49.388664"
+         id="tspan948">metodin A </tspan><tspan
          y="172.67615"
-         x="53.092834"
-         id="tspan956">paikalliset      x, y</tspan><tspan
+         x="49.388664"
+         id="tspan950">paikalliset      x, y, ...</tspan><tspan
          y="178.84976"
-         x="53.092834"
-         id="tspan958">muuttujat</tspan></text>
+         x="49.388664"
+         id="tspan952">muuttujat</tspan></text>
     <rect
        y="153.55804"
        x="38.742561"
@@ -175,20 +175,20 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-5"
        y="151.76147"
-       x="52.336872"
+       x="48.632702"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="151.76147"
-         x="52.336872"
+         x="48.632702"
          id="tspan1708">kutsujan LV</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-3"
        y="159.32098"
-       x="52.336876"
+       x="48.632706"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="159.32098"
-         x="52.336876"
+         x="48.632706"
          id="tspan1706">kutsujan PC</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-4"
@@ -235,29 +235,29 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-49"
        y="144.20195"
-       x="52.714867"
+       x="49.010696"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="144.20195"
-         x="52.714867"
+         x="49.010696"
          id="tspan3766">kutsuttava olio Obj</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-49-1"
        y="137.06502"
-       x="52.943203"
+       x="49.239033"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="137.06502"
-         x="52.943203"
+         x="49.239033"
          id="tspan1858">parametri 1</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-49-1-4"
        y="130.11128"
-       x="53.153378"
+       x="49.449207"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="130.11128"
-         x="53.153378"
+         x="49.449207"
          id="tspan1878">parametri 2</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-4-5"
@@ -304,38 +304,38 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-56-6"
        y="192.7719"
-       x="144.10019"
+       x="139.86691"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="192.7719"
-         x="144.10019"
+         x="139.86691"
          id="tspan1580-7"
          style="stroke-width:0.26458332">link pointer</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-8"
        y="184.83557"
-       x="143.72829"
+       x="139.49501"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="184.83557"
-         x="143.72829"
+         x="139.49501"
          id="tspan1582-4"
          style="stroke-width:0.26458332">parametri 1</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-1-1"
        y="165.17961"
-       x="144.06071"
+       x="139.82744"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="165.17961"
-         x="144.06071"
-         id="tspan972">metodin A </tspan><tspan
+         x="139.82744"
+         id="tspan954">metodin A </tspan><tspan
          y="171.35323"
-         x="144.06071"
-         id="tspan974">paikalliset       x, y</tspan><tspan
+         x="139.82744"
+         id="tspan956">paikalliset      x, y, ...</tspan><tspan
          y="177.52684"
-         x="144.06071"
-         id="tspan976">muuttujat </tspan></text>
+         x="139.82744"
+         id="tspan958">muuttujat </tspan></text>
     <rect
        y="152.23512"
        x="129.71045"
@@ -353,21 +353,21 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-5-0"
        y="150.43855"
-       x="143.30475"
+       x="139.07147"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="150.43855"
-         x="143.30475"
+         x="139.07147"
          id="tspan1708-5"
          style="stroke-width:0.26458332">kutsujan LV</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-3-0"
        y="157.99806"
-       x="143.30475"
+       x="139.07147"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="157.99806"
-         x="143.30475"
+         x="139.07147"
          id="tspan1706-3"
          style="stroke-width:0.26458332">kutsujan PC</tspan></text>
     <text
@@ -416,30 +416,30 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-49-7"
        y="142.87903"
-       x="143.68275"
+       x="139.44948"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="142.87903"
-         x="143.68275"
+         x="139.44948"
          id="tspan2074">link pointer</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-49-1-7"
        y="135.7421"
-       x="143.91109"
+       x="139.67781"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="135.7421"
-         x="143.91109"
+         x="139.67781"
          id="tspan1858-7"
          style="stroke-width:0.26458332">parametri 1</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-49-1-4-1"
        y="128.78836"
-       x="144.12126"
+       x="139.88799"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="128.78836"
-         x="144.12126"
+         x="139.88799"
          id="tspan1878-2"
          style="stroke-width:0.26458332">parametri 2</tspan></text>
     <text
@@ -470,16 +470,18 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-1-1-9"
        y="106.98421"
-       x="144.48148"
+       x="140.2482"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="106.98421"
-         x="144.48148"
-         id="tspan984">metodin B</tspan><tspan
+         x="140.2482"
+         id="tspan942">metodin B</tspan><tspan
          y="113.15782"
-         x="144.48148"
-         id="tspan986">paikalliset         g</tspan><tspan
-         id="tspan988">muuttujat</tspan></text>
+         x="140.2482"
+         id="tspan944">paikalliset       g, ...</tspan><tspan
+         y="119.33143"
+         x="140.2482"
+         id="tspan946">muuttujat</tspan></text>
     <rect
        y="92.136887"
        x="129.71046"
@@ -497,21 +499,21 @@
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-3-0-8"
        y="97.585197"
-       x="144.08749"
+       x="139.85422"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="97.585197"
-         x="144.08749"
+         x="139.85422"
          id="tspan1706-3-6"
          style="stroke-width:0.26458332">kutsujan PC</tspan></text>
     <text
        id="text5433-7-6-54-5-1-7-8-6-2-4-8-9-7-5-0-6"
        y="90.101273"
-       x="143.54858"
+       x="139.31531"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          y="90.101273"
-         x="143.54858"
+         x="139.31531"
          id="tspan1708-5-4"
          style="stroke-width:0.26458332">kutsujan LV</tspan></text>
     <path
