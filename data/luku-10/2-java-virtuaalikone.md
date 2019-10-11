@@ -215,7 +215,7 @@ fconst_1       0x0c            push 1.0        tuo liukulukuvakio
 getstatic #35  0xb2 0x00 0x23  push (CPP+35)   tuo luokan viite 
 ```
 
-Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Ensin pitää pinon pinnalle saada taulukon alkuosoite ja indeksi, minkä jälkeen vasta voidaan tehdä varsinainen taulukkoviite. Esimerkiksi, Java-lauseen "a=t[i];" toteutus tavukoodilla voisi olla seuraava.
+Taulukkoviitteet ovat JVM:ssä yllättävän vaikeita. Ensin pitää pinon pinnalle saada taulukon alkuosoite ja indeksi, minkä jälkeen vasta voidaan tehdä varsinainen taulukkoviite. Esimerkiksi, Java-lauseen "a=t[i];" toteutus tavukoodilla voisi olla 
 
 ```
 aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
@@ -224,13 +224,13 @@ iaload          0x2e          push (t[i])   korvaa t ja i alkion t[i] arvolla
 istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo
 ```
 
-Jos ja taulukko t sisältäisi 1 sanan kokonaislukujen asemesta 1 tavun kokonaislukuja, niin sama viite olisi 
+Jos taulukko t sisältäisi 1 sanan kokonaislukujen asemesta yhden tavun kokonaislukuja, niin saman lauseen toteutus olisi 
 
 ```
 aload_1         0x2b          push (LV+1)   taulukon alkuosoite t
 iload_2         0x1c          push (LV+2)   indeksi i
 baload          0x33          push (t[i])   laajennna tavu samalla sanaksi
-istore_3        0x3e          pop (LV+3)    taulukon kokonaislukuarvo sanana
+istore_3        0x3e          pop (LV+3)    tallenna kokonaislukuarvo sanana
 ```
 
 
@@ -238,9 +238,11 @@ Kontrollinsiirtokäskyjä on paljon, koska eri tietotyypeille tarvitaan kullekin
 
 ```
 goto -27            0xa7 0x80 0x17   PC saa arvon PC-27, ehdoton hyppy taaksepäin
-if_icmpgt  +33      0xa3 0x00 0x21   vertaa pinossa olevia arvoja. Jos isompi, niin PC saa arvo PC+33
-if_icmpeq  -27      0x9f 0x80 0x1B   vertaa pinossa olevia arvoja. Jos sama, niin PC saa arvo PC-27
-iflt  +33           0x9b 0x00 0x21   jos pinossa olevaa arvo <0, niin PC saa arvon PC+33
+if_icmpgt  +33      0xa3 0x00 0x21   vertaa pinon arvoja. Jos isompi, niin PC saa arvo PC+33
+if_icmpeq  -27      0x9f 0x80 0x1B   vertaa pinosn arvoja. Jos sama, niin PC saa arvo PC-27
+iflt  +33           0x9b 0x00 0x21   jos pinossa oleva arvo <0, niin PC saa arvon PC+33
+lcmp                0x94             vertaa kahta pitkää kokonaislukua, tulos pinoon (+1, 0, -1)
+fcmpg               0x96             vertaa kahta liukulukua, tulos pinoon (+1, 0, -1)
 invokevirtual #37   0xb6 0x00 0x25   call (CPP+37)
 ireturn             0xac             palaa kutsutusta metodista
 ```
@@ -270,13 +272,14 @@ Meillä on Java-kielinen koodinpätkä
 
 ```
 k = i+5;
+
 if (k=10)
     j=i;
 else 
     j=k;
 ``` 
 
-Kokonaislukuarvoiset muuttujat i, j ja k ovat paikallisia muuttujia osoitteissa 7, 8 ja 9. Jos tavukoodinen koodinpätkä alkaa tavusta 100 (desimaaliluku), niin tästä voisi generoitua tavukoodi
+Kokonaislukuarvoiset muuttujat i, j ja k ovat paikallisia muuttujia kehyksen osoitteissa 7, 8 ja 9. Jos tavukoodinen koodinpätkä alkaa tavusta 100 (desimaaliluku), niin tästä voisi generoitua tavukoodi
 
 ```
 strt  iload i             100:   0x15 0x07
@@ -285,15 +288,17 @@ strt  iload i             100:   0x15 0x07
       dup                 105:   0x59          k tarvitaan kohta taas
       istore k            106:   0x36 0x09     
       
-      bipush 10           108:   0x10 0x0A
-      if_icmpeq else      110:   0x0f  ?? ??
+      bipush 10           108:   0x10 0x0A     k oli pinossa jo
+      if_icmpeq else      110:   0x0f 0x00 0x78   (0x78=120)
 if10  iload i             113:   0x15 0x07
       istore j            115:   0x36 0x08
-      goto done           117:   0xa7  ??  ??
+      goto done           117:   0xa7 0x00 0x7C   (0x7C=124)
 else  iload k             120:   0x15 0x09
       istore j            122:   0x36 0x08
 done  nop                 124:   0x00
 ```
+
+Tavun 105 käsky _dup_ käyttö vaati jo vähän optimointia. Lisäoptimoinnilla tämäkin koodi voisi ehkä olla vielä tehokkaampi. Esimerkiksi _istore j_ käskyt voisi yhdistää haarautumisen jälkeen tehtäväksi. 
 
 ## Quizit 9.2
 <!-- Quiz 9.2.?? -->
