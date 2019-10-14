@@ -27,7 +27,7 @@ const DropdownMenu = ({ selectedVariant, setSelectedVariant }) => {
   return (
     <StyledFormControl variant="outlined">
       <InputLabel ref={inputLabelRef} htmlFor="course-variant-select">
-        Minkä kurssin version pisteet, deadlinet ja kolikot haluat nähdä?
+        Mitä kurssin versiota suoritat
       </InputLabel>
       <Select
         value={selectedVariant}
@@ -40,21 +40,13 @@ const DropdownMenu = ({ selectedVariant, setSelectedVariant }) => {
           />
         }
       >
-        <MenuItem value={"dl"}>Aikataulutettu Ohjelmoinnin MOOC</MenuItem>
-        <MenuItem value={"nodl"}>Aikatauluton Ohjelmoinnin MOOC</MenuItem>
-        <MenuItem value={"ohja-dl"}>
-          Aloitan kurssin aikataulutettuna osasta 8 (Ohjelmoinnin jatkokurssi)
+        <MenuItem value={"avoin-kevät-2020"}>
+          Avoin yliopisto, Tietokoneen toiminnan jatkokurssi, kevät 2020
         </MenuItem>
-        <MenuItem value={"ohja-nodl"}>
-          Aloitan kurssin aikatauluttomana osasta 8 (Ohjelmoinnin jatkokurssi)
+        <MenuItem value={"hy-syksy-2019"}>
+          Helsingin yliopisto, Tietokoneen toiminta, syksy 2019
         </MenuItem>
-        <MenuItem value={"kesa-dl"}>
-          Kesä: Aikataulutettu Ohjelmoinnin MOOC
-        </MenuItem>
-        <MenuItem value={"kesa-ohja-dl"}>
-          Kesä: Aloitan kurssin aikataulutettuna osasta 8 (Ohjelmoinnin
-          jatkokurssi)
-        </MenuItem>
+        <MenuItem value={"itsenainen"}>Itsenäinen opiskelu, 2019-2020</MenuItem>
       </Select>
     </StyledFormControl>
   )
