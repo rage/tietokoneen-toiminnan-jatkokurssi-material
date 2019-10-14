@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Tässä aliluvussa (10.3) esittellään neljä erilaista tapaa toteuttaa Java virtuaalikone (JVM) ja kuinka Java-ohjelmia suoritetaan niissä. 
+<lead>Tässä aliluvussa (10.3) esittellään neljä erilaista tapaa toteuttaa Java virtuaalikone (JVM). 
 </lead>
 </div>
 
