@@ -1,6 +1,6 @@
 # Tietokoneen toiminnan jatkokurssi
 
-https://tietokoneen-toiminnan-jatkokurssi.now.sh
+https://tietokoneen-toiminnan-jatkokurssi.mooc.fi
 
 ## Development environment
 
