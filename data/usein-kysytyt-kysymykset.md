@@ -5,56 +5,41 @@ hidden: false
 information_page: true
 ---
 
-Tässä usein kysyttyjä kysymyksiä ja ongelmia. Jos et löydä kysymykseesi vastausta täältä, voit esitttää sen [tukiväylillämme](/tukivaylat).
+## Kurssin ja kurssialustan kehitys
+Sekä kurssia että sen käyttämää alustaa kehitetään koko ajan. Tämän vuoksi on mahdollista, että kurssin ulkoasu tai käyttöliittymä voi muuttua myös kurssin aikana. Kaikki alustassa ja kurssimateriaalissa olevat puutteet pyritään korjaamaan mahdollisimman pian.
 
-## Vanhaa tietoa, ohjelmointikurssilta (DRAFT - kesken)
-Älä käytä tällä sivulla olevaa tietoa!!
+Kurssin ja alustan kehityksestä voi aiheutua haittaa opiskelijoille esimerkiksi muutettujen ja lisättyjen pikatehtävien (quiz) osalta. Joissakin tapauksissa pikatehtäviä voi tulla lisää tai jo tehty pikatehtävä voi tulla merkityksi vielä ratkaisemattomaksi. Tällaisissa tapauksissa pikatehtävä pitää vain tehdä uudelleen.
 
-<table-of-contents></table-of-contents>
+## Löysin materiaalista virheen
+Kaikki rakentava palaute kurssin tekemiseksi paremmaksi on arvokasta. 
 
+Tämä tarkoittaa niin suurempia rakenteellisia ehdotuksia kuin esitystapaan liittyvien puutteiden esilletuontia. Esimerkiksi kaikki kirjoitusvirheet olisi mukava saada korjattua mahdollisimman nopeasti. Samoin jos tekstissä on huonosti muotoiltuja tai muuten vaikeasti ymmärrettäviä kohti, niin ne olisi hyvä saada korjattua nopeasti. Vastaavasti kaikki pikatehtävissä ("Quiz") olevat puutteet ärsyttävät monia, kunnes ne on paikattu.
 
-### Löysin materiaalista virheen
+Useat henkilöt ovat jo antaneet hyvää palautetta kurssin kehittämiseksi. Kiitos Harri Kähkönen, etc.!
 
-_Kesken - ei vielä toteutettu._
+### Korjausehdotukset sähköpostitse
+Lähettäkää korjausehdotukset sähköpostitse osoitteella [teemu.kerola@cs.helsinki.fi](mailto:teemu.kerola@cs.helsinki.fi?subject=MOOC%20palaute,%20Tietokoneen%20toiminnan%20jatkokurssi&body=Luku%20???%20tai%20Quiz%20???%20...).
 
-Avaa joko issue tai muutosehdoitus kurssin Github-repossa: https://github.com/rage/tito-per-????????.mooc.fi.
+Laittakaa sähköpostin otsakkeeksi "MOOC palaute, Tietokoneen toiminnan jatkokurssi".
 
-### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
+Kirjatkaa palautteen alkuun tarkka paikka, jota palaute koskee. Esimerkiksi, "Luku 3.3 (Rakenteinen tieto), kappaleen "Toinen tyypillinen..." kolmas lause.
 
-Kurssin aloittamiseen ei tarvitse ilmoittautumista. Älä ilmoittaudu minnekkään ellei kurssin sivu erikseen kehoita sinua tekemään niin.
+Antakaa palaute mahdollisimman lyhyesti, mutta silti selkeästi. Esimerkiksi, "Typo sanassa 'pödällä', pitää olla 'pöydällä'".
 
-### Tarvitsenko MOOC-tunnuksen?
+Kiitos.
 
-Kyllä. Sinulla pitää olla oma MOOC-tunnus, jossa järjestelmä pystyy pitämään kirjaa kurssilla edistymisestäsi.
+### Korjausehdotukset suoraan GitHubin kautta
+Avaa joko "issue" tai "muutosehdotus" kurssin GitHub-repossa (varastossa)
+https://github.com/rage/tietokoneen-toiminnan-jatkokurssi-material.
 
-### Milloin voin aloittaa aikatauluttoman kurssin?
+Laita muutosehdotuksesi suoraan paikalleen GitHubissa sijaitsevaan kurssimateriaaliin. Esimerkiksi, korjaa kirjoitusvirhe sanassa "pödällä" muotoon "pöydällä". Talleta ehdotuksesi ("Propose file change") ja anna muutosehdotuksesi eteenpäin ("Create pull request").
 
-_Kesken - ei vielä toteutettu._
+Korjausehdotukset käsitellään yksi kerrallaan. Mahdolliset muutokset tulevat voimaan vasta hyväksymisen jälkeen. 
 
-Aikatauluton kurssi ...
+Kurssimateriaali on kirjoitettu [markdown](https://en.wikipedia.org/wiki/Markdown)-kielellä ja siitä generoituu html-koodia. Jos et osaa markdownia tai et halua käyttää [GitHubia](https://en.wikipedia.org/wiki/GitHub), lähetä muutosehdotuksesi sähköpostitse em. tavalla. 
+Pikatehtäviin voi tehdä muutosehdotuksia vain sähköpostitse.
 
-### Työ- ja elinkeinotoimisto haluaa minulta selvityksen kurssista
+Kiitos.
 
-Ohjaa TE-toimisto tälle sivulle:
+## Usein kysyttyjä kysymyksiä
 
-Tietokoneen toiminnan jatkokurssi on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
-
-Tietokoneen toiminnan jatkokurssi on Helsingin yliopiston kurssin Tietokoneen toiminta (5 opintopistettä) kurssimateriaali. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssista voi kuitenkin halutessaan -- ja kurssin menestyksekkäästi suorittamalla -- saada opintopisteitä.
-
-### Saan tukea Työ- ja elinkeinotoimistolta. Voinko silti tehdä kurssin?
-
-Sovi asiasta etukäteen TE-toimistosi kanssa. TE-toimistot eivät valitettavasti käsittele kurssiimme liittyviä asioita yhdenmukaisesti. Jotkut ovat evänneet tukia jo kurssillemme lukullistumisesta, vaikkei tavoitteena olisi opintopisteet tai opinnot. Toisaalta toiset TE-toimistot ovat suositelleet kurssia ja jopa ohjanneet ihmisiä kurssille ilman tukien epäämistä.
-
-### Saako kursseista jonkinlaisen virallisen opintosuoritusotteen? Ja miten hyväksiluen sen oppilaitoksessani?
-
-_Kesken - ei vielä toteutettu._
-
-Kurssin päätteeksi voi osallistua Helsingin yliopiston Avoimen yliopiston tarjoamaan verkkotenttiin. Jos verkkotentin läpäisee hyväksytysti, Avoimelta yliopistolta saa virallisen kurssisuoritteen. Se kelpaavat todennäköisesti hyväksilukemista varten, mutta asia kannattaa varmistaa (mielellään etukäteen) oman oppilaitoksen opintovastaavalta.
-
-### Miten vaihdan aikataululliselta kurssilta aikatauluttomaan?
-
-_Kesken - ei vielä toteutettu._
-
-### Tarvitsenko Helsingin yliopiston tunnukset?
-
-_Kesken - ei vielä toteutettu._
