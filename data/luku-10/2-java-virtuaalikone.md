@@ -20,6 +20,21 @@ Java virtuaalikone on geneerinen suoritin, joka toimii rajapintana kaikille Java
 
 Rekisteripohjaiset suorittimet toimivat hyvin eri tavalla. Aritmeettis-loogisissa operaatioissa on yleensä nimetty kolme rekisteriä, joista yksi on tulosrekisteri. Tällä tavoin kummankaan operandin arvoa ei tarvitse tuhota. Ttk-91 suorittimessa aritmeettis-loogisissa operaatioissa oli vain kaksi nimettyä operandia, ja tulos talletetaan aina ensimmäisen operandin (rekisterin) päälle. 
 
+Esimerkki. Lausekkeen _z = (x+y)(x+5)_ toteutus suorittimilla, joissa aritmeettis-loogisissa operaatioissa on 0, 2 tai 3 operandia. Kolmen operandin esimerkki on [load-store](https://en.wikipedia.org/wiki/Load/store_architecture) arkkitehtuuri, jossa muistiviitekäskyt ovat erillään aritmeettis-loogisista operaatioista.
+
+```
+Pinokone        ttk-91          load-store
+
+push x          load r1, x      load r1, x
+push y          add  r1, y      load r2, y
+add             load r2, x      load r3, =5
+push x          add r2, =5      add r8, r1, r2
+push 5          add r1, r2      add r9, r1, r3
+add             store r1, y     mul r10, r8, r9
+mul                             store r10, z
+pop z
+```
+
 JVM ei määrittele, onko suorituksessa rinnakkaisuutta vai ei. On täysin mahdollista, että yhdestä prosessista on samanaikaisesti suorituksessa useampi säie. Esimerkiksi kaksi peräkkäistä toisistaan riippumatonta metodin kutsua voisivat olla yhtä aikaa suorituksessa (moniytimisellä) laitteistolla, jos vain käytössä oleva JVM:n toteutus tämän sallii.
 
 Javan virtuaalikone voidaan toteuttaa usealla eri tavalla, mikä tekee tästä mielenkiintoisen ohjelmien suoritusmallin. Suoritettava Java-ohjelma siis käännetään aina ensin tavukoodiksi, jonka jälkeen se suoritetaan _jollain tavalla toteutetulla_ JVM:llä. Periaatteessa on ainakin neljä tapaa toteuttaa JVM ja Java-ohjelmia voi sitten suorittaa noilla kaikilla tavoilla. Suoritustavat esitellään tässä lyhyesti ja seuraavassa aliluvussa tarkemmin. 
