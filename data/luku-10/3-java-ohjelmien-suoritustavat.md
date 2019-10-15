@@ -39,7 +39,7 @@ Java-ohjelma voidaan kääntää ja linkittää natiivikoneelle kuten edellisess
 
 Kääntäminen järjestelmän omalle konekielelle tehdään tavukoodisesta esitysmuodosta eikä Java-koodista, kuten normaalikäännöksessä tehtäisiin. Edellisen luvun terminologian mukaisesti kääntämisessä ajetaan nyt ainoastaan kääntäjän _back end_. Etuna konekielelle kääntämisestä on ohjelman suorituksen nopeus, koska kääntäjä voi tehokkaasti optimoida koodin juuri tälle suorittimelle. 
 
-Käännöksen natiivikoneen konekielelle voi tehdä myös vähän "huijaten" hyödyntäen C-kielen (tai C++ kielen) kääntäjää. Näin tehdään sen vuoksi, että todella hyvin optimoidun koodin tekeminen on vaikeata ja kuitenkin liki jokaisesta käyttöjärjestelmästä löytyy hyvin optimoitua koodia tuottava C-kielen kääntäjä jo valmiina eri suorittimille. Tässä tapauksessa tavukoodi käännetään ensin C-kielelle, mikä on suhteellisen helppoa. C-kielinen esitysmuoto annetaan sitten C-kääntäjälle, joka tuottaa hyvin optimoitua koodia halutulle suorittimelle.
+Käännöksen natiivikoneen konekielelle voi tehdä myös "kiertotietä" hyödyntäen C-kielen (tai C++ kielen) kääntäjää. Näin tehdään sen vuoksi, että todella hyvin optimoidun koodin tekeminen on vaikeata ja kuitenkin liki jokaisesta käyttöjärjestelmästä löytyy hyvin optimoitua koodia tuottava C-kielen kääntäjä jo valmiina eri suorittimille. Tässä tapauksessa tavukoodi käännetään ensin C-kielelle, mikä on suhteellisen helppoa. C-kielinen esitysmuoto annetaan sitten C-kääntäjälle, joka tuottaa hyvin optimoitua koodia halutulle suorittimelle.
 
 Huonona puolena natiivikoneelle kääntämisestä on joustamattomuus, koska koko ohjelma täytyy kokonaisuudessaan kääntää ja linkittää valmiiksi latausmoduuliksi. Dynaamista linkitystä ei voi käyttää. 
 
@@ -67,12 +67,6 @@ Kokonaisrakenne on monimutkainen, koska Java-tulkin käyttämien JVM-tietorakent
 ## Java-suoritin
 On myös mahdollista toteuttaa JVM ihan oikeana suorittimena. Tämä tarkoittaa sitä, että JVM:n tietorakenteet (esimerkiksi rekisterit SP, LV, jne) on pääosin toteutettu laitteistolla ja että suoritin ymmärtää tavukoodin käskynä tavallisina konekäskyinä. Sun Microsystems'in [picoJava](https://en.wikipedia.org/wiki/PicoJava) on määrittely tällaiselle suoritinarkkitehtuurille. PicoJava suoritin on suunniteltu pienille laitteille, joissa kaikki ohjelmat voisivat olla tavukoodia ja joiden järjestelmissä ei tarvittaisi Java-tulkkia tai JIT-kääntäjiä.
 
-PicoJava suorittimessa voi välimuisti ja liukuaritmetiikka olla valinnaisina osina, jotka toteutetaan ainostaan jos niille on oikeasti tarvetta. Esimerkiksi [IoT](https://en.wikipedia.org/wiki/Internet_of_Things)-laitteet ([esineiden Internet](https://fi.wikipedia.org/wiki/Esineiden_internet)) voivat hyvinkin olla sellaisia, että niissä ei ole tarvetta välimuistille ja/tai liukuluvuille.
-
-Kaikki tavukoodin 226 käskyä tunnistetaan konekäskyinä, mutta (harvemmin käytettävä tai ei nyt laitteistolla toteutettu) osa niistä voidaan toteuttaa keskeytysmekanismin kautta muiden käskyjen avulla keskeytyskäsittelijässä. Jos esimerkiksi suorittimessa ei ole toteutettu piirejä liukulukukäskyille, niin käskyn _fadd_ suoritus aiheuttaa keskeytyksen (epäkelpo operaatiokoodi). Keskeytyskäsittelijä huomaa operaatiokoodin 62 (_fadd_) ja toteuttaa kokonaislukuaritmetiikan avulla (hyvin monella konekäskyllä) kyseisen liukulukuyhteenlaskuoperaation. Samaa menettelyä käytetään useiden nykyaikaisten suorittimien yhteydessä, koska sillä tavalla saadaan helposti käyttöön suurempi käskykanta kuin mitä nykyisessä suoritinversiossa on toteutettu.
-
-JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän toteuttamiseksi. Tämän vuoksi picoJavassa on lisäksi mukana 115 "tavallisen" rekisteriarkkitehtuurin konekäskyä (ja niitä vastaavat rekisterit). Myös muiden ohjelmointikielten toteutus voi hyödyntää näitä lisäkäskyjö avulla. 
-
 <!-- Kuva: ch-10-3-suoritus-natiivi -->
 
 ![Neljä ??????  ch-10-3-suoritus-natiivi.](./ch-10-3-suoritus-natiivi.svg)
@@ -80,6 +74,29 @@ JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän
 <illustrations motive="ch-10-3-suoritus-natiivi" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
+PicoJava suorittimessa voivat välimuisti ja liukulukuaritmetiikka olla valinnaisina osina, jotka toteutetaan ainostaan, jos niille on oikeasti tarvetta. Esimerkiksi pienet [IoT](https://en.wikipedia.org/wiki/Internet_of_Things)-laitteet ([esineiden Internet](https://fi.wikipedia.org/wiki/Esineiden_internet) laitteet) voivat hyvinkin olla sellaisia, että niissä ei ole tarvetta välimuistille ja/tai liukuluvuille.
+
+Kaikki tavukoodin 226 käskyä tunnistetaan konekäskyinä, mutta (harvemmin käytettävä tai ei nyt laitteistolla toteutettu) osa niistä voidaan toteuttaa keskeytysmekanismin kautta muiden käskyjen avulla keskeytyskäsittelijässä. Jos esimerkiksi suorittimessa ei ole toteutettu piirejä liukulukukäskyille, niin käskyn _fadd_ suoritus aiheuttaa keskeytyksen (epäkelpo operaatiokoodi). Keskeytyskäsittelijä huomaa operaatiokoodin 62 (_fadd_) ja toteuttaa kokonaislukuaritmetiikan avulla (hyvin monella konekäskyllä) kyseisen liukulukuyhteenlaskuoperaation. Samaa menettelyä käytetään useiden nykyaikaisten suorittimien yhteydessä, koska sillä tavalla saadaan helposti käyttöön suurempi käskykanta kuin mitä nykyisessä suoritinversiossa on toteutettu.
+
+JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän toteuttamiseksi. Tämän vuoksi picoJavassa on lisäksi mukana 115 "tavallisen" rekisteriarkkitehtuurin konekäskyä ja niitä vastaavat rekisterit. Myös muiden ohjelmointikielten toteutus voi hyödyntää näitä lisäkäskyjä tai sitten voi kääntää puhtaaksi tavukoodiksi. Erityisesti niitä käytetään C kielellä kirjoitetun käyttöjärjestelmän toteuttamiseksi tehokkaasti. 
+
+JVM-koodin suorituksen hitaus aiheutuu huomattavassa määrin siitä, että kaikki dataviitteet kohdistuvaat pinoon. PicoJavassa (versiossa II) tähän ongelmaan on tartuttu toteuttamalla pinon huippu 64 laiterekisterin avulla. Käytännössä siis useimmat pinoon kohdistuvat viitteet voidaan totuttaa hyvin nopeasti näiden (nimeämättömien) rekistreiden avulla.
+
+PicoJavassa (version II) on määritelty yhteensä 25 kappaletta 32-bittistä rekisteriä. Niitä käsitellään em. ylimääräisillä konekäskyillä, joista osa on etuoikeutettuja konekäskyjä. Rekisterit ovat 
+  PC, LV, CPP, SP (pino kasvaa alaspäin)
+  OPLIM on alaraja SP:lle; alitus aiheuttaa keskeytyksen
+  FRAME osoittaa metodin paluuosoitteeseen
+  PSW on tilarekisteri
+  rekisteri, joka kertoo pinon välimuistirekistereiden tämänhetkisen käytön
+  4 rekisteriä keskeytysten ja break-point’ien käsittelyyn
+  4 rekisteriä säikeiden hallintaan
+  4 rekisteriä C ja C++ ohjelmien toteutukseen
+  rajarekisteriä sallitun muistialueen rajoittamiseen
+  suorittimen version numero ja konfiguraatiorekisterit
+  
+Muita ylimääräisiä käskyjä on em. rekistereiden lukemiseen ja kirjoittamiseen. Myös osoittimia (pointtereita) varten on omat käskynsä., ja niiden avulla voidaan helposti lukea tai kirjoittaa ihan mitä tahansa muistialuetta C/C++ kielien tapaan. Samoin C/C++ kielisille aliohjelmille on omat kutsu- ja paluukäskynsä. Parametrien välitys tapahtuu pinon kautta ja käytössä on normaalit arvo- ja viiteparametrit. Lisäkäskyjä on myös mahdollisen välimuistin manipulointiin (tyhjentämiseen) ja erilaisiin virransäästöoperaatioihin.
+
+PicoJava toteutukset...
 
 ## Quizit 10.3 ????
 <!--  quizit 10.3.???  -->
