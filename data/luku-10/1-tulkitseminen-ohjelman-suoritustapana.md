@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <div>
-<lead>Tässä aliluvussa esittelemme, mitä tarkoittaa ohjelmien suorittaminen tulkitsemalla. Käsittelemme myös, mitä tarkoittavat käsitteet suorittimen emulointi ja simulointi.</lead>
+<lead>Tässä aliluvussa esittellään, mitä tarkoittaa ohjelmien suorittaminen tulkitsemalla. Siinä käsittellään myös, mitä tarkoittavat käsitteet suorittimen emulointi ja simulointi.</lead>
 </div>
 
 ## Tulkitseminen ja tulkki
