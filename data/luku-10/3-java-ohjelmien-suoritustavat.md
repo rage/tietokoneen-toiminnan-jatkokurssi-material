@@ -80,19 +80,20 @@ Kaikki tavukoodin 226 käskyä tunnistetaan konekäskyinä, mutta (harvemmin kä
 
 JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän toteuttamiseksi. Tämän vuoksi picoJavassa on lisäksi mukana 115 "tavallisen" rekisteriarkkitehtuurin konekäskyä ja niitä vastaavat rekisterit. Myös muiden ohjelmointikielten toteutus voi hyödyntää näitä lisäkäskyjä tai sitten voi kääntää puhtaaksi tavukoodiksi. Erityisesti niitä käytetään C kielellä kirjoitetun käyttöjärjestelmän toteuttamiseksi tehokkaasti. 
 
-JVM-koodin suorituksen hitaus aiheutuu huomattavassa määrin siitä, että kaikki dataviitteet kohdistuvaat pinoon. PicoJavassa (versiossa II) tähän ongelmaan on tartuttu toteuttamalla pinon huippu 64 laiterekisterin avulla. Käytännössä siis useimmat pinoon kohdistuvat viitteet voidaan totuttaa hyvin nopeasti näiden (nimeämättömien) rekistreiden avulla.
+JVM-koodin suorituksen hitaus aiheutuu huomattavassa määrin siitä, että kaikki dataviitteet kohdistuvaat pinoon. PicoJavassa (versiossa II) tähän ongelmaan on tartuttu toteuttamalla pinon huippu 64 laiterekisterin avulla. Käytännössä siis useimmat pinoon kohdistuvat viitteet voidaan totuttaa hyvin nopeasti näiden (nimeämättömien) rekistereiden avulla.
 
 PicoJavassa (version II) on määritelty yhteensä 25 kappaletta 32-bittistä rekisteriä. Niitä käsitellään em. ylimääräisillä konekäskyillä, joista osa on etuoikeutettuja konekäskyjä. Rekisterit ovat 
-  PC, LV, CPP, SP (pino kasvaa alaspäin)
-  OPLIM on alaraja SP:lle; alitus aiheuttaa keskeytyksen
-  FRAME osoittaa metodin paluuosoitteeseen
-  PSW on tilarekisteri
-  rekisteri, joka kertoo pinon välimuistirekistereiden tämänhetkisen käytön
-  4 rekisteriä keskeytysten ja break-point’ien käsittelyyn
-  4 rekisteriä säikeiden hallintaan
-  4 rekisteriä C ja C++ ohjelmien toteutukseen
-  rajarekisteriä sallitun muistialueen rajoittamiseen
-  suorittimen version numero ja konfiguraatiorekisterit
+
+    PC, LV, CPP, SP (pino kasvaa alaspäin) 
+    OPLIM on alaraja SP:lle; alitus aiheuttaa keskeytyksen
+    FRAME osoittaa metodin paluuosoitteeseen
+    PSW on tilarekisteri
+    rekisteri, joka kertoo pinon välimuistirekistereiden tämänhetkisen käytön
+    4 rekisteriä keskeytysten ja break-point’ien käsittelyyn
+    4 rekisteriä säikeiden hallintaan
+    4 rekisteriä C ja C++ ohjelmien toteutukseen 
+    2 rajarekisteriä sallitun muistialueen rajoittamiseen
+    suorittimen version numero rekisteri ja konfiguraatiorekisteri
   
 Muita ylimääräisiä käskyjä on em. rekistereiden lukemiseen ja kirjoittamiseen. Myös osoittimia (pointtereita) varten on omat käskynsä., ja niiden avulla voidaan helposti lukea tai kirjoittaa ihan mitä tahansa muistialuetta C/C++ kielien tapaan. Samoin C/C++ kielisille aliohjelmille on omat kutsu- ja paluukäskynsä. Parametrien välitys tapahtuu pinon kautta ja käytössä on normaalit arvo- ja viiteparametrit. Lisäkäskyjä on myös mahdollisen välimuistin manipulointiin (tyhjentämiseen) ja erilaisiin virransäästöoperaatioihin.
 
