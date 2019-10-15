@@ -65,7 +65,13 @@ Kokonaisrakenne on monimutkainen, koska Java-tulkin käyttämien JVM-tietorakent
 
 
 ## Java-suoritin
-????
+On myös mahdollista toteuttaa JVM ihan oikeana suorittimena. Tämä tarkoittaa sitä, että JVM:n tietorakenteet (esimerkiksi rekisterit SP, LV, jne) on pääosin toteutettu laitteistolla ja että suoritin ymmärtää tavukoodin käskynä tavallisina konekäskyinä. Sin Microsystems'in [picoJava](https://en.wikipedia.org/wiki/PicoJava) on määrittely tällaiselle suoritinarkkitehtuurille. PicoJava suoritin on suunniteltu pienille laitteille, joissa kaikki ohjelmat voisivat olla tavukoodia ja joiden järjestelmissä ei tarvittaisi Java-tulkkia tai JIT-kääntäjiä.
+
+PicoJava suorittimessa olisi tarpeen välimuisti ja liukuaritmetiikka valinnaisina osina.
+
+Kaikki tavukoodin 226 käskyä tunnistetaan konekäskyinä, mutta (harvemmin käytettävä tai ei nyt laitteistolla toteutettu) osa niistä voidaan toteuttaa keskeytysmekanismin kautta muiden käskyjen avulla keskeytyskäsittelijässä. Jos esimerkiksi suorittimessa ei ole toteutettu piirejä liukulukukäskyille, niin käskyn _fadd_ suoritus aiheuttaa keskeytyksen (epäkelpo operaatiokoodi). Keskeytyskäsittelijä huomaa operaatiokoodin 62 (_fadd_) ja toteuttaa kokonaislukuaritmetiikan avulla (hyvin monella konekäskyllä) kyseisen liukulukuyhteenlaskuoperaation. Samaa menettelyä käytetään useiden nykyaikaisten suorittimien yhteydessä, koska sillä tavalla saadaan helposti käyttöön suurempi käskykanta kuin mitä nykyisessä suoritinversiossa on toteutettu.
+
+JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän toteuttamiseksi.... ??????
 
 <!-- Kuva: ch-10-3-suoritus-natiivi -->
 
