@@ -681,11 +681,11 @@
          id="tspan1122">*(++SP) = *(LV+j);</tspan><tspan
          y="173.64597"
          x="138.81781"
-         id="tspan1124">tmp= *(SP) + *(SP-1);</tspan><tspan
+         id="tspan1124">tmp= *(SP) + *(--SP);</tspan><tspan
          y="179.81956"
          x="138.81781"
-         id="tspan1126">*(--SP) = tmp;*</tspan><tspan
-         id="tspan1128">(LV+k) = *(SP--);</tspan></text>
+         id="tspan1126">*(SP) = tmp;</tspan><tspan
+         id="tspan1128">*(LV+k) = *(SP--);</tspan></text>
     <path
        id="path6514-6-6"
        d="m 128.29006,142.65142 c 9.93013,6.86769 9.93013,6.86769 9.93013,6.86769"
