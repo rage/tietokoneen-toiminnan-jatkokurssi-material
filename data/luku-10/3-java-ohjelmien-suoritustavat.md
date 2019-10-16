@@ -82,7 +82,7 @@ JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän
 
 JVM-koodin suorituksen hitaus aiheutuu huomattavassa määrin siitä, että kaikki dataviitteet kohdistuvaat pinoon. PicoJavassa (versiossa II) tähän ongelmaan on tartuttu toteuttamalla pinon huippu 64 laiterekisterin avulla. Käytännössä siis useimmat pinoon kohdistuvat viitteet voidaan totuttaa hyvin nopeasti näiden (nimeämättömien) rekistereiden avulla.
 
-PicoJavassa (version II) on määritelty yhteensä 25 kappaletta 32-bittistä rekisteriä. Niitä käsitellään em. ylimääräisillä konekäskyillä, joista osa on etuoikeutettuja konekäskyjä. Rekisterit ovat 
+PicoJavassa (version II) on määritelty yhteensä 25 kappaletta 32-bittistä rekisteriä. Rekisterit ovat 
 
     PC, LV, CPP, SP (pino kasvaa alaspäin) 
     OPLIM on alaraja SP:lle; alitus aiheuttaa keskeytyksen
@@ -95,7 +95,7 @@ PicoJavassa (version II) on määritelty yhteensä 25 kappaletta 32-bittistä re
     2 rajarekisteriä sallitun muistialueen rajoittamiseen
     suorittimen version numero rekisteri ja konfiguraatiorekisteri
   
-Muita ylimääräisiä käskyjä on em. rekistereiden lukemiseen ja kirjoittamiseen. Myös osoittimia (pointtereita) varten on omat käskynsä., ja niiden avulla voidaan helposti lukea tai kirjoittaa ihan mitä tahansa muistialuetta C/C++ kielien tapaan. Samoin C/C++ kielisille aliohjelmille on omat kutsu- ja paluukäskynsä. Parametrien välitys tapahtuu pinon kautta ja käytössä on normaalit arvo- ja viiteparametrit. Lisäkäskyjä on myös mahdollisen välimuistin manipulointiin (tyhjentämiseen) ja erilaisiin virransäästöoperaatioihin.
+Noissa 115 lisäkäskyissä on mm. käskyt näiden ylimääräisten rekistereiden lukemiseen ja kirjoittamiseen. Myös osoittimia (pointtereita) varten on omat käskynsä, ja niiden avulla voidaan helposti lukea tai kirjoittaa ihan mitä tahansa muistialuetta C/C++ kielien tapaan. Samoin C/C++ kielisille aliohjelmille on omat kutsu- ja paluukäskynsä. Parametrien välitys tapahtuu pinon kautta ja käytössä on normaalit arvo- ja viiteparametrit. Lisäkäskyjä on myös mahdollisen välimuistin manipulointiin (tyhjentämiseen) ja erilaisiin virransäästöoperaatioihin.
 
 PicoJava toteutukset...
 
