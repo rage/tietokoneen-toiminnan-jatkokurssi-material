@@ -14,13 +14,14 @@ Kuten Tietokoneen toiminnan perusteet -kurssilla jo kävimme läpi, rakenteiseen
 Yleisimmät tapaukset ovat peräkkäistalletetut 1-ulotteinen taulukko ja tietue. Peräkkäistalletus tarkoittaa sitä, että koko taulukko tai tietue on talletettu muistissa peräkkäisiin muistipaikkoihin. 1-ulotteisen taulukon alkion osoite on yksinkertaisesti taulukon alkuosoite lisättynä indeksin osoittaman määrällä. Tässä perustapauksessa oletamme, että taulukon alkion koko on yksi sana. Useimmissa konekielissä on tätä perustapausta varten indeksoitu tiedonosoitusmuoto, jolloin taulukon alkioon viittaaminen voidaan tehdä yhdellä konekäskyllä. Siinä taulukon alkuosoite on käskyn vakio-osassa ja viitatun alkion indeksi indeksirekisterissä.
 
 ```
-      load r1, =0     ;  muuntelumuuttujan i alustus, arvo r1:ssä
+      load r1, =0       ;  muuntelumuuttujan i alustus, arvo r1:ssä
 loop  comp r1, =30      ; silmukan lopetustesti
       jequ done
       load r2, r1       ; silmukan runko
       mul  r2, =4
       store r2, A(r1)   ; taulukon A viitatun alkion indeksi on r1:ssä
-      jump
+      add r1, =1        ; lisätään muuntelumuuttujan arvoa yhdellä
+      jump loop
 done  nop               ; poistu silmukasta
 ```
 
@@ -43,7 +44,7 @@ Per2    ds 3
 ```
 
 ## 2-ulotteiset taulukot
-Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ole niitä tukevia tiedonosoitusmoodeja, joten tietoon viittaminen tapahtuu kahdessa vaiheessa. Ensin lasketaan omalla koodilla viitatun tiedon suhteellinen sijainti rakenteisen tiedon sisällä ja sitten indeksoitua tiedonosoitusmoodia käyttäen tehdään varsinainen tiedonosoitus.
+Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ole niitä tukevia tiedonosoitusmoodeja, joten tietoon viittaminen tapahtuu kahdessa vaiheessa. Ensin ohjelmassa lasketaan viitatun tiedon suhteellinen sijainti rakenteisen tiedon sisällä ja sitten indeksoitua tiedonosoitusmoodia käyttäen tehdään varsinainen tiedonosoitus.
 
 ### Talletus riveittäin
 2-ulotteiset taulukot voidaan tallettaa muistiin ainakin kolmella tavalla. Ne voidaan tallettaa yhtenäiselle alueelle _riveittäin_, jolloin esimerkiksi osoitteeseen 300 talletettu taulukko T[2,3]
@@ -59,7 +60,7 @@ talletetaan rivi kerrallaa muistiin peräkkäisiin muistipaikkohin, muistipaikas
 300: 25  88  2 11  66  3
 ```
 
-Nyt taulukon alkion T[i,j] osoite on T + 3\*i + j ja alkioon T[i,j] viittaaminen tapahtuu seuraavasti:
+Nyt taulukon alkion T[i,j], missä i ilmaisee rivin ja j sarakkeen, osoite on T + 3\*i + j ja alkioon T[i,j] viittaaminen tapahtuu seuraavasti (huomioi, että rivin ja sarakkeen indeksointi alkaa nollasta):
 
 ```
      load r1, i
@@ -93,7 +94,7 @@ Kolmas vaihtoehto on tallettaa (esim.) kukin rivi kerrallaan omalle yhtenäisell
 300: 400 430              (Taulukon T rivien osoitteet)
 ```
 
-Huomaa, että taulukko T voi olla nyt talletetettuna ei yhtenäiselle alueille keskusmuistiin. Alkioon T[i,j] viittaminen tapahtuu nyt kaksivaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten tehdään varsinainen  viite kyseisen rivin alkioon j.
+Huomaa, että taulukko T voi olla nyt talletetettuna epäyhtenäisille alueille keskusmuistiin. Alkioon T[i,j] viittaminen tapahtuu nyt kaksivaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten tehdään varsinainen  viite kyseisen rivin alkioon j.
 
 ```
      load r1, i
@@ -141,7 +142,7 @@ ja niihin voisi viitata esimerkiksi seuraavalla tavalla.
      mul r2, =4    ; joka rivillä 4 sanaa
      add r1, r2
      
-     ; laske alkion k osoite rivilläj tasolla i
+     ; laske alkion k osoite rivillä j tasolla i
      add r1, k
      
      ; tee varsinainen muistiviite
@@ -154,7 +155,7 @@ Jos S on talletettu sarakettain, niin tasoja on viimeisen indeksin mukaisesti ne
 600: 000 100 010 110 020 120     (taso k=0)
 606: 001 101 011 111 021 121     (taso k=1)
 612: 002 102 012 112 022 122     (taso k=2)
-606: 003 103 013 113 023 123     (taso k=3)
+618: 003 103 013 113 023 123     (taso k=3)
 ```
 
 Viite (r2 = S[i,j,k]) toteutuu nyt käskyillä
