@@ -200,7 +200,7 @@ Viite (r2 = S[i,j,k]) toteutuu nyt käskyillä
 Nämä kaikki moniulotteisten taulukoiden talletusmuodot ovat käytössä. Useimmiten korkean tason kielellä ohjelmoitaessa niillä ei ole kovin paljon väliä, koska talletusmuoto ei näy korkean tason ohjelmointikielellä ohjelmoitaessa. Joissakin tapauksissa ohjelmien suoritusnopeutta voidaan kuitenkin huomattavasti nopeuttaa, jos talletusjärjestys otetaan huomoioon koodissa. Jos esimerkiksi käydään läpi 2-ulotteisen taulukon kaikki alkiot, niin välimuisti tekee niiden läpikäynnin muistiintallennusjärjestyksessä huomattavasti nopeammaksi kuin jossakin muussa järjestyksessä. Valitettavasti 2-ulotteisia taulukoita tarvitsee usein käydä läpi niin sarakettain kuin riveittäin, joten kumpi tahansa talletusmuoto on aina joskus huono.
 
 ## Monimutkaiset rakenteiset tietorakenteet
-Monimutkaisemmat tietorakenteet talletetaan muistiin vastaavilla tavoilla. Usein talletusmuoto määräytyy suoraan käytettävän ohjelmointikielen perusteella, mutta joissakin tilanteissa ohjelmoija voi päästä vaikuttamaan talletusmuotoon itsekin. Kulloinkin käytössä oleva talletusmuoto pitää sitten tietenkin huomioida hyvin huolella jokaisen dataviitten kohdalla.
+Monimutkaisemmat tietorakenteet talletetaan muistiin vastaavilla tavoilla. Usein talletusmuoto määräytyy suoraan käytettävän ohjelmointikielen perusteella, mutta joissakin tilanteissa ohjelmoija voi päästä vaikuttamaan talletusmuotoon itsekin. Kulloinkin käytössä oleva talletusmuoto pitää sitten tietenkin huomioida hyvin huolella jokaisen dataviitteen kohdalla.
 
 Esimerkiksi, jos R[20,30] on riveittäin talletettu 2-ulotteinen taulukko, jonka kukin alkio on 14-sanainen tietue, jonka kentät ovat _id_, _lkm_ ja 12-alkioinen taulukko _pisteet_, niin viite alkioon R[i,j].pisteet[kk] voisi olla toteutettuna
 
@@ -244,12 +244,12 @@ olisi nyt muotoa
 
 ```
      load r1, i           ; tarkista I
-     jneq r1, trouble
+     jneg r1, trouble
      comp r1, =2
      jnles trouble
 
      load r2, j           ; tarkista j
-     jneq r2, trouble
+     jneg r2, trouble
      comp r2, =3
      jnles trouble
 
