@@ -6,14 +6,12 @@ information_page: true
 ---
 
 
-**TÄMÄN KURSSIN KEHITYS ON KESKEN. KAIKKI VOI MUUTTUA!**
+Tietokoneen toiminnan jatkokurssi (3 op). 
 
-Tietokoneen toiminnan jatkokurssi. Kurssista on nyt vain itsenäiseen opiskeluun tarkoitettu (aikatauluttamaton) kurssi.
+Kurssin voi suorittaa itsenäisenä opiskeluna (ns. aikatauluttamaton kurssi) milloin vain. 
 
-Kurssista voi saada halutessaan yliopistollisen suorituksen Avoimen yliopiston (Helsingin yliopisto) kautta. Arvostelu perustuu Avoimen yliopiston järjestämään kokeeseen. Siihen voi (kannattaa) osallistua, kun on tehnyt jokaisen luvun quiz-tehtävistä vähintään 90%.
+Kurssin voi suorittaa toisen asteen oppilaitoksissa (esim. lukioissa), jolloin siitä voi saada opintopisteitä kyseisen oppilaitoksen itse määrittelemillä kriteereillä.
 
-Kurssista voidaan myöhemmin julkaista aikataulutettu versio, jossa isomman joukon opiskelijoita otaksutaan suorittavan kurssia samaa tahtia. Tähän kurssiin voi sisältyä enemmän ohjausta ja opiskelijoiden vertaistukea.
+Kurssin voi suorittaa (Helsingin yliopiston) Avoimessa yliopistossa, jolloin siitä saa opintopisteitä. Arvosteluskaala on 0-5/5. Arvostelu voi perustua perustuu oikeiden vastausten osuuteen kurssin pikatehtävistä (quiz) ja lähikokeeseen. Opintopisteiden saaminen edellyttää ilmoittautumista Avoimen yliopiston kurssille.
 
-## Kokeeseen ilmoittautuminen Avoimessa yliopistossa (DRAFT - kesken)
-
-Kurssin kokeeseen osallistuaksesi sinun täytyy muodollisesti ilmoittautua Avoimeen yliopistoon, jotta pääset kirjautumaan sisään sen koeympäristöön. Ilmoittautuminen ei vaikuta muuhun kuin siihen että pääset koeympäristöön, eli sen väärin tekeminen ei pudota sinua pois kurssilta.
+Kurssin voi suorittaa osana Helsingin yliopiston Tietokoneen toiminta (5 op) kurssia. Kursseista Tietokoneen toiminnan perusteet (Avoin yliopisto, 2 op), Tietokoneen toiminnan jatkokurssi (Avoin yliopisto, 3 op) ja Tietokoneen toiminta (Helsingin yliopisto, 5 op) saa yhteensä max 5 op Helsingin yliopiston tutkintoa varten. 
