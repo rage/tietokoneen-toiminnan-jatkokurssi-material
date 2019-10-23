@@ -22,9 +22,9 @@ Lähettäkää korjausehdotukset sähköpostitse osoitteella [teemu.kerola@cs.he
 
 Laittakaa sähköpostin otsakkeeksi "MOOC palaute, Tietokoneen toiminnan jatkokurssi".
 
-Kirjatkaa palautteen alkuun tarkka paikka, jota palaute koskee. Esimerkiksi, "Luku 3.3 (Rakenteinen tieto), kappaleen "Toinen tyypillinen..." kolmas lause.
+Kirjatkaa palautteen alkuun tarkka paikka, jota palaute koskee. Esimerkiksi, "Luku 5.2 (Ohjelmoinnin peruskäsitteet...), kappaleen "Käsiteltävä tieto ..." kolmas lause.
 
-Antakaa palaute mahdollisimman lyhyesti, mutta silti selkeästi. Esimerkiksi, "Typo sanassa 'pödällä', pitää olla 'pöydällä'".
+Antakaa palaute mahdollisimman lyhyesti, mutta silti selkeästi. Esimerkiksi, "Typo sanassa 'osote', pitää olla 'osoite'".
 
 Kiitos.
 
