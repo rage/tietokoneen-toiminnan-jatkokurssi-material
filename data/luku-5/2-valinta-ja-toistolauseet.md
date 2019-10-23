@@ -18,7 +18,7 @@ add r1, y
 store r1, x
 ```
 
-Ohjelman _kontrolli_ määrittelee, mistä seuraava konekäsky löytyy nyt suorituksessa olevan jälkeen. Oletusarvoisestihan seuraava konekäsky löytyy edellisen jälkeen muistista, mutta usein kontrolli haarautuu mualle ohjelmalogiikan mukaisesti. Tähän liittyy erilaisten koodin suorituspolkujen valinta ja eri tavoin tapahtuva saman koodin suorituksen toisto.
+Ohjelman _kontrolli_ määrittelee, mistä seuraava konekäsky löytyy nyt suorituksessa olevan jälkeen. Oletusarvoisestihan seuraava konekäsky löytyy edellisen jälkeen muistista, mutta usein kontrolli haarautuu muualle ohjelmalogiikan mukaisesti. Tähän liittyy erilaisten koodin suorituspolkujen valinta ja eri tavoin tapahtuva saman koodin suorituksen toisto.
 
 _Aliohjelmat_ (funktiot, metodit) ovat oma kategoriansa kontrollin siirron suhteen. Niissä on helposti käytettävää parametrisoitua koodia, jota voidaan käyttää _kutsumalla_ mistä tahansa. Aliohjelmat voivat olla kyseisen ohjelmiston omien sisäisten rutiinien lisäksi ohjelmointikielen tai käyttöjärjestelmän palvelurutiineja. Nämä käsitellään seuraavassa luvussa 6.
 
@@ -27,7 +27,7 @@ Käsiteltävä tieto voi olla yksittäisiä sanoja, mutta usein tarvitaan laajem
 ## Valintalauseet korkean tason kielissä
 Tyypillisesti kaikissa korkean tason ohjelmointikielissä on ehdollinen "_if&nbsp;...&nbsp;then&nbsp;...&nbsp;else&nbsp;..._" kontrollirakenne, jonka avulla valitaan kumpi mahdollisista koodinpätkistä suoritetaan. Tästä on myös yksinkertaisempi "_if&nbsp;...&nbsp;then_" muoto, jossa then-haaran koodi suoritetaan vain, jos annettu ehto on voimassa. Sen jälkeen suoritus jatkuu normaalisti "_if&nbsp;...&nbsp;then_" lauseen jälkeisessä koodissa joka tapauksessa.
 
-Joissakin ohjelmointikielissä on myös ns. _switch_ tai _case_ lause, jolla mahdollinen suorituspolku valitaan useammn vaihtoehdon väliltä. Esimerkiksi C-kielen switch-lauseella voidaan suoritettava koodinpätkä valita sen mukaan, mikä jonkin lausekkeen arvo tällä hetkellä on. Lisäksi mukana on oletusarvo vaihtoehto, joka valitaan silloin kun mikään erikseen nimetty vaihtoehto ei toteutunut.
+Joissakin ohjelmointikielissä on myös ns. _switch_ tai _case_ lause, jolla mahdollinen suorituspolku valitaan useamman vaihtoehdon väliltä. Esimerkiksi C-kielen switch-lauseella voidaan suoritettava koodinpätkä valita sen mukaan, mikä jonkin lausekkeen arvo tällä hetkellä on. Lisäksi mukana on oletusarvo vaihtoehto, joka valitaan silloin kun mikään erikseen nimetty vaihtoehto ei toteutunut.
 
 ```
 switch(error-number)  {
@@ -43,10 +43,10 @@ Konekielessä valintalauseet toteutetaan yksinkertaisesti ehdollisilla hyppykäs
 
 ```
       load r1, X
-      jnzer r1, xnotz
+      jnzer r1, xnzer       ; jos r1 != 0, hyppää kohtaan xnzer 
       ...                   ; then-haara
       jump done
-xnzer ...                ; else-haara
+xnzer ...                   ; else-haara
 done  nop
 ```
 
@@ -70,7 +70,7 @@ not2 ...           ; oletus vaihtoehto (default)
 done nop
 ```
 
-Tämä on tietenkin aika hidasta, kun keskimäärin pitää puolet vaihtoehdoista käydä läpi ennen oikean löytämistä. Oikean vaihtoedon löytämistä voi nopeuttaa, jos laittaa toidennäköisimmät vaihtoehdot ensin, mutta tämä ei useinkaan ole mahdollista. Hyvin kätevä korkean tason kielen rakenne muuttuu siis aika kämpelöksi konekieliseksi toteutukseksi.
+Tämä on tietenkin aika hidasta, kun keskimäärin pitää puolet vaihtoehdoista käydä läpi ennen oikean löytämistä. Oikean vaihtoedon löytämistä voi nopeuttaa, jos laittaa todennäköisimmät vaihtoehdot ensin, mutta tämä ei useinkaan ole mahdollista. Hyvin kätevä korkean tason kielen rakenne muuttuu siis aika kämpelöksi konekieliseksi toteutukseksi.
 
 
 Joissakin tapauksissa monivalinta voidaan toteuttaa ns. _hyppytaulun_ (jump table) avulla. Hyppytaulussa on talletettuna eri vaihtoehtojen _hyppyosoitteet_, joista yksi valitaan haarautumisehdon perusteella. Hyppytaulun huonona puolena on, että sen pitää kattaa kaikki ehtolausekkeen mahdolliset arvot.
@@ -116,12 +116,12 @@ Toinen vaihtoehto on, että hyppytaulussa onkin eri vaihtoehtoihin johtavat _hyp
 ```
 ; --- halutun vaihtoehdon valinta
         load r1, X
-        jump r2, Jump(r1) ; hyppää oikeaan vaihtoehtoon hyppäävään käskyyn
+        jump r2, JumpT(r1) ; hyppää oikeaan vaihtoehtoon hyppäävään käskyyn
 done    nop
 ```
 
 ## Toistolauseet korkean tason kielissä
-Korkean tason kielissä on tyypillisesti muutama eri tyyppinen toistolause. Toistolauseiden tyyppejä on useanlaisia, koska joihinkin tapuuksiin ongelman ratkaisu on helpompaa tietyn tyyppisellä toistolauseella kuin jollakin toisella.
+Korkean tason kielissä on tyypillisesti muutama erityyppinen toistolause. Toistolauseiden tyyppejä on useanlaisia, koska joihinkin tapauksiin ongelman ratkaisu on helpompaa tietyn tyyppisellä toistolauseella kuin jollakin toisella.
 
 For-silmukassa muuntelumuuttujalle annetaan alkuarvo, sen muutoksen ilmaisema lauseke ja silmukan lopetusehto. Joissakin kielissä sallitaan myös usean muuntelumuuttujan käyttö.
 
@@ -164,10 +164,10 @@ do {                           /* C Sharp */
 until i>j;
 ```
 
-Eri ohjelmointikielissä on vielä paljon muitakin toistolauseen muotoja, mutta yleensä ne ovat näiden neljän muunnoksia. Saman näköisilläkin toistolauseilla voi olla eri ohjelmointikielissä erilaisen merkitys (_semantiikka_). Joissakin ohjelmointikielissä silmukan rungosta tai koko silmukasta voi poistua esim. _exit_-lauseella. Joissakin ohjelmointikielissä voi silmukan yhteydessä määritellä uusia muuttujia, jotka ovat olemassa ja viitattavissa vain tuon silmukan sisällä. Emme käsittele näitä silmukoiden erityispiirteitä tässä sen enempää.
+Eri ohjelmointikielissä on vielä paljon muitakin toistolauseen muotoja, mutta yleensä ne ovat näiden neljän muunnoksia. Saman näköisilläkin toistolauseilla voi olla eri ohjelmointikielissä erilainen merkitys (_semantiikka_). Joissakin ohjelmointikielissä silmukan rungosta tai koko silmukasta voi poistua esim. _exit_-lauseella. Joissakin ohjelmointikielissä voi silmukan yhteydessä määritellä uusia muuttujia, jotka ovat olemassa ja viitattavissa vain tuon silmukan sisällä. Emme käsittele näitä silmukoiden erityispiirteitä tässä sen enempää.
 
 ## Toistolauseet konekielessä
-Konekielessä toistolauseita on vain kahden tyyppisiä. Molemmisssa alustetaan ensin mahdolliset muuntelumuuttujat. Ensimmäisessä tapauksessa tarkistetaan heti, josko silmukasta poistutaan tällä hetkellä. Jos ei poistuta niin silmukan runko suoritetaan ja sen jälkeen tehdään mahdolliset muutokset muuntelumuuttujiin. Toisessa vaihtoehdossa silmukan runko ja muutokset muuuntelumuuttujiin suoritetaan ensin ja sitten vasta testataan silmukan päättymisehtoa. Näillä kahdella vaihtoehdolla voidaan toteuttaa kaikki korkean tason kieleten toistolauseet. Totta kai varsinaisessa konekielisessä toteutuksessa pitää huomioida kunkin korkean tason kielen semanttiset erityispiirteet.
+Konekielessä toistolauseita on vain kahden tyyppisiä. Molemmisssa alustetaan ensin mahdolliset muuntelumuuttujat. Ensimmäisessä tapauksessa tarkistetaan heti, josko silmukasta poistutaan tällä hetkellä. Jos ei poistuta, niin silmukan runko suoritetaan ja sen jälkeen tehdään mahdolliset muutokset muuntelumuuttujiin. Toisessa vaihtoehdossa silmukan runko ja muutokset muuuntelumuuttujiin suoritetaan ensin ja sitten vasta testataan silmukan päättymisehtoa. Näillä kahdella vaihtoehdolla voidaan toteuttaa kaikki korkean tason kielten toistolauseet. Totta kai varsinaisessa konekielisessä toteutuksessa pitää huomioida kunkin korkean tason kielen semanttiset erityispiirteet.
 
 Esimerkiksi, edellä oleva C-kielen taulukon alustus for-silmukalla voitaisiin toteuttaa konekielellä seuraavasti:
 
@@ -178,7 +178,7 @@ loop  comp r1, =30      ; silmukan lopetustesti
       load r2, r1       ; silmukan runko
       mul  r2, =4
       store r2, A(r1)
-      jump
+      jump loop
 done  nop               ; poistu silmukasta
 ```
 
