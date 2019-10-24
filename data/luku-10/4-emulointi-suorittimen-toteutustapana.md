@@ -51,10 +51,10 @@ credit....????
 
 
 ## Yhteenveto
-Tämä luku ...
+Esittelimme, kuinka ohjelmia voidaan suorittaa järjestelmässä välillisesti, tulkitsemalla ohjelmakoodia jollakin toisella ohjelmalla. Tällainen ohjelma on komentotulkki, jolla suoritetaan käyttöjärjestelmälle annettavia hallintakomentoja. Se voi olla myös Lava välikielen tulkki, joka emuloi hypoteettista Java virtuaalikonetta. Tai se voi olla jonkin suorittimen täydellinen emulaattori, jolloin sen avulla voidaan yhdessä järjestelmässä suorittaa toisen järjestelmnä konekielisiä ohjelmia.
 
 Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
-### summary quizit ???
+<!-- summary quizit   -->
 
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+<div><quiz id="a6120f2c-843f-432d-8598-db877e7a6fda"></quiz></div>
