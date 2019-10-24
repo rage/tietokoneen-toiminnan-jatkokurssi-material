@@ -9,7 +9,7 @@ hidden: false
 </lead>
 </div>
 
-## Ttk-91
+## Ttk-91 emulaattori
 Jos varsinaista suoritinta ei aiotakaan toteuttaa fyysisesti, niin ainoa tapa suorittaa sen konekielelle käännettyjä ohjelmia on rakentaa niille emulaattori tai simulaattori. Myös uuden suorittimen suunnittelussa on tapana toteuttaa niille hyvin laitteistoläheinen emulaattori, jonka avulla uutta suoritinta voi testata oikeilla ohjelmilla emulaattorissa jo suunnitteluvaiheessa. Nykyisissä suorittimissa on hyvin vähän virheitä, koska suunnitelmassa olleet virheet on yleensä löydetty testausvaiheessa emulaattorin avulla etukäteen.
 
 Ttk-91 suorittimen määrittely on puutteellinen, eikä sen pohjalta voisi mitenkään toteuttaa todellista suoritinta. Määrittely on kuitenkin riittävän hyvä, jotta sille voidaan rakentaa konekäskytason emulaattori määrittelyssä mukana oleville käskyille.
@@ -23,19 +23,19 @@ Yleensä konekielen emulaattorien ongelmana on suorituksen hitaus, joka aiheutuu
 
 Transmeta sivuaa suomalaisia, koska se palkkasi [Linux-käyttöjärjestelmän](https://fi.wikipedia.org/wiki/Linux) kehittäneen [Linus Torvaldsin](https://en.wikipedia.org/wiki/Linus_Torvalds) 1997 mm. [porttaamaan](https://en.wikipedia.org/wiki/Porting) Linux-käyttöjärjestelmän Transmetan suorittimille.  Torvalds teki Transmetalla myös Linuxin kehitystyötä kuusi vuotta, jonka jälkeen hän muutti Kaliforniasta Oregoniin ja keskittyi puhtaasti Linuxin kehittämiseen.
 
-Transmetan idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella (ks. alla), joka lennossa käänsi jokaisen x86-konekäskyn pienempiin rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa painopisteen alhaiseen virrankulutukseen, millä alueella se saattoi vielä kilpailla kannettavissa laitteissa. Lopulta yhtiö lopetti toiminnan 2009. 
+Transmetan idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella (ks. alla), joka lennossa muunsi jokaisen x86-konekäskyn pienempiin rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa painopisteen alhaiseen virrankulutukseen, millä alueella se saattoi vielä kilpailla kannettavissa laitteissa. Lopulta yhtiö lopetti toiminnan 2009. 
 
 ## Intel Pentium 4
 Intel oli itsekin havainnut, että [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuuri on vaikea sellaisenaan tehdä nopeaksi. Intelin x86-arkkitehtuuri juontaa juurensa jo vuoteen 1972. Se on toki kehittynyt siitä paljon vuosien saatossa ja Intel haluaa edelleen pitää uudet suorittimet sen kanssa yhteensopivina. Siitä ei siis haluta kokonaan luopua.
 
-Intelin ratkaisu x86-koodin nopeaan suorittamisen [Pentium 4](https://en.wikipedia.org/wiki/Pentium_4) suorittimessa oli vähän saman kaltainen kuin Transmetalla, mutta kuitenkin merkittävästi erilainen. Kun Transmetan järjestelmässä x86-käskyt käännettiin JIT-kääntäjällä suurina lohkoina ennen suoritusta Transmetan suorittimen konekielelle, niin Pentium 4 suorittimessa kukin x86-konekäsky käännettiin laitteistossa suoritusaikana käskyn noudon yhteydessä pieniin saman kokoisiin _mikrokäskyihin_. 
+Intelin ratkaisu x86-koodin nopeaan suorittamisen [Pentium 4](https://en.wikipedia.org/wiki/Pentium_4) suorittimessa oli vähän saman kaltainen kuin Transmetalla, mutta kuitenkin merkittävästi erilainen. Kun Transmetan järjestelmässä x86-käskyt käännettiin JIT-kääntäjällä suurina lohkoina ennen suoritusta Transmetan suorittimen konekielelle, niin Pentium 4 suorittimessa kukin x86-konekäsky muunnettiin laitteistossa suoritusaikana käskyn noudon yhteydessä saman kokoisiin _mikrokäskyihin_. 
 
 Suorittimen sisällä varsinainen konekäskyjen suoritus perustui noihin mikrokäskyihin, joita oli helpompi suorittaa useaa limittäin ja samanaikaisesti. Tavallaan Pentium 4 siis emuloi x86-arkkitehtuuria puhtaalla laitteistoteutuksella.
 
 
-## Quizit 10.3 ????
-<!--  quizit 10.3.???  -->
-<div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
+
+<!--  quizit 10.4  suorittimen emulointi  -->
+<div><quiz id="ab83596c-8894-4b77-a550-e2b94a126ac9"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Ensimmäinen mikroprosessori Intel 4004">
 
