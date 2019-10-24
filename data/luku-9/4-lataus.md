@@ -66,4 +66,4 @@ Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 <!-- ### summary quizit lukuun 9 ??? -->
 
 <div><quiz id="9dadff01-7d90-4a1f-b3cc-d06ff6151d0a"></quiz></div>
-© 2019 GitHub, Inc.
+
