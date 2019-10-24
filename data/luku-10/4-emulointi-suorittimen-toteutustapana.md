@@ -21,16 +21,16 @@ Intelin [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuuri sisältää eri k
 
 Yleensä konekielen emulaattorien ongelmana on suorituksen hitaus, joka aiheutuu siitä, että konekäskyjä täytyy emuloida yksi kerrallaan. Transmetassa oli kuitenkin hoksattu, että sopivalla laitteistotuella myös emuloinnissa voisi hyödyntää usean konekäskyn suoritusta limittäin ja samanaikaisesti. Idea oli lennossa kääntää (JIT-kääntämällä) x86-konekäskyjen lohkot oman suorittimen konekielelle, jossa oli saman mittaisia yksinkertaisia konekäskyjä. Transmetan oma tätä tarkoitusta varten suunniteltu suoritin sitten pystyisi suorittamaan näitä lyhyitä konekäskyjä hyvin nopeasti. 
 
-Transmeta sivuaa suomalaisia, koska se palkkasi [Linux-käyttöjärjestelmän](https://fi.wikipedia.org/wiki/Linux) kehittäneen [Linus Torvaldsin](https://en.wikipedia.org/wiki/Linus_Torvalds) 1997-2003 mm. [porttaamaan](https://en.wikipedia.org/wiki/Porting) Linux-käyttöjärjestelmän Transmetan suorittimille.  
+Transmeta sivuaa suomalaisia, koska se palkkasi [Linux-käyttöjärjestelmän](https://fi.wikipedia.org/wiki/Linux) kehittäneen [Linus Torvaldsin](https://en.wikipedia.org/wiki/Linus_Torvalds) 1997 mm. [porttaamaan](https://en.wikipedia.org/wiki/Porting) Linux-käyttöjärjestelmän Transmetan suorittimille.  Torvalds teki Transmetalla myös Linuxin kehitystyötä kuusi vuotta, jonka jälkeen hän muutti Kaliforniasta Oregoniin ja keskittyi puhtaasti Linuxin kehittämiseen.
 
-Idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella (ks. alla), joka lennossa käänsi jokaisen x86-konekäskyn pienempiin rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa painopisteen alhaiseen virrankulutukseen, millä alueella se saattoi vielä kilpailla kannettavissa laitteissa. Lopulta yhtiö lopetti toiminnan 2009. 
+Transmetan idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella (ks. alla), joka lennossa käänsi jokaisen x86-konekäskyn pienempiin rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa painopisteen alhaiseen virrankulutukseen, millä alueella se saattoi vielä kilpailla kannettavissa laitteissa. Lopulta yhtiö lopetti toiminnan 2009. 
 
 ## Intel Pentium 4
-Intel oli itsekin havainnut, että [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuuri on vaikea sellaisenaan tehdä nopeaksi. X86-arkkitehtuuri juontaa juurensa jo vuoteen 1972. Se on toki kehittynyt siitä paljon vuosien saatossa ja Intel haluaa edelleen pitää uudet suorittimet sen kanssa yhteensopivina.
+Intel oli itsekin havainnut, että [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuuri on vaikea sellaisenaan tehdä nopeaksi. Intelin x86-arkkitehtuuri juontaa juurensa jo vuoteen 1972. Se on toki kehittynyt siitä paljon vuosien saatossa ja Intel haluaa edelleen pitää uudet suorittimet sen kanssa yhteensopivina. Siitä ei siis haluta kokonaan luopua.
 
 Intelin ratkaisu x86-koodin nopeaan suorittamisen [Pentium 4](https://en.wikipedia.org/wiki/Pentium_4) suorittimessa oli vähän saman kaltainen kuin Transmetalla, mutta kuitenkin merkittävästi erilainen. Kun Transmetan järjestelmässä x86-käskyt käännettiin JIT-kääntäjällä suurina lohkoina ennen suoritusta Transmetan suorittimen konekielelle, niin Pentium 4 suorittimessa kukin x86-konekäsky käännettiin laitteistossa suoritusaikana käskyn noudon yhteydessä pieniin saman kokoisiin _mikrokäskyihin_. 
 
-Suorittimen sisällä varsinainen konekäskyjen suoritus perustui noihin mikrokäskyihin, joita oli helpompi suorittaa useaa limittäin ja samanaikaisesti. Tavallaan Pentium 4 siis emuloi x86-arkkitehtuuria puhtaalla laitteistototeutuksella.
+Suorittimen sisällä varsinainen konekäskyjen suoritus perustui noihin mikrokäskyihin, joita oli helpompi suorittaa useaa limittäin ja samanaikaisesti. Tavallaan Pentium 4 siis emuloi x86-arkkitehtuuria puhtaalla laitteistoteutuksella.
 
 
 ## Quizit 10.3 ????
