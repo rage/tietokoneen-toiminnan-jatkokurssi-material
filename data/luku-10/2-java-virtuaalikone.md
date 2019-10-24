@@ -8,7 +8,7 @@ hidden: false
 <lead>Tässä aliluvussa (10.2) esittelemme pääpiirteet Java-ohjelmien suorittamisesta Java virtuaalikoneen (JVM) avulla. Käymme läpi JVM:n perusrakenteen ja sen konekielen (Javan tavukoodi, Bytekode) käskytyypit. Tarkoitus ei ole antaa tyhjentävää esitystä JVM:stä vaan antaa karkea yleiskuva. Seuraavassa aliluvussa (10.3) käymme läpi vähän tarkemmin erilaiset tavat toteuttaa JVM ja Java-ohjelmien suorittaminen niissä. </lead>
 </div>
 
-
+&nbsp;
 [Java](https://fi.wikipedia.org/wiki/Java) on korkean tason luokkaperustainen olio-ohjelmointikieli. Java-kieliset ohjelmat voisi kääntää ja linkittää ajomoduuleiksi samalla tavalla kuin edellisessä luvussa 9 esitettiin. Näin ei kuitenkaan yleensä tehdä. Korkean tason kielten kääntäjän toteutuksessa on usein osana välikieli, joka toimii siltana kääntäjän _front endin_ ja _back endin_ välillä. Javassa tuo välikieli on nostettu näkyville erityisasemaan. Käännösmoduulit välitetään eteenpäin myös Javan välikielisessä muodossa eikä vain Java-kielisinä käännösmoduuleina tai niiden objektimoduuleina. Dynaamisessa linkityksessä Javan välikieliesitys on nostettu liki samanlaiseen asemaan kuin yleensä ovat vain dynaamisesti linkitettävät objektimoduulit.
 
 Javan välikieli on nimeltään [Bytecode](https://en.wikipedia.org/wiki/Java_bytecode) tai [Java Bytecode](https://en.wikipedia.org/wiki/Java_bytecode). Siitä käytetään jatkossa nimiä tavukoodi tai Javan tavukoodi.
