@@ -5,8 +5,6 @@ overview: true
 hidden: false
 ---
 
-TÄMÄN LUVUN KEHITYS ON VIELÄ KESKEN! KAIKKI VOI MUUTTUA!
-
 Edellisessä luvussa 9 näytettiin, kuinka korkean tason kielellä kirjoitetuista ohjelmista saadaan käyttöjärjestelmän tunnistamia prosesseja, joissa annetun ohjelman esitysmuoto on suorittimen konekieli. Tässä luvussa 10 näytämme, kuinka järjestelmässä suoritettavien ohjelmien esitysmuoto voi olla myös muunlainen kuin oman suorittimen konekieli. Käyttäjän ohjelma syötetään datana suorituksessa olevalle prosessille, jonka koodin esitysmuoto on konekieli. Tuo varsinainen suorituksessa oleva prosessi voi olla esimerkiksi komentotulkki, välikielen tulkki tai jonkin muun suorittimen simulaattori tai emulaattori. Pääasiallisena esimerkkinä käytämme Java-ohjelmointikieltä ja sillä kirjoitettujen ohjelmien neljää erilaista suoritustapaa. Loppujen lopuksi suorituksessa on aina jokin järjestelmän omalla konekielellä esitetty prosessi. 
 
 <please-login></please-login>
