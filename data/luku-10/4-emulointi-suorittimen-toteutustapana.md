@@ -53,7 +53,7 @@ Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi
 
 
 ## Yhteenveto
-Esittelimme, kuinka ohjelmia voidaan suorittaa järjestelmässä välillisesti, tulkitsemalla ohjelmakoodia jollakin toisella ohjelmalla. Tällainen ohjelma on komentotulkki, jolla suoritetaan käyttöjärjestelmälle annettavia hallintakomentoja. Se voi olla myös Lava välikielen tulkki, joka emuloi hypoteettista Java virtuaalikonetta. Tai se voi olla jonkin suorittimen täydellinen emulaattori, jolloin sen avulla voidaan yhdessä järjestelmässä suorittaa toisen järjestelmnä konekielisiä ohjelmia.
+Esittelimme, kuinka ohjelmia voidaan suorittaa järjestelmässä välillisesti, tulkitsemalla ohjelmakoodia jollakin toisella ohjelmalla. Tällainen ohjelma voi olla komentotulkki, jolla suoritetaan käyttöjärjestelmälle annettavia hallintakomentoja. Se voi olla myös Java välikielen tulkki, joka emuloi hypoteettista Java virtuaalikonetta. Se voi olla myös jonkin suorittimen emulaattori, jolloin sen avulla voidaan yhdessä järjestelmässä suorittaa toisen järjestelmän konekielisiä ohjelmia.
 
 Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
