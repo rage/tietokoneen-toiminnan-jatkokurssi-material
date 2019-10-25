@@ -10,7 +10,7 @@ hidden: false
 </div>
 
 ## Ttk-91 emulaattori
-Jos varsinaista suoritinta ei aiotakaan toteuttaa fyysisesti, niin ainoa tapa suorittaa sen konekielelle käännettyjä ohjelmia on rakentaa niille emulaattori tai simulaattori. Myös uuden suorittimen suunnittelussa on tapana toteuttaa niille hyvin laitteistoläheinen emulaattori, jonka avulla uutta suoritinta voi testata oikeilla ohjelmilla emulaattorissa jo suunnitteluvaiheessa. Nykyisissä suorittimissa on hyvin vähän virheitä, koska suunnitelmassa olleet virheet on yleensä löydetty testausvaiheessa emulaattorin avulla etukäteen.
+Jos varsinaista suoritinta ei aiotakaan toteuttaa fyysisesti, niin ainoa tapa suorittaa sen konekielelle käännettyjä ohjelmia on rakentaa sille emulaattori tai simulaattori. Myös uuden suorittimen suunnittelussa on tapana toteuttaa sille hyvin laitteistoläheinen emulaattori, jonka avulla uutta suoritinta voi testata oikeilla ohjelmilla jo suunnitteluvaiheessa. Nykyisissä suorittimissa on hyvin vähän virheitä, koska suunnitelmaan jääneet virheet on yleensä löydetty testausvaiheessa emulaattorin avulla ennen piirien valmistamista.
 
 Ttk-91 suorittimen määrittely on puutteellinen, eikä sen pohjalta voisi mitenkään toteuttaa todellista suoritinta. Määrittely on kuitenkin riittävän hyvä, jotta sille voidaan rakentaa konekäskytason emulaattori määrittelyssä mukana oleville käskyille.
 
@@ -57,7 +57,9 @@ Tässä kurssin viimeisen luvun viimeisessä aliluvussa esittelimme, kuinka ohje
 
 <text-box variant="example" name="Mitä seuraavaksi?">
 
-Olet saanut kurssin päätökseen. Onneksi olkoon! Tämän kurssin jälkeen voit yliopistolla jatkaa kurssilla Käyttöjärjestelmät (Operating Systems), jossa perehdytään tarkemmin käyttöjärjestelmien rakenteeseen ja toteutukseen. Tietokonearkkitehtuuria voit tarkemmin opiskella esimerkiksi Stallingsin oppikirjasta "Computer Organization and Architecture" ja sen jälkeen vielä tarkemmin Hennessyn ja Pattersonin oppikirjasta "Computer Architecture".
+Olet saanut kurssin päätökseen. Onneksi olkoon! 
+<br><br>
+Tämän kurssin jälkeen voit jatkaa esimerkiksi Stallingsin oppikirjalla "Operating Systems - A Quantitative Approach" tai yliopiston kurssilla Käyttöjärjestelmät (Operating Systems), joissa perehdytään tarkemmin käyttöjärjestelmien rakenteeseen ja toteutukseen. Tietokonearkkitehtuuria voit tarkemmin opiskella esimerkiksi Stallingsin oppikirjasta "Computer Organization and Architecture - Designing for Performance" ja sen jälkeen vielä tarkemmin esimerkiksi Hennessyn ja Pattersonin oppikirjasta "Computer Architecture".
 
 </text-box>
 
