@@ -35,13 +35,11 @@ Nyt prosessi on valmis ja järjestelmä tunnistaa sen uniikista PID:stä. Jos pr
 
 Prosessin kuvaajan tietoja ja prosessien hallintaa yleensä käsitellään tarkemmin yliopistojen käyttöjärjestelmäkursseilla.
 
-
-
-## Quizit 9.4 lataus
 <!--  quizit 9.4.???  -->
 <div><quiz id="98478074-7943-4b62-a2f3-c94c6fd5b260"></quiz></div>
 
-<text-box variant="example" name="Historiaa:  Ensimmäinen korkean tason kielen kääntäjä valmistui 1957 IBM:llä John Backuksen ryhmässä Fortran-kielelle IBM 704 -järjestelmälle. Fortrania on koko ajan kehitetty ajan mukaiseksi ja sitä voi nykyään käyttää niin lohkoperustaiseen ohjelmointiin kuin rinnakkaislaskentaa vaativiin tehtäviin. Ensimmäisen kääntäjän tekeminen kesti neljä vuotta. Kääntäjällä pystyi alusta pitäen tuottamaan optimoitua koodia, koska asiakkaat olivat tottuneet käsin assemblerilla koodattuun hyvin optimoituun koodiin.">
+<text-box variant="example" name="Historiaa: Ensimmäinen korkean tason kielen kääntäjä">
+Ensimmäinen korkean tason kielen kääntäjä valmistui 1957 IBM:llä John Backuksen ryhmässä Fortran-kielelle IBM 704 -järjestelmälle. Fortrania on koko ajan kehitetty ajan mukaiseksi ja sitä voi nykyään käyttää niin lohkoperustaiseen ohjelmointiin kuin rinnakkaislaskentaa vaativiin tehtäviin. Ensimmäisen kääntäjän tekeminen kesti neljä vuotta. Kääntäjällä pystyi alusta pitäen tuottamaan optimoitua koodia, koska asiakkaat olivat tottuneet käsin assemblerilla koodattuun hyvin optimoituun koodiin.
 
 ![IBM 704 NACAn konesalissa 1957. NACA oli NASAn edeltäjä ja siitä tuli NASA 1958. Edessä on naispuolinen operaattori syöttämässä ohjelmaa reikäkortinlukijaan ja takana on miespuolinen insinööri tutkailemassa usean metrin mittaista ja puolitoista metriä korkeaa tietokonetta, josta etupaneelit on poistettu. Tietokoneen sisäinen langoitus on näkyvillä ja oikealla puolella on suuri noin 1m x 1m ohjauspaneeli.](./ch-9-4-ibm-704.svg)
 <div>
