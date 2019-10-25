@@ -23,31 +23,33 @@ Yleensä konekielen emulaattorien ongelmana on suorituksen hitaus, joka aiheutuu
 
 Transmeta sivuaa suomalaisia, koska se palkkasi [Linux-käyttöjärjestelmän](https://fi.wikipedia.org/wiki/Linux) kehittäneen [Linus Torvaldsin](https://en.wikipedia.org/wiki/Linus_Torvalds) 1997 mm. [porttaamaan](https://en.wikipedia.org/wiki/Porting) Linux-käyttöjärjestelmän Transmetan suorittimille.  Torvalds teki Transmetalla myös Linuxin kehitystyötä kuusi vuotta, jonka jälkeen hän muutti Kaliforniasta Oregoniin ja keskittyi puhtaasti Linuxin kehittämiseen.
 
-Transmetan idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella (ks. alla), joka lennossa muunsi jokaisen x86-konekäskyn pienempiin rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa painopisteen alhaiseen virrankulutukseen, millä alueella se saattoi vielä kilpailla kannettavissa laitteissa. Lopulta yhtiö lopetti toiminnan 2009. 
+Transmetan idea oli hyvä, mutta Intel vastasi siihen uudella suorittimella (ks. alla), joka lennossa muunsi jokaisen x86-konekäskyn rinnakkain suoritettaviin samanmittaisiin konekäskyihin. Näiden rinnakkainen suoritus oli vielä nopeampaa kuin Transmetan suorittimilla. Transmeta siirsi omien suorittimiensa markkinoinnissa painopisteen alhaiseen virrankulutukseen, millä alueella se saattoi vielä kilpailla kannettavissa laitteissa. Lopulta yhtiö lopetti toiminnan 2009. 
 
 ## Intel Pentium 4
-Intel oli itsekin havainnut, että [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuuri on vaikea sellaisenaan tehdä nopeaksi. Intelin x86-arkkitehtuuri juontaa juurensa jo vuoteen 1972. Se on toki kehittynyt siitä paljon vuosien saatossa ja Intel haluaa edelleen pitää uudet suorittimet sen kanssa yhteensopivina. Siitä ei siis haluta kokonaan luopua.
+Intel oli itsekin havainnut, että [x86](https://fi.wikipedia.org/wiki/X86)-arkkitehtuuri on vaikea sellaisenaan tehdä nopeaksi. Intelin x86-arkkitehtuuri juontaa juurensa jo vuoteen 1972. Vaikka se on kehittynyt paljon vuosien saatossa, niin Intel haluaa edelleen pitää uudet suorittimet sen kanssa yhteensopivina. Siitä ei siis haluta kokonaan luopua.
 
 Intelin ratkaisu x86-koodin nopeaan suorittamisen [Pentium 4](https://en.wikipedia.org/wiki/Pentium_4) suorittimessa oli vähän saman kaltainen kuin Transmetalla, mutta kuitenkin merkittävästi erilainen. Kun Transmetan järjestelmässä x86-käskyt käännettiin JIT-kääntäjällä suurina lohkoina ennen suoritusta Transmetan suorittimen konekielelle, niin Pentium 4 suorittimessa kukin x86-konekäsky muunnettiin laitteistossa suoritusaikana käskyn noudon yhteydessä saman kokoisiin _mikrokäskyihin_. 
 
 Suorittimen sisällä varsinainen konekäskyjen suoritus perustui noihin mikrokäskyihin, joita oli helpompi suorittaa useaa limittäin ja samanaikaisesti. Tavallaan Pentium 4 siis emuloi x86-arkkitehtuuria puhtaalla laitteistoteutuksella.
 
-
-
 <!--  quizit 10.4  suorittimen emulointi  -->
 <div><quiz id="ab83596c-8894-4b77-a550-e2b94a126ac9"></quiz></div>
 
-<text-box variant="example" name="Historiaa:  Ensimmäinen mikroprosessori Intel 4004">
+<text-box variant="example" name="Historiaa:  Nykyaikainen suoritin Intel Core i9-9900K">
 
-Fe.....
+Suorittimessa on 8 ydintä (core), jotka ovat kukin tällä kurssilla esitetyn mallin mukaisia suorittimia. Lisäksi kuhunkin ytimeen sisältyy kaksi joukkoa kaikkia laiterekistereitä, joiden avulla kukin ydin voi olla suorittamassa kahta eri prosessia (_säiettä_, thread), mutta yhtä kerrallaan. Idea tässä on, että kun yksi säie tekee muistiviitteen välimuistihudin takia, niin suoritus siirtyy saman ytimen toiselle säikeelle. Jos sekin tarvitsee muistiviitteen, niin sitten vain odotellaan. Tällä tavoin yhdestä ytimestä saadaan kuitenkin esim. 50-70% enemmän laskentatehoa kuin vain yhtä rekisterijoukkoa käytettäessä. Tämä teknologia on nimeltään _hyper threading_.
 
-![Valtava.](./ch-10-3-i4004.svg)
+Kullakin ytimellä on 64 KB L1-välimuisti, 256 KB L2-välimuisti ja 2 MB L3-välimuisti. Muistiosoitteet ovat 64-bittisiä. Oikealla kuvassa on samalle mikropiirille toteutettu näytönohjain. Ytimet ja näytönohjain on yhdistetty toisiinsa rengasmaisesti. 
+
+Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi siellä on 16 kappaletta 128-bittistä XMM-rekisteriä (MultiMedia eXtension). Niitä voidaan kutakin käyttää grafiikkasovelluksissa esimerkiksi 16 8-bitin vektorirekisterinä ja XMM-konekäskyt toteuttavat yhdellä kertaa  operaatioita kaikille 16 8-bitin tietoalkiolle. Liukulukulaskenta tapahtuu 8 liukulukurekisterin avulla. Nimettyjen rekistereiden asemesta liukulukurekistereitä käsitellään pinona, johon liukulukukonekäskyjen viittaukset kohdistivat.
+
+![Kuva Intelin i9 9900K suorittimesta, joka on toteutettu Intelin Coffee Lake piirillä. Keskellä on 8 ydintä, oikealla GPU ja vasemmalla ylhäällä muistinhallinnan liittymä väylään. L3-tason välimuistit ovat vielä erikseen näkyvillä kunkin ytimen ympärillä.](./ch-10-4-i9-9900k.svg)
 <div>
-<illustrations motive="ch-10-3-i4004"></illustrations>
+<illustrations motive="ch-10-4-i9-9900k"></illustrations>
 </div>
-credit....????
 
 </text-box>
+
 
 
 ## Yhteenveto
