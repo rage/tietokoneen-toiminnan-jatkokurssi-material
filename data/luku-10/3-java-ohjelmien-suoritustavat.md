@@ -14,7 +14,7 @@ Helpoin tapa suorittaa Java-ohjelmia on rakentaa Java-tulkki, joka emuloi JVM:n 
 
 <!-- Kuva: ch-10-3-suoritus-tulkki -->
 
-![Neljä ??????  ch-10-3-suoritus-tulkki.](./ch-10-3-suoritus-tulkki.svg)
+![Java-ohjelmien suoritus tulkitsemalla. Keskellä vaakasuora viiva kuvaamassa Java virtuaalikonetta. Viivan yläpuolella on ylhäällä Java-ohjelma, jossa koodinpätkä  k=i+j. Sen alla on sama ohjelma tavukoodiksi käännettynä, sisältäen tavukoodin käskyt iload i, iload j, iadd ja istore k. Viivan alapuolella on Java-tulkki, johon lukee datana tavukoodista ohjelmaa ja joka suorittaa natiiviympäristön Intel Pentium II suorittimella.](./ch-10-3-suoritus-tulkki.svg)
 <div>
 <illustrations motive="ch-10-3-suoritus-tulkki" frombottom="0" totalheight="40%"></illustrations>
 </div>
@@ -32,7 +32,7 @@ Java-ohjelma voidaan kääntää ja linkittää natiivikoneelle kuten edellisess
 
 <!-- Kuva: ch-10-3-suoritus-kaannos -->
 
-![Neljä ??????  ch-10-3-suoritus-kaannos.](./ch-10-3-suoritus-kaannos.svg)
+![Java-ohjelmien suoritus kääntämällä ja linkittämällä. Keskellä vaakasuora viiva kuvaamassa Java virtuaalikonetta. Viivan yläpuolella on ylhäällä Java-ohjelma, jossa koodinpätkä  k=i+j. Sen alla on sama ohjelma tavukoodiksi käännettynä, sisältäen tavukoodin käskyt iload i, iload j, iadd ja istore k. Viivan alapuolella on kaksi tapaa tehdä käännös ja linkitys natiiviympäristön Pentium II suorittimelle. Vasemmalla puolella on normaalikäännös tavukoodista objekstimoduulikis, joka sitten linkitetään latausmoduuliksi. Oikealla on on ensin käännös vastaavaksi C-kielen koodiksi, jossa on lauseet \*(++SP) = \*(LV+i); \*(++SP) = \*(LV+j); tmp= \*(SP) + \*(--SP); \*(SP) = tmp; \*(LV+k) = \*(SP--); C-kielinen koodi käännetään normaalisti ja linkitetään latausmoduuksi.](./ch-10-3-suoritus-kaannos.svg)
 <div>
 <illustrations motive="ch-10-3-suoritus-kaannos" frombottom="0" totalheight="40%"></illustrations>
 </div>
@@ -58,7 +58,7 @@ Kokonaisrakenne on monimutkainen, koska Java-tulkin käyttämien JVM-tietorakent
 
 <!-- Kuva: ch-10-3-suoritus-jit -->
 
-![Neljä ??????  ch-10-3-suoritus-jit.](./ch-10-3-suoritus-jit.svg)
+![Java-ohjelmien suoritus JIT-kääntämällä ja dynaamisesti linkittämällä. Keskellä vaakasuora viiva kuvaamassa Java virtuaalikonetta. Viivan yläpuolella on ylhäällä Java-ohjelma, jossa koodinpätkä  k=i+j. Sen alla on sama ohjelma tavukoodiksi käännettynä, sisältäen tavukoodin käskyt iload i, iload j, iadd ja istore k. Viivan alapuolella on iso laatikko, jossa on toisiinsa sidoksissa olevat prosessit Java-tulkki, JIT-kääntäjä, dynaaminen linkittäjä ja suoritettavan ohjelman latausmoduuli. Ne kaikki suorittavat natiiviympäristön Pentium II suorittimella.](./ch-10-3-suoritus-jit.svg)
 <div>
 <illustrations motive="ch-10-3-suoritus-jit" frombottom="0" totalheight="40%"></illustrations>
 </div>
@@ -69,7 +69,7 @@ On myös mahdollista toteuttaa JVM ihan oikeana suorittimena. Tämä tarkoittaa 
 
 <!-- Kuva: ch-10-3-suoritus-natiivi -->
 
-![Neljä ??????  ch-10-3-suoritus-natiivi.](./ch-10-3-suoritus-natiivi.svg)
+![Java-ohjelmien suoritus natiivisuorittimella. Keskellä vaakasuora viiva kuvaamassa Java virtuaalikonetta. Viivan yläpuolella on ylhäällä Java-ohjelma, jossa koodinpätkä  k=i+j. Sen alla on sama ohjelma tavukoodiksi käännettynä, sisältäen tavukoodin käskyt iload i, iload j, iadd ja istore k. Tämän alla on sama ohjelma, mutta nyt latausmoduuliksi muutettuna. Viivan alapuolella on Java-suoritin, jolle latausmoduulin koodi luetaan koodina. Natiiviympäristön suoritin on jokin Java-suoritin.](./ch-10-3-suoritus-natiivi.svg)
 <div>
 <illustrations motive="ch-10-3-suoritus-natiivi" frombottom="0" totalheight="40%"></illustrations>
 </div>
