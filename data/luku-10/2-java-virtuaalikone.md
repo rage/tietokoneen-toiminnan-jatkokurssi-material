@@ -8,7 +8,7 @@ hidden: false
 <lead>Tässä aliluvussa (10.2) esittelemme pääpiirteet Java-ohjelmien suorittamisesta Java virtuaalikoneen (JVM) avulla. Käymme läpi JVM:n perusrakenteen ja sen konekielen (Javan tavukoodi, Bytekode) käskytyypit. Tarkoitus ei ole antaa tyhjentävää esitystä JVM:stä vaan antaa karkea yleiskuva. Seuraavassa aliluvussa (10.3) käymme läpi vähän tarkemmin erilaiset tavat toteuttaa JVM ja Java-ohjelmien suorittaminen niissä. </lead>
 </div>
 
-&nbsp;
+<br>
 [Java](https://fi.wikipedia.org/wiki/Java) on korkean tason luokkaperustainen olio-ohjelmointikieli. Java-kieliset ohjelmat voisi kääntää ja linkittää ajomoduuleiksi samalla tavalla kuin edellisessä luvussa 9 esitettiin. Näin ei kuitenkaan yleensä tehdä. Korkean tason kielten kääntäjän toteutuksessa on usein osana välikieli, joka toimii siltana kääntäjän _front endin_ ja _back endin_ välillä. Javassa tuo välikieli on nostettu näkyville erityisasemaan. Käännösmoduulit välitetään eteenpäin myös Javan välikielisessä muodossa eikä vain Java-kielisinä käännösmoduuleina tai niiden objektimoduuleina. Dynaamisessa linkityksessä Javan välikieliesitys on nostettu liki samanlaiseen asemaan kuin yleensä ovat vain dynaamisesti linkitettävät objektimoduulit.
 
 Javan välikieli on nimeltään [Bytecode](https://en.wikipedia.org/wiki/Java_bytecode) tai [Java Bytecode](https://en.wikipedia.org/wiki/Java_bytecode). Siitä käytetään jatkossa nimiä tavukoodi tai Javan tavukoodi.
@@ -41,7 +41,7 @@ Javan virtuaalikone voidaan toteuttaa usealla eri tavalla, mikä tekee tästä m
 
 <!-- Kuva: ch-10-2-java-ohjelmien-suoritus -->
 
-![Neljä ??????  ch-10-2-java-ohjelmien-suoritus.](./ch-10-2-java-ohjelmien-suoritus.svg)
+![Java-ohjelmien suoritustavat. Keskellä on vaakasuora viiva kuvaamassa Java virtuaalikonetta. Viivan yläpuolella on ylhäällä Java-ohjelma, jossa koodinpätkä  k=i+j. Sen alla on sama ohjelma tavukoodiksi käännettynä, sisältäen tavukoodin käskyt iload i, iload j, iadd ja istore k. Viivan alapuolella on kolme eri laatikkoa kuvaamassa eri suoritustapoja. Vasemmalla on tulkitseminen, jossa Intel Pentium II järjestelmässä suorituksessa oleva Java-tulkki lukee datana tavukoodisia käskyjä viivan yläpuolelta. Keskellä on JVM suoritin, jossa natiivisuorittimena on Java-suoritin ja suorituksessa oleva prosessi on tavukoodisessa esitysmuodossa, joka on luettu koodina viivan yläpuolelta. Oikealla on käännös ja JIT-käännös, joissa viivan yläpuolelta luetaan tavukoodi taas datana ja siiät muokataan kääntämällä ja linkittämällä Intel Pentium II:ssa suoritettava latausmoduuli.](./ch-10-2-java-ohjelmien-suoritus.svg)
 <div>
 <illustrations motive="ch-10-2-java-ohjelmien-suoritus" frombottom="0" totalheight="40%"></illustrations>
 </div>
@@ -76,7 +76,10 @@ Tavukoodi tekstuaalisena    tavuina
 
 <!-- Kuva: ch-10-2-yhteenlasku-pinossa -->
 
-![Neljä ??????  ch-10-2-yhteenlasku-pinossa.](./ch-10-2-yhteenlasku-pinossa.svg)
+![Yhteenlasku pinossa. Viisi eri tilannetta pinon sisällöksi. Aluksi vasemmalla pinossa on päällä arvot 700, 222 ja 111 muuttujien k, j ja i arvoina. Näkyvään pinon osaan osoittaa LV sen pohjalle ja SP sen pinnalle. Muuttujan i osoite on LV+2, j:n osoite LV+3 ja k:n osoite LV+4. Käskyn "iload i" jälkeen pinon pinnalle on replikoitu i:n arvo 111. Käskyn "iload j" jälkeen pinon pinnalle on replikoitu myös j:n arvo 222. Käskyn iadd jälkeen em. arvot 111 ja 222 on poistettu pinoista ja sinne on laitettu niiden summa 333. Käskyn "istore k" jälkeen muuttujan k (osoitteessa LV+4) arvo on muuttunut arvoon 33 ja pinon päällä on nyt arvot 333, 222 ja 111 muuttujien k, j ja i arvoina.
+
+
+ch-10-2-yhteenlasku-pinossa.](./ch-10-2-yhteenlasku-pinossa.svg)
 <div>
 <illustrations motive="ch-10-2-yhteenlasku-pinossa" frombottom="0" totalheight="40%"></illustrations>
 </div>
@@ -109,7 +112,7 @@ Pinossa on jokaiselle metodin kutsulle sitä vastaava kehys, jonka päällä voi
 
 <!-- Kuva: ch-10-2-muistialueet -->
 
-![Neljä ??????  ch-10-2-muistialueet.](./ch-10-2-muistialueet.svg)
+![JVM:n muistialueet ja rekisterit. Kolme aluetta: metodialue, pino ja vakioallas. Metodialueen keskellä on jossain metodi B:n koodi ja PC osoittaasinne jonnekin. Pinossa on kehykset pääohjelmalle main, metodille A ja metodille B. Kunkin kehyksen päällä on siihen liityvöät välitulokset. LV osoittaa viimeksi kutsutun metodin B alkuun ja SP osoittaa pinon pinnalle. Oikeall on vakioallas, jonka alkuun osoittaa CPP.](./ch-10-2-muistialueet.svg)
 <div>
 <illustrations motive="ch-10-2-muistialueet" frombottom="0" totalheight="40%"></illustrations>
 </div>
@@ -137,7 +140,7 @@ invokevirtual #37   0xb6 0x00 0x25   viite metodiin B on CPP+37:ssä
 
 <!-- Kuva: ch-10-2-metodin-kutsu -->
 
-![Neljä ??????  ch-10-2-metodin-kutsu.](./ch-10-2-metodin-kutsu.svg)
+![Vasemmalla on pinon alkutilanne ja oikealla pinon tila kutsun "invokevirtual B" jälkeen. Alkutilanteessa on metodin A kehys, jonka alkuun osoittaa LV. Metodin A kehyksesä on kentät "link pointer", "parametri 1", paikalliset muuttujat ml. x ja y, A:n kutsujan PC ja LV. Sen päällä on on kutsuttavan metodin B viite ja parametrit 1 ja 2.  Oikealla puolella metodin A kehyksen päälle on rakennettu metodin B kehys siten, että kutsuttavan metodin B viitteen paikalle on nyt laitettu linkki paluuosoitteeseen ja LV tähän linkkikenttään, joka on samalla metodin B kehyksen ensimmäinen sana. Metodin B kehyksen paikallisissa muuttujissa on myös muuttuja g.](./ch-10-2-metodin-kutsu.svg)
 <div>
 <illustrations motive="ch-10-2-metodin-kutsu" frombottom="0" totalheight="40%"></illustrations>
 </div>
@@ -156,7 +159,7 @@ ireturn           0xac        palauta paluuarvo ja kontrolli kutsuvaan rutiiniin
 
 <!-- Kuva: ch-10-2-metodista-paluu -->
 
-![Neljä ??????  ch-10-2-metodista-paluu.](./ch-10-2-metodista-paluu.svg)
+![Vasemmalla on pinon alkutilanne ja oikealla pinon tila käskyn "ireturn" jälkeen. Vasemmalla tila on täsmälleen sama kuin edellisen kuvan oikealla puolella. Oikealla puolella tila muuten sama, mutta kutsutun metodin parametrit ovat poissa ja metodin B viitteen asemesta siinä kohtaa on nyt metodin B paluuarvo.](./ch-10-2-metodista-paluu.svg)
 <div>
 <illustrations motive="ch-10-2-metodista-paluu" frombottom="0" totalheight="40%"></illustrations>
 </div>
