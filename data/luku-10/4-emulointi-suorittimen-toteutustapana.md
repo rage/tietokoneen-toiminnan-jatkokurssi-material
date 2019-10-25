@@ -53,14 +53,13 @@ Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi
 
 
 ## Yhteenveto
-Esittelimme tässä aliluvussa, kuinka ohjelmia voidaan suorittaa järjestelmässä välillisesti, tulkitsemalla ohjelmakoodia jollakin toisella ohjelmalla. Tällainen ohjelma voi olla komentotulkki, jolla suoritetaan käyttöjärjestelmälle annettavia hallintakomentoja. Se voi olla myös Java välikielen tulkki, joka emuloi hypoteettista Java virtuaalikonetta. Se voi olla myös jonkin suorittimen emulaattori, jolloin sen avulla voidaan yhdessä järjestelmässä suorittaa toisen järjestelmän konekielisiä ohjelmia.
+Tässä kurssin viimeisen luvun viimeisessä aliluvussa esittelimme, kuinka ohjelmia voidaan suorittaa järjestelmässä välillisesti, tulkitsemalla ohjelman koodia jollakin toisella suorituksessa olevalla ohjelmalla (prosessilla). Tällainen prosessi voi olla komentotulkki, jolla suoritetaan käyttöjärjestelmälle annettavia hallintakomentoja. Se voi olla myös Java välikielen tulkki, joka emuloi hypoteettista Java virtuaalikonetta. Se voi olla myös jonkin suorittimen emulaattori, jolloin sen avulla voidaan yhdessä järjestelmässä suorittaa toisen järjestelmän konekielisiä ohjelmia.
 
 <text-box variant="example" name="Mitä seuraavaksi?">
 
-Olet saanut kurssin päätökseen. Onneksi olkoon. Tämän kurssin jälkeen voit yliopistolla jatkaa kurssilla Käyttöjärjestelmät (Operating Systems), jossa perehdytään tarkemmin käyttöjärjestelmien rakenteeseen ja toteutukseen. Tietokonearkkitehtuuria voit tarkemmin opiskella esimerkiksi Stallingsin oppikirjasta "Computer Organization and Architecture" ja sen jälkeen vielä tarkemmin Hennessyn ja Pattersonin oppikirjasta "Computer Architecture".
+Olet saanut kurssin päätökseen. Onneksi olkoon! Tämän kurssin jälkeen voit yliopistolla jatkaa kurssilla Käyttöjärjestelmät (Operating Systems), jossa perehdytään tarkemmin käyttöjärjestelmien rakenteeseen ja toteutukseen. Tietokonearkkitehtuuria voit tarkemmin opiskella esimerkiksi Stallingsin oppikirjasta "Computer Organization and Architecture" ja sen jälkeen vielä tarkemmin Hennessyn ja Pattersonin oppikirjasta "Computer Architecture".
 
 </text-box>
-
 
 Vastaa vielä alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
