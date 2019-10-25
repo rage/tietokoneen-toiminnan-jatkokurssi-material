@@ -10,7 +10,7 @@ hidden: false
 </div>
 
 ## Java-tulkki
-Helpoin tapa suorittaa Java-ohjelmia on rakentaa Java-tulkki, joka emuloi JVM:n toimintaa omien tietorakenteidensa avulla. Java-tulkissa on emuloitu JVM:n rekisterit SP, LV, CPP ja PC. Samoin siellä suuret taulukot, joiden avulla emuloidaan JVM:n kekoa, pinoa, vakioallasta ja metodialuetta. 
+Helpoin tapa suorittaa Java-ohjelmia on rakentaa Java-tulkki, joka emuloi JVM:n toimintaa omien tietorakenteidensa avulla. Java-tulkissa on emuloitu JVM:n rekisterit SP, LV, CPP ja PC. Samoin siellä on suuret taulukot, joiden avulla emuloidaan JVM:n kekoa, pinoja, vakioaltaita ja metodialuetta. 
 
 <!-- Kuva: ch-10-3-suoritus-tulkki -->
 
@@ -19,13 +19,13 @@ Helpoin tapa suorittaa Java-ohjelmia on rakentaa Java-tulkki, joka emuloi JVM:n 
 <illustrations motive="ch-10-3-suoritus-tulkki" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-Java tulkki alustaa ensin JVM:n. Tavukoodin on yksinkertaista, koska JVM:ssä on tarkalleen määritelty jokaisen tavukoodisen käskyn toiminnot. Tulkki muokkaa emuloituja JVM:n rakenteita yksi tavukoodin käsky kerrallaan. 
+Java tulkki alustaa ensin JVM:n. Tavukoodin suoritus on yksinkertaista, koska JVM:ssä on tarkalleen määritelty jokaisen tavukoodisen käskyn toiminnot. Tulkki muokkaa emuloituja JVM:n rakenteita yksi tavukoodin käsky kerrallaan. 
 
 Tämä on hyvin joustava tapa suorittaa tavukoodia. Jos koodissa tapahtuu viittaus johonkin muuhun Java-luokkaan, siirrytään suorittamaan sen tavukoodia. Tarvittaessa se voidaan ladata tässä vaiheessa levyltä tai jopa verkosta, koska tavukoodiset tiedostot ovat tavallista dataa tulkille. 
 
-Heikkoutena tässä suoritustavassa on suorituksen hitaus. Koska tavukoodin käskyjä suoritetaan vain yksi kerrallaan, normaalin suorittimen erilaisia suoritusnopeuden optimointimenetelmiä on vaikea käyttää. Toisena heikkoutena on jo aikaisemmin mainittu pipnokoneen emuloinnin vaikeus rekisterikoneella, koska lähes kaikki viiteeet kohdistuvat muistissa oleviin tietorakenteisiin. Tottakai tulkki voi säilyttää JVM:n rekistereitä SP, LV, CPP ja PC omissa rekeistereissään, mutta se ei paljoa auta.
+Heikkoutena tässä suoritustavassa on suorituksen hitaus. Koska tavukoodin käskyjä suoritetaan vain yksi kerrallaan, normaalin suorittimen erilaisia suoritusnopeuden optimointimenetelmiä on vaikea käyttää. Toisena heikkoutena on jo aikaisemmin mainittu pipnokoneen emuloinnin vaikeus rekisterikoneella, koska lähes kaikki viiteeet kohdistuvat muistissa oleviin tietorakenteisiin. Tottakai tulkki voi säilyttää JVM:n rekistereitä SP, LV, CPP ja PC omissa rekistereissään, mutta se ei paljoa auta.
 
-Java-tulkki on siis hyvin samanlainen kuin ttk-91 tietokoneen tulkki Titokone-ohjelmassa. Titokone lukee datana ttk-91 koneen "konekieltä" yksi konekäsky kerrallaan ja tekee sen aiheuttamat muutokset emuloituihin ttk-91 rekistereihin ja muistiin. Ttk-91 suorittimen rekisterit ja muisti ovat tavallisia tietorakenteita Titokoneessa.
+Java-tulkki on siis hyvin samanlainen kuin ttk-91 tietokoneen tulkki Titokone-ohjelmassa. Titokone lukee datana ttk-91 koneen konekieltä yksi konekäsky kerrallaan ja tekee sen aiheuttamat muutokset emuloituihin ttk-91 rekistereihin ja muistiin. Ttk-91 suorittimen rekisterit ja muisti ovat tavallisia tietorakenteita Titokoneessa.
 
 ## Kääntäminen natiivikoneelle
 Java-ohjelma voidaan kääntää ja linkittää natiivikoneelle kuten edellisessä luvussa esitettiin. Tämä tarkoittaa, että Java-ohjelmasta tehdään tavallinen käyttöjärjestelmän tunnistama prosessi, joka suorittaa järjestelmän suorittimen konekielistä koodia.
@@ -50,7 +50,7 @@ Yleisin tapa suorittaa Java-ohjelmia on [Just-In-Time (JIT) kääntäminen](http
 
 Ohjelman suoritus alkaa tulkitsemalla tavukoodista pääohjelmaa. Kun ohjelma suoritusaikana kutsuu uutta (Java) luokkaa, niin suoritus pysähtyy, kunnes tämä uusi luokka on käännetty natiivikoodiksi ja linkitetty paikalleen tulkin yhteyteen. Tämä voi viedä paljonkin aikaa ja muistitilaa, koska kääntäjän ja dynaamisen linkittäjän pitää olla suorituksessa järjestelmässä.
 
-Käännös ja linkitys tehdään yleensä heti luokan ensimmäisen metodin (aliohjelman) kutsun yhteydessä, mutta sen voi tehdä myöhemminkin. Jos esimerkiksi ison luokan pientä metodia kutsutaan vain kerran, niin voisi olla nopeampaa tulkita se tavukoodina. Tällaisessa tapauksessa suoritusnopeutta voi optimoida tekemällä JIT-käännös esimerkiksi vasta saman metodin toisen kutsukerran yhteydessä. Laskentaa kontrolloivan tulkin pitää joka tapauksessa päättää, milloin tavukoodina esitetty luokka kannattaa kääntää järjestelmän konekielelle.
+Käännös ja linkitys tehdään yleensä heti luokan ensimmäisen metodin (aliohjelman) kutsun yhteydessä, mutta sen voi tehdä myöhemminkin. Jos esimerkiksi ison luokan pientä metodia kutsutaan vain kerran, niin voisi olla nopeampaa tulkita se tavukoodina. Tällaisessa tapauksessa suoritusnopeutta voi optimoida tekemällä JIT-käännös esimerkiksi vasta saman metodin toisen(tai kolmannen) kutsukerran yhteydessä. Laskentaa kontrolloivan tulkin pitää joka tapauksessa päättää, milloin tavukoodina esitetty luokka kannattaa kääntää järjestelmän konekielelle.
 
 Hyvin optimoidun koodin tuottaminen JIT-käännöksen yhteydessä keskeyttää ohjelman suorituksen vielä pidemmäksi aikaa. Tämän vuoksi kirjastomoduulit on hyvä olla suoraan käytettävissä natiivikoodisina objektimoduuleina, jolloin suorituksen jatkumiseksi riittää linkittää ne dynaamisesti paikalleen. Kirjastomoduulit on voitu myös kirjoittaa jollakin toisella ohjelmointikielellä (esim. C:llä tai C++:lla), jolloin niiden koodin optimointi on ollut ehkä helpompi toteuttaa.
 
@@ -74,13 +74,13 @@ On myös mahdollista toteuttaa JVM ihan oikeana suorittimena. Tämä tarkoittaa 
 <illustrations motive="ch-10-3-suoritus-natiivi" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-PicoJava suorittimessa voivat välimuisti ja liukulukuaritmetiikka olla valinnaisina osina, jotka toteutetaan ainostaan, jos niille on oikeasti tarvetta. Esimerkiksi pienet [IoT](https://en.wikipedia.org/wiki/Internet_of_Things)-laitteet ([esineiden Internet](https://fi.wikipedia.org/wiki/Esineiden_internet) laitteet) voivat hyvinkin olla sellaisia, että niissä ei ole tarvetta välimuistille ja/tai liukuluvuille.
+PicoJava suorittimessa välimuisti ja liukulukuaritmetiikka ovat valinnaisina osina, jotka toteutetaan ainostaan, jos niille on oikeasti tarvetta. Esimerkiksi pienet [IoT](https://en.wikipedia.org/wiki/Internet_of_Things)-laitteet ([esineiden Internet](https://fi.wikipedia.org/wiki/Esineiden_internet) laitteet) voivat hyvinkin olla sellaisia, että niissä ei ole tarvetta välimuistille ja/tai liukuluvuille.
 
 Kaikki tavukoodin 226 käskyä tunnistetaan konekäskyinä, mutta (harvemmin käytettävä tai ei nyt laitteistolla toteutettu) osa niistä voidaan toteuttaa keskeytysmekanismin kautta muiden käskyjen avulla keskeytyskäsittelijässä. Jos esimerkiksi suorittimessa ei ole toteutettu piirejä liukulukukäskyille, niin käskyn _fadd_ suoritus aiheuttaa keskeytyksen (epäkelpo operaatiokoodi). Keskeytyskäsittelijä huomaa operaatiokoodin 62 (_fadd_) ja toteuttaa kokonaislukuaritmetiikan avulla (hyvin monella konekäskyllä) kyseisen liukulukuyhteenlaskuoperaation. Samaa menettelyä käytetään useiden nykyaikaisten suorittimien yhteydessä, koska sillä tavalla saadaan helposti käyttöön suurempi käskykanta kuin mitä nykyisessä suoritinversiossa on toteutettu.
 
-JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän toteuttamiseksi. Tämän vuoksi picoJavassa on lisäksi mukana 115 "tavallisen" rekisteriarkkitehtuurin konekäskyä ja niitä vastaavat rekisterit. Myös muiden ohjelmointikielten toteutus voi hyödyntää näitä lisäkäskyjä tai sitten voi kääntää puhtaaksi tavukoodiksi. Erityisesti niitä käytetään C kielellä kirjoitetun käyttöjärjestelmän toteuttamiseksi tehokkaasti. 
+JVM:n käskykanta ei kuitenkaan ole kovin hyvä tehokkaan käyttöjärjestelmän toteuttamiseksi. Tämän vuoksi picoJavassa on lisäksi mukana 115 "tavallisen" rekisteriarkkitehtuurin konekäskyä ja niitä vastaavat rekisterit. Myös muiden ohjelmointikielten toteutus voi hyödyntää näitä lisäkäskyjä tai sitten voi kääntää puhtaaksi tavukoodiksi. Erityisesti niitä käytetään C ja/tai C++ kielillä kirjoitetun käyttöjärjestelmän toteuttamiseksi tehokkaasti. 
 
-JVM-koodin suorituksen hitaus aiheutuu huomattavassa määrin siitä, että kaikki dataviitteet kohdistuvaat pinoon. PicoJavassa (versiossa II) tähän ongelmaan on tartuttu toteuttamalla pinon huippu 64 laiterekisterin avulla. Käytännössä siis useimmat pinoon kohdistuvat viitteet voidaan totuttaa hyvin nopeasti näiden (nimeämättömien) rekistereiden avulla.
+JVM-koodin suorituksen hitaus aiheutuu huomattavassa määrin siitä, että kaikki dataviitteet kohdistuvat pinoon. PicoJavassa (versiossa II) tähän ongelmaa on ratkaistu toteuttamalla pinon huippu 64 laiterekisterin avulla. Käytännössä siis useimmat pinoon kohdistuvat viitteet voidaan totuttaa hyvin nopeasti näiden (nimeämättömien) rekistereiden avulla.
 
 PicoJavassa (version II) on määritelty yhteensä 25 kappaletta 32-bittistä rekisteriä. Rekisterit ovat 
 
@@ -97,8 +97,10 @@ PicoJavassa (version II) on määritelty yhteensä 25 kappaletta 32-bittistä re
   
 Noissa 115 lisäkäskyissä on mm. käskyt näiden ylimääräisten rekistereiden lukemiseen ja kirjoittamiseen. Myös osoittimia (pointtereita) varten on omat käskynsä, ja niiden avulla voidaan helposti lukea tai kirjoittaa ihan mitä tahansa muistialuetta C/C++ kielien tapaan. Samoin C/C++ kielisille aliohjelmille on omat kutsu- ja paluukäskynsä. Parametrien välitys tapahtuu pinon kautta ja käytössä on normaalit arvo- ja viiteparametrit. Lisäkäskyjä on myös mahdollisen välimuistin manipulointiin (tyhjentämiseen) ja erilaisiin virransäästöoperaatioihin.
 
-PicoJava toteutukset...
+PicoJavan määrittelyn mukaan toteutettiin todellinen suoritin _Sun microJAVA 701_, joka oli suunnattu edullisiin kannettaviin laitteisiin. 
 
-## Quizit 10.3 ????
+Myös muita Java-suorittimia on tehty. Esimerkiksi, Sun [MAJC 5200](https://en.wikipedia.org/wiki/MAJC) oli suunniteltu verkon multimediasovelluksiin ja Patrit Scientificin PSC1000 oli kehitetty lääketieteellisiä laitteita varten.
+
+
 <!--  quizit 10.3.???  -->
 <div><quiz id="4b44871b-2fe7-4fe1-978c-267d5bf8de80"></quiz></div>
