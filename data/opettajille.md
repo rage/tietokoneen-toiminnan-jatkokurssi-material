@@ -5,7 +5,7 @@ hidden: false
 information_page: true
 ---
 
-Kurssin tai sen lukun saa ottaa vapaasti osaksi peruskoulun, lukion, ammattikoulun, ammattikorkeakoulun tai yliopiston opintotarjontaa. Kerro opiskelijoillesi mahdollisuudesta lukullistua kurssille. Käytä harkintaa kurssin tarjoamisessa peruskoulun oppilaille, koska kurssi on varsinaisesti suunniteltu peruskoulun jo päätökseen saaneille. 
+Kurssin tai sen osan saa ottaa vapaasti osaksi peruskoulun, lukion, ammattikoulun, ammattikorkeakoulun tai yliopiston opintotarjontaa. Kerro opiskelijoillesi mahdollisuudesta lukullistua kurssille. Käytä harkintaa kurssin tarjoamisessa peruskoulun oppilaille, koska kurssi on varsinaisesti suunniteltu peruskoulun jo päätökseen saaneille. 
 
 Esitietovaalimuksena tämä kurssin suorittamiselle on kurssin Tietokoneen toiminnan perusteet MOOC (2 op) ja jonkin ohjelmointikurssin suoritus. Ohjelmointikurssi voi olla esimerkiksi Ohjelmoinnin alkeet MOOC (5 op).
 
