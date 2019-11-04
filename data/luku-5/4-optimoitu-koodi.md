@@ -19,7 +19,7 @@ Koodin optimointia tehdään usealla eri tasolla. Tavoite koodin optimoinnilla o
 
 [Rekistereiden allokointi](https://en.wikipedia.org/wiki/Register_allocation) on yksi tärkeimmistä optimoinnin osa-alueista. Rekistereiden allokoinnissa päätetään, mihin tarkoitukseen kutakin rekisteriä käytetään milloinkin ohjelman suoritusaikana. Säilytetäänkö esimerkiksi muuttujan X arvoa tietyssä vaiheessa (esimerkiksi silmukan sisällä) vaikkapa rekisterissä r3, vai ainoastaan muistissa? Silmukan muuntelumuuttujan arvo olisi usein kätevää pitää rekisterissä, mutta onko nyt juuri vapaata rekisteriä sitä varten? Allokointiongelman ydin on siinä, että rekistereitä on vähän ja viitattavaa dataa paljon. Kaikki laskentatyö pitää kuitenkin tehdä rekistereiden avulla.
 
-Yksi optimoinnin kohde on siinä, että milloin jotkut taulukoiden indeksitarkistukset voisi jättää pois ohjelman turvallisuuden siitä kärsimättä. On helppo havaita, että silmukassa
+Eräs optimoinnin kohde on indeksitarkistusten poisjättäminen silloin, kun turvallisuus ei siitä kärsi. On helppo havaita, että silmukassa
 
 ```
 for (i=0 to 99999) {
@@ -31,7 +31,7 @@ for (i=0 to 99999) {
 
 taulukkoviite T[i] on turvallinen, jos taulukon T koko on ainakin 100000 ja i:n arvoa ei muuteta muualla silmukassa. Tämän päättelyn tekeminen algoritmisesti on kuitenkin yleisessä tapauksessa vaikeaa. Silmukka voi olla koodimäärältään hyvinkin suuri, siinä voi olla viittauksia muualle koodiin ja viitattavan taulukon koko voi olla vaikea päätellä.
 
-Esimerkkinä optimoinnin toteutuksesta ajatellaan vaikkapa yksinkertaista taulukon alustussilmukkaa
+Tarkastellaan yksinkertaista taulukon alustussilmukkaa esimerkkinä optimoinnin toteutuksesta. 
 
 ```
 for (i=0 to 499)
