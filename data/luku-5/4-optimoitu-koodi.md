@@ -69,7 +69,7 @@ Loop  store r2, T(r1)
       store r1, i  ; jos ohjelmointi kielen semantiikka vaatii tätä
 ```
 
-Optimoidussa koodissa tarvitaan vain kaksi rekisteriä. Siinä suoritetaan yhteensä 500\*3+3=1503 konekäskyä, kun alkuperäinen koodi tarvitsi 500\*9+3=4503 konekäskyä. Optimoitu koodi teki 502 muistiviitettä, kun alkuperäinen koodi vaati 3002 muistiviitettä.
+Optimoidussa koodissa tarvitaan vain kaksi rekisteriä. Siinä suoritetaan yhteensä 500\*3+3=1503 konekäskyä, kun alkuperäinen koodi tarvitsi 500\*9+3=4503 konekäskyä. Optimoitu koodi teki 502 muistiviitettä, kun alkuperäinen koodi vaati 3001 muistiviitettä.
 
 Edellisessä esimerkissä optimoitu koodi oli huomattavasti lyhyempi kuin optimoimaton koodi (6 konekäskyä vs. 11 konekäskyä). Näin ei aina kuitenkaan ole. Taulukon alustuksen voisi toteuttaa vieläkin nopeammin käyttäen ns. "silmukan purkua", jossa 2 tai useampi silmukan suorituskerta on yhdistetty. Näin silmukan suorituskertojen määrä saada pienemmäksi ja (käsky)välimuistin toiminta tehokkaammaksi.
 
@@ -86,7 +86,7 @@ Loop  store r2, 0(r1)
       jnneg r3, Loop
 ```
 
-Taulukkoon viittaminen perustuu osoitinmuuttujaan (pointeriin, r1) eikä indeksointiin, joten lukumäärää varten tarvitaan yksi ylimääräinen rekisteri (r3). Suoritettavia konekäskyjä on vain 125\*6+3=903, mutta koodin pituus on liki kaksinkertainen eli 10 käskyä. Tällä on jonkin verran merkitystä, koska suurempien ohjelmien lataus kestää pidempään ja ne tarvitsevat enemmän muistia. Toisaalta, suoritusaikainen nopeushyöty on merkittävä. Tämä on esimerkki yleisestä tila/aika-optimoinnista, jossa suoritusaikaa on optimoitu tilan (muisti, rekisterit) kustannuksella. Ääritapauksessa silmukan voisi kokonaan purkaa 500 peräkkäiseen store-käskyyn, mutta olisiko se optimaalista? Koodin koko ainakin kasvaisi valtavasti. Entä sitten, jos looppi pitäisikin suorittaa 10000 kertaa?
+Taulukkoon viittaminen perustuu osoitinmuuttujaan (pointteriin) jota säilytetään rekisterissä r1, eikä indeksointiin, joten lukumäärää varten tarvitaan yksi ylimääräinen rekisteri (r3). Suoritettavia konekäskyjä on vain 125\*6+3=903, mutta koodin pituus on liki kaksinkertainen eli 10 käskyä. Tällä on jonkin verran merkitystä, koska suurempien ohjelmien lataus kestää pidempään ja ne tarvitsevat enemmän muistia. Toisaalta suoritusaikainen nopeushyöty on merkittävä. Tämä on esimerkki yleisestä tila/aika-optimoinnista, jossa suoritusaikaa on optimoitu tilan (muisti, rekisterit) kustannuksella. Ääritapauksessa silmukan voisi kokonaan purkaa 500 peräkkäiseen store-käskyyn, mutta olisiko se optimaalista? Koodin koko ainakin kasvaisi valtavasti. Entä sitten, jos looppi pitäisikin suorittaa 10000 kertaa?
 
 Optimoinnilla voidaan siis saavuttaa huomattava nopeushyöty. Joissakin sovelluksissa hitaampikin vauhti riittää, kuten esimerkiksi tekstinkäsittelyssä. Suoritusnopeuden tarvitsee olla riittävän nopea sovelluksen tarkoitukseen, mutta ei sen nopeampi. On kuitenkin paljon sovelluksia, joiden kohdalla kannattaa ilman muuta satsata kunnolla suoritusnopeuden optimointiin. Sään ennustemallien käyttökin olisi ihan erilaista, jos malli ratkeaisi viidessä minuuutissa kahden tunnin asemesta.
 
