@@ -67,7 +67,7 @@ CmdPrint  equ 1    # tulostuskomento
 I/O-laitteet voidaan luokitella kolmeen eri tyyppiin sen mukaan, miten niiden laiteohjaimet on liitetty järjestelmään. Kaikki laiteohjaimet liitetään samaan väylähierarkiaan, mutta laitteiden funktionaalisuudessa on eroja. 
 
 #### Suora I/O (Direct I/O, Programmed I/O)
-Kaikkein yksinkertaisin toteutus on suora I/O, jota käyttävät laitteet tarvitsevat väyläliittymän ainoastaan sen _dataväylän_ osalta. Kuten luvussa 2 kerrottiin, niin väylän voi jakaa kolmeen komponenttiin: dDataväylässä siirtyy data, osoiteväylässä muistiosoitteet ja kontrolliväylässä väylänhallintaan liittyvät signaalit.
+Kaikkein yksinkertaisin toteutus on suora I/O, jota käyttävät laitteet tarvitsevat väyläliittymän ainoastaan sen _dataväylän_ osalta. Kuten luvussa 2 kerrottiin, niin väylän voi jakaa kolmeen komponenttiin: dataväylässä siirtyy data, osoiteväylässä muistiosoitteet ja kontrolliväylässä väylänhallintaan liittyvät signaalit.
 
 Suorassa I/O:ssa laiteajuri (DD) ohjaa koko toimintaa ja pysyy suorituksessa koko I/O-toiminnan ajan. Laiteajuri antaa laitteelle (sen laiteohjain prosessille, DCP:lle) komennon kirjoittamalla kyseinen komento laiteohjaimen kontrollirekisteriin. Sen jälkeen DD aktiivisesti pollaa (lukee) tilarekisterin arvoa, kunnes DCP on kirjoittanut sinne annetun komennon tulleen suoritetuksi.
 
