@@ -67,7 +67,7 @@ CmdPrint  equ 1    # tulostuskomento
 I/O-laitteet voidaan luokitella kolmeen eri tyyppiin sen mukaan, miten niiden laiteohjaimet on liitetty järjestelmään. Kaikki laiteohjaimet liitetään samaan väylähierarkiaan, mutta laitteiden funktionaalisuudessa on eroja. 
 
 #### Suora I/O (Direct I/O, Programmed I/O)
-Kaikkein yksinkertaisin toteutus on suora I/O, jota käyttävät laitteet tarvitsevat väyläliittymän ainoastaan sen _dataväylän_ osalta. Kuten luvussa 2 kerrottiin, niin väylän voi jakaa kolmeen komponenttiin: dDataväylässä siirtyy data, osoiteväylässä muistiosoitteet ja kontrolliväylässä väylänhallintaan liittyvät signaalit.
+Kaikkein yksinkertaisin toteutus on suora I/O, jota käyttävät laitteet tarvitsevat väyläliittymän ainoastaan sen _dataväylän_ osalta. Kuten luvussa 2 kerrottiin, niin väylän voi jakaa kolmeen komponenttiin: dataväylässä siirtyy data, osoiteväylässä muistiosoitteet ja kontrolliväylässä väylänhallintaan liittyvät signaalit.
 
 Suorassa I/O:ssa laiteajuri (DD) ohjaa koko toimintaa ja pysyy suorituksessa koko I/O-toiminnan ajan. Laiteajuri antaa laitteelle (sen laiteohjain prosessille, DCP:lle) komennon kirjoittamalla kyseinen komento laiteohjaimen kontrollirekisteriin. Sen jälkeen DD aktiivisesti pollaa (lukee) tilarekisterin arvoa, kunnes DCP on kirjoittanut sinne annetun komennon tulleen suoritetuksi.
 
@@ -219,7 +219,7 @@ Todellisuudessa DMA-I/O:lla kerralla siirrettävä data on yleensä suuri. Esime
 <div><quiz id="aa38f3a3-878d-49c7-b93b-e104891a1971"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Transistori ja mikropiiri">
-Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Transistoreilla pystyttiin toteuttamaan sekä muisti että suorittimen logiikka. Kilbyn piiri oli ensimmäinen transistori (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Noyce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa. Ensimmäinen kaupallinen mikropiiri Intel 4004 julkistettiin 1971. Siinä oli 46 konekäskyä ja 16 kappaletta 4-bittisiä rekistereitä. Se oli suunniteltu japanilaisen Busicom-yhtiön tekemän laskimen toteutukseen.   </text-box>
+Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Transistoreilla pystyttiin toteuttamaan sekä muisti että suorittimen logiikka. Kilbyn piiri oli ensimmäinen transistori (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Noyce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa. Ensimmäinen kaupallinen mikropiiri Intel 4004 julkistettiin 1971. Siinä oli 46 konekäskyä ja 16 kappaletta 4-bittisiä rekistereitä. Se oli suunniteltu japanilaisen Busicom-yhtiön tekemän laskimen toteutukseen.   
 
 <!-- kuva: ch-8-1-ch-8-3-trans-mikropros    -->
 

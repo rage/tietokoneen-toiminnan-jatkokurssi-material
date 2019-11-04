@@ -35,23 +35,15 @@ Nyt prosessi on valmis ja järjestelmä tunnistaa sen uniikista PID:stä. Jos pr
 
 Prosessin kuvaajan tietoja ja prosessien hallintaa yleensä käsitellään tarkemmin yliopistojen käyttöjärjestelmäkursseilla.
 
-
-
-## Quizit 9.4 lataus
 <!--  quizit 9.4.???  -->
 <div><quiz id="98478074-7943-4b62-a2f3-c94c6fd5b260"></quiz></div>
 
-<text-box variant="example" name="Historiaa:  Nykyaikainen suoritin Intel Core i9-9900K">
+<text-box variant="example" name="Historiaa: Ensimmäinen korkean tason kielen kääntäjä">
+Ensimmäinen korkean tason kielen kääntäjä valmistui 1957 IBM:llä John Backuksen ryhmässä Fortran-kielelle IBM 704 -järjestelmälle. Fortrania on koko ajan kehitetty ajan mukaiseksi ja sitä voi nykyään käyttää niin lohkoperustaiseen ohjelmointiin kuin rinnakkaislaskentaa vaativiin tehtäviin. Ensimmäisen kääntäjän tekeminen kesti neljä vuotta. Kääntäjällä pystyi alusta pitäen tuottamaan optimoitua koodia, koska asiakkaat olivat tottuneet käsin assemblerilla koodattuun hyvin optimoituun koodiin.
 
-Suorittimessa on 8 ydintä (core), jotka ovat kukin tällä kurssilla esitetyn mallin mukaisia suorittimia. Lisäksi kuhunkin ytimeen sisältyy kaksi joukkoa kaikkia laiterekistereitä, joiden avulla kukin ydin voi olla suorittamassa kahta eri prosessia (_säiettä_, thread), mutta yhtä kerrallaan. Idea tässä on, että kun yksi säie tekee muistiviitteen välimuistihudin takia, niin suoritus siirtyy saman ytimen toiselle säikeelle. Jos sekin tarvitsee muistiviitteen, niin sitten vain odotellaan. Tällä tavoin yhdestä ytimestä saadaan kuitenkin esim. 50-70% enemmän laskentatehoa kuin vain yhtä rekisterijoukkoa käytettäessä. Tämä teknologia on nimeltään _hyper threading_.
-
-Kullakin ytimellä on 64 KB L1-välimuisti, 256 KB L2-välimuisti ja 2 MB L3-välimuisti. Muistiosoitteet ovat 64-bittisiä. Oikealla kuvassa on samalle mikropiirille toteutettu näytönohjain. Ytimet ja näytönohjain on yhdistetty toisiinsa rengasmaisesti. 
-
-Joka ytimen säikeellä on 16 kappaletta 64-bittistä yleisrekisteriä. Lisäksi siellä on 16 kappaletta 128-bittistä XMM-rekisteriä (MultiMedia eXtension). Niitä voidaan kutakin käyttää grafiikkasovelluksissa esimerkiksi 16 8-bitin vektorirekisterinä ja XMM-konekäskyt toteuttavat yhdellä kertaa  operaatioita kaikille 16 8-bitin tietoalkiolle. Liukulukulaskenta tapahtuu 8 liukulukurekisterin avulla. Nimettyjen rekistereiden asemesta liukulukurekistereitä käsitellään pinona, johon liukulukukonekäskyjen viittaukset kohdistivat.
-
-![Kuva Intelin i9 9900K suorittimesta, joka on toteutettu Intelin Coffee Lake piirillä. Keskellä on 8 ydintä, oikealla GPU ja vasemmalla ylhäällä muistinhallinnan liittymä väylään. L3-tason välimuistit ovat vielä erikseen näkyvillä kunkin ytimen ympärillä.](./ch-9-4-i9-9900k.svg)
+![IBM 704 NACAn konesalissa 1957. NACA oli NASAn edeltäjä ja siitä tuli NASA 1958. Edessä on naispuolinen operaattori syöttämässä ohjelmaa reikäkortinlukijaan ja takana on miespuolinen insinööri tutkailemassa usean metrin mittaista ja puolitoista metriä korkeaa tietokonetta, josta etupaneelit on poistettu. Tietokoneen sisäinen langoitus on näkyvillä ja oikealla puolella on suuri noin 1m x 1m ohjauspaneeli.](./ch-9-4-ibm-704.svg)
 <div>
-<illustrations motive="ch-9-4-i9-9900k"></illustrations>
+<illustrations motive="ch-9-4-ibm-704"></illustrations>
 </div>
 
 </text-box>
@@ -66,4 +58,4 @@ Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 <!-- ### summary quizit lukuun 9 ??? -->
 
 <div><quiz id="9dadff01-7d90-4a1f-b3cc-d06ff6151d0a"></quiz></div>
-© 2019 GitHub, Inc.
+
