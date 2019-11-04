@@ -65,7 +65,7 @@ Tällä kurssilla emme käsittele nimiparametreja tämän enempää, mutta on t�
 ## Aliohjelman toteutuksen osat
 Aliohjelman toteutuksessa täytyy löytää ratkaisu seuraaviin osaongelmiin.
 
-Aliohjelmille on ominaista, että niitä voidaan kutsua lähes mistä päin tahansa koodia ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsukohdan jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla _paluuosoite_ täytyy tallettaa johonkin. Kaikkia aliohjelmia ei kuitenkaan voi kutsua ihan joka paikasta. Esimerkiksi oliohjelmoinnissa olion sisäiset metodeja voi kutsua vain kyseisen olion muista (julkisista tai sisäisistä) metodeista, koska sisäisten metodien nimet eivät näy olion ulkopuolelle. 
+Aliohjelmille on ominaista, että niitä voidaan kutsua lähes mistä päin tahansa koodia ja että aliohjelman suorituksen jälkeen kontrolli palaa kutsukohdan jälkeiseen konekäskyyn. Tämän toteuttamiseksi joka kutsukerralla _paluuosoite_ täytyy tallettaa johonkin. Kaikkia aliohjelmia ei kuitenkaan voi kutsua ihan joka paikasta. Esimerkiksi oliohjelmoinnissa olion sisäisiä metodeja voi kutsua vain kyseisen olion muista (julkisista tai sisäisistä) metodeista, koska sisäisten metodien nimet eivät näy olion ulkopuolelle. 
 
 Aliohjelmissa voi olla eri tyyppisiä parametreja ja ne täytyy välittää kutsuvalta rutiinilta aliohjelmalle. _Parametrien välityksen_ pitää tapahtua korkean tason kielen semantiikan mukaisesti. Käytännössä yleensä riittää toteuttaa arvo- ja viiteparametrien välitys oikein. Kutsuva rutiini antaa parametreille alkuarvon ja aliohjelma voi lukea (tai kirjoittaa) niitä. Viiteparametrien kautta aliohjelma pääsee myös lukemaan ja kirjoittamaan muita kutsuvan rutiinin tietoja.
 
