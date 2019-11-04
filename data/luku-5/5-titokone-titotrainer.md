@@ -49,7 +49,7 @@ b. monimutkaisempaa koodia, tietorakenteiden käyttö
 c. aliohjelmien kutsuminen, konekielen hyvä ymmärrys, koodin optimointi
 d. aliohjelmien toteutus, moniulotteiset taulukot
 e. kokonaiset ohjelmat aliohjelmineen, laiteajuri
-f. itseään muokkaavaa koodia tai ihan mitä vain
+f. itseään muokkaavaa koodia ynnä muuta kivaa
 ```
 
 Päätason perässä oleva kolminumeroinen luku kertoo päätason sisällä vaikeusasteen (100=helppo, 900=vaikea). On suositeltavaa, että tehtävät tehdään tasojärjestyksessä helpoimmasta vaikeampaan. Vaikeusasteella 700 tehtävät millä tahansa tasolla voivat olla haastavia. Vaikeusasteen 900 tehtävät menevät jo syventävien oppimistavoitteiden puolelle.
