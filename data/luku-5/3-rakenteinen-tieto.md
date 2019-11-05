@@ -224,10 +224,10 @@ Esimerkiksi, jos R[20,30] on riveittäin talletettu 2-ulotteinen taulukko, jonka
      load r2, R(r1)  ; lataa r2:een alkion R[i,j].pisteet[kk] arvo
 ```
 
-Toteutus on monimutkaisellakin rakenteella siis hyvinsuoraviivainen. Kääntäjät generoivat tällaista koodia hyvin helposti ja luotettavasti.
+Toteutus on monimutkaisellakin rakenteella siis hyvin suoraviivainen. Kääntäjät generoivat tällaista koodia hyvin helposti ja luotettavasti.
 
 ## Indeksitarkistukset
-Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisista ohjelmointivirheistä ja tietosuojahyökkäyksistä. Ajatellaanpa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X&nbsp;=&nbsp;T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187]&nbsp;=&nbsp;Z" voidaan asettaa muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add&nbsp;r1,&nbsp;=87".
+Indeksitarkistusten avulla pyritään suojaamaan järjestelmää tietynlaisilta ohjelmointivirheiltä ja tietosuojahyökkäyksiltä. Ajatellaanpa esimerkiksi tilannetta, jossa osoitteeseen 200 talletetulle taulukolle T[20] on varattu tilaa 20 sanaa, ja siihen kohdistuu viittaus "X&nbsp;=&nbsp;T[N]", kun N:n arvo on 73. Nyt X:n arvoksi tulee muistipaikan 93 arvo, vaikka kyseinen muistipaikka ei edes kuulu taulukolle T. Vastaavasti viitteellä "T[-187]&nbsp;=&nbsp;Z" voidaan asettaa muistipaikan 13 arvoksi muuttujan Z arvo. Jos muuttujan Z arvo oli esimerkiksi 35651571, niin muistipaikassa 13 ollut konekäsky olisi näin vaihdettu konekäskyyn "add&nbsp;r1,&nbsp;=87".
 
 Usein tällaiset taulukon ulkopuolelle tapahtuvat [puskurin ylivuotovirheet](https://fi.wikipedia.org/wiki/Puskurin_ylivuotovirhe) ovat tavallisia ohjelmointivirheitä, jossa esimerkiksi silmukan päättymisehdon toteutus sallii silmukan suorittamisen yhden kerran liikaa tai yhden kerran liian vähän. Joissakin tapauksissa virhe on kuitenkin sellainen, että indeksin arvoa ei tarkisteta ennen taulukkoviitteen käyttöä ja pahantahtoinen _hyökkääjä_ voi silloin ehkä käyttää tilannetta hyödykseen _puskurin ylivuotohyökkäyksen_ tekemiseen. Tällöin taulukon T kautta hyökkääjä voi muuttaa järjestelmän kriittisiä tietokenttiä tai sijoittaa haittaohjelman järjestelmän suoritettavaksi.
 
