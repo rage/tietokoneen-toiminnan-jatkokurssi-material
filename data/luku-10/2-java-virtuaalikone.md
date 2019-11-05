@@ -76,10 +76,7 @@ Tavukoodi tekstuaalisena    tavuina
 
 <!-- Kuva: ch-10-2-yhteenlasku-pinossa -->
 
-![Yhteenlasku pinossa. Viisi eri tilannetta pinon sisällöksi. Aluksi vasemmalla pinossa on päällä arvot 700, 222 ja 111 muuttujien k, j ja i arvoina. Näkyvään pinon osaan osoittaa LV sen pohjalle ja SP sen pinnalle. Muuttujan i osoite on LV+2, j:n osoite LV+3 ja k:n osoite LV+4. Käskyn "iload i" jälkeen pinon pinnalle on replikoitu i:n arvo 111. Käskyn "iload j" jälkeen pinon pinnalle on replikoitu myös j:n arvo 222. Käskyn iadd jälkeen em. arvot 111 ja 222 on poistettu pinoista ja sinne on laitettu niiden summa 333. Käskyn "istore k" jälkeen muuttujan k (osoitteessa LV+4) arvo on muuttunut arvoon 33 ja pinon päällä on nyt arvot 333, 222 ja 111 muuttujien k, j ja i arvoina.
-
-
-ch-10-2-yhteenlasku-pinossa.](./ch-10-2-yhteenlasku-pinossa.svg)
+![Yhteenlasku pinossa. Viisi eri tilannetta pinon sisällöksi. Aluksi vasemmalla pinossa on päällä arvot 700, 222 ja 111 muuttujien k, j ja i arvoina. Näkyvään pinon osaan osoittaa LV sen pohjalle ja SP sen pinnalle. Muuttujan i osoite on LV+2, j:n osoite LV+3 ja k:n osoite LV+4. Käskyn "iload i" jälkeen pinon pinnalle on replikoitu i:n arvo 111. Käskyn "iload j" jälkeen pinon pinnalle on replikoitu myös j:n arvo 222. Käskyn iadd jälkeen em. arvot 111 ja 222 on poistettu pinoista ja sinne on laitettu niiden summa 333. Käskyn "istore k" jälkeen muuttujan k (osoitteessa LV+4) arvo on muuttunut arvoon 33 ja pinon päällä on nyt arvot 333, 222 ja 111 muuttujien k, j ja i arvoina.](./ch-10-2-yhteenlasku-pinossa.svg)
 <div>
 <illustrations motive="ch-10-2-yhteenlasku-pinossa" frombottom="0" totalheight="40%"></illustrations>
 </div>
