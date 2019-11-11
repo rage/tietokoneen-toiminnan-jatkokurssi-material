@@ -9,17 +9,17 @@ title: 'Aktivaatiotietueen rakentaminen'
 
 
 ## Aktivaatiotietueen rakentaminen ja purku
-Aktivaatio tietueen rakentaminen ja purku tapahtuvat kahdessa vaiheessa. Osan työstä tekee kutsuva rutiini usean konekäskyn avulla ja osan työstä tekee kutsuttu rutiini niin ikään usean konekäskyn avulla.
+Aktivaatiotietueen rakentaminen ja purku tapahtuvat kahdessa vaiheessa. Osan työstä tekee kutsuva rutiini usean konekäskyn avulla ja osan työstä tekee kutsuttu rutiini niin ikään usean konekäskyn avulla.
 
 Kutsuva rutiini aloittaa työn ja laittaa pinoon ensin tilan paluuarvolle (jos kyseessä on funktio) ja sitten kaikki parametrien arvot, oman tyyppinsä mukaisesti.
 
 ```
 push sp, =0        ; tila paluuarvolle
 push sp, x         ; arvoparametri esimerkki
-pushsp, =x         ; viiteparametri esimerkki
+push sp, =x         ; viiteparametri esimerkki
 ```
 
-Seuraavaksi call-käskyllä pinoon laitetaan PC:n nykyarvo eli paluuosoite ja FP nykyarvo eli kutsuvan rutiin AT:n osoite. Tässä yheydessä kontrolli siirtyy kutsutulle rutiinille, jonka rakentaa sitten loput AT:stä ennen varsinaista laskentatehtäväänsä.
+Seuraavaksi call-käskyllä pinoon laitetaan PC:n nykyarvo eli paluuosoite ja FP nykyarvo eli kutsuvan rutiinin AT:n osoite. Tässä yhteydessä kontrolli siirtyy kutsutulle rutiinille, joka rakentaa sitten loput AT:stä ennen varsinaista laskentatehtäväänsä.
 
 ```
 call sp, funcX     ; pinoon vanha PC ja vanha FP
@@ -29,7 +29,7 @@ Kutsuttu rutiini tekee nyt aluksi hallinnolliset alkutoimet, eli _prologin_. Sii
 
 ```
 push sp, =0    ; tila ensimmäiselle paikalliselle muuttujalle, alkuarvo 0
-pushr  sp      ; talleta kaikki työrekisterit
+pushr sp       ; talleta kaikki työrekisterit
 ```
 
 Nyt AT on valmis ja itse rutiinin työ voidaan tehdä. Jos kyseessä on funktio, niin lopuksi pitää paluuarvo tallettaa omalle paikalleen AT:hen.
@@ -45,7 +45,7 @@ exit sp, =2 ; palauta PC ja FP pinosta, vapauta 2 parametrin tila
 Nyt kontrolli on takaisin kutsuvalla rutiinilla, joka ottaa funktion paluuarvon käyttöönsä pinosta (jos kutsuttu rutiini oli funktio). Näin koko kutsutun rutiinin AT on purettu ja pinon sisältö on täsmälleen sama kuin mitä se oli ennen rutiinin kutsua.
 
 ```
-pop sp, r1  ; poista funktion arvo pinosta
+pop sp, r1  ; poista funktion arvo pinosta rekisteriin r1
 ```
 
 
@@ -61,7 +61,7 @@ int fA (int x, y) {  /* x ja y arvoparametreja */
     }
 ```
 
-Funktiota fA käytetään lauseen t = fA(200, r) toteutukseen, kun r ja t ovat globaaleja muuttuja.
+Funktiota fA käytetään lauseen t = fA(200, r) toteutukseen, kun r ja t ovat globaaleja muuttujia.
 
 ### Kutsuvan rutiinin koodi
 Kutsuvassa rutiinissa funktion käyttö tapahtuu konekielellä seuraavanlaisesti.
@@ -110,7 +110,7 @@ Heti funktiosta palattua (ennen käskyn k5 suoritusta) pinossa on kutsutun rutii
     SP -->    1024  ; funktion paluuarvo
 ```
 
-Lopulta, käskyn k5 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu kutsuvan rutiinin ympäristössä.
+Lopulta käskyn k5 suorittamisen jälkeen pino on ennallaan ja suoritus jatkuu kutsuvan rutiinin ympäristössä.
 
 ```
     FP  -->   ??    ; kutsuvan rutiinin AT
@@ -125,7 +125,7 @@ Funktio fA() voidaan toteuttaa konekielellä seuraavalla tavalla. Määrittelemm
 ;
 ; funktio fA(x,y)    x ja y ovat arvoparametreja
 ;
-retfA equ -4  ; paluuarvon suhteellinen osoite AT:ssa
+retfA equ -4   ; paluuarvon suhteellinen osoite AT:ssa
 parX  equ -3   ; parametrien x ja y suhteelliset osoitteet AT:ssa
 parY  equ -2
 locZ  equ 1    ; paikallisen muuttujan z suhteellinen osoite AT:ssä
@@ -136,12 +136,12 @@ fa    push sp, =0  ; tilanvaraus paikalliselle muuttujalle AT:ssä
       load r1, =5  ; alusta Z
 f4    store r1, locZ(fp)  ; viite Z:aan fp:n kautta
 
-      load  r1, parX(fp)  ; funktion varsinainen koodi
+      load r1, parX(fp)  ; funktion varsinainen koodi
       mul r1, locZ(fp)
       add r1, parY(fp)
       store r1, locZ(fp)
 
-      store r1, rerfA(fp) ; talleta paluuarvo
+      store r1, retfA(fp) ; talleta paluuarvo
 
 f10   pop sp, r1   ; palauta r1
       sub sp, -1   ; vapauta Z:n tilanvaraus
@@ -206,7 +206,7 @@ FP, SP -->    vanha FP
               vanha r1
 ```
 
-Lopulta, exit-käsky (f12) palauttaa pinosta FP:n ja PC:n arvot ennalleen ja poistaa lisäksi 2 parametria sieltä. Nyt enää funktion paluuarvo (1024) on jäljellä ja kutsuva rutiini poistaa sen kohta:
+Lopulta exit-käsky (f12) palauttaa pinosta FP:n ja PC:n arvot ennalleen (ja SP:n arvo vähenee vastaamaan pinosta poistettua määrää eli vähenee kahdella) ja poistaa lisäksi 2 parametria pinosta (tarkemmin ottaen siis vähentää SP:n arvosta 2). Nyt pino-osoitin SP osoittaa funktion paluuarvoon (1024). Tämän jälkeen suoritus siirtyy kutsuvalle rutiinille. Kutsuva rutiini sitten poistaa paluuarvon pinosta (pop sp, r1) ja käyttää haluamallaan tavalla.
 
 ```
               ??
