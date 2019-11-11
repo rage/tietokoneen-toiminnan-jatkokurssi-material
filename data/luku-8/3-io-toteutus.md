@@ -10,7 +10,7 @@ hidden: false
 </div>
 
 ## Laiteohjain ja laiteajuri
-I/O:n toteutus on monimutkainen, koska siinä suoritetaan oikeasti täysin samanaikaisesti kahta eri prosessia, joiden tulee koordinoida toimintaansa keskenään. Työnjako on jaettu kahteen eri prosessiin: suorittimella suorittavaan laiteajuriin (DD, device driver) ja laiteohjaimella suorittavaan laiteohjainprosessiin (DCP, device controller process). Laiteajuri on osa käyttöjärjestelmää ja jokaista laiteohjainta varten on siihen sopiva laiteajuri. 
+I/O:n toteutus on monimutkainen, koska siinä suoritetaan oikeasti täysin samanaikaisesti kahta eri prosessia, joiden tulee koordinoida toimintaansa keskenään. Työnjako on jaettu kahteen eri prosessiin: suorittimella suorittavaan laiteajuriin (DD, device driver) ja laiteohjaimella suorittavaan laiteohjainprosessiin (DCP, device controller process). Laiteajuri on osa käyttöjärjestelmää ja jokaista laiteohjainta (ja laitetta) varten on siihen sopiva laiteajuri. 
 
 Laiteajuri pääsee suorittimelle suorittamaan aika ajoin, mutta DCP on periaatteessa suorituksessa koko ajan, koska laiteohjaimella ei ole mitään muuta tekemistä. Laiteajuri voi olla itsenäinen prosessi, jolloin käyttäjätason prosessin kutsuvat sitä viestein. Laiteajuri voi olla toteutettuna myös aliohjelmana, jolloin käyttäjäprosessit kutsuvat sitä aliohjelmien kutsukäskyillä tai SVC:llä. Tällöin laiteajuri suoritetaan osana käyttäjäprosessia. Joka tapauksessa laiteajuri (tai ainakin sen tärkeimmät osat) suoritetaan etuoikeutetussa tilassa.
 
@@ -31,19 +31,19 @@ Datarekisteri voi itse asiassa olla laitteesta riippuen hyvinkin suuri. Esimerki
 Laiteajuri voi siis viitata laiteohjaimen rekistereihin samalla tavalla kuin keskusmuistiinkin. Tästä seuraa, että konekäskyissä pitää jollain tavoin määritellä, kumpaan muistiin (keskusmuistiin vai laiteohjaimen rekistereihin) ollaan viittaamassa. 
 
 #### I/O-konekäskyt
-Yksi tapa on käyttää erityiskonekäskyjä, jolloin näiden käskyjen yhteydessä viittaus tapahtuu aina laiteohjaimen rekistereihin. Ttk-91 koneessa in- ja out-käskyt toimivat juuri näin. Esimerkiksi out-käsky kirjoittaa aina näytön datarekisteriin sen sijaan, että kirjoitettasiin johonkin päin muistia. 
+Yksi tapa on käyttää erityiskonekäskyjä, jolloin näiden käskyjen yhteydessä viittaus tapahtuu aina laiteohjaimen rekistereihin. Ttk-91 koneessa in- ja out-käskyt toimivat juuri näin. Esimerkiksi out-käsky kirjoittaa aina näytön datarekisteriin sen sijaan, että kirjoitettaisiin johonkin päin muistia. 
 
 ```
 in  r1, =kbd
 out r2, =crt
 ```
 
-Intelin x86 arkkitehtuurissa on aivan vastaavat IN ja OUT käskyt. Esimerkiksi IN-käskyllä luetaan valitulta laitteelta 1, 2 tai neljä tavua dataa johonkin rekisteriin. Näitä käskyjä käyttämällä operaatiokoodista päätellään, mihin muistiin (keskusmuistiin vai laiteohjaimien rekistereihin) muistiviittaukset kohdistuvat.
+Intelin x86 arkkitehtuurissa on aivan vastaavat IN ja OUT käskyt. Esimerkiksi IN-käskyllä luetaan valitulta laitteelta 1, 2 tai neljä tavua dataa johonkin rekisteriin. Näitä käskyjä käyttämällä siis päätellään operaatiokoodin perusteella, mille laitteelle (keskusmuistiin vai laiteohjaimien rekistereihin) muistiviittaukset kohdistuvat.
 
 I/O-konekäskyjen huonona puolena on niiden staattisuus. Ne on täytynyt suunnitella konekielen käskykannan suunnitteluaikana ja ne on toteutettu kiinteästi suorittimelle. Niitä ei voi myöhemmin muokata, eikä niitä voi tehdä lisää mahdollisia uusia I/O-laitteita varten.
 
 #### Muistiinkuvattu I/O
-Toinen tapa on käyttää _muistiinkuvattua I/O:ta_, jossa normaali ohjelman käyttämä muistiavaruus (muistiosoitteiden joukko) on jaettu kahteen osaan.  Esimerkiksi, jos 32-bittisen muistiosoitteen vasemmanpuolimmainen bitti on nolla (osoitteet 0x0000&nbsp;0000-0x7FF&nbsp;FFFF), niin kyseessä on keskusmuistiosoite, ja muutoin (osoitteet 0x8000&nbsp;0000-0xFFF&nbsp;FFFF) kyseessä on viittaus jonkin I/O-laitteen laiteohjaimelle. Jos bitit 24-30 (oikealta lukien) käytetään laitteen valitsemiseen, niin laitteita voisi olla 64 erilaista ja jokaiselle laitteelle jää vielä 24-bittiset osoitteet laiteohjaimen oman muistialueen (laiterekistereiden) viittamiseen. 
+Toinen tapa on käyttää _muistiinkuvattua I/O:ta_, jossa normaali ohjelman käyttämä muistiavaruus (muistiosoitteiden joukko) on jaettu kahteen osaan.  Esimerkiksi, jos 32-bittisen muistiosoitteen vasemmanpuolimmainen bitti on nolla (osoitteet 0x0000&nbsp;0000-0x7FFF&nbsp;FFFF), niin kyseessä on keskusmuistiosoite, ja muutoin (osoitteet 0x8000&nbsp;0000-0xFFFF&nbsp;FFFF) kyseessä on viittaus jonkin I/O-laitteen laiteohjaimelle. Jos bitit 24-30 (oikealta lukien) käytetään laitteen valitsemiseen, niin laitteita voisi olla 64 erilaista ja jokaiselle laitteelle jää vielä 24-bittiset osoitteet laiteohjaimen oman muistialueen (laiterekistereiden) viittaamiseen. 
 
 Huonona piirteenä tässä on, että suuri osa ohjelman muistiavaruudesta (edellisessä esimerkissä 50%) on nyt varattu I/O-laitteille. Etuna on, että I/O-laitteita kontrolloidaan tavallisilla muistiviitekäskyillä (load, store). Uuden tyyppisiä laitteita on helppo lisätä järjestelmään, kunhan niille vain kirjoitetaan sopiva laiteajuri. Tämä on yleisin tapa ohjata laitteita.
 
@@ -67,13 +67,13 @@ CmdPrint  equ 1    # tulostuskomento
 I/O-laitteet voidaan luokitella kolmeen eri tyyppiin sen mukaan, miten niiden laiteohjaimet on liitetty järjestelmään. Kaikki laiteohjaimet liitetään samaan väylähierarkiaan, mutta laitteiden funktionaalisuudessa on eroja. 
 
 #### Suora I/O (Direct I/O, Programmed I/O)
-Kaikkein yksinkertaisin toteutus on suora I/O, jota käyttävät laitteet tarvitsevat väyläliittymän ainoastaan sen _dataväylän_ osalta. Kuten luvussa 2 kerrottiin, niin väylän voi jakaa kolmeen komponenttiin: dataväylässä siirtyy data, osoiteväylässä muistiosoitteet ja kontrolliväylässä väylänhallintaan liittyvät signaalit.
+Kaikkein yksinkertaisin toteutus on suora I/O, jota käyttävät laitteet tarvitsevat väyläliittymän ainoastaan sen _dataväylän_ osalta. Kuten luvussa 2 kerrottiin, niin väylän voi jakaa kolmeen komponenttiin: dataväylässä siirtyy data, osoiteväylässä muistiosoitteet ja kontrolliväylässä väylänhallintaan (ja I/O-laitekeskeytyksiin) liittyvät signaalit.
 
-Suorassa I/O:ssa laiteajuri (DD) ohjaa koko toimintaa ja pysyy suorituksessa koko I/O-toiminnan ajan. Laiteajuri antaa laitteelle (sen laiteohjain prosessille, DCP:lle) komennon kirjoittamalla kyseinen komento laiteohjaimen kontrollirekisteriin. Sen jälkeen DD aktiivisesti pollaa (lukee) tilarekisterin arvoa, kunnes DCP on kirjoittanut sinne annetun komennon tulleen suoritetuksi.
+Suorassa I/O:ssa laiteajuri (DD) ohjaa koko toimintaa ja pysyy suorituksessa koko I/O-toiminnan ajan. Laiteajuri antaa laitteelle (sen laiteohjainprosessille, DCP:lle) komennon kirjoittamalla kyseinen komento laiteohjaimen kontrollirekisteriin. Sen jälkeen DD aktiivisesti pollaa (lukee) tilarekisterin arvoa, kunnes DCP on ilmoittanut annetun komennon tulleen suoritetuksi.
 
 Laiteohjain ei siis käytä väylää lainkaan itse, vaan se kirjoittaa ja lukee omassa muistissaan olevia laiterekistereitä I/O:n toteuttamiseksi. Kun DCP on valmis uuteen I/O-tapahtumaan, se ensin nollaa (resetoi) tilarekisterin ja sitten pollaa (ikuisessa loopissa) kunnes tämän laitteen ajuri DD antaa sille uuden komennon.
 
-Oletetaan esimerkiksi, että uusi näppäimistö olisi toteutettu näin. Käytämme muistiinkuvattua I/O:ta, ja näppäimistön laiterekisterien osoitteeet ovat KBControl (kontrollirekisteri), KBStatus (statusrekisteri) ja KBData (data rekisteri). Näppäimistöltä voisi nyt lukea yhden merkin (yksinkertaistetun koodin avulla) seuraavanlaisesti:
+Oletetaan esimerkiksi, että uusi näppäimistö olisi toteutettu näin. Käytämme muistiinkuvattua I/O:ta ja näppäimistön laiterekisterien osoitteet ovat KBControl (kontrollirekisteri), KBStatus (statusrekisteri) ja KBData (data rekisteri). Näppäimistöltä voisi nyt lukea yhden merkin (yksinkertaistetun koodin avulla) seuraavanlaisesti:
 
 ```
 Laiteajuri (DD) -- suora I/O
@@ -111,12 +111,12 @@ Huomaa, että esimerkin DCP suorittaa laiteohjaimella. Laiteohjaimen suoritin ei
 
 Suorassa I/O:ssa etuna on, että se on hyvin yksinkertainen toteuttaa. Huonona puolena on se, että kaikki odotus tapahtuu suorittamalla tiukkaa silmukkaa, kunnes luettu tieto on halutun mukainen. DCP:llä tämä ei haittaa, koska se on muusta järjestelmästä irrallinen laite. Sillä ole mitään muutakaan tekemistä sillä aikaa, kun se odottaa jonkin prosessin haluavan käyttää sitä (esim. näppäimistöä).
 
-Suorittimella suorituksessa oleva DD on eri asia. Koska oheislaite (esim. näppäimistö) voi olla hyvinkin hidas, niin odotusaika silmukassa voi olla suorittimen nopeuteen nähden hyvinkin pitkä, miljardeja looppeja. Esimerkiksi, artikkelin kirjoittaja voi vaikka lähteä lounaalle välillä. Olisi järkevää, jos odotusaikana voisi tehdä jotain hyödyllistä. Hyödyllisiä tehtäviä voisi olla vaikkapa käyttöjärjestelmän hallinto tai kissavideon näyttäminen. Tähän ongelmaan vastauksena on seuraavaksi esiteltävä keskeyttävä I/O.
+Suorittimella suorituksessa oleva DD on eri asia. Koska oheislaite (esim. näppäimistö) voi olla hyvinkin hidas, niin odotusaika silmukassa voi olla suorittimen nopeuteen nähden hyvinkin pitkä, miljardeja looppeja. Esimerkiksi, artikkelin kirjoittaja voi vaikka lähteä lounaalle tai nukkumaan välillä. Olisi järkevää, jos odotusaikana voisi tehdä jotain hyödyllistä. Hyödyllisiä tehtäviä voisi olla vaikkapa käyttöjärjestelmän hallinto tai kissavideon näyttäminen. Tähän ongelmaan vastauksena on seuraavaksi esiteltävä keskeyttävä I/O.
 
 #### Keskeyttävä I/O (epäsuora I/O, indirect I/O, interrupt-driven I/O)
 Keskeyttävää I/O:ta käyttävä laiteohjain on kytketty dataväylän lisäksi myös _kontrolliväylään_. Siellä on erityisesti yksi johdin varattu I/O-laitekeskeytykselle. Kun DCP kirjoittaa tuolle johtimelle (eli aiheuttaa I/O-laitekeskeytyksen), niin keskusyksikön suoritin havaitsee tämän heti nykyisen konekäskyn suorituksen jälkeen ja siirtyy suorittamaan siihen liittyvää keskeytyskäsittelijää.
 
-DD voi nyt I/O-komennon annettuaan siirtyä odotustilaan ja järjestelmä voi suorittaa muita prosesseja odotusaikana. Kun DCP on lopulta saanut tehtävänsä tehtyä, niin se ensin kertoo siitä tilarekisterissä ja sitten aiheuttaa I/O-laitekeskeytyksen. Suorittimella suorituksessa oleva ohjelma suorittaa (etuoikeutetussa tilassa) nyt heti I/O-laitekeskeytyksen keskeytyskäsittelijän, joka siirtää DD:n odotustilasta Valmis suoritukseen -tilaan (Ready-tilaan). Käyttöjärjestelmän vuoronantopolitiikasta riippuen DD pääsee suoritukseen heti paikalla tai sitten vasta vähän ajan päästä. Sitten DD heti lukee statusrekisterin arvon ja päättää jatkotoimista tämän I/O-tapahtuman suhteen.
+DD voi nyt I/O-komennon annettuaan siirtyä odotustilaan ja järjestelmä voi suorittaa muita prosesseja odotusaikana. Kun DCP on lopulta saanut tehtävänsä tehtyä, niin se ensin kertoo siitä tilarekisterissä ja sitten aiheuttaa I/O-laitekeskeytyksen. Suorittimella suorituksessa oleva ohjelma suorittaa (etuoikeutetussa tilassa) nyt heti I/O-laitekeskeytyksen keskeytyskäsittelijän, joka siirtää DD:n odotustilasta Valmis suoritukseen -tilaan (Ready-tilaan). Käyttöjärjestelmän vuoronantopolitiikasta riippuen DD pääsee suoritukseen heti paikalla tai sitten vasta vähän ajan päästä. Sitten DD lukee statusrekisterin arvon ja päättää jatkotoimista tämän I/O-tapahtuman suhteen.
 
 Aikaisempi esimerkin näppäimistö toimisi nyt seuraavanlaisesti:
 
@@ -158,9 +158,9 @@ wait load r1, Control    ; odota kunnes uusi pyyntö
      store r1, IOInt     ; ajuri pääsee joskus suoritukseen
 ```
 
-Keskeyttävän I/O:n yksi heikkous on sen suoraa I/O:ta hitaampi reagointinopeus. Suorassa I/O:ssa DD jatkaa suoritusta muutaman konekäskyä myöhemmin sen jälkeen, kun DCP on ilmoittanut sille annetun tehtävän valmistumisesta. Keskeyttävässä I/O:ssa pitää ensin suorittaa keskeytyskäsittelijä, joka siirtää DD:n Valmis suoritukseen -jonoon, josta se lopultan pääsee suoritukseen. Aikaa tähän kuluu vähintää yhden prosessin vaihdon verran. Lisäksi aikaa on kulunut yhden prosessin vaihdon verran, kun DD meni odotustilaan aikoinaan.
+Keskeyttävän I/O:n yksi heikkous on sen suoraa I/O:ta hitaampi reagointinopeus. Suorassa I/O:ssa DD jatkaa suoritusta muutaman konekäskyä myöhemmin sen jälkeen, kun DCP on ilmoittanut sille annetun tehtävän valmistumisesta. Keskeyttävässä I/O:ssa pitää ensin suorittaa keskeytyskäsittelijä, joka siirtää DD:n Valmis suoritukseen -jonoon, josta se lopulta pääsee suoritukseen. Aikaa tähän kuluu vähintää yhden prosessin vaihdon verran. Lisäksi aikaa on kulunut yhden prosessin vaihdon verran, kun DD meni odotustilaan aikoinaan.
 
-Edellisen esimerkin DD:n kaksi viimeistä riviä näyttävän selkeästi näiden kahden I/O-tyypin yhteisen heikkouden. Kaikki data virtaa sana kerrallaan CPU-rekisterin kautta ja sen tarvitsee kulkea muistiväylän läpi kaksi kertaa. Jos siirrettävä datamäärä on pieni (muutama tavu tai sana), niin tästä ei ole haittaa. Mutta jos siirrettävänä on 4 KB tai 4 MB virtuaalimuistin sivu tai levylohko, niin tämä hidastaa I/O:ta tekevän prosessin ja koko järjestelmän suoritusta merkittävästi. Ongelman ratkaisu on seuraavaksi esiteltävä DMA-I/O.
+Edellisen esimerkin DD:n kaksi viimeistä riviä näyttävän selkeästi näiden kahden I/O-tyypin yhteisen heikkouden. Kaikki data virtaa sana kerrallaan CPU-rekisterin kautta ja kaiken datan tarvitsee kulkea muistiväylän läpi kaksi kertaa. Jos siirrettävä datamäärä on pieni (muutama tavu tai sana), niin tästä ei ole haittaa. Mutta jos siirrettävänä on 4 KB tai 4 MB virtuaalimuistin sivu tai levylohko, niin tämä hidastaa I/O:ta tekevän prosessin ja koko järjestelmän suoritusta merkittävästi. Ongelman ratkaisu on seuraavaksi esiteltävä DMA-I/O.
 
 #### DMA I/O
 DMA I/O:ssa ([Direct Memory Access](https://en.wikipedia.org/wiki/Direct_memory_access)) laiteohjain on vielä aikaisempia laitteita älykkäämpi. DMA-laiteohjain pystyy nyt siirtämään itse dataa keskusmuistin ja laiteohjaimen datarekisterin välillä, joten datan ei tarvitse kiertää CPU-rekisterien kautta. Datarekisteri voi näissä laitteissa olla hyvinkin suuri, sisältäen esimerkiksi 32 kappaletta 4 MB puskureita.
@@ -219,7 +219,7 @@ Todellisuudessa DMA-I/O:lla kerralla siirrettävä data on yleensä suuri. Esime
 <div><quiz id="aa38f3a3-878d-49c7-b93b-e104891a1971"></quiz></div>
 
 <text-box variant="example" name="Historiaa:  Transistori ja mikropiiri">
-Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Transistoreilla pystyttiin toteuttamaan sekä muisti että suorittimen logiikka. Kilbyn piiri oli ensimmäinen transistori (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Noyce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa. Ensimmäinen kaupallinen mikropiiri Intel 4004 julkistettiin 1971. Siinä oli 46 konekäskyä ja 16 kappaletta 4-bittisiä rekistereitä. Se oli suunniteltu japanilaisen Busicom-yhtiön tekemän laskimen toteutukseen.   
+Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell Labsin tutkimuskeskuksessa 1948. Se oli 1900-luvun tärkeimpiä teknisiä keksintöjä ja he saivat työstä Nobel-palkinnon vuonna 1956. J. Kilby ja R. Noyce kehittivät siitä integroidun piirin, jossa sekä transistorit että johtimet toteutettiin tasossa puolijohtimien avulla. Transistoreilla pystyttiin toteuttamaan sekä muisti että suorittimen logiikka. Kilbyn piiri oli ensimmäinen transistori (1958) ja hän sai siitä Nobel-palkinnon vuonna 2000. Noyce aloitti uransa Shockleyn yhtiössä ja oli perustamassa sekä Fairchild Semiconductor (1957) että Intel (1968) yhtiöitä. Intel on edelleenkin maailman johtavia yrityksiä mikropiirien valmistamisessa. Ensimmäinen kaupallinen mikropiiri Intel 4004 julkistettiin 1971. Siinä oli 46 konekäskyä ja 16 kappaletta 4-bittisiä rekistereitä. Se oli suunniteltu japanilaisen Busicom-yhtiön tekemän laskimen toteutukseen.   
 
 <!-- kuva: ch-8-1-ch-8-3-trans-mikropros    -->
 
@@ -231,7 +231,7 @@ Transistorin kehittivät W.B. Shockley, J. Bardeen ja W. Brattain Bell labsin tu
 </text-box>
 
 ## Yhteenveto
-Tämä luvussa näytettiin ensin, kunka virtuaalimuisti toimii ja kuinka se ratkaisee osaltaan keskusmuistin ja kovalevyn välisen suuren nopeuskuilun ongelmaa muistihierarkiassa. Seuraavaksi esiteltiin tiedostojärjestelmän päätoiminnot ja kuinka tiedostot voidaan toteuttaa erilaisilla massamuistilaitteilla. Pääasiassa keskityttiin kuitenkin kovalevyjen toteutukseen. Tässä viimeisessä aliluvussa käytiin läpi eri tavat toteuttaa I/O millä tahansa laitteella. Erityisesti esitteltiin, kuinka I/O:n toteutus tehdään yhteistyöllä keskusyksikön suorittimella suorittavan laiteohjaimen ja oheislaitteen laiteohjaimella suorittavan laiteohjainprosessin avulla. Mitä viisaampi laiteohjain on, sitä suuremman osan työstä se tekee ja sitä enemmän suoritinaikaa jää muille prosesseille keskusyksikön suorittimella.
+Tämä luvussa näytettiin ensin, kuinka virtuaalimuisti toimii ja kuinka se ratkaisee osaltaan keskusmuistin ja kovalevyn välisen suuren nopeuskuilun ongelmaa muistihierarkiassa. Seuraavaksi esiteltiin tiedostojärjestelmän päätoiminnot ja kuinka tiedostot voidaan toteuttaa erilaisilla massamuistilaitteilla. Pääasiassa keskityttiin kuitenkin kovalevyjen toteutukseen. Tässä viimeisessä aliluvussa käytiin läpi eri tavat toteuttaa I/O millä tahansa laitteella. Erityisesti esiteltiin, kuinka I/O:n toteutus tehdään yhteistyöllä keskusyksikön suorittimella suorittavan laiteohjaimen ja oheislaitteen laiteohjaimella suorittavan laiteohjainprosessin avulla. Mitä viisaampi laiteohjain on, sitä suuremman osan työstä se tekee ja sitä enemmän suoritinaikaa jää muille prosesseille keskusyksikön suorittimella.
 
 Vastaa alla olevaan kyselyyn, kun olet valmis tämän luvun tehtävien kanssa.
 
