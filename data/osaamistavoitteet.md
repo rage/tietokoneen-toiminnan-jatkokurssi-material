@@ -6,8 +6,6 @@ information_page: true
 ---
 
 
-**TÄMÄN KURSSIN KEHITYS ON KESKEN. KAIKKI VOI MUUTTUA!**
-
 Tietokoneen toiminnan jatkokurssin MOOCissa opit perusasiat konekielisestä ohjelmoinnista, tiedon muuttumattomuuden valvontamenetelmistä, järjestelmän sisäisen ja ulkoisen muistin käytöstä sekä I/O:n toteutuksesta yleensä. Siinä opit myös eri tavat suorittaa ohjelmia tietokoneella, joihin sisältyvät normaalitapa luoda suoritettava ohjelma prosessina järjestelmään (käännös, linkitys, lataus) tai suorittaa dataksi kuvattua ohjelmaa järjestelmässä olevien tulkki- tai emulaattoriprosessien avulla (tulkitseminen, emulointi). 
 
 Lukukohtaiset osaamistavoitteet ovat seuraavat.
