@@ -172,12 +172,13 @@ Konekielessä toistolauseita on vain kahden tyyppisiä. Molemmisssa alustetaan e
 Esimerkiksi, edellä oleva C-kielen taulukon alustus for-silmukalla voitaisiin toteuttaa konekielellä seuraavasti:
 
 ```
-      load r1, =0     ;  muuntelumuuttujan i alustus, arvo r1:ssä
+      load r1, =0       ;  muuntelumuuttujan i alustus, arvo r1:ssä
 loop  comp r1, =30      ; silmukan lopetustesti
       jequ done
       load r2, r1       ; silmukan runko
       mul  r2, =4
       store r2, A(r1)
+      add r1, =1        ; lisätään muuntelumuuttujan i arvoa yhdellä, arvo r1:ssä
       jump loop
 done  nop               ; poistu silmukasta
 ```
@@ -185,10 +186,11 @@ done  nop               ; poistu silmukasta
 Vastaavasti edellä oleva Fortran-kielinen do-silmukka ("do 50") olisi konekielellä:
 
 ```
-      load r1, =0     ;  muuntelumuuttujan i alustus, arvo r1:ssä
+      load r1, =0       ;  muuntelumuuttujan i alustus, arvo r1:ssä
 loop  load r2, r1       ; silmukan runko
       mul  r2, =4
       store r2, A(r1)
+      add r1, =1        ; lisätään muuntelumuuttujan i arvoa yhdellä, arvo r1:ssä
       comp r1, =30      ; silmukan lopetustesti
       jless loop
 ```
