@@ -142,19 +142,21 @@ Symbolisen konekielen käännös tapahtuu periaatteessa kolmessa eri vaiheessa, 
 ``` 
 Ensimmäisen vaiheen (koodin läpikäynnin) jälkeen.
 Käännösyksikkö                  Data/koodi  Symb.taulu
-x 	dc 	13           -->  ?:           13       x: ?
-y 	dc 	15           -->  ?:           15       y: ?
+x 	dc 	13           -->  ?:           13        x: ?
+y 	dc 	15           -->  ?:           15        y: ?
 
 st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 0
      jzer r1, done   -->  1:  34 1 0 0   ?    done: ? 
      out r1, =crt    -->  5:   4 1 0 0   0
      jump st         -->  3:  32 0 0 0   2
 done svc sp,=halt    -->  4: 112 6 0 0  11    done: 4
+                                                 x: 5
+                                                 y: 6
 ```
 
-Huomaa, että symboli _done_ esitellään käskyn 3 yhteydessä, mutta sen arvoa ei vielä tunneta. Käskyn 4 kohdalla tunnus _done_ esiintyy osoitekentässä, joten sen arvo 4 saadaan selville. Vastaavasti muuttujien x ja y sijainnit (symbolien x ja y arvot) tiedetään vasta kun koodisegmentin koko (5 sanaa) tunnetaan. Yhden läpikäynnin jälkeen kaikilla tämän moduulin sisäisillä tunnuksilla on arvo.
+Huomaa, että symboli _done_ esitellään jzer-käskyn yhteydessä, mutta sen arvoa ei vielä tunneta. Viimeisen käskyn kohdalla tunnus _done_ esiintyy osoitekentässä, joten sen arvo 4 saadaan selville. Muuttujat x ja y esitellään heti alussa, mutta niiden sijainnit (symbolien x ja y arvot) tiedetään vasta kun koodisegmentin koko (5 sanaa) tunnetaan. Muuttujat x ja y ovat mukana vain esimerkin vuoksi, eikä niihin viitata lyhyessä koodissa. Yhden läpikäynnin jälkeen kaikilla tämän moduulin sisäisillä tunnuksilla on arvo.
 
-Toisella läpikäynnillä koodi käydään uudestaan läpi konekäsky kerrallaan ja kaikki ensimmäisellä kerralla tuntemattomaksi jääneet tunnukset korvataan niiden arvolla symbolitaulusta. Koodissa voi tietenkin olla vielä viittauksia muihin moduuleihin, mutta ne ratkotaan vasta linkityksessä. Konekäskyt voivat tässä vaiheessa olla vielä kentittäin koodattuna, eikä välttämättä vielä lopullisessa muodossa.
+Toisella läpikäynnillä koodi käydään uudestaan läpi konekäsky kerrallaan ja kaikki ensimmäisellä kerralla tuntemattomaksi jääneet tunnukset korvataan niiden arvolla symbolitaulusta. Koodissa voi tietenkin olla vielä viittauksia muihin moduuleihin, mutta ne ratkotaan vasta linkityksessä. Koodin käskyt voivat tässä vaiheessa olla vielä kentittäin koodattuna, eikä välttämättä vielä lopullisessa muodossaan konekäskynä.
 
 ``` 
 Toisen vaiheen (koodin läpikäynnin) jälkeen.
@@ -169,7 +171,7 @@ st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 2
 done svc sp,=halt    -->  4: 112 6 0 0  11    
 ```
 
-Kolmannella läpikäynnillä luodaan varsinainen konekielinen koodi yhdistelemällä kentät ja ehkä samalla optimoimalla koodia suoritusajan suhteen. Yleensä symbolisella konekielellä kirjoitettua ei juurikaan enää optimoida, koska ohjelmoija on nimenomaan halunnut kirjoittaa kyseisen ohjelman osan symbolisella konekielellä annetussa muodossa. Todellisen suorittimen optimoidun konekielisen koodin kirjoittaminen on vaikeata, koska siinä pitää ottaa huomioon kyseessä olevan suorittimen, väylän ja muistin yksityiskohdat. Optimoinnissa täytyy esimerkiksi ottaa huomioon, kuinka kauan aikaa menee datan hakemiseen muistista, jotta data on saatavilla seuraavissa konekäskyissä ilman odotusta. Korkean tason kielten kääntäjien tekijät ovat tässä asiantuntijoita ja sen vuoksi korkean tason kielten kääntäjien tekemää koodia on vaikea tavallisen ohjelmoijan tehdä paremmaksi.
+Kolmannella läpikäynnillä luodaan varsinainen konekielinen koodi yhdistelemällä kentät ja ehkä samalla optimoimalla koodia suoritusajan suhteen. Yleensä symbolisella konekielellä kirjoitettua ei juurikaan enää optimoida, koska ohjelmoija on nimenomaan halunnut kirjoittaa kyseisen ohjelman osan symbolisella konekielellä annetussa muodossa. Todellisen suorittimen optimoidun konekielisen koodin kirjoittaminen on vaikeata, koska siinä pitää ottaa huomioon kyseessä olevan suorittimen, väylän ja muistin yksityiskohdat. Optimoinnissa täytyy esimerkiksi ottaa huomioon, kuinka kauan aikaa menee datan hakemiseen muistista, jotta data on saatavilla seuraavissa konekäskyissä ilman odotusta. Korkean tason kielten kääntäjien tekijät ovat tässä asiantuntijoita ja sen vuoksi korkean tason kielten kääntäjien tekemää koodia on (nykyään) vaikea tavallisen ohjelmoijan tehdä nopeammaksi.
 
 ``` 
 Kolmannen vaiheen (koodin läpikäynnin) jälkeen.
@@ -210,11 +212,11 @@ Mikrosoftin ohjelmistoympäristön [C#-kielen](https://en.wikipedia.org/wiki/C_S
 Välikielestä generoidaan konekielinen koodi. Koodin generoinnista kääntäjän viimeisenä vaiheena käytetään myös nimitystä _back end_. Jos jo olemassa olevan ohjelmointikielen kääntäjästä halutaan uudelle suorittimelle sopiva versio, niin ainoastaan kääntäjän _back end_ tarvitsee ohjelmoida uudelleen. Se on ainoa kääntäjän osa, joka on sidoksissa suorittimen konekieleen. Vastaavasti kääntäjän osia syntaktisten alkioiden etsinnästä välikielisen koodin generointiin kutsutaan yhteisnimellä _front end_. Kun haluamme toteuttaa kääntäjän uudelle ohjelmointikielelle, niin riittää toteuttaa uusi _front end_. Muut kääntäjän osat (niiden _back end_) ovat jo valmiina eri suorittimille.
 
 ## Koodin optimointi
-Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan, miten tehokkaasti koodia halutaan optimoida. Osan optimoinnista voi tehdä jo välikielen tasolla, mutta pääosa tehdään koodin generoinnin yhteydessä. Optimoidun koodin generoimiseen voi kulua monta kertaa niin paljon aikaa kuin ilman optimointia. Tämän vuoksi ohjelmistojen kehityksessä ohjelmat koodataan ja testataan ensin valmiiksi optimoimattomalla koodilla ja sitten lopuksi käännetään maksimioptimoinnilla ennen käyttöön ottoa.
+Koodin optimointi on vaikeata ja voi kestää hyvin kauan sen mukaan, miten tehokkaasti koodia halutaan optimoida. Osan optimoinnista voi tehdä jo välikielen tasolla, mutta pääosa tehdään koodin generoinnin yhteydessä. Optimoidun koodin generoimiseen voi kulua monta kertaa niin paljon aikaa kuin ilman optimointia. Tämän vuoksi ohjelmistojen kehityksessä ohjelmat koodataan ja testataan ensin valmiiksi optimoimattomalla koodilla ja sitten lopuksi käännetään maksimioptimoinnilla ennen käyttöönottoa.
 
 _Rekistereiden allokointiongelma_ on tärkeä osa optimointia. Sen avulla päätellään, milloin ja mihin laiterekisteriin mitäkin dataa tulisi ohjelman suoritusaikana tallettaa. Rekistereitä on vähän ja niiden optimaalinen käyttö on tärkeätä. Esimerkiksi pitää päättää, pidetäänkö jonkin silmukan muuntelumuuttujan arvoa silmukan suorituksen aikana muistissa vai jossakin tietyssä rekisterissä (esim. r3), tai varataanko jokin rekisteri (esim. r5) koko moduulin suorituksen ajaksi usein päivitettävälle globaalille muuttujalle X.
 
-Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa, tai voisiko jotkut konekäskyt jäöttää kokonaan pois. Esimerkiksi edellisen esimerkin konekäsky "load&nbsp;r1,&nbsp;x" on ihan turha, mutta sen päätteleminen ei ole ihan helppoa. Ongelman tekee vielä vaativammaksi se, että nykyisissä todellisissa suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden. 
+Samoin pohditaan, minkälaisilla konekäskyillä jokin tietty koodinpätkä olisi nopeinta suorittaa, tai voisiko jotkut konekäskyt jättää kokonaan pois. Tällainen päättely ei ole ihan helppoa. Ongelman tekee vielä vaativammaksi se, että nykyisissä todellisissa suorittimissa voi useaa (eri tyyppistä?) konekäskyä oikeasti suorittaa samanaikaisesti. Monen samaan aikaan suoritettavan konekäskyvirran optimointi on vielä vaativampaa kuin yhden. 
 
 <!-- Quiz 9.2.?? -->
 
