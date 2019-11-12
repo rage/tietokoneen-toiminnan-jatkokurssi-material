@@ -9,7 +9,7 @@ hidden: false
 </div>
 
 ## Objektimoduulin rakenne
-Käännöksessä luodaan objektimoduuli, joka sitten myöhemmin linkitetään muihin moduuleihin. Objektimoduulissa on kolme tärkeätä tietorakennetta: konekielinen ohjelmakoodi, linkityksen tarvitsemat tiedot _uudelleensijoitustaulussa_ ja kaikki ohjelman käytämät symbolit ja niiden arvot _symbolitaulussa_.
+Käännöksessä luodaan objektimoduuli, joka myöhemmin linkitetään muihin objektimoduuleihin. Objektimoduulissa on kolme tärkeätä tietorakennetta: konekielinen ohjelmakoodi, linkityksen tarvitsemat tiedot _uudelleensijoitustaulussa_ ja kaikki ohjelman käytämät symbolit ja niiden arvot _symbolitaulussa_. Symbolitaulu voi olla irrallinen toetorakenne tai sitten se on osa uudelleensijoitustaulua.
 
 Objektimoduulissa on koodi konekielisessä muodossa ja kaikki moduulin sisäiset viitteet jo oikein, mutta vain tämän objektimoduulin omassa (pienehkössä) osoiteavaruudessa.
 
@@ -33,7 +33,7 @@ Objektimoduulissa pitää jollain tavoin merkitä sellaisten viitteet _moduulin 
 
 Objektimoduulissa voi olla myös viitteitä dataan tai koodiin muissa moduuleissa. Ylläolevassa esimerkissä muistipaikassa 34 on kutsu jossakin toisessa moduulissa olevaan aliohjelmaan _matmul_, jonka osoitetta ei ole lainkaan vielä tiedossa. Sitten kun tieto linkityksen yhteydessä löytyy, se pitää laittaa paikalleen tämän moduuliin koodiin. Myös tällaisten linkityksen aikana päivitettävien  _moduulin ulkopuolisten osoitteiden_ sijainnit ovat em. uudelleensijoitustaulussa, sen _IMPORT_-osiossa (import-taulussa).
 
-Lisäksi uudelleensijoitustaulussa on vielä _EXPORT_-osio (export-taulu), jossa on tieto niistä data- tai koodiosoitteista, joihin saa tässä moduulissa viitata _muista moduuleista_. Ylläolevassa esimerkissä esimerkiksi funktio _aver_ osoitteesa 53 voisi olla tällainen muiden moduulien kutsuttavissa oleva rutiini.
+Lisäksi uudelleensijoitustaulussa on vielä _EXPORT_-osio (export-taulu), jossa on tieto niistä data- tai koodiosoitteista, joihin saa tässä moduulissa viitata _muista moduuleista_. Ylläolevassa esimerkissä esimerkiksi funktio _aver_ osoitteessa 77 voisi olla tällainen muiden moduulien kutsuttavissa oleva rutiini.
 
 ### Symbolitaulu
 
@@ -41,14 +41,14 @@ Symbolitaulussa on siis kaikki ohjelman käyttämät symbolit ja niiden arvot. J
 
 Kussakin (korkean tason ja symbolisen konekielen) ohjelmointikielessä on  merkittävä joukko etukäteen määriteltyjä symboleja, joiden arvot löytyvät myös symbolitaulusta. Tällaisia ovat esimerkiksi symbolisen konekielen operaatiokoodien nimet (add, comp, jump, etc), laiterekisterien nimet (r0, r4, sp, etc), laitteiden nimet (crt, kdb, etc) ja käyttöjärjestelmäpalvelujen nimet (halt, time, etc).
 
-Esimerkiksi symbolisen konekielen equ-valekäskyllä määritellään jollekin symbolille arvo ja se talletetaan symbolitauluun. Moduulin omien tietorakenteiden sijainnit ja siten niitä vastaavien symbolien arvot määräytyvät täysin siitä, missä järjestyksessä ne on kirjoitettu käännösyksikön ohjelmakoodiin. Ihan vastaavasti kaikki koodissa olevat käskyjen osoitteet määräytyvät niiden tekstuaalisen sijainnin perusteellakäännösyksikössä.
+Esimerkiksi symbolisen konekielen equ-valekäskyllä määritellään jollekin symbolille arvo ja se talletetaan symbolitauluun. Moduulin omien tietorakenteiden sijainnit ja niitä vastaavien symbolien arvot määräytyvät täysin siitä, missä järjestyksessä ne on kirjoitettu käännösyksikön ohjelmakoodiin. Ihan vastaavasti kaikki koodissa olevat käskyjen osoitteet määräytyvät niiden tekstuaalisen sijainnin perusteella käännösyksikössä.
 
-Kun moduulissa viitataan moduuliin ulkopuoliseen dataan tai koodiin, niin niitä vastaavien symbolien arvo selviää vasta linkitysvaiheessa. Dynaamisesti linkitettävät moduulien osalta symbolin arvo tarkentuu vasta suoritusaikana.
+Kun moduulissa viitataan moduuliin ulkopuoliseen dataan tai koodiin, niin niitä vastaavien symbolien arvot selviävät vasta linkitysvaiheessa. Dynaamisesti linkitettävät moduulien osalta symbolien arvot tarkentuvat vasta suoritusaikana.
 
-Jos dynaamista linkitystä ei ole käytössä, niin koko symbolitaulun voi jättää pois latausmoduulista. Kaikilla symboleilla  on jo arvot ja ne on päivitetty koodiin. Usein symbolitaulu pidetään kuitenkin tallessa ainakin ohjelmiston kehitysaikana, jotta sen avulla voidaan tehdä järkevämpiä virheilmoituksia. Ohjelmoijalle on paljon mukavampaa lukea "Integer overflow for variable X in line 4226 in module Statistics" kuin "Integer overflow in 0x00004321". Toisaalta taas älykellon käyttäjä ei missään tapauksessa halua nähdä kumpaakaan noista ilmoituksista ja symboolitaulun vaatiman muistitilan voi käyttää paremminkin.
+Jos dynaamista linkitystä ei ole käytössä, niin koko symbolitaulun voi jättää pois latausmoduulista. Kaikilla symboleilla  on jo arvot ja ne on päivitetty koodiin. Usein symbolitaulu pidetään kuitenkin tallessa ainakin ohjelmiston kehitysaikana, jotta sen avulla voidaan tehdä järkevämpiä virheilmoituksia. Ohjelmoijalle on paljon mukavampaa lukea "Integer overflow for variable X in line 4226 in module Statistics" kuin "Integer overflow in 0x00004321". Toisaalta taas älykellon käyttäjä ei missään tapauksessa halua nähdä kumpaakaan noista ilmoituksista ja symbolitaulun vaatiman muistitilan voi käyttää paremminkin.
 
 ### Literaalit
-Literaali tarkoittaa ohjelmassa olevia vakioita. Ne on usein sijoitettu omalle muistialueelle, eikä tällaisella _literaalialueella_ olevia arvoja saisi muuttaa. On ilmeisen virhealtista muuttaa literaalin Sata arvoksi 101, jne. Esimerkkikonekielessä ttk-91 kaikki vakiot ovat literaaleja, mutta niiden muuttamattomuutta valvotaan vain ohjelmointikurilla. Useissa järjestelmissä vakiot talletetaan omalle suojatulle muistisegmentille. Siellä olevia tietoja voi lukea ja niitä voi lisätä, mutta tietoja ei voi muuttaa.
+Literaali tarkoittaa ohjelmassa olevia vakioita. Ne on usein sijoitettu omalle muistialueelleen, eikä tällaisella _literaalialueella_ olevia arvoja saisi muuttaa. On ilmeisen virhealtista muuttaa literaalin Sata arvoksi 101, jne. Esimerkkikonekielessä ttk-91 kaikki vakiot ovat literaaleja, mutta niiden muuttamattomuutta valvotaan vain ohjelmointikurilla. Useissa järjestelmissä vakiot talletetaan omalle suojatulle muistisegmentille. Siellä olevia tietoja voi lukea ja niitä voi lisätä, mutta tietoja ei voi muuttaa.
 
 Joissakin kielissä kaikki merkkijonot ovat literaaleja. Joissakin kielissä kaikki koodissa olevat isot vakiot ovat literaaleja, jolloin ison vakion käyttäminen koodissa automaattisesti johtaa uuden vakion määrittelyyn.
 
@@ -79,14 +79,14 @@ store   r1, =6    -->    L6  dc 6
 Ohjelmointikuri on selvästi pettänyt ja vakion L6 arvo on nyt 5, mistä seuraisi jatkossa luultavasti hyvin paljon ongelmia.  Joissakin (vanhemmissa) kielissä oli mahdollista kirjoittaa lause "6=5;", millä oli juuri sama lopputulos. Nykyisissä kielissä tämä ei ole mahdollista, koska ensinnäkin kielen määrittely estää sen ja toiseksi literaalit sijaitsevat suojatulla muistialueella.
 
 ### Makrot
-Useissa korkean tason kielissä ja symbolisissa konekielissä on mahdollisuus käyttää _makroja_. Makrot ovat usein toistettavia koodisarjoja ja niiden käyttö helpottaa ohjelmointia. Niissä voi olla parametreja, minkä vuoksi ne voi joskus sekoittaa alioohjelmiin vaikka ne ovat täysin erilaisia.
+Useissa korkean tason kielissä ja symbolisissa konekielissä on mahdollisuus käyttää _makroja_. Makrot ovat usein toistettavia koodisarjoja ja niiden käyttö helpottaa ohjelmointia. Niissä voi olla parametreja, minkä vuoksi ne voi joskus sekoittaa aliohjelmiin vaikka ne ovat täysin erilaisia.
 
 Makrot käsitellään ennen kääntämistä. Ennen varsinaista käännöstä koko ohjelmakoodi käydään läpi ja kukin makro _laajennetaan_ tekstuaalisesti sitä vastaavaksi koodinpätkäksi. Tämän vuoksi makroissa voi käyttää ainoastaan _nimiparametreja_, koska arvo- ja viiteparametrit ovat käsitteinä olemassa ainoastaan suoritusaikana. 
 
 Kukin makro pitää määritellä ennen sen käyttöä. Esimerkiksi, luvussa 6 esitelty makro Swap määritellään seuraavanalaisesti.
 
 ```
-macro Swap (j, j)  -- vaihda i:n ja j:n arvot keskenään
+macro Swap (i, j)  -- vaihda i:n ja j:n arvot keskenään
 tmp = i;
 i = j;
 j = tmp;
@@ -100,13 +100,13 @@ x = tbl[y];
 tbl[y] = tmp;
 ```
 
-mikä toimii suoritusaikana aivan oikein, vaihtaen muuttuja X ja taulukon tbl alkion tbl[y] arvot keskenään. 
+mikä toimii suoritusaikana aivan oikein, vaihtaen muuttujan X ja taulukon alkion tbl[y] arvot keskenään. 
 
-Symbolisissa konekielissä on tyypillistä käyttää makroja esimerkiksi aliohjelmien prologin ja preluden toteutukseen. Esimerkiksi Luvussa 6 esitetyn funktion fA(x,y) preludin voisi toteuttaa makrolla 
+Symbolisissa konekielissä on tyypillistä käyttää makroja esimerkiksi aliohjelmien prologien ja preludien toteutukseen. Esimerkiksi Luvussa 6 esitetyn funktion fA(x,y) preludin voisi toteuttaa makrolla 
 
 ```
 -- funktion prelude, 2 parametria, 1 paikallinen muuttuja
-macro Prelude-f-2-l-1 (fnimi, ret, par1, par2, loc1, loc1val)  
+macro Prelude-f-2-1 (fnimi, ret, par1, par2, loc1, loc1val)  
 ret equ -4
 par1 equ -3
 par2 equ -2
@@ -114,27 +114,27 @@ loc1 equ 1
 
 fnimi push sp, 0
       pushr sp
-      load r1, loc1val
+      load r1, =loc1val
       store r1, loc1(fp)
 ```
 
 Nyt funktion fa() koodi olisi
 
 ```
-    Prelude-f-2-1-1 (fa, retfA, parX, parY, locZ, 5)
+    Prelude-f-2-1 (fa, retfA, parX, parY, locZ, 5)
     
     ...                -- funktion varsinainen koodi
     
-f10 Epilog-f-2-1-1 ()  -- 1 paik. muuttuja, 2 parametria
+f10 Epilog-f-2-1 ()  -- 2 parametria, 1 paik. muuttuja 
 ```
 
-Makron _Epilog-f-2-1-1()_ jätetään harjoitustehtäväksi. 
+Makron _Epilog-f-2-1()_ määrittely jätetään harjoitustehtäväksi. 
 
-Tässä esimerkissä makro Prelude-f-2-1-1() on vähän kompelö, koska sen käyttö sopii vain funktioille, joilla on kaksi parametria ja yksi paikallinen muuttuja. Hyvä ohjelmoija kirjoittaisi käyttökelpoisempia makroja, jos vain käytettävissä oleva makrojen määrittelykieli sen vain sallisi.
+Tässä esimerkissä makro Prelude-f-2-1() on vähän kompelö, koska sen käyttö sopii vain funktioille, joilla on kaksi parametria ja yksi paikallinen muuttuja. Hyvä ohjelmoija kirjoittaisi käyttökelpoisempia makroja, jos vain käytettävissä oleva makrojen määrittelykieli sen vain sallisi.
 
-Makroilla on muutama tärkeä ominaisuus verrattuna aliohjelmiin. Mainitsimmekin jo, että makrot siis lajennetaan koodiksi ennen käännöstä, kun taas aliohjelmia kutsutaan suoritusaikana. Koska jokainen makron käyttökerta laajenee aina koodiksi, niin 100 50-rivisen makron käyttökertaa laajenee 5000 riviksi koodia. Jos 50-rivistä aliohjelmaa kutsutaan 100 kertaa, niin koodin määrä on vain yhden aliohjelman toteutuksen n. 60 riviä. Lisäksi jokaisen kutsukerran toteutus on ehkä 10 riviä, joten yhteistarve on ehkä 60+100\*10&nbsp;=&nbsp;1060 riviä koodia. Makrosta generoitu koodi on paikallaan sellaisenaan, eikä vaadi kontrollin siirtoa suoritusaikana. Aliohjelman yhteydessä taas jokainen kontrollin siirto vaatii esim. 10-15 konekäskyn suorituksen aktivaatiotietuetta rakennettaessa tai purettaessa.
+Makroilla on muutama tärkeä ominaisuus verrattuna aliohjelmiin. Mainitsimmekin jo, että makrot siis lajennetaan koodiksi ennen käännöstä, kun taas aliohjelmia kutsutaan suoritusaikana. Koska jokainen makron käyttökerta laajenee aina koodiksi, niin 100 kappaletta 50-rivisen makron käyttökertaa laajenee 5000 riviksi koodia. Jos 50-rivistä aliohjelmaa kutsutaan 100 kertaa, niin koodin määrä on vain yhden aliohjelman toteutuksen n. 60 riviä. Lisäksi jokaisen kutsukerran toteutus on ehkä 10 riviä, joten yhteistarve on noin 60+100\*10&nbsp;=&nbsp;1060 riviä koodia. Toisaalta, makrosta generoitu koodi on paikallaan sellaisenaan, eikä vaadi kontrollin siirtoa suoritusaikana. Aliohjelman yhteydessä jokainen kontrollin siirto vaatii esim. 10-15 konekäskyn suorituksen aktivaatiotietuetta rakennettaessa tai purettaessa.
 
-Makrojen merkittävä ero aliohjelmiin on, että makroilla ei ole omaa viiteympäristöä, koska makrot laajennetaan sellaisenaan käyttökohtiinsa. Aliohjelmilla voidaan toteuttaa korkean tason kielten erilaiset viiteympäristöt. Esimerkiksi C-kielessä kussakin aliohjelmassa voi viitata vain sen omiin paikallisiin tietorakenteisiin ja globaaleihin kaikkialla viitattaviin tietorakenteisiin, mutta ei minkään muun aliohjelman paikallisiin tietorakenteisiin. Kullakin ohjelmointikielellä on omat määrittelynsä siitä, mikä on kunkin tunnuksen näkyvyysalue (käyttöalue). Tunnusten näkyvyysalueet toteutetaan aktivaatiotietueiden avulla. 
+Makrojen merkittävä ero aliohjelmiin on, että makroilla ei ole omaa viiteympäristöä, koska makrot laajennetaan sellaisenaan käyttökohtiinsa. Aliohjelmilla voidaan toteuttaa korkean tason kielten erilaiset viiteympäristöt. Esimerkiksi C-kielessä kussakin aliohjelmassa voi viitata sen omiin paikallisiin tietorakenteisiin ja globaaleihin kaikkialla viitattaviin tietorakenteisiin, mutta ei minkään muun aliohjelman paikallisiin tietorakenteisiin. Kullakin ohjelmointikielellä on omat määrittelynsä siitä, mikä on kunkin tunnuksen näkyvyysalue (käyttöalue) ja tunnusten näkyvyysalueet toteutetaan aktivaatiotietueiden avulla. 
 
 ## Assembler kääntäminen
 Symbolisen konekielen käännös tapahtuu periaatteessa kolmessa eri vaiheessa, mutta joskus näitä vaiheita voi yhdistellä. Kussakin vaiheessa käydään läpi koko käännösyksikkö alusta loppuun. Ensimmäisessä vaiheessa lasketaan kunkin konekäskyn vievä tila, generoidaan symbolitaulu ja uudelleensijoitustaulu. Ttk-91 koneessa tämä on helppoa, koska kukin konekäsky on saman mittainen (4 tavua), mutta esimerkiksi Intelin x86 arkkitehtuurin käskyt voivat olla 1-21 tavua mittaisia. Kun koodin (ja datan) pituus tiedetään, on helppo päätellä koodiin ja dataan viittavien symbolien arvot. Ensimmäisen vaiheen jälkeen symbolitauluun on saatu tieto kaikkien tämän moduulin symbolien arvoista.
