@@ -48,19 +48,19 @@ Toinen tapa on käyttää _muistiinkuvattua I/O:ta_, jossa normaali ohjelman kä
 Huonona piirteenä tässä on, että suuri osa ohjelman muistiavaruudesta (edellisessä esimerkissä 50%) on nyt varattu I/O-laitteille. Etuna on, että I/O-laitteita kontrolloidaan tavallisilla muistiviitekäskyillä (load, store). Uuden tyyppisiä laitteita on helppo lisätä järjestelmään, kunhan niille vain kirjoitetaan sopiva laiteajuri. Tämä on yleisin tapa ohjata laitteita.
 
 ```
-# uuden kirjoittimen 0x4 laiterekisterit
-PrinterControl  equ 0x84000001  # kontrollirekisterin osoite
-PrinterStatus   equ 0x84000002  # statusrekisterin osoite
-PrinterData     equ 0x84000003  # datarekisterin osoite
+# uuden kirjoittimen 0x4 laiterekistereiden osoitteet
+PrinterControl  dc 0x84000001  # kontrollirekisterin osoite
+PrinterStatus   dc 0x84000002  # statusrekisterin osoite
+PrinterData     dc 0x84000003  # datarekisterin osoite
 
 CmdPrint  equ 1    # tulostuskomento
 
 ...
 # tulosta luku 53 kirjoittimella 0x4
      load r1, =53            ; kirjoita luku 53 datarekisteriin
-     store r1, PrinterData   ; kirjoittaa laiteohjaimen datarekisteriin
+     store r1, (PrinterData)   ; kirjoittaa laiteohjaimen datarekisteriin
      load r1, =CmdPrint
-     store r1, DiskControl   ; anna tulostuskäsky laiteohjaimelle 
+     store r1, (PrinterControl)   ; anna tulostuskäsky laiteohjaimelle 
 ```
 
 ### I/O-tyypit
@@ -73,20 +73,22 @@ Suorassa I/O:ssa laiteajuri (DD) ohjaa koko toimintaa ja pysyy suorituksessa kok
 
 Laiteohjain ei siis käytä väylää lainkaan itse, vaan se kirjoittaa ja lukee omassa muistissaan olevia laiterekistereitä I/O:n toteuttamiseksi. Kun DCP on valmis uuteen I/O-tapahtumaan, se ensin nollaa (resetoi) tilarekisterin ja sitten pollaa (ikuisessa loopissa) kunnes tämän laitteen ajuri DD antaa sille uuden komennon.
 
-Oletetaan esimerkiksi, että uusi näppäimistö olisi toteutettu näin. Käytämme muistiinkuvattua I/O:ta ja näppäimistön laiterekisterien osoitteet ovat KBControl (kontrollirekisteri), KBStatus (statusrekisteri) ja KBData (data rekisteri). Näppäimistöltä voisi nyt lukea yhden merkin (yksinkertaistetun koodin avulla) seuraavanlaisesti:
+Oletetaan esimerkiksi, että uusi näppäimistö olisi toteutettu näin. Käytämme muistiinkuvattua I/O:ta ja näppäimistön laiterekisterien osoitteet laiteajurissa ovat KBControl (kontrollirekisteri), KBStatus (statusrekisteri) ja KBData (data rekisteri). Laiteohjaimen muistissa laiterekisterit ovat tavallisia muistipaikkoja Status, Control ja Data.
+
+Näppäimistöltä voisi nyt lukea yhden merkin (yksinkertaistetun koodin avulla) seuraavanlaisesti:
 
 ```
 Laiteajuri (DD) -- suora I/O
 ----------------------------
     
      load r1, =1          ; komento "Lue"
-     store r1, &KBControl
+     store r1, (KBControl)
 
-loop load r1, &KBStatus   ; odota näppäintä, 1 = OK, negat. arvo = vika
+loop load r1, (KBStatus)  ; odota näppäintä, 1 = OK, negat. arvo = vika
      jneg r1, KBError     ; näppäimistö rikki, ei kytketty, tms.
      jzer r1, loop
 
-     load r1, &KBData     ; lue merkki laitteelta datarekisteristä
+     load r1, (KBData)    ; lue merkki laitteelta datarekisteristä
      store r1, Buffer     ; vie merkki keskusmuistiin puskuriin
      
      
@@ -107,7 +109,7 @@ wait load r1, Control    ; odota kunnes uusi pyyntö
      store r1, Status
 ```
 
-Huomaa, että esimerkin DCP suorittaa laiteohjaimella. Laiteohjaimen suoritin ei yleensä ole lainkaan samantyyppinen keskusyksikön suorittimen (CPU) kanssa eikä se käytä samanlaisia konekäskyjä. Yksinkertaisen laitteen laiteohjain voi olla suoraan toteutettuna mikropiireillä, jolloin mitään suoritinta tai laiteohjain_prosessia_ ei edes ole. Laitteen toimintaa voi silti hyvin kuvata DCP:n kaltaiseksi. Tässä esimerkissä laiteohjaimella on suoritin, jonka rakenne ja käskykanta ovat (pedagogista syistä) samanlaisia CPU:n kanssa. DCP voi viitata laiteohjaimen rekistereihin (sen muistiin) suoraan. Esimerkistä on tahallaan jätetty pois yksityiskohdat, joilla merkki siirretään puskurista (Buffer) käyttäjätason prosessille ja joilla DCP pääsee seuraavan merkin lukemiseen. Samoin siitä on jätetty pois erilaisten virheiden käsittelyrutiinit.
+Esimerkin DCP suorittaa siis laiteohjaimella. Laiteohjaimen suoritin ei yleensä ole lainkaan samantyyppinen keskusyksikön suorittimen (CPU) kanssa eikä se käytä samanlaisia konekäskyjä. Yksinkertaisen laitteen laiteohjain voi olla suoraan toteutettuna mikropiireillä, jolloin mitään suoritinta tai laiteohjain_prosessia_ ei edes ole. Laitteen toimintaa voi silti hyvin kuvata DCP:n kaltaiseksi. Tässä esimerkissä laiteohjaimella on suoritin, jonka rakenne ja käskykanta ovat (pedagogista syistä) samanlaisia CPU:n kanssa. DCP voi viitata laiteohjaimen laiterekistereihin (sen muistiin) suoraan tavallisilla muistiosoitteilla. Esimerkistä on tahallaan jätetty pois yksityiskohdat, joilla merkki siirretään puskurista (Buffer) käyttäjätason prosessille ja joilla DCP pääsee seuraavan merkin lukemiseen. Samoin siitä on jätetty pois erilaisten virheiden käsittelyrutiinit.
 
 Suorassa I/O:ssa etuna on, että se on hyvin yksinkertainen toteuttaa. Huonona puolena on se, että kaikki odotus tapahtuu suorittamalla tiukkaa silmukkaa, kunnes luettu tieto on halutun mukainen. DCP:llä tämä ei haittaa, koska se on muusta järjestelmästä irrallinen laite. Sillä ole mitään muutakaan tekemistä sillä aikaa, kun se odottaa jonkin prosessin haluavan käyttää sitä (esim. näppäimistöä).
 
@@ -124,18 +126,18 @@ Aikaisempi esimerkin näppäimistö toimisi nyt seuraavanlaisesti:
 Laiteajuri (DD) -- keskeyttävä I/O
 ----------------------------------
     
-     load r1, =1          ; komento "Lue"
-     store r1, &KBControl ; kirjoita komento kontrollirekisteriin
+     load r1, =1           ; komento "Lue"
+     store r1, (KBControl) ; kirjoita komento kontrollirekisteriin
 
-     svc sp, =SLEEP       ; mene odotustilaan
+     svc sp, =SLEEP        ; mene odotustilaan
      
      ... ; herää henkiin sitten joskus, kun käyttöjärjestelmä päättää
      
-     load r1, &KBStatus   ; lue status, 1 = OK, negat. arvo = vika
-     jneg r1, KBError     ; oliko jotain vialla?
+     load r1, (KBStatus)   ; lue status, 1 = OK, negat. arvo = vika
+     jneg r1, KBError      ; oliko jotain vialla?
 
-     load r1, &KBData     ; lue merkki laitteelta
-     store r1, Buffer     ; vie se keskusmuistiin
+     load r1, (KBData)     ; lue merkki laitteelta
+     store r1, Buffer      ; vie se keskusmuistiin
      
      
 Laiteohjainprosessi (DCP)
@@ -175,18 +177,17 @@ Laiteajuri (DD) -- DMA I/O
 --------------------------
 
      load r1, =Buffer     ; anna DCP:lle puskurin muistiosoite
-     store r1, &KBData
+     store r1, (KBData)
 
      load r1, =1          ; komento "Lue" kontrollirekisteriin
-     store r1, &KBControl
+     store r1, (KBControl)
 
      svc sp, =SLEEP       ; mene odotustilaan
      
      ... ; herää henkiin sitten joskus, kun käyttöjärjestelmä päättää
      
-     load r1, &KBStatus   ; lue status, 1 = OK, negat. arvo = vika
+     load r1, (KBStatus)  ; lue status, 1 = OK, negat. arvo = vika
      jneg r1, KBError     ; oliko jotain vialla?
-
 
      
      
