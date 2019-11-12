@@ -63,10 +63,10 @@ not1 comp r1, =2
      ...           ; vaihtoehto X=2
      jump done
 not2 comp r1, =3
-     jnequ not1
+     jnequ not3
      ...           ; vaihtoehto X=3
      jump done
-not2 ...           ; oletus vaihtoehto (default)
+not3 ...           ; oletus vaihtoehto (default)
 done nop
 ```
 
