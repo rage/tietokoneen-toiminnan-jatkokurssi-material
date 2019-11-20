@@ -98,7 +98,7 @@ Huomaa, että taulukko T voi olla nyt talletetettuna epäyhtenäisille alueille 
 
 ```
      load r1, i
-     load r2, T(r1)    ; rivin T[i] osoite
+     load r1, T(r1)    ; rivin T[i] osoite
      add r1, j         ; alkion T[i,j] osoite
      load r2, 0(r1)    ; lataa r2:een alkion T[i,j] arvo
 ```
