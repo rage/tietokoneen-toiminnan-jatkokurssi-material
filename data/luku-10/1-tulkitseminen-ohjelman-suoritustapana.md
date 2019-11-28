@@ -65,6 +65,8 @@ foreach par ( $*  )
 end
 ``` 
 
+Jos edellisen esimerkin rivieditorille _ed_ annetaan vain muutama komento, ne voi antaa _komentoriviparametreina_ ilman syötetiedostoa. Toisaalta, syötetiedosto voi olla hyvinkin pitkä. Tällöin rivieditorin voi mieltää komentotulkkina ja sen syötteen skripteinä. Rivieditorin syötetiedoston taas voisi hyvin luoda jokin muu skripti. Skriptit antavat siis mahdollisuuden hyvin tehokkaaseen ohjelmointiin.
+
 ## Emulointi
 [Emulaattori](https://en.wikipedia.org/wiki/Emulator) tarkoittaa ohjelmaa (tai laitteistoa), jonka kautta käytössä oleva järjestelmä saadaan tuntumaan samalta kuin jokin muu järjestelmä. Esimerkiksi Titokone on ohjelma, joka emuloi ttk-91 suoritinta (ja sen käyttöjärjestelmää) missä tahansa järjestelmässä, missä Titokoneen voi suorittaa. Titokoneessa on ohjelman sisäisinä tietorakenteina kaikki hypoteettisen ttk-91 suorittimen rekisterit ja muisti. Kaikki ttk-91 ohjelmat voidaan suorittaa Titokoneessa ja ne käyttäytyvät (suoritusaikaa lukuunottamatta) samalla tavalla kuin jos ne olisi suoritettu todellisella ttk-91 suorittimella. 
 
