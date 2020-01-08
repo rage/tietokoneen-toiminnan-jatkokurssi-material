@@ -11,7 +11,6 @@ const CourseProgress = ({
     (currentCourseVariant === "ohja-dl" ||
     currentCourseVariant === "ohja-nodl" ? (
       <div>
-        <h4>Ohjelmoinnin jatkokurssi</h4>
         {Object.entries(data).map(([name, data]) => {
           return (
             <PartProgress
@@ -24,12 +23,10 @@ const CourseProgress = ({
       </div>
     ) : (
       <div>
-        <h4>Ohjelmoinnin perusteet</h4>
         {Object.entries(data).map(([name, data]) => {
           if (name === "osa08") {
             return (
               <div>
-                <h4>Ohjelmoinnin jatkokurssi</h4>
                 <PartProgress
                   appliesForStudyRight={appliesForStudyRight}
                   name={name}
