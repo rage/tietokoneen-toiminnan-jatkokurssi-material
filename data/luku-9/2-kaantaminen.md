@@ -9,7 +9,7 @@ hidden: false
 </div>
 
 ## Objektimoduulin rakenne
-Käännöksessä luodaan objektimoduuli, joka myöhemmin linkitetään muihin objektimoduuleihin. Objektimoduulissa on kolme tärkeätä tietorakennetta: konekielinen ohjelmakoodi, linkityksen tarvitsemat tiedot _uudelleensijoitustaulussa_ ja kaikki ohjelman käytämät symbolit ja niiden arvot _symbolitaulussa_. Symbolitaulu voi olla irrallinen toetorakenne tai sitten se on osa uudelleensijoitustaulua.
+Käännöksessä luodaan objektimoduuli, joka myöhemmin linkitetään muihin objektimoduuleihin. Objektimoduulissa on kolme tärkeätä tietorakennetta: konekielinen ohjelmakoodi, linkityksen tarvitsemat tiedot _uudelleensijoitustaulussa_ ja kaikki ohjelman käytämät symbolit ja niiden arvot _symbolitaulussa_. Symbolitaulu voi olla irrallinen tietorakenne tai sitten se on osa uudelleensijoitustaulua.
 
 Objektimoduulissa on koodi konekielisessä muodossa ja kaikki moduulin sisäiset viitteet jo oikein, mutta vain tämän objektimoduulin omassa (pienehkössä) osoiteavaruudessa.
 
