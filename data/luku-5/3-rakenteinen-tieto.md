@@ -1,6 +1,6 @@
 ---
 path: "/luku-5/3-rakenteinen-tieto"
-title: "Rakenteisen tiedon toteutus ja siihen viittaminen"
+title: "Rakenteisen tiedon toteutus ja siihen viittaaminen"
 ---
 
 <div>
