@@ -4,7 +4,7 @@ title: "Rakenteisen tiedon toteutus ja siihen viittaminen"
 ---
 
 <div>
-<lead>Rakenteinen tieto tarkoittaa yhtä tietoalkiota suurempia tietokokonaisuuksia, jotka loogisesti liittyvät toisinsa. Tyypillisiä tällaisia tietoja ovat erilaiset taulukot, tietueet ja näiden yhdistelmät.
+<lead>Rakenteinen tieto tarkoittaa yhtä tietoalkiota suurempia tietokokonaisuuksia, jotka loogisesti liittyvät toisiinsa. Tyypillisiä tällaisia tietoja ovat erilaiset taulukot, tietueet ja näiden yhdistelmät.
 </lead>
 </div>
 
@@ -25,7 +25,7 @@ loop  comp r1, =30      ; silmukan lopetustesti
 done  nop               ; poistu silmukasta
 ```
 
-Toinen tyypillinen ohjelmissa käytetty tietorakenne on tietue, jossa samaan tietoon liittyvät eri kentät on talletettu peräkäisiin mustipaikkoihin. Tällä kertaa viitatun tiedon (tietueen jokin kenttä) osoite saadaan laskemalla yhteen tietueen alkuosoite ja viitatun kentän suhteellinen sijainti tietueen sisällä. Vähän yllättävästi, tällaiseenkin tietoon viittaaminen voidaan toteuttaa indeksoidulla tiedonosoitusmoodilla yhdessä konekäskyssä. Tällä kertaa kuitenkin tietueen alkuosoite annetaan indeksirekisterissä ja viitatun kentän suhteellinen sijainti on käskyn vakiokentässä.
+Toinen tyypillinen ohjelmissa käytetty tietorakenne on tietue, jossa samaan tietoon liittyvät eri kentät on talletettu peräkkäisiin muistipaikkoihin. Tällä kertaa viitatun tiedon (tietueen jokin kenttä) osoite saadaan laskemalla yhteen tietueen alkuosoite ja viitatun kentän suhteellinen sijainti tietueen sisällä. Vähän yllättävästi, tällaiseenkin tietoon viittaaminen voidaan toteuttaa indeksoidulla tiedonosoitusmoodilla yhdessä konekäskyssä. Tällä kertaa kuitenkin tietueen alkuosoite annetaan indeksirekisterissä ja viitatun kentän suhteellinen sijainti on käskyn vakiokentässä.
 
 ```
 Id      equ 0        ; tietueen Person kenttien suhteelliset sijainnit
@@ -44,7 +44,7 @@ Per2    ds 3
 ```
 
 ## 2-ulotteiset taulukot
-Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ole niitä tukevia tiedonosoitusmoodeja, joten tietoon viittaminen tapahtuu kahdessa vaiheessa. Ensin ohjelmassa lasketaan viitatun tiedon suhteellinen sijainti rakenteisen tiedon sisällä ja sitten indeksoitua tiedonosoitusmoodia käyttäen tehdään varsinainen tiedonosoitus.
+Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ole niitä tukevia tiedonosoitusmoodeja, joten tietoon viittaaminen tapahtuu kahdessa vaiheessa. Ensin ohjelmassa lasketaan viitatun tiedon suhteellinen sijainti rakenteisen tiedon sisällä ja sitten indeksoitua tiedonosoitusmoodia käyttäen tehdään varsinainen tiedonosoitus.
 
 ### Talletus riveittäin
 2-ulotteiset taulukot voidaan tallettaa muistiin ainakin kolmella tavalla. Ne voidaan tallettaa yhtenäiselle alueelle _riveittäin_, jolloin esimerkiksi osoitteeseen 300 talletettu taulukko T[2,3]
@@ -54,7 +54,7 @@ Moniulotteiset taulukot ovat jo vaikeampi tapaus. Useimmissa konekielissä ei ol
 11  66  3
 ```
 
-talletetaan rivi kerrallaa muistiin peräkkäisiin muistipaikkohin, muistipaikasta 300 alkaen.
+talletetaan rivi kerrallaan muistiin peräkkäisiin muistipaikkoihin, muistipaikasta 300 alkaen.
 
 ```
 300: 25  88  2 11  66  3
@@ -69,14 +69,14 @@ Nyt taulukon alkion T[i,j], missä i ilmaisee rivin ja j sarakkeen, osoite on T 
      load r2, T(r1)  ; lataa r2:een alkion T[i,j] arvo
 ```
 
-### Talletus sarakettain
-Jos taulukko T on talletettu sarakettain yhtenäiselle muistialueelle, niin se on talletettu järjestyksessä
+### Talletus sarakkeittain
+Jos taulukko T on talletettu sarakkeittain yhtenäiselle muistialueelle, niin se on talletettu järjestyksessä
 
 ```
 300: 25  11 88  66  2  3
 ```
 
-Alkion T[i,j] osoite on T + i + 2\*j ja alkioon T[i,j] viittamminen tapahtuu esimerkiksi näin:
+Alkion T[i,j] osoite on T + i + 2\*j ja alkioon T[i,j] viittaaminen tapahtuu esimerkiksi näin:
 
 ```
      load r1, j
@@ -94,7 +94,7 @@ Kolmas vaihtoehto on tallettaa (esim.) kukin rivi kerrallaan omalle yhtenäisell
 300: 400 430              (Taulukon T rivien osoitteet)
 ```
 
-Huomaa, että taulukko T voi olla nyt talletetettuna epäyhtenäisille alueille keskusmuistiin. Alkioon T[i,j] viittaminen tapahtuu nyt kaksivaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten tehdään varsinainen  viite kyseisen rivin alkioon j.
+Huomaa, että taulukko T voi olla nyt talletettuna epäyhtenäisille alueille keskusmuistiin. Alkioon T[i,j] viittaaminen tapahtuu nyt kaksivaiheisesti. Ensin haetaan rivin i osoite taulukosta T ja sitten tehdään varsinainen viite kyseisen rivin alkioon j.
 
 ```
      load r1, i
@@ -149,7 +149,7 @@ ja niihin voisi viitata esimerkiksi seuraavalla tavalla.
      load r2, S(r1)  ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
-Jos S on talletettu sarakettain, niin tasoja on viimeisen indeksin mukaisesti neljä ja alkiot ovat muistissa järjestyksessä
+Jos S on talletettu sarakkeittain, niin tasoja on viimeisen indeksin mukaisesti neljä ja alkiot ovat muistissa järjestyksessä
 
 ```
 600: 000 100 010 110 020 120     (taso k=0)
@@ -197,7 +197,7 @@ Viite (r2 = S[i,j,k]) toteutuu nyt käskyillä
      load r2, S(r1)    ; lataa r2:een alkion S[i,j,k] arvo
 ```
 
-Nämä kaikki moniulotteisten taulukoiden talletusmuodot ovat käytössä. Useimmiten korkean tason kielellä ohjelmoitaessa niillä ei ole kovin paljon väliä, koska talletusmuoto ei näy korkean tason ohjelmointikielellä ohjelmoitaessa. Joissakin tapauksissa ohjelmien suoritusnopeutta voidaan kuitenkin huomattavasti nopeuttaa, jos talletusjärjestys otetaan huomoioon koodissa. Jos esimerkiksi käydään läpi 2-ulotteisen taulukon kaikki alkiot, niin välimuisti tekee niiden läpikäynnin muistiintallennusjärjestyksessä huomattavasti nopeammaksi kuin jossakin muussa järjestyksessä. Valitettavasti 2-ulotteisia taulukoita tarvitsee usein käydä läpi niin sarakettain kuin riveittäin, joten kumpi tahansa talletusmuoto on aina joskus huono.
+Nämä kaikki moniulotteisten taulukoiden talletusmuodot ovat käytössä. Useimmiten korkean tason kielellä ohjelmoitaessa niillä ei ole kovin paljon väliä, koska talletusmuoto ei näy korkean tason ohjelmointikielellä ohjelmoitaessa. Joissakin tapauksissa ohjelmien suoritusnopeutta voidaan kuitenkin huomattavasti nopeuttaa, jos talletusjärjestys otetaan huomioon koodissa. Jos esimerkiksi käydään läpi 2-ulotteisen taulukon kaikki alkiot, niin välimuisti tekee niiden läpikäynnin muistiintallennusjärjestyksessä huomattavasti nopeammaksi kuin jossakin muussa järjestyksessä. Valitettavasti 2-ulotteisia taulukoita tarvitsee usein käydä läpi niin sarakkeittain kuin riveittäin, joten kumpi tahansa talletusmuoto on aina joskus huono.
 
 ## Monimutkaiset rakenteiset tietorakenteet
 Monimutkaisemmat tietorakenteet talletetaan muistiin vastaavilla tavoilla. Usein talletusmuoto määräytyy suoraan käytettävän ohjelmointikielen perusteella, mutta joissakin tilanteissa ohjelmoija voi päästä vaikuttamaan talletusmuotoon itsekin. Kulloinkin käytössä oleva talletusmuoto pitää sitten tietenkin huomioida hyvin huolella jokaisen dataviitteen kohdalla.
