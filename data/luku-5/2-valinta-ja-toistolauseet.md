@@ -70,7 +70,7 @@ not3 ...           ; oletus vaihtoehto (default)
 done nop
 ```
 
-Tämä on tietenkin aika hidasta, kun keskimäärin pitää puolet vaihtoehdoista käydä läpi ennen oikean löytämistä. Oikean vaihtoedon löytämistä voi nopeuttaa, jos laittaa todennäköisimmät vaihtoehdot ensin, mutta tämä ei useinkaan ole mahdollista. Hyvin kätevä korkean tason kielen rakenne muuttuu siis aika kämpelöksi konekieliseksi toteutukseksi.
+Tämä on tietenkin aika hidasta, kun keskimäärin pitää puolet vaihtoehdoista käydä läpi ennen oikean löytämistä. Oikean vaihtoedon löytämistä voi nopeuttaa, jos laittaa todennäköisimmät vaihtoehdot ensin, mutta tämä ei useinkaan ole mahdollista. Hyvin kätevä korkean tason kielen rakenne muuttuu siis aika kömpelöksi konekieliseksi toteutukseksi.
 
 
 Joissakin tapauksissa monivalinta voidaan toteuttaa ns. _hyppytaulun_ (jump table) avulla. Hyppytaulussa on talletettuna eri vaihtoehtojen _hyppyosoitteet_, joista yksi valitaan haarautumisehdon perusteella. Hyppytaulun huonona puolena on, että sen pitää kattaa kaikki ehtolausekkeen mahdolliset arvot.
@@ -167,7 +167,7 @@ until i>j;
 Eri ohjelmointikielissä on vielä paljon muitakin toistolauseen muotoja, mutta yleensä ne ovat näiden neljän muunnoksia. Saman näköisilläkin toistolauseilla voi olla eri ohjelmointikielissä erilainen merkitys (_semantiikka_). Joissakin ohjelmointikielissä silmukan rungosta tai koko silmukasta voi poistua esim. _exit_-lauseella. Joissakin ohjelmointikielissä voi silmukan yhteydessä määritellä uusia muuttujia, jotka ovat olemassa ja viitattavissa vain tuon silmukan sisällä. Emme käsittele näitä silmukoiden erityispiirteitä tässä sen enempää.
 
 ## Toistolauseet konekielessä
-Konekielessä toistolauseita on vain kahden tyyppisiä. Molemmisssa alustetaan ensin mahdolliset muuntelumuuttujat. Ensimmäisessä tapauksessa tarkistetaan heti, josko silmukasta poistutaan tällä hetkellä. Jos ei poistuta, niin silmukan runko suoritetaan ja sen jälkeen tehdään mahdolliset muutokset muuntelumuuttujiin. Toisessa vaihtoehdossa silmukan runko ja muutokset muuuntelumuuttujiin suoritetaan ensin ja sitten vasta testataan silmukan päättymisehtoa. Näillä kahdella vaihtoehdolla voidaan toteuttaa kaikki korkean tason kielten toistolauseet. Totta kai varsinaisessa konekielisessä toteutuksessa pitää huomioida kunkin korkean tason kielen semanttiset erityispiirteet.
+Konekielessä toistolauseita on vain kahden tyyppisiä. Molemmissa alustetaan ensin mahdolliset muuntelumuuttujat. Ensimmäisessä tapauksessa tarkistetaan heti, josko silmukasta poistutaan tällä hetkellä. Jos ei poistuta, niin silmukan runko suoritetaan ja sen jälkeen tehdään mahdolliset muutokset muuntelumuuttujiin. Toisessa vaihtoehdossa silmukan runko ja muutokset muuuntelumuuttujiin suoritetaan ensin ja sitten vasta testataan silmukan päättymisehtoa. Näillä kahdella vaihtoehdolla voidaan toteuttaa kaikki korkean tason kielten toistolauseet. Totta kai varsinaisessa konekielisessä toteutuksessa pitää huomioida kunkin korkean tason kielen semanttiset erityispiirteet.
 
 Esimerkiksi, edellä oleva C-kielen taulukon alustus for-silmukalla voitaisiin toteuttaa konekielellä seuraavasti:
 
