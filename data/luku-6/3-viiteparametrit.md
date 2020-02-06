@@ -8,7 +8,7 @@ title: 'Viiteparametrit ja ulostuloparametrit'
 </div>
 
 ## Viiteparametrit
-Viiteparametrien käyttäminen on usein ainoa järkevä tapa välittää rakenteista tietoa aliohjelmille. Usein rakenteinen tieto on sen verran suurta, että sitä ei haluta kopioida moneen kertaan.Toisaalta taas joidenkin järjestelmien aliohjelmien toteutus voi olla tehokkuussyistä rakennettu niin, että aktivointitietueen (AT) koko on rajattu. Jotkut ohjelmointikielet antavat myös parametreille kokorajoituksia, jolloin parametrit (ja paluuarvo) voivat olla ainoastaan yksinkertaisia tietotyyppejä. Joissakin ohjelmointikielissä sallitaan esim. taulukoiden käyttö parametreina, mutta ne voi silti käytännössä olla toteutettu viiteparametrien avulla.
+Viiteparametrien käyttäminen on usein ainoa järkevä tapa välittää rakenteista tietoa aliohjelmille. Usein rakenteinen tieto on sen verran suurta, että sitä ei haluta kopioida moneen kertaan. Toisaalta taas joidenkin järjestelmien aliohjelmien toteutus voi olla tehokkuussyistä rakennettu niin, että aktivointitietueen (AT) koko on rajattu. Jotkut ohjelmointikielet antavat myös parametreille kokorajoituksia, jolloin parametrit (ja paluuarvo) voivat olla ainoastaan yksinkertaisia tietotyyppejä. Joissakin ohjelmointikielissä sallitaan esim. taulukoiden käyttö parametreina, mutta ne voi silti käytännössä olla toteutettu viiteparametrien avulla.
 
 Aivan samalla tavalla myös suuret paikalliset tietorakenteet kasvattavat AT:n kokoa huomattavasti, mikä voi vaikuttaa merkittävästi toteutuksen tehokkuuteen. Tämän vuoksi jotkut ohjelmointikielet rajaavat myös AT:hen talletettavien paikallisten tietorakenteiden kokoa.
 
@@ -35,7 +35,7 @@ pt  dc  0          ; osoitin, joka tulee osoittamaan t:hen
      store r1, t
 ```
 
-Viiteparametreihin viittaamisessa täytyy muistaa, että parametrina on annettu vasta viitattavan tiedon osoite eikä sen arvoa. Yksinkertaiseen tietoon viittaus on silti helppo toteuttaa epäsuoraa tiedonsoitusmoodia käyttäen. Helppo tapa pitää viiteparametrit erillään arvoparametreista on nimetä ne vähän eri tavalla.
+Viiteparametreihin viittaamisessa täytyy muistaa, että parametrina on annettu vasta viitattavan tiedon osoite eikä sen arvoa. Yksinkertaiseen tietoon viittaus on silti helppo toteuttaa epäsuoraa tiedonosoitusmoodia käyttäen. Helppo tapa pitää viiteparametrit erillään arvoparametreista on nimetä ne vähän eri tavalla.
 
 ```
 ;
@@ -105,7 +105,7 @@ S     pushr sp   ; talleta rekisterit
       ...        ; laske tulokset rekistereihin r1, r2, r3
       ...
       store r1, @vparX(fp)  ; palauta tulokset viiteparametrien kautta
-      store r3, @vparY(fp)
+      store r2, @vparY(fp)
       store r3, @vparZ(fp)
 
       popr sp
