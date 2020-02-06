@@ -34,7 +34,7 @@ pushr sp       ; talleta kaikki työrekisterit
 
 Nyt AT on valmis ja itse rutiinin työ voidaan tehdä. Jos kyseessä on funktio, niin lopuksi pitää paluuarvo tallettaa omalle paikalleen AT:hen.
 
-Lopuksi aloitetaan aktivaatiotietueen purku eli _prolog_. Hyvin usein todellisissa symbolisissa konekielissä on tehokkaat _makrot_ epilogin ja prologin koodien tuottamiseksi. Ensin palautetaan talletettujen työrekistereiden arvot ja vapautataan paikallisten tietorakenteiden tilanvaraukset. Lopuksi kontrolli ja suoritusympäristö palautetaan kutsuvalle rutiinille exit-käskyllä, joka samalla vapauttaa parametrien tilanvaraukset pinosta.
+Lopuksi aloitetaan aktivaatiotietueen purku eli _epilogi_. Hyvin usein todellisissa symbolisissa konekielissä on tehokkaat _makrot_ epilogin ja prologin koodien tuottamiseksi. Ensin palautetaan talletettujen työrekistereiden arvot ja vapautetaan paikallisten tietorakenteiden tilanvaraukset. Lopuksi kontrolli ja suoritusympäristö palautetaan kutsuvalle rutiinille exit-käskyllä, joka samalla vapauttaa parametrien tilanvaraukset pinosta.
 
 ```
 popr sp     ; palauta kaikki työrekisterit
