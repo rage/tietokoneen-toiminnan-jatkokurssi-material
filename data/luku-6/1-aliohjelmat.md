@@ -31,7 +31,7 @@ _Nimiparametri_ on aivan erilainen parametrityyppi. Kun arvoparametrillä välit
 
 Useimmat ohjelmointikielet eivät salli nimiparametreja, koska aliohjelman koodi pitäisi kääntää (tai tulkita) uudelleen aliohjelman kutsuhetkellä ja se on todettu liian hankalaksi.
 
-[Skriptikielet](https://fi.wikipedia.org/wiki/Komentosarjakieli) ja [makrot](https://fi.wikipedia.org/wiki/Makro) sen sijaan käsitellään aina tulkitsemalla ja niissä nimiparametrit ovatkin yleisiä. Makrot ovat aliohjelman tapaisia usein toistuvan koodin määrittelyvälineitä, mutta ne laajennetaan koodiksi jo ennen varsinaista käännöstä. Makroilla ei ole omaa suoritusympäristöä, koska niitä ei ole olemassa enää suopritusaikana. Samasta syystä niiden parametreilla ei voi olla suoritusaikaisia ominaisuuksia kuten arvo tai osoite. Ainoaksi parametrityypiksi jää nimiparametri.
+[Skriptikielet](https://fi.wikipedia.org/wiki/Komentosarjakieli) ja [makrot](https://fi.wikipedia.org/wiki/Makro) sen sijaan käsitellään aina tulkitsemalla ja niissä nimiparametrit ovatkin yleisiä. Makrot ovat aliohjelman tapaisia usein toistuvan koodin määrittelyvälineitä, mutta ne laajennetaan koodiksi jo ennen varsinaista käännöstä. Makroilla ei ole omaa suoritusympäristöä, koska niitä ei ole olemassa enää suoritusaikana. Samasta syystä niiden parametreilla ei voi olla suoritusaikaisia ominaisuuksia kuten arvo tai osoite. Ainoaksi parametrityypiksi jää nimiparametri.
 
 Makro Swap(i, j) on mielenkiintoinen esimerkki makroista ja nimiparametrien käytöstä.
 
@@ -103,7 +103,7 @@ load r2, +2(fp)  ; lataa rekisteriin r2 toisen paikallisen muuttujan arvo
 Viimeisenä aktivaatiotietueessa on sen käyttämien työrekistereiden vanhat arvot. Funktio F käyttää laskennassa rekistereitä r1 ja r2, joten niiden arvot on talletettu aktivaatiotietueen loppuun. Niihin voisi viitata FP kautta käyttäen suhteellisia osoitteita, mutta yleensä niihin viitataan pinorekisterin SP kautta, koska ne sijaitsevat sopivasti pinon pinnalla.
 
 ## Aktivaatiotietuepino
-Aktivaatiotietueet varataan ja vapautetaan dynaamisesti suoritusaikana pinosta sitä mukaa, kun aliohjelmia kutsutaan ja niistä palataan. Allaolevassa esimerkissä on tilanne, jossa pääohjelmasta on kutsuttu aliohjelmaa sum, joka puolestaan on kutsunut funktiota funcA. FP osoittaa funcA:n AT:hen. SP osoittaa pinon pinnalle, jossa on nyt funcA:n aktivaatiotietueen viimeinen alkio. Funktion funcA suorituksenaikana sen kutsuun johtaneet aktivaatiotietueet muodostavat _aktivaatiotietuepinon_, joka antaa suorituksessa olevalle ohjelmalle sen hetkisen täydellisen suoritusympäristön. Aktivaatiotietuepino kasvaa yhdellä AT:llä joka aliohjelman kutsukerralla ja vastaavasti pienenee aliohjelmasta palatessa.
+Aktivaatiotietueet varataan ja vapautetaan dynaamisesti suoritusaikana pinosta sitä mukaa, kun aliohjelmia kutsutaan ja niistä palataan. Alla olevassa esimerkissä on tilanne, jossa pääohjelmasta on kutsuttu aliohjelmaa sum, joka puolestaan on kutsunut funktiota funcA. FP osoittaa funcA:n AT:hen. SP osoittaa pinon pinnalle, jossa on nyt funcA:n aktivaatiotietueen viimeinen alkio. Funktion funcA suorituksenaikana sen kutsuun johtaneet aktivaatiotietueet muodostavat _aktivaatiotietuepinon_, joka antaa suorituksessa olevalle ohjelmalle sen hetkisen täydellisen suoritusympäristön. Aktivaatiotietuepino kasvaa yhdellä AT:llä joka aliohjelman kutsukerralla ja vastaavasti pienenee aliohjelmasta palatessa.
 
 <!-- kuva: ch-6-1-b-at-pino  -->
 
@@ -112,7 +112,7 @@ Aktivaatiotietueet varataan ja vapautetaan dynaamisesti suoritusaikana pinosta s
 <illustrations motive="ch-6-1-b-at-pino"></illustrations>
 </div>
 
-Aktivaatiotietue sijaitsee pinossa, joka sijaitsee muistissa. AT:tä rakennetaan ja puretaan tavallisilla konekäskyillä, mutta usein käytetään erityisesti pinon käsittelyyn suunniteltuja konekäskyjä. Joka tapauksesa muistiin viitataan pinorekisterin SP kautta.
+Aktivaatiotietue sijaitsee pinossa, joka sijaitsee muistissa. AT:tä rakennetaan ja puretaan tavallisilla konekäskyillä, mutta usein käytetään erityisesti pinon käsittelyyn suunniteltuja konekäskyjä. Joka tapauksessa muistiin viitataan pinorekisterin SP kautta.
 
 Konekäsky push tallettaa pinon pinnalle yhden sanan. Konekäsky pop poistaa sieltä yhden sanan ja tallettaa sen aina rekisteriin.
 
@@ -128,7 +128,7 @@ sub sp, =1  ; poista pinon päällimmäinen alkio
 sub sp, =5  ; poista pinon 5 päällimmäistä alkiota
 ```
 
-Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös laskennan välitulosten tallentamiseen, jolloin push- ja pop-käskyjä käytettäsiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällaisen laskennan yhteydessä ohjelmassa voitaisiin ottaa käyttöön useita pinoja, jolloin push- ja pop-käskyissä voisi käyttää pinorekisterinä myös muita rekistereitä kuin r6:sta. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä. Viittaamme pinoon aina pinorekisterin SP (Stack Pointer, r6) kautta.
+Pinoa voitaisiin käyttää aliohjelmien toteutuksen lisäksi myös laskennan välitulosten tallentamiseen, jolloin push- ja pop-käskyjä käytettäisiin välitulosten kopiointiin pinon ja muiden tietorakenteiden välillä. Tällaisen laskennan yhteydessä ohjelmassa voitaisiin ottaa käyttöön useita pinoja, jolloin push- ja pop-käskyissä voisi käyttää pinorekisterinä myös muita rekistereitä kuin r6:sta. Tällä kurssilla emme kuitenkaan tee näin ja pinoa käytetään ainoastaan aliohjelmien toteutusvälineenä. Viittaamme pinoon aina pinorekisterin SP (Stack Pointer, r6) kautta.
 
 Rekistereiden talletuksen ja arvojen palautuksen voi hyvin tehdä push- ja pop-käskyillä. Ttk-91:ssä on tätä tarkoitusta varten myös erikoiskäskyt pushr ja popr, jotka yhdellä konekäskyllä tallettavat kaikkien työrekistereiden r0-r5 arvot pinoon tai palauttavat niiden arvot pinosta. Toisaalta, jos aliohjelma käyttää vain yhtä tai kahta työrekisteriä, niin voi olla turhaa tallettaa ja palauttaa kaikkien työrekistereiden arvoja.
 
