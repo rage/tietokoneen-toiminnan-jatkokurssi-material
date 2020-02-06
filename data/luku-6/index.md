@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Tässä luvussa esittelemme, kuinka aliohjelmia (mukaanlukien funktiot ja metodit) ja käyttöjärjestelmä palveluja käytetään. Käymme läpi erilaiset parametrityypit. Esittelemme aktivointitietueen käsitteenä ja näytämme, kuinka se on toteutettu esimerkkikoneessa. Käymme läpi aktivointitietuepinon käytön aliohjelmien kutsujen ja paluiden yhteydessä. Lopuksi esittelemme lyhyesti, miten käyttöjärjestelmän palveluja toteutetaan niiden oman palvelypyyntökonekäskyn avulla. 
+Tässä luvussa esittelemme, kuinka aliohjelmia (mukaan lukien funktiot ja metodit) ja käyttöjärjestelmäpalveluja käytetään. Käymme läpi erilaiset parametrityypit. Esittelemme aktivointitietueen käsitteenä ja näytämme, kuinka se on toteutettu esimerkkikoneessa. Käymme läpi aktivointitietuepinon käytön aliohjelmien kutsujen ja paluiden yhteydessä. Lopuksi esittelemme lyhyesti, miten käyttöjärjestelmän palveluja toteutetaan niiden oman palvelupyyntökonekäskyn avulla. 
 
 <please-login></please-login>
 
