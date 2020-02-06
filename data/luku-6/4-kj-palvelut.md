@@ -4,7 +4,7 @@ title: 'Käyttöjärjestelmäpalvelujen käyttö'
 ---
 
 <div><lead>
-Tässä osiossa esitellään käyttöjärjestelmäpalvelujen käyttö ja kuinka se eroaa tavallisten aliohjelmien käyttämisesestä.
+Tässä osiossa esitellään käyttöjärjestelmäpalvelujen käyttö ja kuinka se eroaa tavallisten aliohjelmien käyttämisestä.
 </lead></div>
 
 ## Käyttöjärjestelmäpalvelut kutsuttavina rutiineina
@@ -26,7 +26,7 @@ Parametrien välitys käyttöjärjestelmärutiineille voi olla erilaista kuin ta
 ; laiteajurin DiskDriver=33 kutsu proseduraalisesti
 ;
       push  sp, =0             ; paluuarvo
-      push  sp, =FileBuffer    ; datpuskuri tiedon siirtoa varten
+      push  sp, =FileBuffer    ; datapuskuri tiedon siirtoa varten
       push  sp, ByteCnt        ; luettavien tavujen lukumäärä
       push  sp, ptrFile        ; luettava tiedosto
 
@@ -38,7 +38,7 @@ Parametrien välitys käyttöjärjestelmärutiineille voi olla erilaista kuin ta
 Jos palvelu on suoritettu etuoikeutetussa tilassa, alkuperäinen suorittimen suoritustila (yleensä tavallinen suoritustila) täytyy palauttaa palvelusta paluun yhteydessä. Tätä varten on olemassa yleensä jokin etuoikeutettu konekäsky (esim. iret eli interrupt return). Aikaisemmin vallinnut suoritustila täytyy tietenkin tallettaa johonkin, esimerkiksi pinoon vanhan PC:n ja vanhan FP:n yhteyteen.
 
 ## Käyttöjärjestelmäpalvelut prosesseina
-Osa käyttöjärjestelmäpalveluista on toteutettu omina suoritettavina ohjelmina eli prosesseina. Niitä ei voi kutsua, mutta niille voi lähettää palvelupyyntöviestejä ja sitten jäädä odottamaan vastausviestiä. Viestien lähetys ja vastaanotto taas ovat normaaleja etuoikeutettuja palveluita, joita kutsutaan proseduraalisesti. Esimerkiksi, joidenkin laitteiden laitajurit voi olla toteutettu näin.
+Osa käyttöjärjestelmäpalveluista on toteutettu omina suoritettavina ohjelmina eli prosesseina. Niitä ei voi kutsua, mutta niille voi lähettää palvelupyyntöviestejä ja sitten jäädä odottamaan vastausviestiä. Viestien lähetys ja vastaanotto taas ovat normaaleja etuoikeutettuja palveluita, joita kutsutaan proseduraalisesti. Esimerkiksi, joidenkin laitteiden laiteajurit voi olla toteutettu näin.
 
 Viestienvälitykseen liittyvän palvelun toteutus on monimutkaisempaa, koska siihen yleensä liittyy prosessin vaihtoja. Esimerkiksi, kun otetaan vastaan viesti joltain toiselta prosessilta, niin tyypillisesti vastaanottava prosessi odottaa odotustilassa, kunnes viesti on saapunut.
 
@@ -99,7 +99,7 @@ Freddie Williams and Tom Kilburn kehittivät vuonna 1946 ensimmäisen RAM-muisti
 
 
 ## Yhteenveto
-Tämä luku käsitteli aliohjelmien toteutusta. Kävimme läpi arvo- ja viiteparametrityypit ja esittelimme myös yleensä makroissa käytettävät arvoparametrit. Pääpaino oli aliohjelmien toteutuksella aktivointitietueen (AT) ja aktivointitietuepinon avulla. AT:n kautta väliettään parametrit ja sieltä varataan tila aliohjelman paikallisille tietorakenteille. Käyttöjärjestelmän aliohjelmina kutsuttavat palvelut ovat hyvin samankaltaisia kuin aliohjelmat, mutta kuitenkin erilaisia. Niiden kutsurajapinta on omien konekäskyjen (SVC, IRET, tms.) takana ja parametrien välitys voi tapahtua eri tavalla.
+Tämä luku käsitteli aliohjelmien toteutusta. Kävimme läpi arvo- ja viiteparametrityypit ja esittelimme myös yleensä makroissa käytettävät arvoparametrit. Pääpaino oli aliohjelmien toteutuksella aktivointitietueen (AT) ja aktivointitietuepinon avulla. AT:n kautta välitetään parametrit ja sieltä varataan tila aliohjelman paikallisille tietorakenteille. Käyttöjärjestelmän aliohjelmina kutsuttavat palvelut ovat hyvin samankaltaisia kuin aliohjelmat, mutta kuitenkin erilaisia. Niiden kutsurajapinta on omien konekäskyjen (SVC, IRET, tms.) takana ja parametrien välitys voi tapahtua eri tavalla.
 
 Vastaa alla olevaan kyselyyn kun olet valmis tämän luvun tehtävien kanssa.
 
