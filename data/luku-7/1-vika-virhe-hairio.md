@@ -33,7 +33,7 @@ Tv-sarjassa [Rillit huurussa](https://fi.wikipedia.org/wiki/Rillit_huurussa) Pen
 
 Kaikki viat eivät ole vaarallisia. Jossakin koodinpätkässä voi olla vika, mutta kyseistä koodia ei tulla koskaan suorittamaan. Ja vaikka viallinen koodi suoritettaisiinkin, niin kaikki virheetkään eivät ole merkittäviä. Jos esimerkiksi tietokonepelin Mörri-ötökkä jää piirtämättä näytölle vähäksi aikaa, niin pelaajan hahmo voi kuolla Mörrin yllätyshyökkäyksessä. Toisaalta, joskus pelitkin voivat olla hyvinkin tärkeitä, koska esimerkiksi peliturnauksissa voi olla kyse hyvinkin suurista palkintorahoista.
 
-Jotkut virheet taas ovat hyvin vaarallisia. On tapauksia, jossa ohjelmointivirheen vuoksi [MRI](https://en.wikipedia.org/wiki/Magnetic_resonance_imaging)-laite on antanut potilaille liian paljon säteilyä tai Marsiin laskeutuva luotain [tuhoutunut](https://en.wikipedia.org/wiki/Mars_Polar_Lander).
+Jotkut virheet taas ovat hyvin vaarallisia. On tapauksia, jossa ohjelmointivirheen vuoksi [sädehoitolaite](https://en.wikipedia.org/wiki/Therac-25) on antanut potilaille liian paljon säteilyä tai Marsiin laskeutuva luotain [tuhoutunut](https://en.wikipedia.org/wiki/Mars_Polar_Lander).
 
 Olisi hyvä, jos kaikki ihmishenkiä uhkaavat tai suuria taloudellisia tappioita aiheuttavat häiriöt saataisiin kuriin. NASA:lla oli [avaruussukkulan](https://fi.wikipedia.org/wiki/Avaruussukkula) ohjelmiston kehittämisessä selkeä prosessi vakavien häiriöiden minimoimiseksi. Joka kerta, kun jokin järjestelmähäiriö ilmeni, paikallistettiin ensin sen aiheuttanut virhe järjestelmässä ja sitten virheen aiheuttanut vika.
 
