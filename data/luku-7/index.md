@@ -5,7 +5,7 @@ overview: true
 hidden: false
 ---
 
-Tietokonejärjestelmät ovat haavoittuvaisia erilaisille virheille. Käsittelemme tässä luvussa ensin virheiden syntymekanismeja ja sitten, kuinka laitteistossa voidaan varautua tiedon tallennus- tai tiedon siirtovirheisiin. Ihan kaikkin virheisiin ei koskaan voi varautua, mutta yleisimpiin voi. Laitteistotasolla tämä yleensä tarkoittaa sitä, että satunnaiset yhden bitin voidaan havaita ja korjata. 
+Tietokonejärjestelmät ovat haavoittuvaisia erilaisille virheille. Käsittelemme tässä luvussa ensin virheiden syntymekanismeja ja sitten, kuinka laitteistossa voidaan varautua tiedon tallennus- tai tiedon siirtovirheisiin. Ihan kaikkiin virheisiin ei koskaan voi varautua, mutta yleisimpiin voi. Laitteistotasolla tämä yleensä tarkoittaa sitä, että satunnaiset yhden bitin virheet voidaan havaita ja korjata. 
 
 Lopuksi esittelemme järjestelmän sisäiset muistit ja niiden toteutustavat.
 
