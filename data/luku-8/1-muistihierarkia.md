@@ -21,11 +21,11 @@ Tietoa talletetaan tietokonejärjestelmiin hyvin monella eri tasolla. Lähtökoh
 
 Muistihierarkiassa on kolme selkeää tasoa. Sisimpänä ovat suorittimen kanssa samalla piirikortilla toteutetut muistit, keskimmäisellä tasolla yhdessä järjestelmässä (samassa kotelossa?) olevat nopeahkot muistit. Uloimpana verkossa olevat tai samassa järjestelmässä olevat hyvin hitaat laitteet. 
 
-Kaikkien sisimpänä samalla mikropiirillä suorittimen laiterekistereiden kanssa ovat nopeimmat välimuistit. Esimerkiksi, nopeimmat tason L1 ja L2 välimuistit voi olla toteutettuna samalla mikropiirillä suorittimen kanssa, mutta vähän hitaammat tason L3 ja L4 välimuistit voivat sijaita omilla mikropiireillään välittömästi suorittimen vieressä.
+Kaikkien sisimpänä samalla mikropiirillä suorittimen laiterekistereiden kanssa ovat nopeimmat välimuistit. Esimerkiksi, nopeimmat tason L1 ja L2 välimuistit voivat olla toteutettuna samalla mikropiirillä suorittimen kanssa, mutta vähän hitaammat tason L3 ja L4 välimuistit voivat sijaita omilla mikropiireillään välittömästi suorittimen vieressä.
 
 Keskusmuisti sijaitsee samalla piirikortilla ([emolevyllä](https://fi.wikipedia.org/wiki/Emolevy)) suorittimen kanssa ja on yhteydessä siihen väylän kautta. Keskusmuistin käyttö on huomattavasti (esim. 50x) hitaampaa kuin rekistereiden, mutta keskusmuisti on kooltaan huomattavasti suurempi (esim. 1 GB) kuin rekisterijoukko (esim. 0.5 MB). Välimuistiteknologian avulla keskusmuisti saadaan tuntumaan lähes yhtä nopealta kuin rekisterit.
 
-Massamuistilaitteet (esim. kovalevy, SSD-levy, CD-levy, DVD-levy, Blu-ray-levy, USB-muistitikku) sijaitsevat samassa järjestelmässä ja niitä voi käyttää järjestelmän väylähierarkian kautta. Eri nopeuksiset väylät muodostavat hierarkian ja kullekin laitetyypille on sille sopivan nopeuksinen väylä. Hitaammat väylät liitetään erityisen sovittimen kautta nopeampiin, jotta ne eivät hidastaisi nopeampien väylien toimintaa. Massamuistit ms-aikaskaalassa eli ne ovat suuruusluokkaa 10<sup>6</sup> hitaampia kuin suoritin.
+Massamuistilaitteet (esim. kovalevy, SSD-levy, CD-levy, DVD-levy, Blu-ray-levy, USB-muistitikku) sijaitsevat samassa järjestelmässä ja niitä voi käyttää järjestelmän väylähierarkian kautta. Eri nopeuksiset väylät muodostavat hierarkian ja kullekin laitetyypille on sille sopivan nopeuksinen väylä. Hitaammat väylät liitetään erityisen sovittimen kautta nopeampiin, jotta ne eivät hidastaisi nopeampien väylien toimintaa. Massamuistit toimivat ms-aikaskaalassa eli ne ovat suuruusluokkaa 10<sup>6</sup> hitaampia kuin suoritin.
 
 <!-- Kuva: ch-1-1-vaylahierarkia -->
 
@@ -34,7 +34,7 @@ Massamuistilaitteet (esim. kovalevy, SSD-levy, CD-levy, DVD-levy, Blu-ray-levy, 
 <illustrations motive="ch-1-1-vaylahierarkia" frombottom="0" totalheight="40%"></illustrations>
 </div>
 
-Uusi flash-teknologiaan perustuva [SSD](https://fi.wikipedia.org/wiki/SSD) (Solid State Disk) massamuisti on usein vielä toteutettu kovalevyn lailla ulkoisena massamuistina, mutta se voi sijaita myös valmiiksi asennettuna emolevyllä. SSD massamuisti on yleensä toteutettu niin, että se näyttää samalta kuin pyörivä kovalevy, vaikka onkin selvästi nopeampi (esim. 10x). Samasta teknologiasta on myös nopeampi versio, [NVMe](https://en.wikipedia.org/wiki/NVM_Express) (NVM Express, Non-Volatile Memory). SSD:ssä (ja NVMe:ssä) on nopeuden lisäksi suurena etuna kovalevyyn verrattuna se, että siinä ei ole helposti vikaantuvia liikkuvia osia.
+Uusi flash-teknologiaan perustuva [SSD](https://fi.wikipedia.org/wiki/SSD) (Solid State Disk) -massamuisti on usein vielä toteutettu kovalevyn lailla ulkoisena massamuistina, mutta se voi sijaita myös valmiiksi asennettuna emolevyllä. SSD-massamuisti on yleensä toteutettu niin, että se näyttää samalta kuin pyörivä kovalevy, vaikka onkin selvästi nopeampi (esim. 10x). Samasta teknologiasta on myös nopeampi versio, [NVMe](https://en.wikipedia.org/wiki/NVM_Express) (NVM Express, Non-Volatile Memory). SSD:ssä (ja NVMe:ssä) on nopeuden lisäksi suurena etuna kovalevyyn verrattuna se, että siinä ei ole helposti vikaantuvia liikkuvia osia.
 
 Ihmisen kanssa kommunikointiin tarkoitetut laitteet (esim. näppäimistö tai hiiri) kuuluvat myös järjestelmän "sisäisiin" laitteisiin, mutta ne ovat yleensä vielä monta kertaluokkaa hitaampia kuin massamuistit. Yleensä ihminen toimii sekunnin aikaskaalassa, mutta joiden graafisten käyttöliittymien kautta toiminta voi olla huomattavasti nopeampaa. 
 
