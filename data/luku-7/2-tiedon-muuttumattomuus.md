@@ -14,7 +14,7 @@ Lähtökohta riittävän hyvän tiedon muuttumattomuuden takaamiselle on hyväks
 
 Ylimääräiset bitit ja johtimet vaativat ylimääräistä tilaa ja tarkistusten tekeminen vaatii aikaa. Tiedon muuttumattomuuden suojaamisen kustannus maksetaan siten sekä tilassa että ajassa.
 
-Se, paljonko olemme valmiita maksamaan järjestelmässä olevan tiedon muuttumattomuudesta, riippuu järjestelmästä. Esimerkiksi kotikoneessa on usein tavallista muistia eikä virheen korjaavaa ([ECC-muistia](https://en.wikipedia.org/wiki/ECC_memory)), koska tavallinen muisti on halvempaa. Lääketieteellisen [MRI](https://simple.wikipedia.org/wiki/Magnetic_resonance_imaging)-laitteen muisti taas on ainakin yhden virheen havaitsevaa ja korjaavaa muistia, koska kukaan ei halua liikaa säteilyä satunnaisen avaruushiukkasen vuoksi.
+Se, paljonko olemme valmiita maksamaan järjestelmässä olevan tiedon muuttumattomuudesta, riippuu järjestelmästä. Esimerkiksi kotikoneessa on usein tavallista muistia eikä virheen korjaavaa ([ECC-muistia](https://en.wikipedia.org/wiki/ECC_memory)), koska tavallinen muisti on halvempaa. Lääketieteellisen sädehoitolaitteen muisti taas on ainakin yhden virheen havaitsevaa ja korjaavaa muistia, koska kukaan ei halua virheellistä määrää säteilyä satunnaisen avaruushiukkasen vuoksi.
 
 ## Tiedon muuttumattomuuden turvausmenetelmien ominaisuudet
 Luokittelemme tiedon muuttumattomuuden turvausmenetelmiä useiden ominaisuuksien perusteella. Yleensä kuhunkin käyttöön sopivan menetelmän valinta tapahtuu usean ominaisuuden yhdistelmänä, ottaen huomioon riskien hallinta hyväksytyllä tasolla.
