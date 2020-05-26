@@ -24,11 +24,16 @@ Kuka tahansa tietokoneiden toiminnasta kiinnostunut voi käyttää tätä materi
 Kukin oppilaitos voi itse määritellä, millä tavoin tämän Tietokoneen toiminnan jatkokurssi (3 op, [MOOC](https://mooc.fi/)) hyväksytään oppilaitoksen kurssina. Hyväksymiseen voi liittyä erillinen koe kyseisessä oppilaitoksessa.
 
 ### Avoimen yliopiston kurssina
-Sinun tulee olla ilmoittautunut kurssille Avoimeen yliopistoon, jotta voit saada kurssista opintosuoritusmerkinnän Helsingin yliopiston opintorekisteriin. Huomiothan, että pääset kurssin Moodleen vasta ilmoittautumistasi seuraavana päivänä. 
+Sinun tulee olla ilmoittautunut kurssille Avoimeen yliopistoon, jotta voit saada kurssista opintosuoritusmerkinnän Helsingin yliopiston opintorekisteriin. Huomiothan, että pääset kurssin Moodleen vasta ilmoittautumistasi seuraavana päivänä.
 
-Ilmoittautuminen koskee kaikkia kurssilaisia eli myös Helsingin yliopiston opiskelijoita. Opintoihin ilmoittaudutaan valitsemalla [Avoimen yliopiston opinto-ohjelman kurssisivulta](https://courses.helsinki.fi/fi/aytkt100052) oikea kurssi, josta löydät tarkemmat ohjeet ilmoittautumiseen, Moodlen kurssiavaimen ja lisätietoja opintosuorituksen rekisteröinnistä. Ilmoittautuminen on auki vain määritellyn ajan, joka on ilmoitettu kurssin opinto-ohjelmassa. 
+Ilmoittautuminen koskee kaikkia kurssilaisia eli myös Helsingin yliopiston opiskelijoita. Kurssille ei ole ennakkoilmoittautumista vaan voit itsenäisesti opiskella kurssin oppimateriaaleja. Saat ohjeet Avoimen yliopiston kurssi-ilmoittautumista varten sähköpostitse, kun olet siinä vaiheessa, että opiskelu siirtyy Moodleen. Moodleen pääset HY:n käyttäjätunnuksella ja käyttäjätunnuksen aktivoinnista lähetetään lisätietoa sähköpostiisi ilmoittautumisesi jälkeen. Ilmoittautuminen on auki vain määritellyn ajan, joka on ilmoitettu kurssin opinto-ohjelmassa.
 
-Kurssin (13.1.2019-9.5.2020) opinto-ohjelma: https://courses.helsinki.fi/fi/aytkt100052/132554318
+Ohessa linkit opinto-ohjelmiin, josta löydät ohjeet Moodlen kurssiavaimeen, tentteihin, opintosuorituksen rekisteröintiin ja kurssin käytäntöihin:
+
+Kesän 2020 kurssin (2.6.- 28.08.2020) opinto-ohjelma https://courses.helsinki.fi/fi/aytkt100052/135222528. Kurssin suorittamiseen liittyy Mooc-ympäristön tehtäviä, Moodleen palautettavia tehtäviä ja lähitentti.
+
+Kevään 2020 kurssin (13.1.2019-9.5.2020) opinto-ohjelma: https://courses.helsinki.fi/fi/aytkt100052/132554318 (Ilmoittautuminen päättynyt.)
+
 
 ### Helsingin yliopiston kurssina
 Tietokoneen toiminnan jatkokurssi (3 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita. Kurssia Tietokoneen toiminnan jatkokurssi (3 op, MOOC) ei voi Helsingin yliopistossa suorittaa irrallisena kurssina.
