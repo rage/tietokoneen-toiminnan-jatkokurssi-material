@@ -28,8 +28,6 @@ Sinun tulee olla ilmoittautunut kurssille Avoimeen yliopistoon, jotta voit saada
 
 Ilmoittautuminen koskee kaikkia kurssilaisia eli myös Helsingin yliopiston opiskelijoita. Opintoihin ilmoittaudutaan valitsemalla [Avoimen yliopiston opinto-ohjelman kurssisivulta](https://courses.helsinki.fi/fi/aytkt100052) oikea kurssi, josta löydät tarkemmat ohjeet ilmoittautumiseen, Moodlen kurssiavaimen ja lisätietoja opintosuorituksen rekisteröinnistä. Ilmoittautuminen on auki vain määritellyn ajan, joka on ilmoitettu kurssin opinto-ohjelmassa. 
 
-Kurssin (13.1.2019-9.5.2020) opinto-ohjelma: https://courses.helsinki.fi/fi/aytkt100052/132554318
-
 ### Helsingin yliopiston kurssina
 Tietokoneen toiminnan jatkokurssi (3 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita. Kurssia Tietokoneen toiminnan jatkokurssi (3 op, MOOC) ei voi Helsingin yliopistossa suorittaa irrallisena kurssina.
 
