@@ -28,7 +28,7 @@ push x          load r1, x      load r1, x
 push y          add  r1, y      load r2, y
 add             load r2, x      load r3, =5
 push x          add r2, =5      add r8, r1, r2
-push 5          add r1, r2      add r9, r1, r3
+push 5          mul r1, r2      add r9, r1, r3
 add             store r1, y     mul r10, r8, r9
 mul                             store r10, z
 pop z
