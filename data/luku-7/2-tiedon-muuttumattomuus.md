@@ -160,7 +160,7 @@ numero     binääriesitys
   ...        ...
 ```
 
-Kukin tietoalkion bitti kuuluu joukkoon _i_, jos bitin numeron binääriesityksessä _i_:nnes bitti oikealta on 1. Äskeisessä esimerkissä joukkoon 1 kuuluvat siten bitit 1, 3, 5 ja 7. Joukkoon 2 kuuluvat bitit 2, 3, 6 ja 7. Joukkoon 4 kuuluvat bitit 4, 5, 6 ja 7.
+Kukin tietoalkion bitti kuuluu joukkoon _2^(i-1)_, jos bitin numeron binääriesityksessä i:nnes bitti oikealta on 1. Äskeisessä esimerkissä joukkoon 1 kuuluvat siten bitit 1, 3, 5 ja 7. Joukkoon 2 kuuluvat bitit 2, 3, 6 ja 7. Joukkoon 4 kuuluvat bitit 4, 5, 6 ja 7.
 
 Toisin päin katsottuna, se, mihin joukkoihin kukin bitti kuuluu, näkyy suoraan bitin numeroesityksestä. Bitti 1 kuuluu joukkoon 1, mutta ei joukkoihin 2 tai 4. Bitti 3 kuuluu joukkoihin 1 ja 2, mutta ei joukkoon 4. Bitti 7 kuuluu kaikkiin joukkoihin 1, 2 ja 4. Jokainen bitti kuuluu erilaiseen ryhmään joukkoja, koska kunkin bitin numeron binääriesitys on uniikki.
 
