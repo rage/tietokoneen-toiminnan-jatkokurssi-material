@@ -144,7 +144,7 @@ f4    store r1, locZ(fp)  ; viite Z:aan fp:n kautta
       store r1, retfA(fp) ; talleta paluuarvo
 
 f10   pop sp, r1   ; palauta r1
-      sub sp, -1   ; vapauta Z:n tilanvaraus
+      sub sp, =1   ; vapauta Z:n tilanvaraus
 f12   exit sp, =2  ; paluu kutsuvaan rutiiniin
 ```
 
