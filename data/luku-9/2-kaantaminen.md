@@ -39,7 +39,7 @@ Lisäksi uudelleensijoitustaulussa on vielä _EXPORT_-osio (export-taulu), jossa
 
 Symbolitaulussa on siis kaikki ohjelman käyttämät symbolit ja niiden arvot. Joidenkin symbolien arvot annetaan, joidenkin arvot päätellään käännösmoduulista käännösvaiheessa, joidenkin arvot selviävät linkitysvaiheessa ja joidenkin vasta suoritusaikana. 
 
-Kussakin (korkean tason ja symbolisen konekielen) ohjelmointikielessä on  merkittävä joukko etukäteen määriteltyjä symboleja, joiden arvot löytyvät myös symbolitaulusta. Tällaisia ovat esimerkiksi symbolisen konekielen operaatiokoodien nimet (add, comp, jump, etc), laiterekisterien nimet (r0, r4, sp, etc), laitteiden nimet (crt, kdb, etc) ja käyttöjärjestelmäpalvelujen nimet (halt, time, etc).
+Kussakin (korkean tason ja symbolisen konekielen) ohjelmointikielessä on  merkittävä joukko etukäteen määriteltyjä symboleja, joiden arvot löytyvät myös symbolitaulusta. Tällaisia ovat esimerkiksi symbolisen konekielen operaatiokoodien nimet (add, comp, jump, etc), laiterekisterien nimet (r0, r4, sp, etc), laitteiden nimet (crt, kbd, etc) ja käyttöjärjestelmäpalvelujen nimet (halt, time, etc).
 
 Esimerkiksi symbolisen konekielen equ-valekäskyllä määritellään jollekin symbolille arvo ja se talletetaan symbolitauluun. Moduulin omien tietorakenteiden sijainnit ja niitä vastaavien symbolien arvot määräytyvät täysin siitä, missä järjestyksessä ne on kirjoitettu käännösyksikön ohjelmakoodiin. Ihan vastaavasti kaikki koodissa olevat käskyjen osoitteet määräytyvät niiden tekstuaalisen sijainnin perusteella käännösyksikössä.
 
@@ -148,7 +148,7 @@ y 	dc 	15           -->  ?:           15        y: ?
 st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 0
      jzer r1, done   -->  1:  34 1 0 0   ?    done: ? 
      out r1, =crt    -->  5:   4 1 0 0   0
-     jump st         -->  3:  32 0 0 0   2
+     jump st         -->  3:  32 0 0 0   0
 done svc sp,=halt    -->  4: 112 6 0 0  11    done: 4
                                                  x: 5
                                                  y: 6
@@ -164,10 +164,10 @@ Käännösyksikkö                  Data/koodi  Symb.taulu
 x 	dc 	13           -->  5:            13       x: 5
 y 	dc 	15           -->  6:            15       y: 6
 
-st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 2
-     jzer r1, done   -->  1:  34 1 0 0   6    done: 4 
+st   in   r1, =kbd   -->  0:   3 1 0 0   1      st: 0
+     jzer r1, done   -->  1:  34 1 0 0   4    done: 4 
      out r1, =crt    -->  2:   4 1 0 0   0     ...
-     jump st         -->  3:  32 0 0 0   2
+     jump st         -->  3:  32 0 0 0   0
 done svc sp,=halt    -->  4: 112 6 0 0  11    
 ```
 
@@ -179,7 +179,7 @@ Käännösyksikkö                Data/koodi   Symb.taulu
 x 	dc 	13            -->  5:         13       x:  5
 y 	dc 	15            -->  6:         15       y:  6
 
-st   in   r1, =kbd    -->  0:   52428801      st:  2
+st   in   r1, =kbd    -->  0:   52428801      st:  0
      jzer r1, done    -->  1:  572522500    done:  4 
      out r1, =crt     -->  2:   69206016    add:  17
      jump st          -->  3:  536870912    scv: 112
