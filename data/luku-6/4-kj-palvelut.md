@@ -74,9 +74,6 @@ MsgService equ   52
       jnzer r1, RecvTrouble    ; käsittele virhetilanteet
 ```
 
-
-
-## Quizit 6.4 ??????  e-300, e-310, e-450, f410??
 <!-- quiz 6.4.??  ????? -->
 
 <div><quiz id="3881dfb4-23f7-4359-9e01-1ce56c51345b"></quiz></div>
