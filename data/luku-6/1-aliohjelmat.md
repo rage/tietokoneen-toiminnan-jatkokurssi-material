@@ -36,7 +36,7 @@ Useimmat ohjelmointikielet eivät salli nimiparametreja, koska aliohjelman koodi
 Makro Swap(i, j) on mielenkiintoinen esimerkki makroista ja nimiparametrien käytöstä.
 
 ```
-macro Swap (j, j)  -- vaihda i:n ja j:n arvot keskenään
+macro Swap (i, j)  -- vaihda i:n ja j:n arvot keskenään
 tmp = i;
 i = j;
 j = tmp;
