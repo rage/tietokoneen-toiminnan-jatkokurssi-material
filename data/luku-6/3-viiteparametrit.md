@@ -20,7 +20,7 @@ s   dc 56
 t   dc 77
 pt  dc  0          ; osoitin, joka tulee osoittamaan t:hen
     ...
-    load r1, =r
+    load r1, =t
     store r1, pt   ; alusta osoitinmuuttuja pt
     ...
 ;
