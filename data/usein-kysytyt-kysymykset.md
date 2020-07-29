@@ -15,7 +15,7 @@ Kaikki rakentava palaute kurssin tekemiseksi paremmaksi on arvokasta.
 
 Tämä tarkoittaa niin suurempia rakenteellisia ehdotuksia kuin esitystapaan liittyvien puutteiden esilletuontia. Esimerkiksi kaikki kirjoitusvirheet olisi mukava saada korjattua mahdollisimman nopeasti. Samoin jos tekstissä on huonosti muotoiltuja tai muuten vaikeasti ymmärrettäviä kohti, niin ne olisi hyvä saada korjattua nopeasti. Vastaavasti kaikki pikatehtävissä ("Quiz") olevat puutteet ärsyttävät monia, kunnes ne on paikattu.
 
-Useat henkilöt ovat antaneet hyvää palautetta kurssin kehittämiseksi. Kiitos Ilari Aho, Julia Bergman, Laura Byman, Sakari Ekroth, Ilari Haho, Antti Halmetoja, Samuli Hanski, Ville Koivula, Heikki Kumpare, Harri Kähkönen, Joonas Partanen, Touko Sandström, Mikko Siitonen ja Nico Toikka.
+Useat henkilöt ovat antaneet hyvää palautetta kurssin kehittämiseksi. Kiitos Ilari Aho, Julia Bergman, Laura Byman, Sakari Ekroth, Ilari Haho, Antti Halmetoja, Samuli Hanski, Ville Koivula, Heikki Kumpare, Harri Kähkönen, Sami Laine, Joonas Partanen, Touko Sandström, Mikko Siitonen ja Nico Toikka.
 
 ### Korjausehdotukset sähköpostitse
 Lähettäkää korjausehdotukset sähköpostitse osoitteella [teemu.kerola@cs.helsinki.fi](mailto:teemu.kerola@cs.helsinki.fi?subject=MOOC%20palaute,%20Tietokoneen%20toiminnan%20jatkokurssi&body=Luku%20???%20tai%20Quiz%20???%20...).
