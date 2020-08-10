@@ -176,8 +176,8 @@ Jos S on talletettu (riveittäin) linkitettynä rakenteena, niin tallennus voisi
 700:  000 001 002 003  (rivi S[0,0,*])
 301:  010 011 012 013  (rivi S[0,1,*])
 802:  020 021 022 023  (rivi S[0,2,*])
-510:  100 101 102 103  (rivi S[1,2,*])
-611:  110 111 112 113  (rivi S[1,2,*])
+510:  100 101 102 103  (rivi S[1,0,*])
+611:  110 111 112 113  (rivi S[1,1,*])
 712:  120 121 122 123  (rivi S[1,2,*])
 
 630:  700  301  802    (tason S[0,*,*] rivien osoitteet)
