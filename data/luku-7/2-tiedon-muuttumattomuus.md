@@ -66,9 +66,9 @@ Pariteettibitin avulla voidaan havaita kaikki yhden bitin virheet, mutta kaikki 
 Pariteettibitin avulla ei voida mitenkään paikallistaa virhettä, joten virheen mahdollinen korjaus täytyy tehdä ylemmällä tasolla ohjelmistoa jollain muulla tavalla. Pariteettibitti kuitenkin sopii hyvin tilanteisiin, joissa yhden bitin virhe on aika pieni, mutta kahden bitin samanaikainen vikaantuminen on hyvin epätodennäköistä. Tällaisissa tilanteissa kolmen bitin yhtäaikaisen vikaantumisen todennäköisyys on vielä paljon pienempi.
 
 ```
-P(1 bitin virhe) = 1:1000 0000                 = 1E-6
-P(2 bitin virhe) = 1:1000 0000 000 000         = 1E-12
-P(1 bitin virhe) = 1:1000 0000 000 000 000 000 = 1E-18
+P(1 bitin virhe) = 1:1000 000                 = 1E-6
+P(2 bitin virhe) = 1:1000 000 000 000         = 1E-12
+P(3 bitin virhe) = 1:1000 000 000 000 000 000 = 1E-18
 ```
 
 ## Quizit 7.2.1-2  - pariteetti
@@ -191,13 +191,13 @@ Useamman bitin virheitä ei välttämättä havaita alkuaankaan. Esimerkiksi, jo
                 Alkuperäinen   Virheellinen   Korjattu
                  0 virhettä     2 virhettä    3 virhettä
 
-Tietoalkio:      100 1100       100 1101        010 1101
+Tietoalkio:      100 1100       110 1101        010 1101
 Bitin numero:    765 4321       765 4321        765 4321
 Pariteettivirhe:                    1 11
 
 ```
 
-Hamming-koodin tilakustannus on sitä pienempi, mitä suuremmasta tietoalkiosta on kyse, koska vain kakkosen potenssin numeroiset bitit (2<sup>i</sup>) ovat pariteettibittejä. Esimerkiksi, 1024 databitin turvaamiseen tarvitaan vain 10 ylimääräistä pariteettibittiä.
+Hamming-koodin tilakustannus on sitä pienempi, mitä suuremmasta tietoalkiosta on kyse, koska vain kakkosen potenssin numeroiset bitit (eli muotoa 2<sup>k</sup>, k = 0, 1, 2, ...) ovat pariteettibittejä. Esimerkiksi, 1024 databitin turvaamiseen tarvitaan vain 11 ylimääräistä pariteettibittiä järjestysnumeroiltaan 2<sup>0</sup>, 2<sup>1</sup>, 2<sup>2</sup>, ..., 2<sup>10</sup> = 1, 2, 4, ..., 1024.
 
 Hamming-koodin aikakustannus vaihtelee sen mukaan, toteutetaanko tiedon muuttumattomuuden tarkistus laitteistolla vai ohjelmistolla. Jos Hamming-koodia käytetään muistipiirin tai väylän suojaamiseen, niin toteutus täytyy tehdä laitteistolla, koska toteutuksen täytyy olla paljon nopeampi kuin yhden konekäskyn suoritusaika. Esimerkiksi ECC-muistipiiriä käytettäessä muistipiiri laskee ja sijoittaa pariteettibitit paikalleen jokaisen muistiinkirjoituksen yhdessä. Vastaavasti muistia luettaessa muistipiiri tarkistaa luetun tiedon muuttumattomuuden suoraan laitteistolla, ennen kuin se antaa tiedon väylää pitkin eteenpäin.
 
