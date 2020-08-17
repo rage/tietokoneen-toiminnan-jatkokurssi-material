@@ -109,7 +109,6 @@ muuttunut 'B' = 0100 0011   virheellinen data, pariteetti on väärin
 
 Pariteeettibitin kanssa kyseessä ei ole enää sama koodijärjestelmä. Esimerkiksi 'C' on ASCII-koodissa 0x43, kun se uudessa koodausjärjestelmässä olisi 0xC3.
 
-## Quizit 7.2.3  - Hamming-etäisyys
 <!-- Quiz 7.2.3 Hamming-etäisyys-->
 <div><quiz id="a85248db-860a-4105-9c57-de81355c4c43"></quiz></div>
 
@@ -222,7 +221,6 @@ Hamming-koodista on useita laajennuksia. Esimerkiksi lisäämällä pariteettibi
 
 Mitä lähempänä suoritinta ollaan, sitä tärkeämmäksi tulee suojautuminen (satunnaisilta) virheiltä. Suorittimen sisäisissä rekistereissä oleva ja väylillä liikkuva tieto on tärkeätä suojata muutoksilta. Kotikoneiden keskusmuisti voi usein olla suojaamatonta, mutta ainakin palvelinkoneiden muisti on yleensä ECC-muistia. ECC-muisti ei riitä, ellei myös muistiväylä ole virheiltä suojattu. Muistipiirit voi vaihtaa halutessaan kalliimpiin ECC-muisteihin. Väylää ei voi vaihtaa., koska se on kiinteä osa järjestelmää. Tämän vuoksi väylä on yleensä valmiiksi suojattu Hamming-koodilla.
 
-## Quizit 7.2.4 - Hamming-koodi
 <!-- Quiz 7.2. Hamming-koodi -->
 
 <div><quiz id="a62f183f-8456-4520-a408-dbade0442817"></quiz></div>
@@ -257,7 +255,6 @@ Massamuistin monistaminen on aivan yleistä, myös ihan kotikoneissa. Kaupasta v
 
 Laitteiden monistaminen tiedon muuttumattomuuden turvaamiseksi on siis varsin yleistä. Se, millä tasolla virheiltä suojaaminen tapahtuu, riippuu tietenkin järjestelmän käyttötarkoituksesta. Kotikoneille voi riittää tärkeiden kuvatiedostojen replikointi kahdelle kovalevylle. Toisaalta, ydinvoimalan ohjausjärjestelmän täytyy toimia aina virheettömästi ja olemme valmiita maksamaan siitä aiheutuvat ehkä valtavatkin lisäkustannukset.
 
-## Quizit 7.2.5  - Tiedon suojausmenetelmät
 <!-- Quiz 7.2.5 Tiedon suojausmenetelmät -->
 <div><quiz id="a55e63d0-83b0-41f6-a4d1-da99fd0a25e4"></quiz></div>
 
