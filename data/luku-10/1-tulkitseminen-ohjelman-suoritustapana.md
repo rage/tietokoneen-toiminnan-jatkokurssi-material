@@ -83,6 +83,8 @@ Tietokoneen ohjelman toiminnan simuloinnissa voitaisiin sen suorituskykyarvioinn
 
 Tavallaan Titokone on myöskin oikeastaan vain simulaattori, koska se ei emuloi ihan kaikkia ttk-91 suorittimen toimintoja täsmällisesti. Ttk-91 suorittimen ja sen käyttöjärjestelmän määrittely ei ole täydellinen, joten täsmällistä toimintaa ei ole edes määritelty kunnolla. Ttk-91 suoritin on kuitenkin riittävän hyvin määritelty, jotta Titokone voi simuloida sen toimintaa tärkeiden komponenttien osalta funktionaalisesti oikein ja riittävällä tarkkuudella tämän kurssin tavoitteisiin nähden. 
 
+Käsitteiden _emulointi_ ja _simulointi_ käyttö ei ole täysin vakiintunut, vaan niitä käytetään osittain sekaisin. Toisen emulaattori voi olla toisen simulaattori.
+
 
 ## Quizit 10.1
 <!-- Quiz 10.1.?? -->
