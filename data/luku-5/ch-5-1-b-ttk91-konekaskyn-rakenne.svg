@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg1051"
    version="1.1"
    viewBox="0 0 210.34177 55.560539"
    height="55.560539mm"
-   width="210.34177mm">
+   width="210.34177mm"
+   sodipodi:docname="ch-5-1-b-ttk91-konekaskyn-rakenne.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1214"
+     inkscape:window-height="767"
+     id="namedview62"
+     showgrid="false"
+     inkscape:zoom="1.3119621"
+     inkscape:cx="397.49625"
+     inkscape:cy="104.99629"
+     inkscape:window-x="2961"
+     inkscape:window-y="404"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1045" />
   <metadata
@@ -20,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -178,7 +202,7 @@
        id="text5433-9"
        y="110.93252"
        x="7.6839609"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
        xml:space="preserve"><tspan
          y="110.93252"
          x="7.6839609"
@@ -191,7 +215,7 @@
          id="tspan5690" /><tspan
          y="126.80752"
          x="7.6839609"
-         id="tspan5692">ADD R2, =21(R5)           R2 &lt;-- R2 + mem(R5+21)</tspan></text>
+         id="tspan5692">ADD R2, 21(R5)           R2 &lt;-- R2 + mem(R5+21)</tspan></text>
     <text
        id="text5453-4"
        y="112.04488"
@@ -235,21 +259,8 @@
        id="text920"
        y="110.91095"
        x="57.166954"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
        xml:space="preserve"><tspan
-         style="stroke-width:1"
-         id="tspan914"
-         y="110.91095"
-         x="57.166954"><tspan
-           style="stroke-width:1"
-           id="tspan910"
-           y="110.91095"
-           x="57.166954">=</tspan><tspan
-           style="stroke-width:1"
-           id="tspan912"
-           y="110.91095"
-           x="60.631344"
-           dx="0" /></tspan><tspan
          style="stroke-width:1"
          id="tspan918"
          y="116.20262"
