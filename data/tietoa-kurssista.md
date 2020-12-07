@@ -24,9 +24,7 @@ Kuka tahansa tietokoneiden toiminnasta kiinnostunut voi käyttää tätä materi
 Kukin oppilaitos voi itse määritellä, millä tavoin tämän Tietokoneen toiminnan jatkokurssi (3 op, [MOOC](https://mooc.fi/)) hyväksytään oppilaitoksen kurssina. Hyväksymiseen voi liittyä erillinen koe kyseisessä oppilaitoksessa.
 
 ### Avoimen yliopiston kurssina
-Sinun tulee olla ilmoittautunut kurssille Avoimeen yliopistoon, jotta voit saada kurssista opintosuoritusmerkinnän Helsingin yliopiston opintorekisteriin. Huomiothan, että pääset kurssin Moodleen vasta ilmoittautumistasi seuraavana päivänä. 
-
-Ilmoittautuminen koskee kaikkia kurssilaisia eli myös Helsingin yliopiston opiskelijoita. Opintoihin ilmoittaudutaan valitsemalla [Avoimen yliopiston opinto-ohjelman kurssisivulta](https://courses.helsinki.fi/fi/aytkt100052) oikea kurssi, josta löydät tarkemmat ohjeet ilmoittautumiseen, Moodlen kurssiavaimen ja lisätietoja opintosuorituksen rekisteröinnistä. Ilmoittautuminen on auki vain määritellyn ajan, joka on ilmoitettu kurssin opinto-ohjelmassa. 
+Kurssin suorittamisesta Helsingin yliopiston Avoimen yliopiston kurssina saat tietoa valitsemalla [Avoimen yliopiston opinto-ohjelman kurssisivulta](https://courses.helsinki.fi/fi/aytkt100052) ajankohtaisen kurssin. Saadaksesi kurssin suorituksesta merkinnän Helsingin yliopiston opintorekisteriin, on kurssi suoritettava tuolta löytyvien ohjeiden mukaisesti.
 
 ### Helsingin yliopiston kurssina
 Tietokoneen toiminnan jatkokurssi (3 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita. Kurssia Tietokoneen toiminnan jatkokurssi (3 op, MOOC) ei voi Helsingin yliopistossa suorittaa irrallisena kurssina.
