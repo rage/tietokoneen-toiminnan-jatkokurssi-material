@@ -105,8 +105,8 @@ Huomaa, että taulukko T voi olla nyt talletettuna epäyhtenäisille alueille ke
 
 Kuten edellä olevista esimerkeistä ilmenee, kaikki kolme tapaa ovat yhtä helposti käytettävissä. Yhtenäisessä talletusmuodossa etuna on selkeys. Linkitetyn rakenteen hyvänä puolena on se, että varsinkin suurten taulukoiden yhteydessä niitä ei tarvitse tallettaa yhtenäiselle muistilohkolle. Lisäksi linkitetyssä rakenteessa voi optimoida tilankäyttöä esim. siten, että tällä hetkellä vielä alustamattomille riveille ei ole vielä varattu muistitilaa. Alustamaton rivi merkitään esim. riviosoitteena 0 ja riville varataan muistitila vasta siihen kohdistuvan ensimmäisen viittauksen yhteydessä.
 
-## Moni-ulotteiset taulukot
-Moniulotteiset taulukot talletetaan aivan vastaavasti. Käytetään esimerkkinä osoitteeseen 600 talletettua 3-ulotteista taulukkoa S[2,3,4]. Siinä on siis 2 tasoa, kullakin tasolla 3 riviä ja kullakin rivillä 4 alkiota. Tasolla nolla on alkiot
+## Moniulotteiset taulukot
+Moniulotteiset taulukot talletetaan aivan vastaavasti. Käytetään esimerkkinä osoitteeseen 600 talletettua 3-ulotteista taulukkoa S[2,3,4]. Siinä on siis 2 tasoa (tasot 0 ja 1), kullakin tasolla 3 riviä ja kullakin rivillä 4 alkiota. Tasolla 0 on alkiot
 
 ```
 000 001 002 003
@@ -121,7 +121,7 @@ ja tasolla 1 alkiot
 110 111 112 113
 120 121 122 123
 ```
-Alkioiden arvot on tässä esimerkissä valittu tahallaan siten, että arvot vastaavat alkioiden indeksejä taulukossa S. Esimerkiksi alkion S[1,2,1] arvo on 121.
+Alkioiden arvot on tässä esimerkissä valittu tahallaan siten, että arvot vastaavat alkioiden indeksejä taulukossa S. Esimerkiksi alkion S[1,2,1] arvo on 121. Huomaa, että taulukkoon viitattaessa kunkin indeksin täytyy olla omalla nollasta alkavalla arvoalueellaan, mikä on kullekin indeksille annettu taulukon määrittelyvaiheessa. 
 
 Jos S on talletettu "riveittäin", niin alkiot ovat muistissa riveittäin taso kerrallaan järjestyksessä
 
