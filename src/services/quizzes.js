@@ -3,10 +3,10 @@ import { accessToken } from "./moocfi"
 
 export async function fetchQuizzesProgress() {
   const response = await axios.get(
-    "https://quizzes.mooc.fi/api/v1/courses/833a49b4-1c5e-4c61-b512-8cd64dd8aa7e/users/current/progress",
+    "https://quizzes.mooc.fi/api/v2/general/course/833a49b4-1c5e-4c61-b512-8cd64dd8aa7e/progress",
     { headers: { Authorization: `Bearer ${accessToken()}` } },
   )
-  return response.data?.points_by_group
+  return response.data
 }
 
 export async function fetchQuizNames() {
