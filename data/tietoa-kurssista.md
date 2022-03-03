@@ -4,6 +4,8 @@ hidden: false
 information_page: true
 ---
 
+**Tämä sivusto tehtävineen ei ole käytössä Helsingin Yliopiston Avoimessa yliopistossa Tietokoneen toiminnan jatkokurssilla. Vuoden 2022 kurssisivu on osoitteessa [https://tito-jatko-2022.mooc.fi/](https://tito-jatko-2022.mooc.fi/).**
+
 Tietokoneen toiminnan jatkokurssi (3 op) on kaikille avoin ja ilmainen verkkokurssi. Kurssilla perehdytään tietokoneen perustoimintoihin. Kurssi on suoraan jatkoa Tietokoneen toiminnan perusteet -kurssille. Perehdymme kurssilla aluksi konekieliseen ohjelmointiin, tiedon muuttumattomuuden tarkistamiseen ja oheislaitteiden hallintaan. Näytämme sitten aikaisempaa tarkemmin, kuinka korkean tason kielestä saadaan kääntämällä, linkittämällä ja lataamalla käyttöjärjestelmän tuntema prosessi. Lopuksi esittelemme ohjelmien vaihtoehtoisen suoritustavan tulkinnan ja emuloinnin avulla.
 
 Lähtötietoina kurssilla kurssin Tietokoneen toiminnan perusteet (esimerkiksi Helsingin yliopiston Tietokoneen toiminnan perusteet MOOC)  ja jonkin korkean tason kielen ohjelmointikurssin (esimerkiksi Helsingin yliopiston Ohjelmoinnin alkeet MOOC) tiedot.
@@ -24,7 +26,7 @@ Kuka tahansa tietokoneiden toiminnasta kiinnostunut voi käyttää tätä materi
 Kukin oppilaitos voi itse määritellä, millä tavoin tämän Tietokoneen toiminnan jatkokurssi (3 op, [MOOC](https://mooc.fi/)) hyväksytään oppilaitoksen kurssina. Hyväksymiseen voi liittyä erillinen koe kyseisessä oppilaitoksessa.
 
 ### Avoimen yliopiston kurssina
-Kurssin suorittamisesta Helsingin yliopiston Avoimen yliopiston kurssina saat tietoa valitsemalla [Avoimen yliopiston opinto-ohjelman kurssisivulta](https://courses.helsinki.fi/fi/aytkt100052) ajankohtaisen kurssin. Saadaksesi kurssin suorituksesta merkinnän Helsingin yliopiston opintorekisteriin, on kurssi suoritettava tuolta löytyvien ohjeiden mukaisesti.
+Tämä sivusto tehtävineen ei ole käytössä Helsingin Yliopiston Avoimessa yliopistossa Tietokoneen toiminnan jatkokurssin materiaalina. Vuoden 2022 kurssisivu on osoitteessa [https://tito-jatko-2022.mooc.fi/](https://tito-jatko-2022.mooc.fi/).
 
 ### Helsingin yliopiston kurssina
 Tietokoneen toiminnan jatkokurssi (3 op, MOOC) käytetään osana Helsingin yliopiston Tietokoneen toiminta (5 op, luentokurssi) kurssia. Kurssin suoritukseen sisältyy kokeita. Kurssia Tietokoneen toiminnan jatkokurssi (3 op, MOOC) ei voi Helsingin yliopistossa suorittaa irrallisena kurssina.
