@@ -20,6 +20,7 @@ class QuizPartial extends React.Component {
   static contextType = LoginStateContext
 
   render() {
+    const { id } = this.props
     if (!this.context.loggedIn) {
       const loginPrompt = (
         <div style={{ padding: "1rem", textAlign: "center" }}>
@@ -40,7 +41,6 @@ class QuizPartial extends React.Component {
       )
     }
 
-    const { id } = this.props
     if (!id) {
       return <div>There should be quiz here but no quiz id is specified.</div>
     }
